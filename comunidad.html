@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comunidad - Caja de Herramientas</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: { mep: { blue: '#0066cc', green: '#00aa44', orange: '#ff6b35' } }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans antialiased flex flex-col min-h-screen">
+    
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 h-20 bg-white/80 backdrop-blur-md border-b border-gray-200 z-20 flex items-center justify-between px-4 md:px-6 shadow-sm">
+        <div class="flex items-center gap-4">
+            <button class="md:hidden p-2 text-gray-600 hover:bg-gray-100 rounded-md" onclick="document.getElementById('sidebar').classList.toggle('-translate-x-full'); document.getElementById('sidebarOverlay').classList.toggle('hidden');">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+            </button>
+            <div class="hidden md:flex items-center gap-2 text-sm font-medium text-gray-500">
+                <span class="text-gray-900">Comunidad</span>
+            </div>
+        </div>
+        <div class="flex items-center gap-4">
+            <div class="flex items-center gap-3 p-1 pr-3 rounded-full border border-gray-200 hover:bg-gray-50 cursor-pointer">
+                <img src="https://ui-avatars.com/api/?name=Agustin+Gomez&background=0066cc&color=fff" alt="Avatar" class="w-8 h-8 rounded-full">
+                <span class="text-sm font-medium text-gray-700 hidden sm:block">Agustín Gómez Meléndez</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="flex flex-1 pt-20">
+        <!-- Overlay -->
+        <div id="sidebarOverlay" class="fixed inset-0 bg-gray-900/50 backdrop-blur-sm z-30 hidden md:hidden" onclick="document.getElementById('sidebar').classList.add('-translate-x-full'); this.classList.add('hidden');"></div>
+
+        <!-- Sidebar -->
+        <aside id="sidebar" class="fixed inset-y-0 left-0 z-40 w-64 bg-white border-r border-gray-200 transform -translate-x-full transition-transform duration-300 ease-in-out md:relative md:translate-x-0 flex flex-col shadow-2xl md:shadow-none pt-20 md:pt-0">
+            <div class="flex items-center gap-3 px-6 py-5 border-b border-gray-100">
+                <div class="w-10 h-10 bg-gradient-to-br from-mep-blue to-blue-800 rounded-xl flex items-center justify-center text-white text-xl shadow-inner">🎓</div>
+                <div class="text-lg font-bold text-gray-900 tracking-tight">Caja Tools</div>
+            </div>
+
+            <nav class="flex-1 px-4 py-6 space-y-1 overflow-y-auto">
+                <a href="index.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900"><span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">📊</span><span>Inicio</span></a>
+                <a href="modulos.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900"><span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">📚</span><span>Módulos</span></a>
+                <a href="descargas.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900"><span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">📥</span><span>Descargas</span></a>
+                <a href="comunidad.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all bg-blue-50 text-mep-blue"><span class="text-xl group-hover:scale-110 transition-transform">💬</span><span>Comunidad</span></a>
+                <a href="configuracion.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900"><span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">⚙️</span><span>Configuración</span></a>
+                <div class="pt-6 mt-6 border-t border-gray-100">
+                    <a href="ayuda.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900"><span class="text-xl opacity-70 group-hover:opacity-100 transition-opacity">❓</span><span>Ayuda</span></a>
+                </div>
+            </nav>
+        </aside>
+
+        <main class="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex items-center justify-center">
+            <div class="text-center max-w-lg">
+                <div class="text-6xl mb-6">🚧</div>
+                <h2 class="text-2xl font-bold text-gray-900 mb-2">Comunidad en Construcción</h2>
+                <p class="text-gray-500 mb-6">Este espacio para foros, retos y compartir buenas prácticas estará disponible en la próxima versión de la plataforma.</p>
+                <a href="modulos.html" class="inline-flex items-center gap-2 px-6 py-3 bg-mep-blue hover:bg-blue-600 text-white font-semibold rounded-xl shadow-lg transition-all">Regresar a Módulos</a>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

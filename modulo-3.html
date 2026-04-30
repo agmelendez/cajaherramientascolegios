@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 3: Aplicaciones en Aula - Caja de Herramientas</title>
+    <!-- Tailwind CSS (via CDN para el prototipo estático) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        mep: {
+                            blue: '#0066cc',
+                            green: '#00aa44',
+                            orange: '#ff6b35',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .prose h2 { font-size: 1.5rem; font-weight: 700; color: #111827; margin-top: 2rem; margin-bottom: 1rem; border-bottom: 2px solid #f3f4f6; padding-bottom: 0.5rem; }
+        .prose h3 { font-size: 1.25rem; font-weight: 600; color: #374151; margin-top: 1.5rem; margin-bottom: 0.75rem; }
+        .prose p { margin-bottom: 1rem; line-height: 1.75; color: #4b5563; }
+        .prose ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1rem; color: #4b5563; }
+        .prose li { margin-bottom: 0.5rem; }
+        .toc-link.active { color: #ff6b35; font-weight: 600; border-left-color: #ff6b35; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans antialiased flex flex-col min-h-screen">
+    
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 h-20 bg-white/80 backdrop-blur-md border-b border-gray-200 z-20 flex items-center justify-between px-4 md:px-6 shadow-sm">
+        <div class="flex items-center gap-4">
+            <button class="md:hidden p-2 text-gray-600 hover:bg-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-mep-blue" onclick="toggleSidebar()" aria-label="Toggle Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+            <div class="hidden md:flex items-center gap-2 text-sm font-medium text-gray-500">
+                <a href="modulos.html" class="hover:text-mep-blue transition-colors">Módulos</a>
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                <span class="text-gray-900">Aplicaciones en Aula</span>
+            </div>
+        </div>
+        <div class="flex items-center gap-4">
+            <button class="flex items-center gap-2 px-3 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors text-gray-600">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                </svg>
+                <span class="text-sm font-medium hidden sm:block">Notificaciones</span>
+            </button>
+            <div class="flex items-center gap-3 p-1 pr-3 rounded-full border border-gray-200 hover:bg-gray-50 cursor-pointer transition-colors">
+                <img src="https://ui-avatars.com/api/?name=Agustin+Gomez&background=ff6b35&color=fff" alt="Avatar" class="w-8 h-8 rounded-full">
+                <span class="text-sm font-medium text-gray-700 hidden sm:block">Agustín</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Wrapper Principal -->
+    <div class="flex flex-1 pt-20">
+        
+        <!-- Overlay Sidebar Móvil -->
+        <div id="sidebarOverlay" class="fixed inset-0 bg-gray-900/50 backdrop-blur-sm z-30 hidden transition-opacity duration-300 md:hidden" onclick="toggleSidebar()"></div>
+
+        <!-- Sidebar -->
+        <aside id="sidebar" class="fixed inset-y-0 left-0 z-40 w-64 bg-white border-r border-gray-200 transform -translate-x-full transition-transform duration-300 ease-in-out md:relative md:translate-x-0 flex flex-col shadow-2xl md:shadow-none pt-20 md:pt-0">
+            <div class="flex items-center gap-3 px-6 py-5 border-b border-gray-100">
+                <div class="w-10 h-10 bg-gradient-to-br from-mep-blue to-blue-800 rounded-xl flex items-center justify-center text-white text-xl shadow-inner">🎓</div>
+                <div class="text-lg font-bold text-gray-900 tracking-tight">Caja Tools</div>
+            </div>
+
+            <nav class="flex-1 px-4 py-6 space-y-1 overflow-y-auto">
+                <a href="index.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">📊</span>
+                    <span>Inicio</span>
+                </a>
+                <a href="modulos.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all bg-orange-50 text-mep-orange">
+                    <span class="text-xl group-hover:scale-110 transition-transform">📚</span>
+                    <span>Módulos</span>
+                </a>
+                <a href="descargas.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">📥</span>
+                    <span>Descargas</span>
+                </a>
+                <a href="comunidad.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">💬</span>
+                    <span>Comunidad</span>
+                </a>
+                <a href="configuracion.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">⚙️</span>
+                    <span>Configuración</span>
+                </a>
+                <div class="pt-6 mt-6 border-t border-gray-100">
+                    <a href="ayuda.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900">
+                        <span class="text-xl opacity-70 group-hover:opacity-100 transition-opacity">❓</span>
+                        <span>Ayuda</span>
+                    </a>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            
+            <!-- Hero Section -->
+            <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-8 mb-8 relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-orange-400 to-mep-orange"></div>
+                <div class="flex flex-col md:flex-row gap-6 items-start md:items-center justify-between">
+                    <div>
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="px-3 py-1 bg-orange-100 text-orange-700 text-xs font-bold rounded-full uppercase tracking-wide">Módulo 3</span>
+                            <span class="flex items-center gap-1 text-sm font-medium text-gray-500">
+                                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                27 minutos
+                            </span>
+                            <span class="flex items-center gap-1 text-sm font-medium text-gray-500">
+                                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                                Avanzado
+                            </span>
+                        </div>
+                        <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4 tracking-tight">Aplicaciones en el Aula (REAC y DUA)</h1>
+                        <p class="text-lg text-gray-600 max-w-3xl leading-relaxed">Aprenda a integrar la Inteligencia Artificial directamente en su planeamiento didáctico y evaluación continua, asegurando el cumplimiento con los Lineamientos 2026 y el Diseño Universal para el Aprendizaje.</p>
+                    </div>
+                    <div class="w-full md:w-auto flex-shrink-0">
+                        <button class="w-full md:w-auto px-6 py-3 bg-mep-orange hover:bg-orange-600 text-white font-semibold rounded-xl shadow-lg shadow-orange-500/30 transition-all hover:-translate-y-1">
+                            Iniciar Módulo
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content Grid: 2 Columns -->
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 relative items-start">
+                
+                <!-- Left Column: 15 Sections Content -->
+                <div class="lg:col-span-3 bg-white rounded-2xl border border-gray-200 shadow-sm p-6 sm:p-10 prose prose-orange max-w-none">
+                    
+                    <section id="s1" class="scroll-mt-24">
+                        <h2>1. ¿Para qué le sirve al docente?</h2>
+                        <p>Este módulo avanzado le permite pasar de ser un "consumidor de herramientas" a un "diseñador de experiencias de aprendizaje enriquecidas". Le servirá para vincular el uso de la IA directamente con los requisitos del Reglamento de Evaluación de los Aprendizajes (REAC) y la implementación de principios inclusivos en el aula costarricense.</p>
+                    </section>
+
+                    <section id="s2" class="scroll-mt-24">
+                        <h2>2. ¿Cuándo sí usar IA?</h2>
+                        <p>El uso más poderoso a nivel avanzado se da en el diseño de proyectos interdisciplinarios y evaluación formativa. Úsela para:</p>
+                        <ul>
+                            <li>Diseñar rúbricas complejas para evaluar el componente "Proyecto".</li>
+                            <li>Generar estudios de caso reales adaptados al contexto regional de sus estudiantes.</li>
+                            <li>Proveer retroalimentación formativa masiva (ej. "Toma estos 15 errores comunes que vi en el examen y redacta una guía de repaso enfocada en solucionarlos").</li>
+                        </ul>
+                    </section>
+
+                    <section id="s3" class="scroll-mt-24">
+                        <h2>3. ¿Cuándo NO usarla?</h2>
+                        <p>El límite ético principal ocurre en la evaluación sumativa. NO la use para:</p>
+                        <ul>
+                            <li>Asignar automáticamente una calificación numérica a un ensayo de un estudiante sin que usted lo lea detalladamente.</li>
+                            <li>Reemplazar la interacción cara a cara en la retroalimentación de temas socioemocionales.</li>
+                        </ul>
+                    </section>
+
+                    <section id="s4" class="scroll-mt-24">
+                        <h2>4. Herramienta sugerida</h2>
+                        <div class="flex items-center gap-4 p-4 bg-gray-50 rounded-xl border border-gray-200 my-4">
+                            <div class="w-12 h-12 flex-shrink-0 bg-orange-100 rounded-lg flex items-center justify-center text-2xl">✨</div>
+                            <div>
+                                <h4 class="font-bold text-gray-900 m-0">NotebookLM (Google)</h4>
+                                <p class="text-sm text-gray-600 m-0">A diferencia de ChatGPT, NotebookLM solo utiliza los documentos (PDFs, Docs) que usted le proporciona. Es ideal para cargar el programa de estudios del MEP y generar planeamientos 100% apegados a la norma, sin "inventar" información externa.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="s5" class="scroll-mt-24">
+                        <h2>5. Prompt base (Ejemplo Evaluativo)</h2>
+                        <div class="bg-gray-900 text-gray-100 p-5 rounded-xl font-mono text-sm shadow-inner mb-4">
+                            "Crea una rúbrica para calificar una maqueta sobre el sistema solar."
+                        </div>
+                        <p class="text-sm text-gray-500 italic">Problema: Generará una rúbrica genérica, posiblemente desalineada con los componentes del trabajo cotidiano del REAC.</p>
+                    </section>
+
+                    <section id="s6" class="scroll-mt-24">
+                        <h2>6. Uso mejorado (Prompt Avanzado)</h2>
+                        <div class="bg-mep-orange text-white p-5 rounded-xl font-mono text-sm shadow-lg shadow-orange-500/20 mb-4">
+                            "Actúa como un asesor pedagógico de Ciencias. Diseña una rúbrica analítica para evaluar el componente 'Proyecto' (según Lineamientos MEP 2026). El entregable es un modelo físico del Sistema Solar. La rúbrica debe tener 4 niveles de desempeño (Excelente, Muy Bueno, Bueno, En Proceso). Evalúa 3 criterios: Exactitud Científica (proporciones relativas), Creatividad en el uso de materiales de reciclaje, y Claridad en la exposición oral. Describe exactamente qué se espera en cada nivel para cada criterio."
+                        </div>
+                    </section>
+
+                    <section id="s7" class="scroll-mt-24">
+                        <h2>7. Adaptación por nivel/modalidad</h2>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-6">
+                            <div class="border border-gray-200 rounded-lg p-4">
+                                <h4 class="font-bold text-mep-blue text-sm uppercase tracking-wider mb-2">Primaria</h4>
+                                <p class="text-sm text-gray-600">Simplifique el lenguaje de la rúbrica generada para entregarla a los niños como una "lista de chequeo" (Autoevaluación).</p>
+                            </div>
+                            <div class="border border-gray-200 rounded-lg p-4">
+                                <h4 class="font-bold text-mep-green text-sm uppercase tracking-wider mb-2">Secundaria</h4>
+                                <p class="text-sm text-gray-600">Utilice IA para generar casos de "Fake News" históricas y pida a los estudiantes que las desmientan argumentando (Pensamiento crítico).</p>
+                            </div>
+                            <div class="border border-gray-200 rounded-lg p-4">
+                                <h4 class="font-bold text-mep-orange text-sm uppercase tracking-wider mb-2">CTP (Técnica)</h4>
+                                <p class="text-sm text-gray-600">Simule con la IA el rol de un "Cliente Difícil" para que los estudiantes de servicio al cliente practiquen sus respuestas.</p>
+                            </div>
+                            <div class="border border-gray-200 rounded-lg p-4">
+                                <h4 class="font-bold text-purple-600 text-sm uppercase tracking-wider mb-2">IPEC / CINDEA</h4>
+                                <p class="text-sm text-gray-600">Relacione los proyectos matemáticos directamente con problemas de emprendedurismo o finanzas personales.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="s8" class="scroll-mt-24">
+                        <h2>8. Riesgos y cuidados éticos</h2>
+                        <div class="bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4">
+                            <h4 class="text-red-800 font-bold mb-2 flex items-center gap-2">
+                                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+                                Sesgos de Evaluación
+                            </h4>
+                            <p class="text-sm text-red-700 m-0">Es vital asegurar que la rúbrica generada por IA no incluya exigencias fuera del programa oficial que puedan perjudicar a estudiantes de bajos recursos (ej. penalizar si no se usan materiales comerciales caros en un proyecto escolar).</p>
+                        </div>
+                    </section>
+
+                    <section id="s9" class="scroll-mt-24">
+                        <h2>9. Ejemplo Aplicado en Aula</h2>
+                        <p>Para la lección de Estudios Sociales sobre Independencia, usted no solo explica los hechos. Usa IA para generar 3 cartas simuladas desde diferentes perspectivas (un comerciante, un criollo, un español) en el año 1821. Divide la clase en 3 grupos y les pide que analicen las motivaciones económicas de cada uno basándose en las cartas (Aprendizaje Basado en Indagación).</p>
+                    </section>
+
+                    <section id="s10" class="scroll-mt-24">
+                        <h2>10. Conexión con la Evaluación</h2>
+                        <p>La IA le permite diversificar sus instrumentos. Al tener rúbricas, guías de observación y listas de cotejo más fáciles de redactar, usted puede documentar el componente de <strong>Trabajo Cotidiano</strong> con mucha mayor robustez y evidencia escrita, reduciendo la subjetividad.</p>
+                    </section>
+
+                    <section id="s11" class="scroll-mt-24">
+                        <h2>11. Evidencia que puede recoger</h2>
+                        <p>Guarde en su portafolio docente el "Antes y Después" de una guía de evaluación: muestre cómo era su lista de cotejo manual y cómo evolucionó a una Rúbrica Analítica generada con asistencia de IA.</p>
+                    </section>
+
+                    <section id="s12" class="scroll-mt-24">
+                        <h2>12. Versión Inclusiva (DUA)</h2>
+                        <p>Use la IA para generar "Andamiajes Cognitivos" (Scaffolding). Para un estudiante que se abruma con un proyecto grande, pida a la IA que tome las instrucciones del proyecto y las divida en un diagrama de flujo de 5 pequeños pasos (Principio III: Proveer múltiples formas de Implicación/Motivación).</p>
+                    </section>
+
+                    <section id="s13" class="scroll-mt-24">
+                        <h2>13. Microreto de Autoformación</h2>
+                        <div class="bg-orange-50 border border-orange-200 rounded-xl p-6 text-center my-6">
+                            <h4 class="text-lg font-bold text-mep-orange mb-2">Reto de 15 Minutos</h4>
+                            <p class="text-gray-700 mb-4">Seleccione el próximo tema que va a evaluar. Copie el <strong>Prompt Avanzado</strong> del apartado 6, ajuste las variables (materia, tema, 3 criterios a evaluar) y ejecútelo en ChatGPT o Gemini. Revise la rúbrica resultante, haga al menos 2 correcciones manuales para ajustarla a su grupo, e imprímala para usarla en su próxima clase.</p>
+                        </div>
+                    </section>
+
+                    <section id="s14" class="scroll-mt-24">
+                        <h2>14. Checklist Rápido</h2>
+                        <ul class="space-y-2 list-none pl-0">
+                            <li class="flex items-center gap-3">
+                                <input type="checkbox" class="w-5 h-5 text-mep-orange rounded focus:ring-mep-orange border-gray-300">
+                                <span class="text-gray-700">Sé redactar prompts estructurados para instrumentos de evaluación.</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <input type="checkbox" class="w-5 h-5 text-mep-orange rounded focus:ring-mep-orange border-gray-300">
+                                <span class="text-gray-700">Reviso siempre que las rúbricas no tengan sesgos socioeconómicos.</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <input type="checkbox" class="w-5 h-5 text-mep-orange rounded focus:ring-mep-orange border-gray-300">
+                                <span class="text-gray-700">Utilizo IA para proveer adaptaciones (DUA) a estudiantes que lo requieren.</span>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section id="s15" class="scroll-mt-24">
+                        <h2>15. Recursos Complementarios</h2>
+                        <ul>
+                            <li><a href="#" class="text-mep-orange hover:underline">Plantilla Descargable: Prompts para Rúbricas REAC 2026</a></li>
+                            <li><a href="#" class="text-mep-orange hover:underline">Artículo: IA y el Diseño Universal para el Aprendizaje</a></li>
+                        </ul>
+                    </section>
+                </div>
+
+                <!-- Right Column: Sticky Navigation (TOC) -->
+                <div class="hidden lg:block lg:col-span-1">
+                    <div class="sticky top-28 bg-white rounded-2xl border border-gray-200 shadow-sm p-5">
+                        <h3 class="text-sm font-bold text-gray-900 uppercase tracking-wider mb-4">Índice del Módulo</h3>
+                        <nav class="space-y-1 text-sm">
+                            <a href="#s1" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">1. Utilidad Docente</a>
+                            <a href="#s2" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">2. ¿Cuándo sí usarla?</a>
+                            <a href="#s3" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">3. ¿Cuándo NO?</a>
+                            <a href="#s4" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">4. Herramienta</a>
+                            <a href="#s5" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">5. Prompt base</a>
+                            <a href="#s6" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">6. Uso mejorado</a>
+                            <a href="#s7" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">7. Adaptaciones</a>
+                            <a href="#s8" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">8. Riesgos éticos</a>
+                            <a href="#s9" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">9. Ejemplo aplicado</a>
+                            <a href="#s10" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">10. Evaluación</a>
+                            <a href="#s11" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">11. Evidencias</a>
+                            <a href="#s12" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">12. Inclusión DUA</a>
+                            <a href="#s13" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">13. Microreto</a>
+                            <a href="#s14" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">14. Checklist</a>
+                            <a href="#s15" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">15. Recursos</a>
+                        </nav>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800 text-gray-300 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 mb-12">
+                <div>
+                    <h3 class="text-white text-lg font-bold mb-4 flex items-center gap-2">
+                        <span class="text-mep-blue bg-white rounded flex items-center justify-center w-6 h-6 text-sm">🎓</span> 
+                        Caja de Herramientas
+                    </h3>
+                    <p class="text-sm text-gray-400 leading-relaxed">
+                        Plataforma de autoformación docente en Inteligencia Artificial, diseñada específicamente para el contexto educativo costarricense y la guía MEP 2026.
+                    </p>
+                </div>
+                <div class="col-span-2 text-right">
+                   <p class="text-sm text-gray-500 mt-8">
+                        Centro de Investigación Observatorio del Desarrollo de la Universidad de Costa Rica. Proyecto ED-3698 Inteligencia Artificial en el aula: una guía para la educación innovadora, 2026.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+            if (sidebar.classList.contains('-translate-x-full')) {
+                sidebar.classList.remove('-translate-x-full');
+                sidebar.classList.add('translate-x-0');
+                overlay.classList.remove('hidden');
+                document.body.classList.add('overflow-hidden');
+            } else {
+                sidebar.classList.add('-translate-x-full');
+                sidebar.classList.remove('translate-x-0');
+                overlay.classList.add('hidden');
+                document.body.classList.remove('overflow-hidden');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        document.querySelectorAll('.toc-link').forEach(link => {
+                            link.classList.remove('active', 'bg-orange-50');
+                            if (link.getAttribute('href') === `#${id}`) {
+                                link.classList.add('active', 'bg-orange-50');
+                            }
+                        });
+                    }
+                });
+            }, { rootMargin: '-100px 0px -60% 0px' });
+
+            document.querySelectorAll('section[id]').forEach((section) => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
