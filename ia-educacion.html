@@ -60,12 +60,12 @@
             </div>
         </div>
         <div class="flex items-center gap-4">
-            <a href="notificaciones.html" class="flex items-center gap-2 px-3 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors text-gray-600">
+            <button class="flex items-center gap-2 px-3 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors text-gray-600">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
                 </svg>
                 <span class="text-sm font-medium hidden sm:block">Notificaciones</span>
-            </a>
+            </button>
             
         </div>
     </header>
@@ -117,149 +117,105 @@
 
         <!-- Main Content -->
         <main class="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 overflow-y-auto">
-            
-            <!-- Hero Section -->
-            <div class="text-center py-12 md:py-20 max-w-3xl mx-auto relative">
-                <!-- Decorative background elements -->
-                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-blue-400/20 rounded-full blur-3xl -z-10"></div>
-                <div class="absolute top-1/2 right-0 -translate-y-1/2 w-48 h-48 bg-orange-400/10 rounded-full blur-2xl -z-10"></div>
-                
-                <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight mb-4">
-                    <span class="inline-block hover:-translate-y-1 transition-transform">🎓</span> 
-                    Caja de Herramientas
-                </h1>
-                <p class="text-xl text-mep-blue font-semibold mb-6">Plataforma de Autoformación Docente en IA</p>
-                <p class="text-lg text-gray-600 leading-relaxed">
-                    Alineada con la Guía MEP 2026, REAC 2026 y Lineamientos 2026.<br class="hidden md:block">
-                    Microcontenidos autogestionados de máximo 27 minutos.
-                </p>
-            </div>
 
-            <!-- Features Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-                <a href="ia-educacion.html" class="block bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center group">
-                    <div class="w-16 h-16 mx-auto bg-blue-50 text-3xl flex items-center justify-center rounded-2xl mb-5 group-hover:scale-110 transition-transform group-hover:bg-blue-100">🧠</div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">IA en Educación</h3>
-                    <p class="text-gray-600 text-sm">Aprende los fundamentos de la Inteligencia Artificial aplicada al aula con base en directrices oficiales.</p>
-                </a>
-                <a href="privacidad-etica.html" class="block bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center group">
-                    <div class="w-16 h-16 mx-auto bg-green-50 text-3xl flex items-center justify-center rounded-2xl mb-5 group-hover:scale-110 transition-transform group-hover:bg-green-100">🔒</div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Privacidad y Ética</h3>
-                    <p class="text-gray-600 text-sm">Protege los datos de tus estudiantes y entiende profundamente las implicaciones éticas y mitigación de sesgos.</p>
-                </a>
-                <a href="prompts-efectivos.html" class="block bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center group">
-                    <div class="w-16 h-16 mx-auto bg-orange-50 text-3xl flex items-center justify-center rounded-2xl mb-5 group-hover:scale-110 transition-transform group-hover:bg-orange-100">💬</div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Prompts Efectivos</h3>
-                    <p class="text-gray-600 text-sm">Domina el arte de comunicarte con herramientas generativas para maximizar el potencial pedagógico.</p>
-                </a>
-            </div>
-
-            <!-- Main Content Grid -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-                <!-- Left Column -->
-                <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 lg:p-8">
-                    <div class="flex items-center gap-3 mb-6">
-                        <span class="text-2xl">🚀</span>
-                        <h2 class="text-2xl font-bold text-gray-900">Comenzar Ahora</h2>
-                    </div>
-                    <p class="text-gray-600 mb-6">Elige un módulo priorizado para comenzar tu trayecto de autoformación de manera inmediata:</p>
-                    
-                    <div class="space-y-4">
-                        <div class="p-5 border border-blue-100 rounded-xl bg-gradient-to-r from-blue-50 to-white relative overflow-hidden group cursor-pointer hover:shadow-md transition-all">
-                            <div class="absolute left-0 top-0 bottom-0 w-1 bg-mep-blue"></div>
-                            <h4 class="font-bold text-gray-900 mb-1 group-hover:text-mep-blue transition-colors">Módulo 1: Fundamentos de IA</h4>
-                            <p class="text-sm text-gray-600">Duración: 18 minutos • Nivel: Principiante</p>
-                        </div>
-                        <div class="p-5 border border-green-100 rounded-xl bg-gradient-to-r from-green-50 to-white relative overflow-hidden group cursor-pointer hover:shadow-md transition-all">
-                            <div class="absolute left-0 top-0 bottom-0 w-1 bg-mep-green"></div>
-                            <h4 class="font-bold text-gray-900 mb-1 group-hover:text-mep-green transition-colors">Módulo 2: Herramientas Prácticas</h4>
-                            <p class="text-sm text-gray-600">Duración: 22 minutos • Nivel: Intermedio</p>
-                        </div>
-                        <div class="p-5 border border-orange-100 rounded-xl bg-gradient-to-r from-orange-50 to-white relative overflow-hidden group cursor-pointer hover:shadow-md transition-all">
-                            <div class="absolute left-0 top-0 bottom-0 w-1 bg-mep-orange"></div>
-                            <h4 class="font-bold text-gray-900 mb-1 group-hover:text-mep-orange transition-colors">Módulo 3: Aplicaciones en Aula</h4>
-                            <p class="text-sm text-gray-600">Duración: 27 minutos • Nivel: Avanzado</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Right Column -->
-                <div class="space-y-8">
-                    <!-- Stats -->
-                    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 lg:p-8">
-                        <div class="flex items-center gap-3 mb-6">
-                            <span class="text-2xl">📈</span>
-                            <h2 class="text-2xl font-bold text-gray-900">Métricas Globales</h2>
-                        </div>
-                        
-                        <div class="grid grid-cols-2 gap-4">
-                            <div class="bg-gray-50 p-4 rounded-xl text-center">
-                                <div class="text-3xl font-extrabold text-gray-900 mb-1">9</div>
-                                <div class="text-xs font-medium text-gray-500 uppercase tracking-wider">Módulos</div>
-                            </div>
-                            <div class="bg-gray-50 p-4 rounded-xl text-center">
-                                <div class="text-3xl font-extrabold text-mep-blue mb-1">92</div>
-                                <div class="text-xs font-medium text-gray-500 uppercase tracking-wider">Microcontenidos</div>
-                            </div>
-                            <div class="bg-gray-50 p-4 rounded-xl text-center">
-                                <div class="text-3xl font-extrabold text-gray-900 mb-1">15</div>
-                                <div class="text-xs font-medium text-gray-500 uppercase tracking-wider">Horas Formación</div>
-                            </div>
-                            <div class="bg-green-50 p-4 rounded-xl text-center border border-green-100">
-                                <div class="text-3xl font-extrabold text-mep-green mb-1">45+</div>
-                                <div class="text-xs font-medium text-green-700 uppercase tracking-wider">Recursos Prácticos</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Next Step Action -->
-                    <div class="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl border border-gray-700 shadow-lg p-6 lg:p-8 text-white">
-                        <div class="flex items-center gap-3 mb-4">
-                            <span class="text-2xl">🎯</span>
-                            <h2 class="text-xl font-bold">Inicia tu trayecto</h2>
-                        </div>
-                        <p class="text-gray-300 mb-6 text-sm">
-                            Accede con tu cuenta MEP para ver tu progreso personalizado, historial de descargas y participar en la comunidad docente.
-                        </p>
-                        <a href="dashboard.html" class="block w-full py-3 px-4 bg-mep-blue hover:bg-blue-500 text-white font-medium text-center rounded-xl transition-colors shadow-lg shadow-blue-500/30">
-                            Ir al Panel Principal
+            <!-- Page Header -->
+            <div class="mb-10 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                <div>
+                    <div class="flex items-center gap-3 mb-2">
+                        <a href="index.html" class="text-gray-400 hover:text-mep-blue transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                            </svg>
                         </a>
+                        <h1 class="text-3xl font-bold text-gray-900">🧠 IA en Educación: Qué sí hace y qué no hace</h1>
                     </div>
+                    <p class="text-gray-600 ml-9">Bajar el miedo, aclarar expectativas y alinear el uso de IA con la Guía Oficial MEP 2026.</p>
                 </div>
             </div>
 
-            <!-- Info Section -->
-            <div class="bg-blue-50/50 rounded-2xl border border-blue-100 p-6 lg:p-8">
-                <div class="flex items-center gap-3 mb-6">
-                    <span class="text-2xl">ℹ️</span>
-                    <h2 class="text-xl font-bold text-gray-900">Información Técnica del Proyecto</h2>
-                </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div>
-                        <h4 class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Versión</h4>
-                        <p class="font-medium text-gray-900">1.0.0 - Alpha</p>
-                    </div>
-                    <div>
-                        <h4 class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Estado</h4>
-                        <p class="font-medium text-mep-green flex items-center gap-2">
-                            <span class="relative flex h-3 w-3">
-                              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                              <span class="relative inline-flex rounded-full h-3 w-3 bg-mep-green"></span>
-                            </span>
-                            Desarrollo activo
-                        </p>
-                    </div>
-                    <div>
-                        <h4 class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Organización</h4>
-                        <p class="font-medium text-gray-900">Desarrollado por UCR-CIOdD para MEP</p>
-                    </div>
-                    <div>
-                        <h4 class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Última actualización</h4>
-                        <p class="font-medium text-gray-900" id="last-update-date">Cargando...</p>
-                    </div>
+            <!-- Content Section -->
+            <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 lg:p-10 mb-10">
+                <div class="prose max-w-none">
+                    <div class="text-lg text-gray-700 leading-relaxed mb-6">
+  La Inteligencia Artificial es una herramienta que aprende patrones y ayuda a procesar información, pero <strong>requiere criterio pedagógico humano</strong>. Según la Guía MEP 2026, la IA sirve para ampliar la mediación pedagógica, nunca para reemplazarla.
+  
+  <br><br><strong class="text-xl">✅ Qué SÍ puede hacer la IA:</strong>
+  <ul class="list-disc pl-5 mt-3 mb-6 text-gray-700 space-y-2">
+    <li>Generar múltiples ejemplos y opciones didácticas de forma instantánea.</li>
+    <li>Personalizar materiales y actividades según el nivel y necesidades del estudiante.</li>
+    <li>Ahorrar tiempo significativo en tareas administrativas, resúmenes y trabajo repetitivo.</li>
+    <li>Automatizar estrategias de retroalimentación formativa inicial.</li>
+    <li>Explicar conceptos complejos de múltiples formas o analogías.</li>
+  </ul>
+  
+  <strong class="text-xl">❌ Qué NO puede hacer la IA:</strong>
+  <ul class="list-disc pl-5 mt-3 mb-6 text-gray-700 space-y-2">
+    <li>Pensar por el docente o elegir por el estudiante.</li>
+    <li>Reemplazar el juicio pedagógico y conocimiento del contexto de aula.</li>
+    <li>Sustituir la empatía y la relación humana fundamental para el aprendizaje.</li>
+    <li>Garantizar la verdad absoluta (es propensa a "alucinar" o inventar hechos).</li>
+    <li>Proteger automáticamente datos sensibles de estudiantes.</li>
+  </ul>
+  
+  <div class="bg-blue-50 border-l-4 border-mep-blue p-6 mt-6 rounded-r-lg">
+    <p class="font-bold text-gray-900 text-lg mb-2">🎯 REGLA DE ORO</p>
+    <p class="text-gray-700">La IA se utiliza para <strong>ampliar</strong>, nunca para <strong>reemplazar</strong> la mediación pedagógica y el vínculo humano.</p>
+  </div>
+</div>
                 </div>
             </div>
-        </main>
+
+            <!-- Comenzar Ahora Section -->
+            <div class="bg-gray-50 rounded-2xl border border-gray-200 p-6 lg:p-10">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="text-2xl">🚀</span>
+                    <h2 class="text-2xl font-bold text-gray-900">Comenzar Ahora</h2>
+                </div>
+                <p class="text-gray-600 mb-8">Accede directamente a los módulos que abordan estos contenidos a profundidad:</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <a href="modulo-1.html" class="block p-6 border border-blue-100 rounded-xl bg-white hover:bg-blue-50 hover:shadow-md transition-all group">
+                        <div class="text-mep-blue mb-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                            </svg>
+                        </div>
+                        <h4 class="font-bold text-gray-900 mb-2 group-hover:text-mep-blue transition-colors">Módulo 1</h4>
+                        <p class="text-sm text-gray-600">Fundamentos de IA y conceptos clave para docentes.</p>
+                    </a>
+                    
+                    <a href="modulo-2.html" class="block p-6 border border-green-100 rounded-xl bg-white hover:bg-green-50 hover:shadow-md transition-all group">
+                        <div class="text-mep-green mb-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                        </div>
+                        <h4 class="font-bold text-gray-900 mb-2 group-hover:text-mep-green transition-colors">Módulo 2</h4>
+                        <p class="text-sm text-gray-600">Herramientas prácticas para el aula y sus usos.</p>
+                    </a>
+                    
+                    <a href="modulo-3.html" class="block p-6 border border-orange-100 rounded-xl bg-white hover:bg-orange-50 hover:shadow-md transition-all group">
+                        <div class="text-mep-orange mb-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                            </svg>
+                        </div>
+                        <h4 class="font-bold text-gray-900 mb-2 group-hover:text-mep-orange transition-colors">Módulo 3</h4>
+                        <p class="text-sm text-gray-600">Aplicaciones avanzadas, evaluación y lineamientos éticos.</p>
+                    </a>
+                </div>
+                
+                <div class="mt-8 text-center">
+                    <a href="modulos.html" class="inline-flex items-center gap-2 px-6 py-3 bg-white border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-colors">
+                        Explorar todos los módulos de la malla
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+</main>
     </div>
 
     <!-- Footer -->
@@ -331,24 +287,6 @@
                 document.body.classList.remove('overflow-hidden');
             }
         }
-
-        // Obtener última fecha de actualización desde GitHub
-        fetch('https://api.github.com/repos/agmelendez/cajaherramientascolegios/commits?per_page=1')
-            .then(response => response.json())
-            .then(data => {
-                if (data && data[0] && data[0].commit) {
-                    const dateObj = new Date(data[0].commit.author.date);
-                    const options = { year: 'numeric', month: 'long', day: 'numeric' };
-                    const formattedDate = dateObj.toLocaleDateString('es-ES', options);
-                    document.getElementById('last-update-date').textContent = formattedDate;
-                } else {
-                    document.getElementById('last-update-date').textContent = '28 de abril, 2026';
-                }
-            })
-            .catch(error => {
-                console.error('Error obteniendo la fecha de actualización:', error);
-                document.getElementById('last-update-date').textContent = '28 de abril, 2026';
-            });
     </script>
 </body>
 </html>

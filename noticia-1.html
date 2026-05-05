@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caja de Herramientas - Inicio</title>
+    <!-- Tailwind CSS (via CDN para el prototipo estático) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        mep: {
+                            blue: '#0066cc',
+                            green: '#00aa44',
+                            orange: '#ff6b35',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans antialiased flex flex-col min-h-screen">
+    <!-- Top Bar Institucional -->
+    <div class="fixed top-0 left-0 right-0 h-14 bg-white border-b border-gray-200 z-[60] flex items-center justify-between px-4 md:px-6 shadow-sm">
+        <div class="flex items-center gap-4 md:gap-6 h-full py-2">
+            <img src="Logos/UCR.png" alt="UCR" class="h-6 md:h-8 object-contain">
+            <img src="Logos/VASUCR.png" alt="VAS" class="h-6 md:h-8 object-contain">
+            <img src="Logos/PuenteVAS.png" alt="Puentes" class="h-6 md:h-8 object-contain hidden sm:block">
+            <img src="Logos/CIOdD.jpg" alt="CIOdD" class="h-6 md:h-8 object-contain">
+        </div>
+        <div class="flex items-center h-full py-2">
+            <img src="Logos/ED3698.png" alt="ED3698" class="h-6 md:h-8 object-contain">
+        </div>
+    </div>
+
+    
+    <!-- Header -->
+    <header class="fixed top-14 left-0 right-0 h-20 bg-white/80 backdrop-blur-md border-b border-gray-200 z-20 flex items-center justify-between px-4 md:px-6 shadow-sm">
+        <div class="flex items-center gap-4">
+            <!-- Botón menú hamburguesa -->
+            <button class="md:hidden p-2 text-gray-600 hover:bg-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-mep-blue" onclick="toggleSidebar()" aria-label="Toggle Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+            <div class="hidden md:block relative">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+                    </svg>
+                </div>
+                <input type="text" placeholder="Buscar módulos..." class="pl-10 pr-4 py-2 border border-gray-200 rounded-lg w-64 focus:outline-none focus:ring-2 focus:ring-mep-blue focus:border-transparent transition-all">
+            </div>
+        </div>
+        <div class="flex items-center gap-4">
+            <a href="notificaciones.html" class="flex items-center gap-2 px-3 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors text-gray-600">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                </svg>
+                <span class="text-sm font-medium hidden sm:block">Notificaciones</span>
+            </a>
+            
+        </div>
+    </header>
+
+    <!-- Wrapper Principal -->
+    <div class="flex flex-1 pt-[136px]">
+        
+        <!-- Overlay Sidebar Móvil -->
+        <div id="sidebarOverlay" class="fixed inset-0 bg-gray-900/50 backdrop-blur-sm z-30 hidden transition-opacity duration-300 md:hidden" onclick="toggleSidebar()"></div>
+
+        <!-- Sidebar -->
+        <aside id="sidebar" class="fixed inset-y-0 left-0 z-40 w-64 bg-white border-r border-gray-200 transform -translate-x-full transition-transform duration-300 ease-in-out md:relative md:translate-x-0 flex flex-col shadow-2xl md:shadow-none pt-[136px] md:pt-0">
+            <div class="flex items-center gap-3 px-6 py-5 border-b border-gray-100">
+                <div class="w-10 h-10 bg-gradient-to-br from-mep-blue to-blue-800 rounded-xl flex items-center justify-center text-white text-xl shadow-inner">🎓</div>
+                <div class="text-lg font-bold text-gray-900 tracking-tight">Caja Tools</div>
+            </div>
+
+            <nav class="flex-1 px-4 py-6 space-y-1 overflow-y-auto">
+                <a href="index.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all bg-blue-50 text-mep-blue">
+                    <span class="text-xl group-hover:scale-110 transition-transform">📊</span>
+                    <span>Inicio</span>
+                </a>
+                <a href="modulos.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">📚</span>
+                    <span>Módulos</span>
+                </a>
+                <a href="descargas.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">📥</span>
+                    <span>Descargas</span>
+                </a>
+                <a href="comunidad.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">💬</span>
+                    <span>Comunidad</span>
+                </a>
+                <a href="configuracion.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">⚙️</span>
+                    <span>Configuración</span>
+                </a>
+                <div class="pt-6 mt-6 border-t border-gray-100">
+                    <a href="ayuda.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900">
+                        <span class="text-xl opacity-70 group-hover:opacity-100 transition-opacity">❓</span>
+                        <span>Ayuda</span>
+                    </a>
+                </div>
+            </nav>
+
+            
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 overflow-y-auto">
+
+            <div class="mb-8">
+                <a href="notificaciones.html" class="inline-flex items-center gap-2 text-mep-blue hover:underline mb-6 font-medium">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                    </svg>
+                    Volver a Notificaciones
+                </a>
+                
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="px-3 py-1 bg-blue-100 text-mep-blue text-sm font-bold rounded-full">Actualización</span>
+                    <span class="text-gray-500 text-sm">15 de Mayo, 2026</span>
+                </div>
+                
+                <h1 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-6">Noticia 1: Panorama Actual del Uso de IA en Educación Secundaria</h1>
+            </div>
+
+            <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 lg:p-10 mb-10">
+                <div class="prose max-w-none text-gray-700 space-y-6">
+                    <p class="text-lg leading-relaxed">
+                        En los últimos meses se ha acelerado el uso de IA (especialmente generativa) en educación secundaria, con avances en políticas, experimentos pedagógicos y también alertas sobre riesgos. A continuación te resumo las tendencias más recientes en prensa, organismos internacionales y algunos ejemplos cercanos a Costa Rica.
+                    </p>
+
+                    <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Tendencias globales recientes</h2>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li>Varios países reportan que la IA generativa (ChatGPT, Gemini, etc.) pasó en 3 cursos de ser curiosidad a integrarse en la rutina de docentes y estudiantes de secundaria y universidad; el debate ya no es “si usarla” sino “cómo hacerlo bien”. <a href="https://elpais.com/economia/formacion/2026-04-16/cuando-la-inteligencia-artificial-hace-los-deberes-la-educacion-cambia-de-reglas.html" target="_blank" class="text-mep-blue hover:underline">[elpais]</a></li>
+                        <li>Encuestas en Europa muestran que entre 40% y 80% de adolescentes usan IA para estudiar en casa, muchas veces sin supervisión adulta; en España, un dato oficial del INE indica que 59% de personas de 16‑24 años ya la usan con fines de estudio. <a href="https://elpais.com/educacion/2025-11-30/los-alumnos-se-lanzan-a-usar-la-ia-para-estudiar-crece-sin-control-como-paso-con-las-redes-sociales.html" target="_blank" class="text-mep-blue hover:underline">[elpais]</a></li>
+                        <li>La OCDE ha difundido resultados (recogidos en prensa especializada) que apuntan a que la IA generativa mejora el rendimiento educativo solo cuando existe supervisión docente y un diseño pedagógico claro, alertando sobre riesgos de uso automático o sustitución de tareas sin reflexión. <a href="https://www.infobae.com/tecno/2026/03/18/el-uso-de-ia-generativa-mejora-el-rendimiento-educativo-solo-con-supervision-docente-afirma-la-ocde/" target="_blank" class="text-mep-blue hover:underline">[infobae]</a></li>
+                    </ul>
+
+                    <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Lineamientos y debates de política educativa</h2>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li>La UNESCO publicó en abril 2026 lineamientos sobre IA en educación, destacando su potencial para personalizar aprendizajes y apoyar al profesorado, pero insistiendo en marcos éticos, protección de datos y equidad en el acceso. <a href="https://www.unesco.org/es/digital-education/artificial-intelligence" target="_blank" class="text-mep-blue hover:underline">[unesco]</a></li>
+                        <li>En España, el Ministerio de Educación actualizó en 2022 el marco de competencia digital docente e incluyó una guía específica sobre uso de IA generativa en el aula, centrada en formación de profesorado, transparencia y protección de datos de estudiantes. <a href="https://elpais.com/economia/formacion/2026-04-16/cuando-la-inteligencia-artificial-hace-los-deberes-la-educacion-cambia-de-reglas.html" target="_blank" class="text-mep-blue hover:underline">[elpais]</a></li>
+                        <li>Paralelamente, se tramita una ley para protección de menores en entornos digitales que permitirá a los centros regular el uso de móviles y reforzar la educación en hábitos de pantalla, en un contexto donde el acceso a IA se mezcla con redes sociales y otras plataformas. <a href="https://elpais.com/economia/formacion/2026-04-16/cuando-la-inteligencia-artificial-hace-los-deberes-la-educacion-cambia-de-reglas.html" target="_blank" class="text-mep-blue hover:underline">[elpais]</a></li>
+                    </ul>
+
+                    <h3 class="text-xl font-bold text-gray-900 mt-6 mb-3">Ejemplo de medidas recientes</h3>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full bg-white border border-gray-200">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th class="py-3 px-4 border-b text-left text-sm font-semibold text-gray-900">Aspecto</th>
+                                    <th class="py-3 px-4 border-b text-left text-sm font-semibold text-gray-900">Medida reciente mencionada en noticias</th>
+                                    <th class="py-3 px-4 border-b text-left text-sm font-semibold text-gray-900">País/organismo</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200 text-sm">
+                                <tr>
+                                    <td class="py-3 px-4">Formación docente en IA</td>
+                                    <td class="py-3 px-4">Guía oficial sobre IA generativa y competencia digital docente. <a href="https://elpais.com/economia/formacion/2026-04-16/cuando-la-inteligencia-artificial-hace-los-deberes-la-educacion-cambia-de-reglas.html" target="_blank" class="text-mep-blue hover:underline">[elpais]</a></td>
+                                    <td class="py-3 px-4">España</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 px-4">Regulación de menores</td>
+                                    <td class="py-3 px-4">Proyecto de ley para regular móviles y hábitos de pantalla en centros educativos. <a href="https://elpais.com/economia/formacion/2026-04-16/cuando-la-inteligencia-artificial-hace-los-deberes-la-educacion-cambia-de-reglas.html" target="_blank" class="text-mep-blue hover:underline">[elpais]</a></td>
+                                    <td class="py-3 px-4">España</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 px-4">Orientación global</td>
+                                    <td class="py-3 px-4">Marco UNESCO sobre IA en educación, énfasis ético y de equidad. <a href="https://www.unesco.org/es/digital-education/artificial-intelligence" target="_blank" class="text-mep-blue hover:underline">[unesco]</a></td>
+                                    <td class="py-3 px-4">UNESCO</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Prácticas en aula de secundaria</h2>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li>Una revisión sistemática de 43 estudios (2021‑2024) sobre educación secundaria identifica cuatro estrategias de implementación de IA generativa: actividades puntuales (ejercicios aislados), proyectos interdisciplinarios, unidades curriculares completas y sistemas de tutoría automatizada. <a href="https://revistas.ucr.ac.cr/index.php/reducacion/article/download/4009/5575/24454" target="_blank" class="text-mep-blue hover:underline">[revistas.ucr.ac]</a></li>
+                        <li>ChatGPT aparece como la herramienta más utilizada en esos estudios (presente en 26 de 43 artículos), condicionando tipos de uso como redacción guiada, retroalimentación automática de textos y apoyo en resolución de problemas. <a href="https://revistas.ucr.ac.cr/index.php/reducacion/article/download/4009/5575/24454" target="_blank" class="text-mep-blue hover:underline">[revistas.ucr.ac]</a></li>
+                        <li>Otros trabajos recientes recogen experiencias de centros de secundaria que usan sistemas de IA para generar rúbricas y calificaciones coherentes, con el fin de reducir la subjetividad en la corrección, aunque todavía exigen revisión final del docente. <a href="https://openwebinars.net/blog/inteligencia-artificial-en-educacion-usos-ventajas-y-riesgos/" target="_blank" class="text-mep-blue hover:underline">[openwebinars]</a></li>
+                    </ul>
+
+                    <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Riesgos y desafíos que resaltan las noticias</h2>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li>Artículos de divulgación científica subrayan que, aunque la IA puede ayudar a personalizar el aprendizaje y detectar dificultades, también introduce desafíos: sesgos en los modelos, dependencia tecnológica, riesgos de copia y debilitamiento de habilidades de escritura y razonamiento si se usa sin mediación pedagógica. <a href="https://ciencia.unam.mx/leer/1633/grandes-desafios-del-uso-de-la-ia-en-la-escuela-" target="_blank" class="text-mep-blue hover:underline">[ciencia.unam]</a></li>
+                        <li>La prensa educativa ha señalado que muchos centros “entraron en la era de la IA sin manual de instrucciones”, es decir, sin protocolos claros sobre qué se permite, cómo evaluar tareas realizadas con IA y cómo educar en un uso crítico. <a href="https://elpais.com/economia/formacion/2026-04-16/cuando-la-inteligencia-artificial-hace-los-deberes-la-educacion-cambia-de-reglas.html" target="_blank" class="text-mep-blue hover:underline">[elpais]</a></li>
+                        <li>Se advierte que las grandes brechas de conectividad y formación docente pueden hacer que los beneficios de la IA se concentren en colegios con más recursos, ampliando la desigualdad educativa si no se acompaña de políticas de equidad. <a href="https://www.unesco.org/es/digital-education/artificial-intelligence" target="_blank" class="text-mep-blue hover:underline">[unesco]</a></li>
+                    </ul>
+
+                    <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Ejemplos recientes en el contexto latinoamericano y Costa Rica</h2>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li>En Argentina, se habla de un “boom de la inteligencia artificial en la educación”: la Ciudad de Buenos Aires anunció la ampliación de programas de IA incluso en nivel inicial, mientras empresas venden chatbots personalizados para escuelas, lo que intensifica el debate sobre comercialización y protección de datos de menores. <a href="https://www.pagina12.com.ar/2026/04/10/que-hay-detras-del-boom-de-la-inteligencia-artificial-en-la-educacion-riesgo-o-beneficio/" target="_blank" class="text-mep-blue hover:underline">[pagina12.com]</a></li>
+                        <li>En Costa Rica, notas recientes destacan el uso de herramientas de IA en aulas para mejorar el rendimiento estudiantil y reducir carga de trabajo docente, con evidencia de aumentos en calificaciones cuando la integración se hace de forma intencional y acompañada. <a href="https://ufidelitas.ac.cr/blog/educacion/impacto-de-la-inteligencia-artificial-en-la-educacion/" target="_blank" class="text-mep-blue hover:underline">[ufidelitas.ac]</a></li>
+                        <li>El MEP reportó actividades donde 240 colegiales de colegios públicos y privados participaron en experiencias de aproximación a IA y tecnología en el mundo empresarial, vinculadas al Bachillerato Internacional y a teoría del conocimiento, mostrando un enfoque de orientación vocacional y ética de la tecnología. <a href="https://www.mep.go.cr/noticias/240-colegiales-aprenden-uso-inteligencia-artificial-tecnologia-mundo-empresarial" target="_blank" class="text-mep-blue hover:underline">[mep.go]</a></li>
+                    </ul>
+
+                    <div class="bg-blue-50 border-l-4 border-mep-blue p-6 mt-8 rounded-r-lg">
+                        <p class="font-bold text-gray-900 text-lg mb-2">💡 ¿Necesitas aterrizar esto a tu contexto?</p>
+                        <p class="text-gray-700">En la comunidad podemos debatir propuestas concretas para tu colegio, por ejemplo: criterios de política interna, diseño de proyectos disciplinarios o un protocolo de uso de IA para estudiantes de III ciclo y diversificado.</p>
+                    </div>
+                </div>
+            </div>
+
+</main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800 text-gray-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 mb-12">
+                <div>
+                    <h3 class="text-white text-lg font-bold mb-4 flex items-center gap-2">
+                        <span class="text-mep-blue bg-white rounded flex items-center justify-center w-6 h-6 text-sm">🎓</span> 
+                        Caja de Herramientas
+                    </h3>
+                    <p class="text-sm text-gray-400 leading-relaxed">
+                        Plataforma de autoformación docente en Inteligencia Artificial, diseñada específicamente para el contexto educativo costarricense y la guía MEP 2026.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-white text-sm font-bold uppercase tracking-wider mb-4">Enlaces Rápidos</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-sm text-gray-400 hover:text-white transition-colors flex items-center gap-2"><span>→</span> Documentación</a></li>
+                        <li><a href="#" class="text-sm text-gray-400 hover:text-white transition-colors flex items-center gap-2"><span>→</span> Soporte Técnico</a></li>
+                        <li><a href="#" class="text-sm text-gray-400 hover:text-white transition-colors flex items-center gap-2"><span>→</span> Comunidad Docente</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-white text-sm font-bold uppercase tracking-wider mb-4">Marco Legal</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-sm text-gray-400 hover:text-white transition-colors flex items-center gap-2"><span>→</span> Política de Privacidad</a></li>
+                        <li><a href="#" class="text-sm text-gray-400 hover:text-white transition-colors flex items-center gap-2"><span>→</span> Términos de Servicio</a></li>
+                        <li><a href="#" class="text-sm text-gray-400 hover:text-white transition-colors flex items-center gap-2"><span>→</span> Cumplimiento RGPD</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-sm text-gray-500 text-center md:text-left">
+                    Centro de Investigación Observatorio del Desarrollo de la Universidad de Costa Rica. Proyecto ED-3698 Inteligencia Artificial en el aula: una guía para la educación innovadora, 2026.
+                </p>
+                <div class="flex gap-6">
+                    <a href="https://www.facebook.com/CIOdD.UCR" target="_blank" class="text-gray-500 hover:text-white transition-colors">
+                        <span class="sr-only">Facebook</span>
+                        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
+                    </a>
+                    <a href="https://x.com/CIOdDUCR" target="_blank" class="text-gray-500 hover:text-white transition-colors">
+                        <span class="sr-only">Twitter</span>
+                        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Manejo de estado UI (Vainilla JS) -->
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+            
+            if (sidebar.classList.contains('-translate-x-full')) {
+                // Open sidebar
+                sidebar.classList.remove('-translate-x-full');
+                sidebar.classList.add('translate-x-0');
+                overlay.classList.remove('hidden');
+                document.body.classList.add('overflow-hidden'); // Prevent background scrolling
+            } else {
+                // Close sidebar
+                sidebar.classList.add('-translate-x-full');
+                sidebar.classList.remove('translate-x-0');
+                overlay.classList.add('hidden');
+                document.body.classList.remove('overflow-hidden');
+            }
+        }
+    </script>
+</body>
+</html>
