@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caja de Herramientas - Inicio</title>
+    <!-- Tailwind CSS (via CDN para el prototipo estático) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        mep: {
+                            blue: '#0066cc',
+                            green: '#00aa44',
+                            orange: '#ff6b35',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans antialiased flex flex-col min-h-screen">
+    <!-- Top Bar Institucional -->
+    <div class="fixed top-0 left-0 right-0 h-14 bg-white border-b border-gray-200 z-[60] flex items-center justify-between px-4 md:px-6 shadow-sm">
+        <div class="flex items-center gap-4 md:gap-6 h-full py-2">
+            <img src="Logos/UCR.png" alt="UCR" class="h-6 md:h-8 object-contain">
+            <img src="Logos/VASUCR.png" alt="VAS" class="h-6 md:h-8 object-contain">
+            <img src="Logos/PuenteVAS.png" alt="Puentes" class="h-6 md:h-8 object-contain hidden sm:block">
+            <img src="Logos/CIOdD.jpg" alt="CIOdD" class="h-6 md:h-8 object-contain">
+        </div>
+        <div class="flex items-center h-full py-2">
+            <img src="Logos/ED3698.png" alt="ED3698" class="h-6 md:h-8 object-contain">
+        </div>
+    </div>
+
+    
+    <!-- Header -->
+    <header class="fixed top-14 left-0 right-0 h-20 bg-white/80 backdrop-blur-md border-b border-gray-200 z-20 flex items-center justify-between px-4 md:px-6 shadow-sm">
+        <div class="flex items-center gap-4">
+            <!-- Botón menú hamburguesa -->
+            <button class="md:hidden p-2 text-gray-600 hover:bg-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-mep-blue" onclick="toggleSidebar()" aria-label="Toggle Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+            <div class="hidden md:block relative">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+                    </svg>
+                </div>
+                <input type="text" placeholder="Buscar módulos..." class="pl-10 pr-4 py-2 border border-gray-200 rounded-lg w-64 focus:outline-none focus:ring-2 focus:ring-mep-blue focus:border-transparent transition-all">
+            </div>
+        </div>
+        <div class="flex items-center gap-4">
+            <a href="notificaciones.html" class="flex items-center gap-2 px-3 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors text-gray-600">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                </svg>
+                <span class="text-sm font-medium hidden sm:block">Notificaciones</span>
+            </a>
+            <a href="preguntas-respuestas.html" class="flex items-center gap-2 px-3 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors text-gray-600">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span class="text-sm font-medium hidden sm:block">Preguntas y Respuestas</span>
+            </a>
+            
+        </div>
+    </header>
+
+    <!-- Wrapper Principal -->
+    <div class="flex flex-1 pt-[136px]">
+        
+        <!-- Overlay Sidebar Móvil -->
+        <div id="sidebarOverlay" class="fixed inset-0 bg-gray-900/50 backdrop-blur-sm z-30 hidden transition-opacity duration-300 md:hidden" onclick="toggleSidebar()"></div>
+
+        <!-- Sidebar -->
+        <aside id="sidebar" class="fixed inset-y-0 left-0 z-40 w-64 bg-white border-r border-gray-200 transform -translate-x-full transition-transform duration-300 ease-in-out md:relative md:translate-x-0 flex flex-col shadow-2xl md:shadow-none pt-[136px] md:pt-0">
+            <div class="flex items-center gap-3 px-6 py-5 border-b border-gray-100">
+                <div class="w-10 h-10 bg-gradient-to-br from-mep-blue to-blue-800 rounded-xl flex items-center justify-center text-white text-xl shadow-inner">🎓</div>
+                <div class="text-lg font-bold text-gray-900 tracking-tight">Caja Tools</div>
+            </div>
+
+            <nav class="flex-1 px-4 py-6 space-y-1 overflow-y-auto">
+                <a href="index.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all bg-blue-50 text-mep-blue">
+                    <span class="text-xl group-hover:scale-110 transition-transform">📊</span>
+                    <span>Inicio</span>
+                </a>
+                <a href="modulos.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">📚</span>
+                    <span>Módulos</span>
+                </a>
+                <a href="descargas.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">📥</span>
+                    <span>Descargas</span>
+                </a>
+                <a href="comunidad.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">💬</span>
+                    <span>Comunidad</span>
+                </a>
+                <a href="configuracion.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">⚙️</span>
+                    <span>Configuración</span>
+                </a>
+                <div class="pt-6 mt-6 border-t border-gray-100">
+                    <a href="ayuda.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900">
+                        <span class="text-xl opacity-70 group-hover:opacity-100 transition-opacity">❓</span>
+                        <span>Ayuda</span>
+                    </a>
+                </div>
+            </nav>
+
+            
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 overflow-y-auto">
+
+            <div class="mb-10">
+                <h1 class="text-3xl font-bold text-gray-900 flex items-center gap-3">
+                    <span class="text-4xl">❓</span> Preguntas y Respuestas
+                </h1>
+                <p class="text-gray-600 mt-2 max-w-2xl">
+                    Respuestas a las preguntas más frecuentes sobre el uso de la Inteligencia Artificial en el aula, basadas en la conferencia del experto Michael John Wooldridge.
+                </p>
+            </div>
+
+            <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 lg:p-10 mb-10">
+                <div class="prose max-w-none text-gray-700 space-y-8">
+                    
+                    <div class="bg-blue-50 border border-blue-100 rounded-xl p-6">
+                        <h3 class="text-xl font-bold text-mep-blue mb-3">Pregunta 1: ¿Cuál es el próximo gran paso o la próxima frontera para la Inteligencia Artificial?</h3>
+                        <p><strong>Respuesta:</strong> El próximo gran reto es la <strong>IA Robótica</strong>, es decir, llevar la inteligencia artificial al mundo físico. Es increíble que la IA actual pueda escribir sobre mecánica cuántica en latín, pero a la vez sea completamente incapaz de entrar a una casa que no conoce, encontrar la cocina, recoger la mesa y meter los platos al lavaplatos. Realizar tareas físicas cotidianas o replicar la destreza de una mano humana es muchísimo más complejo para una máquina de lo que parece.</p>
+                    </div>
+
+                    <div class="bg-green-50 border border-green-100 rounded-xl p-6">
+                        <h3 class="text-xl font-bold text-mep-green mb-3">Pregunta 2: ¿Qué tanto influye la calidad de lo que lee la IA (sus datos de entrenamiento) en su capacidad de "razonar"?</h3>
+                        <p><strong>Respuesta:</strong> Influye muchísimo. Mientras más estructurada y de mayor calidad sea la información que procesa la IA, mejores serán sus resultados. Por ejemplo, a la IA le va excelente escribiendo código de programación porque los lenguajes informáticos son muy lógicos y ordenados, lo que le facilita aprender esos patrones. El gran problema a futuro es que ya se están agotando las fuentes de textos de alta calidad en internet para seguir entrenándola.</p>
+                    </div>
+
+                    <div class="bg-purple-50 border border-purple-100 rounded-xl p-6">
+                        <h3 class="text-xl font-bold text-purple-700 mb-3">Pregunta 3: ¿Los bebés y los niños aprenden a hablar de la misma forma que la IA?</h3>
+                        <p><strong>Respuesta:</strong> No, para nada. El cerebro humano aprende de una manera <strong>mucho más eficiente</strong> y fundamentalmente distinta. Un adolescente de 15 años ya es un experto comunicándose y logró aprender utilizando una cantidad diminuta de información y muy poquita energía (entre 20 y 40 vatios), en comparación con las supercomputadoras y los billones de palabras que necesita una IA para poder hablar. Lograr que las máquinas aprendan de forma tan eficiente como nosotros es un reto gigante para el cual todavía no hay solución a la vista.</p>
+                    </div>
+
+                    <div class="bg-orange-50 border border-orange-100 rounded-xl p-6">
+                        <h3 class="text-xl font-bold text-mep-orange mb-3">Pregunta 4: ¿Se puede construir un sistema de IA verdaderamente "racional"? ¿Cómo se vería?</h3>
+                        <p><strong>Respuesta:</strong> Una mente verdaderamente racional no se contradice; por ejemplo, no afirmaría que algo es cierto para luego decir que es falso al momento siguiente. Durante unos 30 años, los científicos intentaron construir este tipo de IA perfectamente racional y lógica, pero ese enfoque no dio buenos resultados prácticos. La IA que usamos hoy es increíblemente útil, pero definitivamente no funciona como una mente racional.</p>
+                    </div>
+
+                    <div class="bg-red-50 border border-red-100 rounded-xl p-6">
+                        <h3 class="text-xl font-bold text-red-600 mb-3">Pregunta 5: ¿Es bueno usar la IA como si fuera un amigo o un confidente?</h3>
+                        <p><strong>Respuesta:</strong> No. El expositor advierte fuertemente que no debemos tratar a la IA como a un amigo ni crear apegos emocionales con ella. Lo correcto es verla como una <strong>"prótesis cognitiva"</strong> o como una hoja de cálculo muy avanzada. Es una herramienta maravillosa diseñada para hacernos más inteligentes y aumentar nuestras capacidades, pero no para reemplazar las relaciones humanas ni para darnos soporte emocional.</p>
+                    </div>
+
+                    <div class="mt-8 bg-gray-50 border border-gray-200 p-4 rounded-lg flex items-center gap-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+                        </svg>
+                        <p class="text-sm text-gray-600">
+                            <strong>Fuente:</strong> <a href="https://www.youtube.com/live/CyyL0yDhr7I" target="_blank" class="text-mep-blue hover:underline font-medium">Michael Faraday Prize Lecture - Professor Michael John Wooldridge (Royal Society)</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+</main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800 text-gray-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 mb-12">
+                <div>
+                    <h3 class="text-white text-lg font-bold mb-4 flex items-center gap-2">
+                        <span class="text-mep-blue bg-white rounded flex items-center justify-center w-6 h-6 text-sm">🎓</span> 
+                        Caja de Herramientas
+                    </h3>
+                    <p class="text-sm text-gray-400 leading-relaxed">
+                        Plataforma de autoformación docente en Inteligencia Artificial, diseñada específicamente para el contexto educativo costarricense y la guía MEP 2026.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-white text-sm font-bold uppercase tracking-wider mb-4">Enlaces Rápidos</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-sm text-gray-400 hover:text-white transition-colors flex items-center gap-2"><span>→</span> Documentación</a></li>
+                        <li><a href="#" class="text-sm text-gray-400 hover:text-white transition-colors flex items-center gap-2"><span>→</span> Soporte Técnico</a></li>
+                        <li><a href="#" class="text-sm text-gray-400 hover:text-white transition-colors flex items-center gap-2"><span>→</span> Comunidad Docente</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-white text-sm font-bold uppercase tracking-wider mb-4">Marco Legal</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-sm text-gray-400 hover:text-white transition-colors flex items-center gap-2"><span>→</span> Política de Privacidad</a></li>
+                        <li><a href="#" class="text-sm text-gray-400 hover:text-white transition-colors flex items-center gap-2"><span>→</span> Términos de Servicio</a></li>
+                        <li><a href="#" class="text-sm text-gray-400 hover:text-white transition-colors flex items-center gap-2"><span>→</span> Cumplimiento RGPD</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-sm text-gray-500 text-center md:text-left">
+                    Centro de Investigación Observatorio del Desarrollo de la Universidad de Costa Rica. Proyecto ED-3698 Inteligencia Artificial en el aula: una guía para la educación innovadora, 2026.
+                </p>
+                <div class="flex gap-6">
+                    <a href="https://www.facebook.com/CIOdD.UCR" target="_blank" class="text-gray-500 hover:text-white transition-colors">
+                        <span class="sr-only">Facebook</span>
+                        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
+                    </a>
+                    <a href="https://x.com/CIOdDUCR" target="_blank" class="text-gray-500 hover:text-white transition-colors">
+                        <span class="sr-only">Twitter</span>
+                        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Manejo de estado UI (Vainilla JS) -->
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+            
+            if (sidebar.classList.contains('-translate-x-full')) {
+                // Open sidebar
+                sidebar.classList.remove('-translate-x-full');
+                sidebar.classList.add('translate-x-0');
+                overlay.classList.remove('hidden');
+                document.body.classList.add('overflow-hidden'); // Prevent background scrolling
+            } else {
+                // Close sidebar
+                sidebar.classList.add('-translate-x-full');
+                sidebar.classList.remove('translate-x-0');
+                overlay.classList.add('hidden');
+                document.body.classList.remove('overflow-hidden');
+            }
+        }
+
+        // Obtener última fecha de actualización desde GitHub
+        fetch('https://api.github.com/repos/agmelendez/cajaherramientascolegios/commits?per_page=1')
+            .then(response => response.json())
+            .then(data => {
+                if (data && data[0] && data[0].commit) {
+                    const dateObj = new Date(data[0].commit.author.date);
+                    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+                    const formattedDate = dateObj.toLocaleDateString('es-ES', options);
+                    document.getElementById('last-update-date').textContent = formattedDate;
+                } else {
+                    document.getElementById('last-update-date').textContent = '28 de abril, 2026';
+                }
+            })
+            .catch(error => {
+                console.error('Error obteniendo la fecha de actualización:', error);
+                document.getElementById('last-update-date').textContent = '28 de abril, 2026';
+            });
+    </script>
+</body>
+</html>

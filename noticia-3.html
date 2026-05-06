@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caja de Herramientas - Inicio</title>
+    <!-- Tailwind CSS (via CDN para el prototipo estático) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        mep: {
+                            blue: '#0066cc',
+                            green: '#00aa44',
+                            orange: '#ff6b35',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans antialiased flex flex-col min-h-screen">
+    <!-- Top Bar Institucional -->
+    <div class="fixed top-0 left-0 right-0 h-14 bg-white border-b border-gray-200 z-[60] flex items-center justify-between px-4 md:px-6 shadow-sm">
+        <div class="flex items-center gap-4 md:gap-6 h-full py-2">
+            <img src="Logos/UCR.png" alt="UCR" class="h-6 md:h-8 object-contain">
+            <img src="Logos/VASUCR.png" alt="VAS" class="h-6 md:h-8 object-contain">
+            <img src="Logos/PuenteVAS.png" alt="Puentes" class="h-6 md:h-8 object-contain hidden sm:block">
+            <img src="Logos/CIOdD.jpg" alt="CIOdD" class="h-6 md:h-8 object-contain">
+        </div>
+        <div class="flex items-center h-full py-2">
+            <img src="Logos/ED3698.png" alt="ED3698" class="h-6 md:h-8 object-contain">
+        </div>
+    </div>
+
+    
+    <!-- Header -->
+    <header class="fixed top-14 left-0 right-0 h-20 bg-white/80 backdrop-blur-md border-b border-gray-200 z-20 flex items-center justify-between px-4 md:px-6 shadow-sm">
+        <div class="flex items-center gap-4">
+            <!-- Botón menú hamburguesa -->
+            <button class="md:hidden p-2 text-gray-600 hover:bg-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-mep-blue" onclick="toggleSidebar()" aria-label="Toggle Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+            <div class="hidden md:block relative">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+                    </svg>
+                </div>
+                <input type="text" placeholder="Buscar módulos..." class="pl-10 pr-4 py-2 border border-gray-200 rounded-lg w-64 focus:outline-none focus:ring-2 focus:ring-mep-blue focus:border-transparent transition-all">
+            </div>
+        </div>
+        <div class="flex items-center gap-4">
+            <a href="notificaciones.html" class="flex items-center gap-2 px-3 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors text-gray-600">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                </svg>
+                <span class="text-sm font-medium hidden sm:block">Notificaciones</span>
+            </a>
+            <a href="preguntas-respuestas.html" class="flex items-center gap-2 px-3 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors text-gray-600">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span class="text-sm font-medium hidden sm:block">Preguntas y Respuestas</span>
+            </a>
+            
+        </div>
+    </header>
+
+    <!-- Wrapper Principal -->
+    <div class="flex flex-1 pt-[136px]">
+        
+        <!-- Overlay Sidebar Móvil -->
+        <div id="sidebarOverlay" class="fixed inset-0 bg-gray-900/50 backdrop-blur-sm z-30 hidden transition-opacity duration-300 md:hidden" onclick="toggleSidebar()"></div>
+
+        <!-- Sidebar -->
+        <aside id="sidebar" class="fixed inset-y-0 left-0 z-40 w-64 bg-white border-r border-gray-200 transform -translate-x-full transition-transform duration-300 ease-in-out md:relative md:translate-x-0 flex flex-col shadow-2xl md:shadow-none pt-[136px] md:pt-0">
+            <div class="flex items-center gap-3 px-6 py-5 border-b border-gray-100">
+                <div class="w-10 h-10 bg-gradient-to-br from-mep-blue to-blue-800 rounded-xl flex items-center justify-center text-white text-xl shadow-inner">🎓</div>
+                <div class="text-lg font-bold text-gray-900 tracking-tight">Caja Tools</div>
+            </div>
+
+            <nav class="flex-1 px-4 py-6 space-y-1 overflow-y-auto">
+                <a href="index.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all bg-blue-50 text-mep-blue">
+                    <span class="text-xl group-hover:scale-110 transition-transform">📊</span>
+                    <span>Inicio</span>
+                </a>
+                <a href="modulos.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">📚</span>
+                    <span>Módulos</span>
+                </a>
+                <a href="descargas.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">📥</span>
+                    <span>Descargas</span>
+                </a>
+                <a href="comunidad.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">💬</span>
+                    <span>Comunidad</span>
+                </a>
+                <a href="configuracion.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">⚙️</span>
+                    <span>Configuración</span>
+                </a>
+                <div class="pt-6 mt-6 border-t border-gray-100">
+                    <a href="ayuda.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900">
+                        <span class="text-xl opacity-70 group-hover:opacity-100 transition-opacity">❓</span>
+                        <span>Ayuda</span>
+                    </a>
+                </div>
+            </nav>
+
+            
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 overflow-y-auto">
+
+            <div class="mb-8">
+                <a href="notificaciones.html" class="inline-flex items-center gap-2 text-mep-blue hover:underline mb-6 font-medium">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                    </svg>
+                    Volver a Notificaciones
+                </a>
+                
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="px-3 py-1 bg-purple-100 text-purple-700 text-sm font-bold rounded-full">Tendencias</span>
+                    <span class="text-gray-500 text-sm">6 de Mayo, 2026</span>
+                </div>
+                
+                <h1 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-6">Noticia 3: ¿Qué es la “IA Agéntica” y por qué debería interesarle al profesorado de secundaria en Costa Rica?</h1>
+            </div>
+
+            <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 lg:p-10 mb-10">
+                <div class="prose max-w-none text-gray-700 space-y-6">
+                    <p class="text-lg leading-relaxed">
+                        La inteligencia artificial sigue evolucionando rápidamente. Según el más reciente análisis de <a href="https://www.gartner.com/en?utm_source=chatgpt.com" target="_blank" class="text-mep-blue hover:underline">Gartner</a> sobre tendencias tecnológicas, uno de los conceptos que más crecimiento está teniendo es la llamada <strong>“IA agéntica”</strong> o <em>Agentic AI</em>.
+                    </p>
+                    <p class="text-lg leading-relaxed">
+                        Pero, ¿qué significa esto para un docente de secundaria?
+                    </p>
+
+                    <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">De asistentes a “agentes” inteligentes</h2>
+                    <p>Hasta ahora, muchas personas han utilizado herramientas como ChatGPT para pedir respuestas, resumir textos o generar ideas. Sin embargo, la IA agéntica va un paso más allá.</p>
+                    <p>Un sistema de IA tradicional responde instrucciones específicas. En cambio, un sistema “agéntico” puede:</p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li>Analizar una situación</li>
+                        <li>Tomar decisiones básicas</li>
+                        <li>Ejecutar tareas en varios pasos</li>
+                        <li>Adaptarse según los resultados obtenidos</li>
+                    </ul>
+                    <p>Es decir, funciona más como un “asistente autónomo” que como una simple calculadora de respuestas.</p>
+                    <p>Por ejemplo, en educación, una IA agéntica podría:</p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li>Revisar tareas automáticamente</li>
+                        <li>Identificar estudiantes con riesgo académico</li>
+                        <li>Recomendar materiales personalizados</li>
+                        <li>Generar prácticas diferenciadas</li>
+                        <li>Ayudar a planificar clases según el avance del grupo</li>
+                    </ul>
+
+                    <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">¿Por qué Gartner habla de un “Hype Cycle”?</h2>
+                    <p>Gartner utiliza desde hace años el concepto de <strong>“Hype Cycle”</strong> para describir cómo evolucionan las nuevas tecnologías. <a href="https://en.wikipedia.org/wiki/Gartner?utm_source=chatgpt.com" target="_blank" class="text-mep-blue hover:underline">[Wikipedia]</a></p>
+                    <p>Este ciclo normalmente pasa por cinco etapas:</p>
+                    <ol class="list-decimal pl-5 space-y-3">
+                        <li><strong>Disparador tecnológico:</strong> Aparece una innovación y genera interés.</li>
+                        <li><strong>Pico de expectativas exageradas:</strong> Se piensa que la tecnología resolverá todo.</li>
+                        <li><strong>Valle de desilusión:</strong> Surgen errores, limitaciones y decepciones.</li>
+                        <li><strong>Pendiente de aprendizaje:</strong> Se entienden mejor los usos reales.</li>
+                        <li><strong>Meseta de productividad:</strong> La tecnología madura y se integra de forma útil.</li>
+                    </ol>
+                    <p>Actualmente, la IA agéntica parece estar entrando en las primeras etapas de alta expectativa. Esto significa que todavía existe mucho entusiasmo, pero también riesgos de sobreprometer resultados. <a href="https://arxiv.org/abs/2504.18081?utm_source=chatgpt.com" target="_blank" class="text-mep-blue hover:underline">[arXiv]</a></p>
+
+                    <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">¿Qué oportunidades puede tener en secundaria?</h2>
+                    <p>Para el contexto costarricense, especialmente en secundaria, estas herramientas podrían ayudar en áreas como:</p>
+                    
+                    <h3 class="text-xl font-bold text-gray-900 mt-6 mb-2">1. Atención diferenciada</h3>
+                    <p>Muchos docentes trabajan con grupos numerosos y niveles de aprendizaje muy diversos. La IA podría apoyar la creación de materiales personalizados para distintos ritmos y estilos de aprendizaje.</p>
+                    
+                    <h3 class="text-xl font-bold text-gray-900 mt-6 mb-2">2. Reducción de carga administrativa</h3>
+                    <p>La automatización de reportes, rúbricas o seguimiento de tareas podría liberar tiempo para actividades pedagógicas más humanas y creativas.</p>
+
+                    <h3 class="text-xl font-bold text-gray-900 mt-6 mb-2">3. Tutorías y acompañamiento</h3>
+                    <p>Algunos sistemas ya permiten crear asistentes virtuales educativos que responden dudas frecuentes y apoyan el estudio fuera del aula.</p>
+
+                    <h3 class="text-xl font-bold text-gray-900 mt-6 mb-2">4. Inclusión educativa</h3>
+                    <p>La IA puede facilitar adaptaciones para estudiantes con dificultades de aprendizaje, barreras idiomáticas o necesidades educativas específicas.</p>
+
+                    <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Pero también existen riesgos importantes</h2>
+                    <p>Diversos investigadores advierten que la incorporación de IA en educación debe hacerse con cuidado y criterio pedagógico. <a href="https://arxiv.org/abs/2511.19580?utm_source=chatgpt.com" target="_blank" class="text-mep-blue hover:underline">[arXiv]</a></p>
+                    <p>Entre los principales desafíos están:</p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li>Dependencia excesiva de la tecnología</li>
+                        <li>Pérdida de pensamiento crítico</li>
+                        <li>Desinformación o “alucinaciones” de la IA</li>
+                        <li>Sesgos en las respuestas</li>
+                        <li>Problemas de privacidad de datos</li>
+                        <li>Desigualdades de acceso tecnológico</li>
+                    </ul>
+                    <p class="font-medium">Además, ninguna IA sustituye el rol humano del docente. La empatía, la mediación pedagógica, el acompañamiento emocional y el juicio profesional siguen siendo esenciales.</p>
+
+                    <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">¿Qué debería hacer el profesorado?</h2>
+                    <p>No se trata de convertirse en experto técnico de inmediato, sino de desarrollar una postura crítica y práctica frente a estas tecnologías.</p>
+                    <p>Algunas recomendaciones básicas son:</p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li>Experimentar poco a poco con herramientas de IA</li>
+                        <li>Verificar siempre la información generada</li>
+                        <li>Enseñar al estudiantado a usar IA de forma ética</li>
+                        <li>Promover pensamiento crítico y no solo automatización</li>
+                        <li>Mantener a las personas en el centro del proceso educativo</li>
+                    </ul>
+                    <p>La IA agéntica probablemente transformará muchas áreas de la sociedad durante los próximos años. En educación, el reto no será solamente usar tecnología, sino decidir <strong>cómo usarla de manera responsable, inclusiva y pedagógicamente útil</strong>.</p>
+                    
+                    <div class="bg-blue-50 border-l-4 border-mep-blue p-6 mt-8 rounded-r-lg">
+                        <p class="text-gray-700 font-medium">Para Costa Rica, esto representa tanto una oportunidad como un desafío: preparar a docentes y estudiantes para convivir con sistemas inteligentes sin perder las capacidades humanas fundamentales que sostienen el aprendizaje y la ciudadanía democrática.</p>
+                    </div>
+                </div>
+            </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800 text-gray-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 mb-12">
+                <div>
+                    <h3 class="text-white text-lg font-bold mb-4 flex items-center gap-2">
+                        <span class="text-mep-blue bg-white rounded flex items-center justify-center w-6 h-6 text-sm">🎓</span> 
+                        Caja de Herramientas
+                    </h3>
+                    <p class="text-sm text-gray-400 leading-relaxed">
+                        Plataforma de autoformación docente en Inteligencia Artificial, diseñada específicamente para el contexto educativo costarricense y la guía MEP 2026.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-white text-sm font-bold uppercase tracking-wider mb-4">Enlaces Rápidos</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-sm text-gray-400 hover:text-white transition-colors flex items-center gap-2"><span>→</span> Documentación</a></li>
+                        <li><a href="#" class="text-sm text-gray-400 hover:text-white transition-colors flex items-center gap-2"><span>→</span> Soporte Técnico</a></li>
+                        <li><a href="#" class="text-sm text-gray-400 hover:text-white transition-colors flex items-center gap-2"><span>→</span> Comunidad Docente</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-white text-sm font-bold uppercase tracking-wider mb-4">Marco Legal</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-sm text-gray-400 hover:text-white transition-colors flex items-center gap-2"><span>→</span> Política de Privacidad</a></li>
+                        <li><a href="#" class="text-sm text-gray-400 hover:text-white transition-colors flex items-center gap-2"><span>→</span> Términos de Servicio</a></li>
+                        <li><a href="#" class="text-sm text-gray-400 hover:text-white transition-colors flex items-center gap-2"><span>→</span> Cumplimiento RGPD</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-sm text-gray-500 text-center md:text-left">
+                    Centro de Investigación Observatorio del Desarrollo de la Universidad de Costa Rica. Proyecto ED-3698 Inteligencia Artificial en el aula: una guía para la educación innovadora, 2026.
+                </p>
+                <div class="flex gap-6">
+                    <a href="https://www.facebook.com/CIOdD.UCR" target="_blank" class="text-gray-500 hover:text-white transition-colors">
+                        <span class="sr-only">Facebook</span>
+                        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
+                    </a>
+                    <a href="https://x.com/CIOdDUCR" target="_blank" class="text-gray-500 hover:text-white transition-colors">
+                        <span class="sr-only">Twitter</span>
+                        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Manejo de estado UI (Vainilla JS) -->
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+            
+            if (sidebar.classList.contains('-translate-x-full')) {
+                // Open sidebar
+                sidebar.classList.remove('-translate-x-full');
+                sidebar.classList.add('translate-x-0');
+                overlay.classList.remove('hidden');
+                document.body.classList.add('overflow-hidden'); // Prevent background scrolling
+            } else {
+                // Close sidebar
+                sidebar.classList.add('-translate-x-full');
+                sidebar.classList.remove('translate-x-0');
+                overlay.classList.add('hidden');
+                document.body.classList.remove('overflow-hidden');
+            }
+        }
+    </script>
+</body>
+</html>

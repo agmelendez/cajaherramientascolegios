@@ -66,6 +66,12 @@
                 </svg>
                 <span class="text-sm font-medium hidden sm:block">Notificaciones</span>
             </button>
+            <a href="preguntas-respuestas.html" class="flex items-center gap-2 px-3 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors text-gray-600">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span class="text-sm font-medium hidden sm:block">Preguntas y Respuestas</span>
+            </a>
             
         </div>
     </header>
@@ -178,6 +184,31 @@
                     <button id="btnLimpiar" class="ml-auto text-sm text-gray-500 hover:text-mep-blue transition-colors font-medium cursor-pointer">Limpiar filtros</button>
                 </div>
             </div>
+
+            <!-- YouTube Channel Banner -->
+            <a href="https://www.youtube.com/playlist?list=PLnY61_1lJZUX9eoqs61wcVH61u2ufo5dA" target="_blank" rel="noopener noreferrer" class="block mb-8 bg-gradient-to-r from-red-600 to-red-800 rounded-2xl p-6 md:p-8 text-white shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden group">
+                <div class="absolute right-0 top-0 h-full w-1/3 bg-white/10 skew-x-12 transform group-hover:translate-x-8 transition-transform duration-500"></div>
+                <div class="flex flex-col md:flex-row items-start md:items-center gap-6 relative z-10">
+                    <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center flex-shrink-0 shadow-inner group-hover:scale-110 transition-transform">
+                        <svg class="w-8 h-8 text-red-600 ml-1" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="px-2.5 py-1 bg-red-900/50 text-red-100 text-xs font-semibold rounded-full border border-red-500/30">NUEVO RECURSO</span>
+                            <h2 class="text-2xl font-bold">Canal Oficial en YouTube</h2>
+                        </div>
+                        <p class="text-red-100 max-w-3xl text-base md:text-lg">Accede a la lista de reproducción completa con todos los videos explicativos y grabaciones de los módulos. ¡Suscríbete para no perderte las actualizaciones!</p>
+                    </div>
+                    <div class="mt-4 md:mt-0 md:ml-auto">
+                        <span class="inline-flex items-center gap-2 px-4 py-2 bg-white text-red-700 font-semibold rounded-lg hover:bg-gray-50 transition-colors">
+                            Ver Lista de Reproducción
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        </span>
+                    </div>
+                </div>
+            </a>
 
             <!-- Modules Grid -->
             <div id="modulesGrid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
