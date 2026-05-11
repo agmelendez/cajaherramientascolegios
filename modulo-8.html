@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 8: Jóvenes y Adultos - Caja de Herramientas</title>
+    <!-- Tailwind CSS (via CDN para el prototipo estático) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        mep: {
+                            blue: '#0066cc',
+                            green: '#00aa44',
+                            orange: '#ff6b35',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .prose h2 { font-size: 1.5rem; font-weight: 700; color: #111827; margin-top: 2rem; margin-bottom: 1rem; border-bottom: 2px solid #f3f4f6; padding-bottom: 0.5rem; }
+        .prose h3 { font-size: 1.25rem; font-weight: 600; color: #374151; margin-top: 1.5rem; margin-bottom: 0.75rem; }
+        .prose p { margin-bottom: 1rem; line-height: 1.75; color: #4b5563; }
+        .prose ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1rem; color: #4b5563; }
+        .prose li { margin-bottom: 0.5rem; }
+        .toc-link.active { color: #9333ea; font-weight: 600; border-left-color: #9333ea; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans antialiased flex flex-col min-h-screen">
+    <!-- Top Bar Institucional -->
+    <div class="fixed top-0 left-0 right-0 h-14 bg-white border-b border-gray-200 z-[60] flex items-center justify-between px-4 md:px-6 shadow-sm">
+        <div class="flex items-center gap-4 md:gap-6 h-full py-2">
+            <img src="Logos/UCR.png" alt="UCR" class="h-6 md:h-8 object-contain">
+            <img src="Logos/VASUCR.png" alt="VAS" class="h-6 md:h-8 object-contain">
+            <img src="Logos/PuenteVAS.png" alt="Puentes" class="h-6 md:h-8 object-contain hidden sm:block">
+            <img src="Logos/CIOdD.jpg" alt="CIOdD" class="h-6 md:h-8 object-contain">
+        </div>
+        <div class="flex items-center h-full py-2">
+            <img src="Logos/ED3698.png" alt="ED3698" class="h-6 md:h-8 object-contain">
+        </div>
+    </div>
+
+    
+    <!-- Header -->
+    <header class="fixed top-14 left-0 right-0 h-20 bg-white/80 backdrop-blur-md border-b border-gray-200 z-20 flex items-center justify-between px-4 md:px-6 shadow-sm">
+        <div class="flex items-center gap-4">
+            <button class="md:hidden p-2 text-gray-600 hover:bg-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-mep-blue" onclick="toggleSidebar()" aria-label="Toggle Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+            <div class="hidden md:flex items-center gap-2 text-sm font-medium text-gray-500">
+                <a href="modulos.html" class="hover:text-mep-blue transition-colors">Módulos</a>
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                <span class="text-gray-900">Jóvenes y Adultos</span>
+            </div>
+        </div>
+        <div class="flex items-center gap-4">
+            <button class="flex items-center gap-2 px-3 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors text-gray-600">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                </svg>
+                <span class="text-sm font-medium hidden sm:block">Notificaciones</span>
+            </button>
+            <a href="preguntas-respuestas.html" class="flex items-center gap-2 px-3 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors text-gray-600">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span class="text-sm font-medium hidden sm:block">Preguntas y Respuestas</span>
+            </a>
+            <div class="flex items-center gap-3 p-1 pr-3 rounded-full border border-gray-200 hover:bg-gray-50 cursor-pointer transition-colors">
+                <img src="https://ui-avatars.com/api/?name=Agustin+Gomez&background=9333ea&color=fff" alt="Avatar" class="w-8 h-8 rounded-full">
+                <span class="text-sm font-medium text-gray-700 hidden sm:block">Agustín</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Wrapper Principal -->
+    <div class="flex flex-1 pt-[136px]">
+        
+        <!-- Overlay Sidebar Móvil -->
+        <div id="sidebarOverlay" class="fixed inset-0 bg-gray-900/50 backdrop-blur-sm z-30 hidden transition-opacity duration-300 md:hidden" onclick="toggleSidebar()"></div>
+
+        <!-- Sidebar -->
+        <aside id="sidebar" class="fixed inset-y-0 left-0 z-40 w-64 bg-white border-r border-gray-200 transform -translate-x-full transition-transform duration-300 ease-in-out md:relative md:translate-x-0 flex flex-col shadow-2xl md:shadow-none pt-[136px] md:pt-0">
+            <div class="flex items-center gap-3 px-6 py-5 border-b border-gray-100">
+                <div class="w-10 h-10 bg-gradient-to-br from-mep-blue to-blue-800 rounded-xl flex items-center justify-center text-white text-xl shadow-inner">🎓</div>
+                <div class="text-lg font-bold text-gray-900 tracking-tight">Caja Tools</div>
+            </div>
+
+            <nav class="flex-1 px-4 py-6 space-y-1 overflow-y-auto">
+                <a href="index.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">📊</span>
+                    <span>Inicio</span>
+                </a>
+                <a href="modulos.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all bg-teal-50 text-teal-700">
+                    <span class="text-xl group-hover:scale-110 transition-transform">📚</span>
+                    <span>Módulos</span>
+                </a>
+                <a href="descargas.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">📥</span>
+                    <span>Descargas</span>
+                </a>
+                <a href="comunidad.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">💬</span>
+                    <span>Comunidad</span>
+                </a>
+                <a href="configuracion.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">⚙️</span>
+                    <span>Configuración</span>
+                </a>
+                <div class="pt-6 mt-6 border-t border-gray-100">
+                    <a href="ayuda.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900">
+                        <span class="text-xl opacity-70 group-hover:opacity-100 transition-opacity">❓</span>
+                        <span>Ayuda</span>
+                    </a>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            
+            <!-- Hero Section -->
+            <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-8 mb-8 relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-teal-400 to-teal-600"></div>
+                <div class="flex flex-col md:flex-row gap-6 items-start md:items-center justify-between">
+                    <div>
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="px-3 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full uppercase tracking-wide">Módulo 8</span>
+                            <span class="flex items-center gap-1 text-sm font-medium text-gray-500">
+                                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                12 minutos
+                            </span>
+                            <span class="flex items-center gap-1 text-sm font-medium text-gray-500">
+                                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                                Activo
+                            </span>
+                        </div>
+                        <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4 tracking-tight">Jóvenes y Adultos</h1>
+                        <p class="text-lg text-gray-600 max-w-3xl leading-relaxed">Cómo utilizar la IA para dar retroalimentación rápida a estudiantes de IPEC y CINDEA en modalidades nocturnas.</p>
+                    </div>
+                    <div class="w-full md:w-auto flex-shrink-0">
+                        <button class="w-full md:w-auto px-6 py-3 bg-teal-600 hover:bg-teal-700 text-white font-semibold rounded-xl shadow-lg shadow-teal-500/30 transition-all hover:-translate-y-1">
+                            Continuar Módulo
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content Grid: 2 Columns -->
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 relative items-start">
+                
+                <!-- Left Column: 15 Sections Content -->
+                <div class="lg:col-span-3 bg-white rounded-2xl border border-gray-200 shadow-sm p-6 sm:p-10 prose prose-teal max-w-none">
+                    <section id="s1" class="scroll-mt-24">
+                        <h2>1. El reto de la Andragogía</h2>
+                        <p>Los jóvenes y adultos en IPEC y CINDEA tienen necesidades de aprendizaje directo, práctico y relevante para su vida laboral. La IA ayuda a personalizar el aprendizaje para estos contextos.</p>
+                    </section>
+
+                    <section id="s2" class="scroll-mt-24">
+                        <h2>2. Retroalimentación Rápida</h2>
+                        <p>Utilice la IA para generar borradores de retroalimentación constructiva sobre los trabajos de los estudiantes, ahorrando tiempo valioso en modalidades nocturnas donde el tiempo es limitado.</p>
+                    </section>
+
+                    <section id="s3" class="scroll-mt-24">
+                        <h2>3. Adaptación de Materiales</h2>
+                        <p>Pida a la IA que reescriba textos escolares con un tono más maduro y profesional, adecuado para adultos que retoman sus estudios.</p>
+                    </section>
+
+                    <section id="s4" class="scroll-mt-24">
+                        <h2>4. Prompt base</h2>
+                        <div class="bg-gray-900 text-gray-100 p-5 rounded-xl font-mono text-sm shadow-inner mb-4">"Reescribe este texto sobre historia para un estudiante adulto."</div>
+                    </section>
+
+                    <section id="s5" class="scroll-mt-24">
+                        <h2>5. Uso mejorado</h2>
+                        <div class="bg-teal-600 text-white p-5 rounded-xl font-mono text-sm shadow-lg shadow-teal-500/20 mb-4">"Reescribe este concepto de educación cívica enfocándolo en cómo afecta la vida laboral y familiar de un adulto trabajador en Costa Rica, manteniendo un tono respetuoso y profesional."</div>
+                    </section>
+
+                    <section id="s6" class="scroll-mt-24">
+                        <h2>6. Simulaciones Laborales</h2>
+                        <p>Cree simulaciones de entrevistas de trabajo o redacción de correos profesionales para que los estudiantes practiquen habilidades blandas.</p>
+                    </section>
+
+                    <section id="s7" class="scroll-mt-24">
+                        <h2>7. Horarios Flexibles</h2>
+                        <p>La IA puede ayudar a crear planes de estudio modulares y flexibles que los estudiantes adultos puedan seguir a su propio ritmo.</p>
+                    </section>
+
+                    <section id="s8" class="scroll-mt-24">
+                        <h2>8. Ejemplo Aplicado</h2>
+                        <p>Un estudiante entrega un ensayo. El docente usa IA para identificar rápidamente los 2 errores gramaticales más comunes y genera ejercicios específicos solo para esos errores.</p>
+                    </section>
+
+                    <section id="s9" class="scroll-mt-24">
+                        <h2>9. Evaluación Formativa</h2>
+                        <p>Implemente quizzes cortos generados por IA que los estudiantes puedan hacer desde sus teléfonos móviles en sus tiempos libres (ej. en el autobús).</p>
+                    </section>
+
+                    <section id="s10" class="scroll-mt-24">
+                        <h2>10. Consideraciones de Privacidad</h2>
+                        <p>Al usar IA para analizar trabajos de los estudiantes, asegúrese de anonimizar los datos y no incluir información personal.</p>
+                    </section>
+
+                    <section id="s11" class="scroll-mt-24">
+                        <h2>11. Motivación y Retención</h2>
+                        <p>Genere mensajes motivacionales personalizados para estudiantes que han faltado a lecciones debido a compromisos laborales.</p>
+                    </section>
+
+                    <section id="s12" class="scroll-mt-24">
+                        <h2>12. Microreto de Autoformación</h2>
+                        <div class="bg-teal-50 border border-teal-200 rounded-xl p-6 text-center my-6"><h4 class="text-lg font-bold text-teal-700 mb-2">Reto de Contextualización</h4><p class="text-gray-700 mb-4">Tome un tema de su currículo y pida a la IA que lo explique usando analogías del ámbito de la construcción o del comercio minorista.</p></div>
+                    </section>
+
+                    <section id="s13" class="scroll-mt-24">
+                        <h2>13. Checklist Rápido</h2>
+                        <ul class="space-y-2 list-none pl-0"><li class="flex items-center gap-3"><input type="checkbox" class="w-5 h-5 text-teal-600 rounded"><span>Uso un tono andragógico (adulto) en los prompts.</span></li></ul>
+                    </section>
+
+                    <section id="s14" class="scroll-mt-24">
+                        <h2>14. Recursos Complementarios</h2>
+                        <ul><li><a href="#" class="text-teal-600 hover:underline font-medium">Plantillas de retroalimentación para jóvenes y adultos</a></li></ul>
+                    </section>
+
+                    <section id="s15" class="scroll-mt-24">
+                        <h2>15. Ejercicio Práctico Guiado</h2>
+                        <div class="bg-teal-50 border-l-4 border-teal-500 p-6 rounded-r-lg my-6">
+                            <h4 class="text-teal-800 font-bold mb-3 text-lg flex items-center gap-2">
+                                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>
+                                Manos a la obra: Feedback Empático
+                            </h4>
+                            <p class="text-teal-900 mb-4"><strong>Paso 1:</strong> Ingrese a Claude o Gemini.</p>
+                            <p class="text-teal-900 mb-4"><strong>Paso 2:</strong> Piense en un error común que cometen sus estudiantes adultos y utilice este prompt:</p>
+                            <div class="bg-white text-gray-800 p-4 rounded border border-teal-200 font-mono text-sm shadow-inner mb-4">
+                                "Soy docente de [su materia] en educación nocturna. Mis estudiantes son adultos que trabajan todo el día. Imagina que un estudiante cometió este error común: [escriba el error, ej. confundir el sujeto con el predicado]. Redacta un párrafo corto de retroalimentación constructiva que valide su esfuerzo, no lo desmotive, y le explique de forma clara cómo corregirlo."
+                            </div>
+                            <p class="text-teal-900"><strong>Paso 3:</strong> Revise el resultado. ¿El tono es adecuado? ¿Siente que motivaría a un estudiante adulto a no desertar?</p>
+                        </div>
+                    </section>
+
+                    <section id="s16" class="scroll-mt-24">
+                        <h2>16. Conclusión</h2>
+                        <p>La IA permite una educación más empática y ajustada a la compleja realidad del estudiante adulto.</p>
+                    </section>
+
+                </div>
+
+                <!-- Right Column: Sticky Navigation (TOC) -->
+                <div class="hidden lg:block lg:col-span-1">
+                    <div class="sticky top-28 bg-white rounded-2xl border border-gray-200 shadow-sm p-5">
+                        <h3 class="text-sm font-bold text-gray-900 uppercase tracking-wider mb-4">Índice del Módulo</h3>
+                        <nav class="space-y-1 text-sm">
+                            <a href="#s1" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">1. Andragogía</a>
+                            <a href="#s2" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">2. Retroalimentación</a>
+                            <a href="#s3" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">3. Adaptación</a>
+                            <a href="#s4" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">4. Prompt base</a>
+                            <a href="#s5" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">5. Uso mejorado</a>
+                            <a href="#s6" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">6. Simulaciones</a>
+                            <a href="#s7" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">7. Horarios</a>
+                            <a href="#s8" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">8. Ejemplo Aplicado</a>
+                            <a href="#s9" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">9. Evaluación Formativa</a>
+                            <a href="#s10" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">10. Privacidad</a>
+                            <a href="#s11" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">11. Motivación</a>
+                            <a href="#s12" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">12. Microreto</a>
+                            <a href="#s13" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">13. Checklist</a>
+                            <a href="#s14" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">14. Recursos</a>
+                            <a href="#s15" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">15. Ejercicio Práctico</a>
+                            <a href="#s16" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">16. Conclusión</a>
+                        </nav>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800 text-gray-300 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 mb-12">
+                <div>
+                    <h3 class="text-white text-lg font-bold mb-4 flex items-center gap-2">
+                        <span class="text-mep-blue bg-white rounded flex items-center justify-center w-6 h-6 text-sm">🎓</span> 
+                        Caja de Herramientas
+                    </h3>
+                    <p class="text-sm text-gray-400 leading-relaxed">
+                        Plataforma de autoformación docente en Inteligencia Artificial, diseñada específicamente para el contexto educativo costarricense y la guía MEP 2026.
+                    </p>
+                </div>
+                <div class="col-span-2 text-right">
+                   <p class="text-sm text-gray-500 mt-8">
+                        Centro de Investigación Observatorio del Desarrollo de la Universidad de Costa Rica. Proyecto ED-3698 Inteligencia Artificial en el aula: una guía para la educación innovadora, 2026.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+            if (sidebar.classList.contains('-translate-x-full')) {
+                sidebar.classList.remove('-translate-x-full');
+                sidebar.classList.add('translate-x-0');
+                overlay.classList.remove('hidden');
+                document.body.classList.add('overflow-hidden');
+            } else {
+                sidebar.classList.add('-translate-x-full');
+                sidebar.classList.remove('translate-x-0');
+                overlay.classList.add('hidden');
+                document.body.classList.remove('overflow-hidden');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        document.querySelectorAll('.toc-link').forEach(link => {
+                            link.classList.remove('active', 'bg-teal-50');
+                            if (link.getAttribute('href') === `#${id}`) {
+                                link.classList.add('active', 'bg-teal-50');
+                            }
+                        });
+                    }
+                });
+            }, { rootMargin: '-100px 0px -60% 0px' });
+
+            document.querySelectorAll('section[id]').forEach((section) => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
