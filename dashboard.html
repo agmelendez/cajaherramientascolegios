@@ -90,7 +90,7 @@
             </div>
 
             <nav class="flex-1 px-4 py-6 space-y-1 overflow-y-auto">
-                <a href="index.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 text-gray-600 hover:bg-gray-50 hover:text-gray-900 rounded-lg font-medium transition-all">
+                <a href="index.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 text-gray-600 hover:bg-gray-50 hover:text-gray-900 rounded-lg font-medium transition-all" aria-label="Ir a la página de Inicio">
                     <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">📊</span>
                     <span>Inicio</span>
                 </a>
@@ -98,12 +98,12 @@
                     <span class="text-xl group-hover:scale-110 transition-transform">📈</span>
                     <span>Panel Principal</span>
                 </a>
-                <a href="modulos.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 text-gray-600 hover:bg-gray-50 hover:text-gray-900 rounded-lg font-medium transition-all">
+                <a href="modulos.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 text-gray-600 hover:bg-gray-50 hover:text-gray-900 rounded-lg font-medium transition-all" aria-label="Ver todos los módulos del curso">
                     <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">📚</span>
                     <span>Módulos</span>
                 </a>
                 
-                <a href="configuracion.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 text-gray-600 hover:bg-gray-50 hover:text-gray-900 rounded-lg font-medium transition-all">
+                <a href="configuracion.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 text-gray-600 hover:bg-gray-50 hover:text-gray-900 rounded-lg font-medium transition-all" aria-label="Ir a la configuración">
                     <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">⚙️</span>
                     <span>Configuración</span>
                 </a>
@@ -209,97 +209,18 @@
                         </div>
                     </div>
 
-                    <!-- Actividad Reciente -->
+                    <!-- Progreso del Usuario -->
                     <div class="bg-white rounded-2xl border border-gray-100 shadow-sm">
                         <div class="px-6 py-5 border-b border-gray-100 flex items-center gap-3">
-                            <span class="text-xl">📊</span>
-                            <h3 class="text-lg font-bold text-gray-900">Actividad Reciente</h3>
+                            <span class="text-xl">📈</span>
+                            <h3 class="text-lg font-bold text-gray-900">Tu progreso</h3>
                         </div>
                         <div class="p-6">
-                            <ul class="space-y-6 relative before:absolute before:inset-0 before:ml-4 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-300 before:to-transparent">
-                                <li class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
-                                    <div class="flex items-center justify-center w-8 h-8 rounded-full border border-white bg-green-100 text-green-600 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
-                                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                    </div>
-                                    <div class="w-[calc(100%-3rem)] md:w-[calc(50%-2rem)] p-4 rounded-xl border border-slate-200 bg-white shadow-sm">
-                                        <div class="flex items-center justify-between space-x-2 mb-1">
-                                            <div class="font-bold text-slate-900 text-sm">23 docentes</div>
-                                            <time class="font-caveat font-medium text-indigo-500 text-xs">Hace 2 horas</time>
-                                        </div>
-                                        <div class="text-slate-500 text-sm">Completaron el módulo 1 de "IA en Educación" satisfactoriamente.</div>
-                                    </div>
-                                </li>
-                                <li class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
-                                    <div class="flex items-center justify-center w-8 h-8 rounded-full border border-white bg-blue-100 text-blue-600 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
-                                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
-                                    </div>
-                                    <div class="w-[calc(100%-3rem)] md:w-[calc(50%-2rem)] p-4 rounded-xl border border-slate-200 bg-white shadow-sm">
-                                        <div class="flex items-center justify-between space-x-2 mb-1">
-                                            <div class="font-bold text-slate-900 text-sm">Nuevas respuestas en foro</div>
-                                            <time class="font-caveat font-medium text-indigo-500 text-xs">Hoy, 10:45 AM</time>
-                                        </div>
-                                        <div class="text-slate-500 text-sm">Hay 5 nuevas participaciones en el foro del módulo "Privacidad y Ética".</div>
-                                    </div>
-                                </li>
-                                <li class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
-                                    <div class="flex items-center justify-center w-8 h-8 rounded-full border border-white bg-purple-100 text-purple-600 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
-                                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"></path></svg>
-                                    </div>
-                                    <div class="w-[calc(100%-3rem)] md:w-[calc(50%-2rem)] p-4 rounded-xl border border-slate-200 bg-white shadow-sm">
-                                        <div class="flex items-center justify-between space-x-2 mb-1">
-                                            <div class="font-bold text-slate-900 text-sm">12 certificados emitidos</div>
-                                            <time class="font-caveat font-medium text-indigo-500 text-xs">Ayer</time>
-                                        </div>
-                                        <div class="text-slate-500 text-sm">Se han generado y enviado exitosamente 12 certificados de finalización.</div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Sidebar Column -->
-                <div class="space-y-8">
-                    <!-- Información -->
-                    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm">
-                        <div class="px-6 py-5 border-b border-gray-100 flex items-center gap-3">
-                            <span class="text-xl">ℹ️</span>
-                            <h3 class="text-lg font-bold text-gray-900">Sistema</h3>
-                        </div>
-                        <div class="p-6 space-y-4 text-sm">
-                            <div class="flex justify-between items-center border-b border-gray-50 pb-3">
-                                <span class="text-gray-500 font-medium">Versión actual</span>
-                                <span class="font-bold text-gray-900">1.0.0</span>
-                            </div>
-                            <div class="flex justify-between items-center border-b border-gray-50 pb-3">
-                                <span class="text-gray-500 font-medium">Último backup</span>
-                                <span class="font-bold text-gray-900">Hoy, 02:00 AM</span>
-                            </div>
-                            <div class="flex justify-between items-center">
-                                <span class="text-gray-500 font-medium">Estado</span>
-                                <span class="px-2.5 py-1 bg-green-100 text-green-700 text-xs font-semibold rounded-md flex items-center gap-1.5">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span> En línea
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Anuncios -->
-                    <div class="bg-blue-600 rounded-2xl shadow-lg p-6 text-white relative overflow-hidden">
-                        <div class="absolute right-0 top-0 -mr-4 -mt-4 opacity-20">
-                            <svg class="w-32 h-32" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"></path></svg>
-                        </div>
-                        <div class="relative z-10">
-                            <div class="flex items-center gap-2 mb-2">
-                                <span class="bg-blue-500 text-white text-xs font-bold px-2 py-0.5 rounded uppercase tracking-wide">Anuncio</span>
-                            </div>
-                            <h3 class="text-lg font-bold mb-2">Próxima actualización</h3>
-                            <p class="text-blue-100 text-sm leading-relaxed mb-4">
-                                Se programará una ventana de mantenimiento para el 5 de mayo. El sistema estará en modo solo lectura durante 2 horas.
+                            <p id="progreso-resumen" class="text-gray-700 font-medium mb-4">Cargando tu progreso local...</p>
+                            <p class="text-sm text-gray-500">
+                                Tu progreso se guarda en este navegador. Para no perderlo, 
+                                usa siempre el mismo dispositivo y navegador.
                             </p>
-                            <button class="text-sm font-semibold text-white hover:text-blue-200 flex items-center gap-1 transition-colors">
-                                Leer más <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -331,9 +252,9 @@
                 <div>
                     <h3 class="text-white text-sm font-bold uppercase tracking-wider mb-4">Marco Legal</h3>
                     <ul class="space-y-3">
-                        <li><a href="#" class="text-sm text-gray-400 hover:text-white transition-colors flex items-center gap-2"><span>→</span> Política de Privacidad</a></li>
-                        <li><a href="#" class="text-sm text-gray-400 hover:text-white transition-colors flex items-center gap-2"><span>→</span> Términos de Servicio</a></li>
-                        <li><a href="#" class="text-sm text-gray-400 hover:text-white transition-colors flex items-center gap-2"><span>→</span> Cumplimiento RGPD</a></li>
+                        <li><a href="politica-privacidad.html" class="text-sm text-gray-400 hover:text-white transition-colors flex items-center gap-2"><span>→</span> Política de Privacidad</a></li>
+                        <li><a href="terminos-uso.html" class="text-sm text-gray-400 hover:text-white transition-colors flex items-center gap-2"><span>→</span> Términos de Uso</a></li>
+                        <li><a href="politica-privacidad.html#ley8968" class="text-sm text-gray-400 hover:text-white transition-colors flex items-center gap-2"><span>→</span> Ley 8968 / PRODHAB</a></li>
                     </ul>
                 </div>
             </div>
@@ -376,6 +297,25 @@
                 document.body.classList.remove('overflow-hidden');
             }
         }
+
+        // Leer progreso desde localStorage
+        document.addEventListener('DOMContentLoaded', function() {
+            const modulosCompletados = [];
+            for (let i = 1; i <= 9; i++) {
+                if (localStorage.getItem('modulo-' + i + '-completado') === 'true') {
+                    modulosCompletados.push(i);
+                }
+            }
+            const total = modulosCompletados.length;
+            const resumen = document.getElementById('progreso-resumen');
+            if (resumen) {
+                if (total === 0) {
+                    resumen.textContent = 'Aún no has completado ningún módulo. ¡Comienza con el Módulo 1!';
+                } else {
+                    resumen.textContent = 'Has completado ' + total + ' de 9 módulos: ' + modulosCompletados.map(n => 'M' + n).join(', ') + '.';
+                }
+            }
+        });
     </script>
 </body>
 </html>
