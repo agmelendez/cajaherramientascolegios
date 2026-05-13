@@ -76,10 +76,6 @@
                 </svg>
                 <span class="text-sm font-medium hidden sm:block">Preguntas y Respuestas</span>
             </a>
-            <div class="flex items-center gap-3 p-1 pr-3 rounded-full border border-gray-200 hover:bg-gray-50 cursor-pointer transition-colors">
-                <img src="https://ui-avatars.com/api/?name=Docente+MEP&background=006633&color=fff" alt="Perfil de usuario" class="w-8 h-8 rounded-full">
-                <span class="text-sm font-medium text-gray-700 hidden sm:block">Docente</span>
-            </div>
         </div>
     </header>
 
@@ -166,6 +162,15 @@
                     <h3 class="font-bold text-amber-900 mb-1">Importante: Protección de Datos de Estudiantes</h3>
                     <p class="text-sm text-amber-800 leading-relaxed m-0">Nunca ingrese nombres, cédulas, calificaciones ni datos personales de estudiantes en herramientas de IA de terceros (ChatGPT, Gemini, Copilot, etc.). Use siempre <strong>descripciones genéricas</strong> como "estudiante de sétimo con dificultad lectora". Consulte nuestra <a href="politica-privacidad.html" class="text-amber-900 underline font-semibold hover:text-amber-700">Política de Privacidad</a> y la <a href="politica-privacidad.html" class="text-amber-900 underline font-semibold hover:text-amber-700">Ley 8968 / PRODHAB</a>.</p>
                 </div>
+
+            <!-- Banner de prerequisito -->
+            <div class="bg-blue-50 border border-blue-200 rounded-xl p-4 mb-6
+                        flex items-center gap-3" id="prereq-banner">
+                <span class="text-xl flex-shrink-0">📋</span>
+                <p class="text-sm text-blue-800 m-0">
+                    <strong>Prerequisito recomendado:</strong> Para aprovechar mejor este módulo, le recomendamos haber revisado <a href="modulo-3.html" class="font-bold underline hover:text-blue-900">Módulo 3: Aplicaciones en el Aula</a> primero.
+                </p>
+            </div>
             </div>
 
             <!-- Recursos / Infografías Section -->
@@ -196,137 +201,191 @@
                 <div class="lg:col-span-3 bg-white rounded-2xl border border-gray-200 shadow-sm p-6 sm:p-10 prose prose-green max-w-none">
                     
                     <section id="s1" class="scroll-mt-24">
+
                         <h2>1. ¿Para qué le sirve al docente?</h2>
-                        <p>Le sirve para reducir dramáticamente el tiempo de diseño de materiales didácticos. Mientras que en el Módulo 1 vimos IA general (Gemini), aquí nos enfocamos en herramientas "empaquetadas" para educación (como MagicSchool o Diffit). Estas plataformas ya tienen la pedagogía integrada en su programación interna, por lo que usted no necesita ser un experto escribiendo *prompts*.</p>
+                        <p>Este módulo le sirve para reducir dramáticamente el tiempo de diseño de materiales didácticos. Mientras que en el Módulo 1 exploramos la IA general (Gemini, ChatGPT), aquí nos enfocamos en <strong>herramientas de IA «empaquetadas» específicamente para el contexto educativo</strong> —como MagicSchool AI o Diffit—. Estas plataformas ya tienen la pedagogía integrada en su arquitectura interna: usted no necesita dominar el prompt engineering avanzado porque la interfaz le guía con formularios estructurados.</p>
+                        <p>Desde el enfoque de la <strong>Cognición Distribuida</strong> (Hutchins, 1995), estas herramientas actúan como «artefactos cognitivos» que externalizan parte de la carga de planeamiento, permitiendo al docente concentrar su energía en lo que los algoritmos no pueden hacer: <em>conocer a sus estudiantes como personas</em>.</p>
                     </section>
 
                     <section id="s2" class="scroll-mt-24">
+
                         <h2>2. ¿Cuándo sí usar IA?</h2>
-                        <p>Úselas intensivamente para la preparación de lecciones. Sí sirven para:</p>
+                        <p>Úselas intensivamente para la <strong>preparación de lecciones diferenciadas</strong>. Sirven para:</p>
                         <ul>
-                            <li>Adaptar un mismo texto a 3 niveles de lectura diferentes simultáneamente.</li>
-                            <li>Generar rúbricas analíticas estructuradas para Trabajo Cotidiano.</li>
-                            <li>Crear preguntas de comprensión tipo test o de desarrollo a partir de un PDF.</li>
-                            <li>Diseñar gamificación (como Kahoots) en segundos a partir de sus apuntes.</li>
+                            <li><strong>Adaptar un mismo texto a 3 niveles de lectura simultáneamente</strong> (básico, intermedio, avanzado), haciendo operativo el principio de <em>diferenciación curricular</em> (Tomlinson, 2001) sin triplicar el tiempo de preparación.</li>
+                            <li><strong>Generar rúbricas analíticas alineadas al REAC</strong> para Trabajo Cotidiano, con descriptores observacionales precisos por nivel de desempeño.</li>
+                            <li><strong>Crear bancos de preguntas diversificadas</strong> (tipo test, verdadero-falso, preguntas abiertas) a partir de cualquier PDF o texto que usted pegue en la herramienta.</li>
+                            <li><strong>Diseñar gamificación instantánea</strong>: genere un Kahoot o una actividad tipo Quizziz en segundos a partir de sus apuntes de clase.</li>
+                            <li><strong>Traducir o simplificar materiales técnicos</strong> para adaptarlos al contexto lingüístico de sus estudiantes.</li>
                         </ul>
                     </section>
 
                     <section id="s3" class="scroll-mt-24">
+
                         <h2>3. ¿Cuándo NO usarla?</h2>
-                        <p>No use estas herramientas para automatizar el 100% de su planeamiento.</p>
+                        <p>No use estas herramientas como sustituto total de su criterio pedagógico. Específicamente:</p>
                         <ul>
-                            <li>No las utilice sin revisar y alinear los resultados al contexto costarricense (a veces usan términos de otros países).</li>
-                            <li>No introduzca datos, nombres, ni expedientes reales de estudiantes en ninguna de estas plataformas.</li>
+                            <li><strong>No automatice el 100% de su planeamiento</strong>: un planeamiento didáctico de calidad requiere la intencionalidad pedagógica del docente, quien conoce el historial, el contexto y las necesidades específicas del grupo. La IA produce una <em>plantilla general</em>, no un plan vivo.</li>
+                            <li><strong>No use los resultados sin contextualizar al entorno costarricense</strong>: MagicSchool y Diffit están diseñadas principalmente para el contexto anglosajón. Términos educativos, estándares y ejemplos culturales deben revisarse y adaptarse a la nomenclatura MEP.</li>
+                            <li><strong>No ingrese datos reales de estudiantes</strong> en ninguna de estas plataformas bajo ningún motivo.</li>
                         </ul>
                     </section>
 
                     <section id="s4" class="scroll-mt-24">
+
                         <h2>4. Herramienta sugerida</h2>
                         <div class="flex items-center gap-4 p-4 bg-gray-50 rounded-xl border border-gray-200 my-4">
-                            <div class="w-12 h-12 flex-shrink-0 bg-green-100 rounded-lg flex items-center justify-center text-2xl">✨</div>
+                            <div class="w-12 h-12 flex-shrink-0 bg-purple-100 rounded-lg flex items-center justify-center text-2xl">✨</div>
                             <div>
                                 <h4 class="font-bold text-gray-900 m-0">MagicSchool AI / Diffit</h4>
-                                <p class="text-sm text-gray-600 m-0">MagicSchool ofrece más de 60 herramientas exclusivas para docentes. Diffit es inigualable para adaptar la complejidad de textos para aulas diversas.</p>
+                                <p class="text-sm text-gray-600 m-0"><strong>MagicSchool AI</strong> ofrece más de 60 herramientas exclusivas para docentes: generador de rúbricas, planificador de lecciones, creador de actividades diferenciadas, generador de comentarios en reportes, etc. La versión gratuita es funcional para uso básico. <strong>Diffit</strong> es insuperable para adaptar la complejidad de textos: ingrese una URL de Wikipedia, un texto pegado o un PDF y Diffit lo simplifica o complejiza al nivel de lectura que usted seleccione (K-12 scale), generando automáticamente un cuestionario de comprensión.</p>
                             </div>
+                        </div>
+                        <div class="bg-purple-50 border border-purple-200 rounded-xl p-4 mt-4">
+                            <h4 class="font-semibold text-purple-900 mb-2">🔄 ¿Cuál uso cuándo?</h4>
+                            <p class="text-sm text-purple-800 m-0">Use <strong>Diffit</strong> cuando el reto sea la accesibilidad del texto (simplificar o complejizar la lectura). Use <strong>MagicSchool</strong> cuando necesite un instrumento docente completo (rúbrica, plan de clase, comunicado a padres). Use <strong>NotebookLM</strong> (Módulo 3) cuando necesite que el resultado esté «amarrado» a un documento oficial específico (programa MEP, REAC).</p>
                         </div>
                     </section>
 
                     <section id="s5" class="scroll-mt-24">
+
                         <h2>5. Prompt base (Ejemplo en MagicSchool)</h2>
-                        <p>En MagicSchool, usted no escribe prompts largos, sino que llena un formulario. Ejemplo: entra a la herramienta "Rúbricas", pone el título "Exposición sobre el Agua" y selecciona "Grado 5".</p>
+                        <div class="bg-gray-900 text-gray-100 p-5 rounded-xl font-mono text-sm shadow-inner mb-4">
+                            Entrar a MagicSchool → Herramienta «Rúbricas» → Título: "Exposición sobre el Agua" → Grado: "5"
+                        </div>
+                        <p class="text-sm text-gray-500 italic">Resultado: MagicSchool generará una rúbrica funcional pero genérica, sin criterios vinculados al Programa de Estudios de Ciencias MEP de quinto grado ni al REAC. Será un punto de partida, no un producto listo para usar.</p>
                     </section>
 
                     <section id="s6" class="scroll-mt-24">
+
                         <h2>6. Uso mejorado</h2>
-                        <div class="bg-mep-green text-white p-5 rounded-xl font-mono text-sm shadow-lg shadow-green-500/20 mb-4">
-                            En la herramienta de Rúbricas de MagicSchool, además de poner el título, rellene el campo de "Estándar a evaluar" con el criterio exacto del programa MEP: "Describe las medidas preventivas y de mitigación ante eventos naturales...". El resultado estará perfectamente alineado a su programa oficial.
+                        <p>En la herramienta de Rúbricas de MagicSchool, además del título y el grado, complete el campo <strong>«Estándar a evaluar»</strong> con el indicador exacto del Programa MEP que corresponde a la actividad:</p>
+                        <div class="bg-purple-700 text-white p-5 rounded-xl font-mono text-sm shadow-lg mb-4">
+                            Herramienta: Rúbricas → Título: "Exposición oral sobre el ciclo hidrológico" → Grado: 5 → <strong>Estándar:</strong> "El estudiante describe el ciclo hidrológico e identifica las consecuencias de la contaminación del agua en los ecosistemas costarricenses (Programa Ciencias MEP, Bloque 3, Indicador 3.2)."
                         </div>
+                        <p class="text-sm text-gray-500">Al incluir el indicador exacto del programa, el resultado estará <strong>perfectamente alineado a su programa oficial</strong>. Este proceso se denomina <em>«alineación curricular constructiva»</em> (Biggs, 1999): asegurarse de que los objetivos de aprendizaje, las actividades y los instrumentos de evaluación estén coherentemente alineados entre sí.</p>
                     </section>
 
                     <section id="s7" class="scroll-mt-24">
+
                         <h2>7. Adaptación por nivel/modalidad</h2>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-6">
                             <div class="border border-gray-200 rounded-lg p-4">
-                                <h4 class="font-bold text-mep-blue text-sm uppercase tracking-wider mb-2">Primaria</h4>
-                                <p class="text-sm text-gray-600">Use la función de "Text Leveler" de Diffit para convertir textos de Wikipedia en cuentos accesibles para I Ciclo.</p>
+                                <h4 class="font-bold text-mep-blue text-sm uppercase tracking-wider mb-2">Primaria (I y II Ciclo)</h4>
+                                <p class="text-sm text-gray-600">Use la función <strong>«Text Leveler»</strong> de Diffit para convertir artículos de Wikipedia en lecturas accesibles para I Ciclo. Ingrese la URL del artículo y seleccione «Grado 2» o «Grado 3» —el sistema simplificará el vocabulario y la estructura sintáctica automáticamente—.</p>
                             </div>
                             <div class="border border-gray-200 rounded-lg p-4">
                                 <h4 class="font-bold text-mep-green text-sm uppercase tracking-wider mb-2">Secundaria</h4>
-                                <p class="text-sm text-gray-600">Use MagicSchool para generar debates sobre dilemas éticos relacionados a las materias de Ciencias o Cívica.</p>
+                                <p class="text-sm text-gray-600">Use MagicSchool para generar <strong>debates sobre dilemas éticos contemporáneos</strong> vinculados a su materia: bioética en Ciencias, derechos de autor en Informática, ética económica en Estudios Sociales. La IA genera los argumentos de ambos lados para que usted los use como material de análisis.</p>
                             </div>
                             <div class="border border-gray-200 rounded-lg p-4">
                                 <h4 class="font-bold text-mep-orange text-sm uppercase tracking-wider mb-2">CTP (Técnica)</h4>
-                                <p class="text-sm text-gray-600">Cree cuestionarios técnicos altamente específicos subiendo el PDF del manual de la maquinaria a Diffit.</p>
+                                <p class="text-sm text-gray-600">Cree cuestionarios técnicos altamente específicos subiendo el <strong>PDF del manual de la maquinaria</strong> a Diffit. El sistema extrae los conceptos clave y genera preguntas de comprensión técnica. Ideal para pruebas de habilitación de equipo.</p>
                             </div>
                             <div class="border border-gray-200 rounded-lg p-4">
                                 <h4 class="font-bold text-purple-600 text-sm uppercase tracking-wider mb-2">IPEC / CINDEA</h4>
-                                <p class="text-sm text-gray-600">Genere guías de autoestudio (Flashcards) para que la población joven/adulta estudie fuera del horario presencial.</p>
+                                <p class="text-sm text-gray-600">Genere <strong>guías de autoestudio modulares con tarjetas de memoria</strong> (<em>flashcards</em>) para que la población joven y adulta estudie de forma flexible fuera del horario de clases. MagicSchool tiene una herramienta de flashcards automática.</p>
                             </div>
                         </div>
                     </section>
 
                     <section id="s8" class="scroll-mt-24">
+
                         <h2>8. Riesgos y cuidados éticos</h2>
-                        <div class="bg-orange-50 border-l-4 border-orange-500 p-4 rounded-r-lg my-4">
-                            <h4 class="text-orange-800 font-bold mb-2 flex items-center gap-2">
-                                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
-                                Cesión de Derechos
-                            </h4>
-                            <p class="text-sm text-orange-700 m-0">Al usar plataformas gratuitas como estas, el contenido generado o los textos que usted sube pueden ser usados por la empresa para entrenar sus modelos. Nunca suba exámenes oficiales del MEP que aún no se han aplicado.</p>
+                        <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 rounded-r-lg my-4">
+                            <h4 class="text-yellow-800 font-bold mb-2">⚖️ Propiedad Intelectual y Cesión de Derechos</h4>
+                            <p class="text-sm text-yellow-700 m-0">Al usar plataformas gratuitas como MagicSchool o Diffit, <strong>revise detenidamente los términos de servicio respecto a la propiedad del contenido generado</strong>. Algunos servicios se reservan el derecho de usar el contenido producido con su plataforma para mejorar sus modelos. Adicionalmente, <strong>nunca suba exámenes sumativosofficiales del MEP que aún no se han aplicado</strong>: hacerlo podría constituir una filtración de instrumentos evaluativos con implicaciones disciplinarias.</p>
+                        </div>
+                        <div class="bg-gray-50 border-l-4 border-gray-400 p-4 rounded-r-lg mt-4">
+                            <h4 class="text-gray-800 font-bold mb-2">🌐 Brecha Digital y Equidad de Acceso</h4>
+                            <p class="text-sm text-gray-700 m-0">Si diseña actividades que requieren que los <em>estudiantes</em> usen estas herramientas, considere la brecha de acceso tecnológico: no todos tienen dispositivo propio ni conexión estable en casa. El principio de <strong>equidad educativa</strong> (UNESCO, 2020) exige diseñar alternativas equivalentes para quienes no tienen acceso.</p>
                         </div>
                     </section>
 
                     <section id="s9" class="scroll-mt-24">
+
                         <h2>9. Ejemplo Aplicado en Aula</h2>
-                        <p>Usted necesita que el grupo lea sobre el ciclo del agua, pero sabe que 4 estudiantes en su grupo tienen dificultades de lectura. Toma un texto oficial de 2 páginas, lo pega en Diffit y le pide "Adaptar a nivel de lectura 3er grado". En 15 segundos tiene una versión simplificada, con las mismas ideas centrales, que puede imprimir solo para ellos, garantizando la equidad.</p>
+                        <p>Usted necesita que todo su grupo lea un artículo sobre <strong>el ciclo del agua</strong>, pero sabe que al menos 4 estudiantes presentan dificultades significativas de lectura. El dilema clásico: usar el texto original deja a esos estudiantes en rezago; simplificarlo para todos reduce el reto para el resto.</p>
+                        <p><strong>Solución con Diffit:</strong></p>
+                        <ol class="list-decimal pl-6 space-y-2 text-gray-600">
+                            <li>Abra Diffit y pegue la URL del artículo original.</li>
+                            <li>Genere <strong>tres versiones simultáneas</strong>: nivel «Grado 4» para los estudiantes con adecuaciones, nivel «Grado 7» para el grupo general, y nivel «Grado 10» para los estudiantes que terminan antes y necesitan extensión.</li>
+                            <li>Cada versión incluye un cuestionario de comprensión generado automáticamente.</li>
+                        </ol>
+                        <p>En 15 minutos tiene tres versiones diferenciadas del mismo contenido, garantizando la <strong>equidad de acceso</strong> sin reducir la exigencia para nadie. Esto es diferenciación curricular en la práctica, respaldada por tecnología.</p>
                     </section>
 
                     <section id="s10" class="scroll-mt-24">
+
                         <h2>10. Conexión con la Evaluación</h2>
-                        <p>Estas herramientas le permiten generar Rúbricas y Listas de Cotejo para Trabajo Cotidiano (según REAC 2026) en una fracción del tiempo, permitiéndole ser más detallista en los indicadores que evalúa en el aula.</p>
+                        <p>Las herramientas educativas especializadas le permiten generar <strong>instrumentos de evaluación formativa de alta calidad en una fracción del tiempo</strong>. Esto tiene una implicación directa para el REAC 2024: al reducir el tiempo de elaboración de listas de cotejo y rúbricas para Trabajo Cotidiano, usted puede aplicar más evaluaciones formativas a lo largo del trimestre, aumentando la riqueza de la evidencia de aprendizaje.</p>
+                        <p>Desde el principio de la <strong>evaluación auténtica</strong> (Wiggins, 1990), estas herramientas permiten diseñar más actividades que conecten el contenido curricular con situaciones reales, en lugar de centrarse únicamente en pruebas escritas.</p>
                     </section>
 
                     <section id="s11" class="scroll-mt-24">
+
                         <h2>11. Evidencia que puede recoger</h2>
-                        <p>Descargue la rúbrica generada y guárdela como evidencia de su uso de tecnología para mejorar los procesos de evaluación formativa.</p>
+                        <p>Descargue y archive los materiales diferenciados generados (los tres niveles del mismo texto) junto con la reflexión pedagógica sobre cómo los utilizó. Esta evidencia documenta su práctica de <strong>diferenciación curricular basada en tecnología</strong>, competencia fundamental en el Marco de Buen Desempeño Docente.</p>
+                        <p>También puede usar la herramienta de <strong>«Informe de progreso»</strong> de MagicSchool para generar automáticamente comentarios cualitativos que acompañen las calificaciones en los boletines, ahorrando tiempo y sistematizando la comunicación con las familias.</p>
                     </section>
 
                     <section id="s12" class="scroll-mt-24">
+
                         <h2>12. Versión Inclusiva (DUA)</h2>
-                        <p>El uso de estas herramientas apoya directamente los principios del Diseño Universal para el Aprendizaje al permitirle generar múltiples vías de acceso a la misma información (textos en distintos niveles, resúmenes, viñetas) de manera automática.</p>
+                        <p>El uso de herramientas de adaptación de textos como Diffit operacionaliza directamente los tres principios del DUA:</p>
+                        <ul>
+                            <li><strong>Principio I (Representación múltiple):</strong> el mismo contenido en distintos niveles de complejidad lingüística y cognitiva.</li>
+                            <li><strong>Principio II (Acción y expresión múltiple):</strong> los cuestionarios generados pueden responderse por escrito, oralmente o con apoyos visuales.</li>
+                            <li><strong>Principio III (Implicación y motivación múltiple):</strong> los formatos de gamificación (Kahoot, flashcards) mantienen niveles de activación óptimos para distintos perfiles de aprendizaje.</li>
+                        </ul>
+                        <p>La meta, en términos de DUA, es que cada estudiante tenga acceso a <strong>«expertos en el aprendizaje»</strong>: aprendices autónomos, motivados y con recursos suficientes para seguir aprendiendo.</p>
                     </section>
 
                     <section id="s13" class="scroll-mt-24">
+
                         <h2>13. Microreto de Autoformación</h2>
-                        <div class="bg-green-50 border border-green-200 rounded-xl p-6 text-center my-6">
-                            <h4 class="text-lg font-bold text-mep-green mb-2">Reto de 10 Minutos</h4>
-                            <p class="text-gray-700 mb-4">Cree una cuenta gratuita en <a href="https://web.diffit.me/" target="_blank" class="text-green-600 underline font-semibold">Diffit</a>. Busque un artículo reciente de Wikipedia sobre un tema de su materia y pegue la URL. Vea cómo Diffit extrae el texto, genera un resumen, adapta el nivel de lectura y le crea automáticamente un cuestionario. Imprima o exporte el PDF.</p>
+                        <div class="bg-purple-50 border border-purple-200 rounded-xl p-6 text-center my-6">
+                            <h4 class="text-lg font-bold text-purple-800 mb-2">⏱️ Reto de 10 Minutos</h4>
+                            <p class="text-gray-700 mb-4">Cree una cuenta gratuita en <strong>Diffit</strong> (<a href="https://diffit.me" target="_blank" class="text-purple-700 underline font-semibold">diffit.me</a>). Busque un artículo reciente de <em>La Nación</em> o de Wikipedia sobre un tema de su materia y copie la URL. Péguelo en Diffit y solicite la adaptación para dos niveles distintos. Observe cómo el sistema simplifica la sintaxis y el vocabulario sin perder las ideas centrales. Finalmente, revise el cuestionario automático: ¿evalúa comprensión literal o también inferencial? Esa reflexión es el ejercicio de juicio pedagógico que la IA no puede hacer por usted.</p>
                         </div>
                     </section>
 
                     <section id="s14" class="scroll-mt-24">
+
                         <h2>14. Checklist Rápido</h2>
                         <ul class="space-y-2 list-none pl-0">
                             <li class="flex items-center gap-3">
-                                <input type="checkbox" class="w-5 h-5 text-mep-green rounded focus:ring-mep-green border-gray-300">
-                                <span class="text-gray-700">Entiendo la diferencia entre IA general (ChatGPT) e IA educativa (MagicSchool).</span>
+                                <input type="checkbox" class="w-5 h-5 text-purple-600 rounded focus:ring-purple-600 border-gray-300">
+                                <span class="text-gray-700">Entiendo la diferencia entre IA general (ChatGPT/Gemini) e IA educativa especializada (MagicSchool/Diffit).</span>
                             </li>
                             <li class="flex items-center gap-3">
-                                <input type="checkbox" class="w-5 h-5 text-mep-green rounded focus:ring-mep-green border-gray-300">
-                                <span class="text-gray-700">Sé que no debo subir datos reales de estudiantes.</span>
+                                <input type="checkbox" class="w-5 h-5 text-purple-600 rounded focus:ring-purple-600 border-gray-300">
+                                <span class="text-gray-700">He explorado al menos una herramienta educativa especializada y generado un material de prueba.</span>
                             </li>
                             <li class="flex items-center gap-3">
-                                <input type="checkbox" class="w-5 h-5 text-mep-green rounded focus:ring-mep-green border-gray-300">
-                                <span class="text-gray-700">He explorado al menos una herramienta educativa especializada.</span>
+                                <input type="checkbox" class="w-5 h-5 text-purple-600 rounded focus:ring-purple-600 border-gray-300">
+                                <span class="text-gray-700">Sé que no debo subir datos reales de estudiantes ni exámenes oficiales aún no aplicados.</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <input type="checkbox" class="w-5 h-5 text-purple-600 rounded focus:ring-purple-600 border-gray-300">
+                                <span class="text-gray-700">Comprendo el concepto de diferenciación curricular y cómo la IA la facilita.</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <input type="checkbox" class="w-5 h-5 text-purple-600 rounded focus:ring-purple-600 border-gray-300">
+                                <span class="text-gray-700">Sé cuándo es más apropiado usar Diffit vs. MagicSchool vs. NotebookLM.</span>
                             </li>
                         </ul>
                     </section>
 
                     <section id="s15" class="scroll-mt-24">
+
                         <h2>15. Recursos Complementarios</h2>
                         <ul>
-                            <li><a href="#" class="text-mep-green hover:underline">Tutorial: Primeros pasos en MagicSchool AI</a></li>
-                            <li><a href="#" class="text-mep-green hover:underline">Guía de Diffit para docentes hispanohablantes</a></li>
+                            <li><a href="#" class="text-purple-700 hover:underline">Tutorial oficial: Primeros pasos en MagicSchool AI para docentes hispanohablantes</a></li>
+                            <li><a href="#" class="text-purple-700 hover:underline">Guía de Diffit para docentes hispanohablantes — Diferenciación curricular con IA</a></li>
+                            <li><a href="#" class="text-purple-700 hover:underline">Tomlinson (2001): Cómo diferenciar la enseñanza en aulas de estudiantes con diferentes niveles de capacidad</a></li>
+                            <li><a href="#" class="text-purple-700 hover:underline">Biggs (1999): Constructive Alignment — Alineación curricular constructiva</a></li>
+                            <li><a href="#" class="text-purple-700 hover:underline">UNESCO (2020): Educación en tiempos de COVID-19: Brecha digital y equidad de acceso</a></li>
                         </ul>
                     </section>
                 </div>
@@ -506,6 +565,46 @@
             }
             </script>
 
+
+            <!-- ═══ Navegación entre módulos ═══ -->
+            <div class="border-t border-gray-200 mt-10 pt-8 pb-2
+                        flex items-center justify-between gap-4" id="mod-nav">
+                
+        <a href="modulo-3.html"
+           class="flex items-center gap-3 px-5 py-3 bg-white border border-gray-200
+                  rounded-xl text-gray-600 hover:bg-gray-50 hover:border-gray-300
+                  font-medium transition-all group">
+            <svg class="w-4 h-4 flex-shrink-0 group-hover:-translate-x-1 transition-transform"
+                 fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M15 19l-7-7 7-7"/>
+            </svg>
+            <div class="hidden sm:block text-left">
+                <div class="text-xs text-gray-400">Anterior</div>
+                <div class="text-sm font-semibold">Aplicaciones en el Aula</div>
+            </div>
+        </a>
+                <a href="modulos.html"
+                   class="text-sm text-gray-400 hover:text-mep-blue underline transition-colors
+                          hidden sm:block">
+                    Ver catálogo
+                </a>
+                
+        <a href="modulo-5.html"
+           class="flex items-center gap-3 px-5 py-3 bg-mep-blue hover:bg-blue-700
+                  rounded-xl text-white font-medium transition-all group
+                  shadow-lg shadow-blue-500/20">
+            <div class="hidden sm:block text-right">
+                <div class="text-xs text-blue-200">Siguiente</div>
+                <div class="text-sm font-semibold">Aplicaciones Prácticas</div>
+            </div>
+            <svg class="w-4 h-4 flex-shrink-0 group-hover:translate-x-1 transition-transform"
+                 fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M9 5l7 7-7 7"/>
+            </svg>
+        </a>
+            </div>
         </main>
     </div>
 

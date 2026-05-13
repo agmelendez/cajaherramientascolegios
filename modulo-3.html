@@ -76,10 +76,6 @@
                 </svg>
                 <span class="text-sm font-medium hidden sm:block">Preguntas y Respuestas</span>
             </a>
-            <div class="flex items-center gap-3 p-1 pr-3 rounded-full border border-gray-200 hover:bg-gray-50 cursor-pointer transition-colors">
-                <img src="https://ui-avatars.com/api/?name=Docente+MEP&background=006633&color=fff" alt="Perfil de usuario" class="w-8 h-8 rounded-full">
-                <span class="text-sm font-medium text-gray-700 hidden sm:block">Docente</span>
-            </div>
         </div>
     </header>
 
@@ -166,6 +162,15 @@
                     <h3 class="font-bold text-amber-900 mb-1">Importante: Protección de Datos de Estudiantes</h3>
                     <p class="text-sm text-amber-800 leading-relaxed m-0">Nunca ingrese nombres, cédulas, calificaciones ni datos personales de estudiantes en herramientas de IA de terceros (ChatGPT, Gemini, Copilot, etc.). Use siempre <strong>descripciones genéricas</strong> como "estudiante de sétimo con dificultad lectora". Consulte nuestra <a href="politica-privacidad.html" class="text-amber-900 underline font-semibold hover:text-amber-700">Política de Privacidad</a> y la <a href="politica-privacidad.html" class="text-amber-900 underline font-semibold hover:text-amber-700">Ley 8968 / PRODHAB</a>.</p>
                 </div>
+
+            <!-- Banner de prerequisito -->
+            <div class="bg-blue-50 border border-blue-200 rounded-xl p-4 mb-6
+                        flex items-center gap-3" id="prereq-banner">
+                <span class="text-xl flex-shrink-0">📋</span>
+                <p class="text-sm text-blue-800 m-0">
+                    <strong>Prerequisito recomendado:</strong> Para aprovechar mejor este módulo, le recomendamos haber revisado <a href="modulo-1.html" class="font-bold underline hover:text-blue-900">Módulo 1: Fundamentos de IA</a> y <a href="modulo-2.html" class="font-bold underline hover:text-blue-900">Módulo 2: Ética y Privacidad</a> primero.
+                </p>
+            </div>
             </div>
 
             <!-- Recursos / Infografías Section -->
@@ -186,6 +191,30 @@
                             </p>
                         </div>
                     </div>
+                    
+                    <div class="group relative rounded-xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-md transition-all cursor-pointer bg-gray-50 flex flex-col" onclick="openLightbox('infografias/modulo-3/infografia-3.2.png')">
+                        <div class="aspect-[3/4] overflow-hidden bg-gray-100 flex items-center justify-center p-2">
+                            <img src="infografias/modulo-3/infografia-3.2.png" alt="Segunda infografía del Módulo 3" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <div class="p-3 bg-white border-t border-gray-100">
+                            <p class="text-sm font-medium text-gray-700 text-center flex items-center justify-center gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-mep-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg>
+                                Ampliar Infografía
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="group relative rounded-xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-md transition-all cursor-pointer bg-gray-50 flex flex-col" onclick="openLightbox('infografias/modulo-3/infografia-3.3.png')">
+                        <div class="aspect-[3/4] overflow-hidden bg-gray-100 flex items-center justify-center p-2">
+                            <img src="infografias/modulo-3/infografia-3.3.png" alt="Tercera infografía del Módulo 3" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <div class="p-3 bg-white border-t border-gray-100">
+                            <p class="text-sm font-medium text-gray-700 text-center flex items-center justify-center gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-mep-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg>
+                                Ampliar Infografía
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -196,139 +225,206 @@
                 <div class="lg:col-span-3 bg-white rounded-2xl border border-gray-200 shadow-sm p-6 sm:p-10 prose prose-orange max-w-none">
                     
                     <section id="s1" class="scroll-mt-24">
+
                         <h2>1. ¿Para qué le sirve al docente?</h2>
-                        <p>Este módulo avanzado le permite pasar de ser un "consumidor de herramientas" a un "diseñador de experiencias de aprendizaje enriquecidas". Le servirá para vincular el uso de la IA directamente con los requisitos del Reglamento de Evaluación de los Aprendizajes (REAC) y la implementación de principios inclusivos en el aula costarricense.</p>
+                        <p>Este módulo le permite dar el salto de «consumidor de herramientas» a <strong>«diseñador de experiencias de aprendizaje enriquecidas»</strong>. Le servirá para vincular el uso de IA directamente con los dos marcos normativos que rigen su práctica cotidiana: el <strong>Reglamento de Evaluación de los Aprendizajes (REAC)</strong> y los principios del <strong>Diseño Universal para el Aprendizaje (DUA)</strong>.</p>
+                        <p>En términos del modelo SAMR (Puentedura, 2010), este módulo opera en los niveles de <strong>Modificación y Redefinición</strong>: la IA no solo sustituye una tarea manual (como redactar una rúbrica a mano) sino que permite crear instrumentos de evaluación <em>cualitativamente distintos</em> —más detallados, más diferenciados, más alineados al currículo— que serían impracticables sin apoyo tecnológico.</p>
+                        <p>Desde el enfoque de la <strong>Evaluación para el Aprendizaje</strong> (<em>Assessment for Learning</em>, Black & Wiliam, 1998), la retroalimentación oportuna y específica es uno de los factores con mayor efecto positivo comprobado en el rendimiento estudiantil. La IA puede ser una aliada poderosa para escalar ese tipo de retroalimentación.</p>
                     </section>
 
                     <section id="s2" class="scroll-mt-24">
+
                         <h2>2. ¿Cuándo sí usar IA?</h2>
-                        <p>El uso más poderoso a nivel avanzado se da en el diseño de proyectos interdisciplinarios y evaluación formativa. Úsela para:</p>
+                        <p>El uso más poderoso se da en el <strong>diseño de instrumentos de evaluación formativa</strong> y en la planificación de proyectos interdisciplinarios. Úsela para:</p>
                         <ul>
-                            <li>Diseñar rúbricas complejas para evaluar el componente "Proyecto".</li>
-                            <li>Generar estudios de caso reales adaptados al contexto regional de sus estudiantes.</li>
-                            <li>Proveer retroalimentación formativa masiva (ej. "Toma estos 15 errores comunes que vi en el examen y redacta una guía de repaso enfocada en solucionarlos").</li>
+                            <li><strong>Diseñar rúbricas analíticas</strong> para el componente «Trabajo Cotidiano» y «Proyecto» del REAC, especificando los cuatro niveles de desempeño (En Proceso, Bueno, Muy Bueno, Excelente) con descriptores observacionales concretos.</li>
+                            <li><strong>Generar estudios de caso</strong> adaptados al contexto regional de sus estudiantes (un problema ambiental del Pacífico, una situación laboral de una zona industrial) para actividades de aprendizaje basado en problemas (ABP).</li>
+                            <li><strong>Escalar la retroalimentación formativa</strong>: pida a la IA que tome los 10 errores más frecuentes que detectó en una prueba y redacte una guía de repaso enfocada exactamente en esos vacíos conceptuales.</li>
+                            <li><strong>Generar andamiajes cognitivos</strong> (<em>scaffolding</em>, Vygotsky, 1978) que ayuden a los estudiantes en la Zona de Desarrollo Próximo: desglose automático de tareas complejas en pasos intermedios.</li>
                         </ul>
                     </section>
 
                     <section id="s3" class="scroll-mt-24">
+
                         <h2>3. ¿Cuándo NO usarla?</h2>
-                        <p>El límite ético principal ocurre en la evaluación sumativa. NO la use para:</p>
+                        <p>El límite ético principal se ubica en la <strong>evaluación sumativa</strong> y en el acompañamiento socioemocional. <strong>NO</strong> la use para:</p>
                         <ul>
-                            <li>Asignar automáticamente una calificación numérica a un ensayo de un estudiante sin que usted lo lea detalladamente.</li>
-                            <li>Reemplazar la interacción cara a cara en la retroalimentación de temas socioemocionales.</li>
+                            <li><strong>Asignar automáticamente una calificación numérica</strong> a un ensayo sin leerlo. La nota sumativa requiere el criterio profesional del docente, quien conoce el proceso del estudiante, sus adecuaciones y su contexto. El REAC establece que la evaluación es responsabilidad del docente, no delegable a un algoritmo.</li>
+                            <li><strong>Reemplazar la interacción cara a cara</strong> en la retroalimentación sobre temas socioemocionales: situaciones de rezago, conflictos interpersonales o dificultades familiares requieren empatía y presencia humana que ningún LLM puede sustituir.</li>
+                            <li><strong>Generar el 100% del planeamiento</strong> sin contextualizarlo a su grupo específico: los LLMs producen planeamientos genéricos que deben ser revisados y ajustados a la realidad de cada sección.</li>
                         </ul>
                     </section>
 
                     <section id="s4" class="scroll-mt-24">
+
                         <h2>4. Herramienta sugerida</h2>
                         <div class="flex items-center gap-4 p-4 bg-gray-50 rounded-xl border border-gray-200 my-4">
                             <div class="w-12 h-12 flex-shrink-0 bg-orange-100 rounded-lg flex items-center justify-center text-2xl">✨</div>
                             <div>
                                 <h4 class="font-bold text-gray-900 m-0">NotebookLM (Google)</h4>
-                                <p class="text-sm text-gray-600 m-0">A diferencia de ChatGPT, NotebookLM solo utiliza los documentos (PDFs, Docs) que usted le proporciona. Es ideal para cargar el programa de estudios del MEP y generar planeamientos 100% apegados a la norma, sin "inventar" información externa.</p>
+                                <p class="text-sm text-gray-600 m-0">A diferencia de ChatGPT o Gemini general, <strong>NotebookLM responde exclusivamente desde los documentos que usted le proporciona</strong>. Es ideal para cargar el Programa de Estudios MEP de su asignatura, los Lineamientos del REAC y las Pautas DUA, y luego pedirle que genere planeamientos, rúbricas y actividades 100% alineadas a la normativa oficial, sin «inventar» estándares ajenos al currículo costarricense. Esta característica técnica se denomina RAG (<em>Retrieval-Augmented Generation</em>): el modelo «grapa» sus respuestas a los documentos de referencia.</p>
                             </div>
+                        </div>
+                        <div class="bg-orange-50 border border-orange-200 rounded-xl p-4 mt-4">
+                            <h4 class="font-semibold text-orange-900 mb-2">📋 Flujo de trabajo recomendado con NotebookLM</h4>
+                            <ol class="text-sm text-orange-800 list-decimal pl-5 space-y-1">
+                                <li>Suba el PDF del Programa de Estudios de su materia y año.</li>
+                                <li>Suba los Lineamientos Curriculares MEP 2024-2025 relevantes.</li>
+                                <li>Haga preguntas como: «¿Qué indicadores de logro corresponden al Bloque 2 de Matemáticas de octavo año?»</li>
+                                <li>Genere la rúbrica basada en esos indicadores exactos.</li>
+                            </ol>
                         </div>
                     </section>
 
                     <section id="s5" class="scroll-mt-24">
+
                         <h2>5. Prompt base (Ejemplo Evaluativo)</h2>
                         <div class="bg-gray-900 text-gray-100 p-5 rounded-xl font-mono text-sm shadow-inner mb-4">
                             "Crea una rúbrica para calificar una maqueta sobre el sistema solar."
                         </div>
-                        <p class="text-sm text-gray-500 italic">Problema: Generará una rúbrica genérica, posiblemente desalineada con los componentes del trabajo cotidiano del REAC.</p>
+                        <p class="text-sm text-gray-500 italic">Problema: Generará una rúbrica genérica desconectada de los <strong>indicadores de logro del Programa de Estudios MEP</strong> y de los <strong>componentes del REAC</strong>. No especifica el nivel educativo, el porcentaje del rubro, los criterios de evaluación ni los descriptores de cada nivel. El resultado será académicamente endeble: útil como borrador pero inutilizable directamente.</p>
                     </section>
 
                     <section id="s6" class="scroll-mt-24">
-                        <h2>6. Uso mejorado (Prompt Avanzado)</h2>
+
+                        <h2>6. Uso mejorado (Prompt Avanzado REAC-Alineado)</h2>
                         <div class="bg-mep-orange text-white p-5 rounded-xl font-mono text-sm shadow-lg shadow-orange-500/20 mb-4">
-                            "Actúa como un asesor pedagógico de Ciencias. Diseña una rúbrica analítica para evaluar el componente 'Proyecto' (según Lineamientos MEP 2026). El entregable es un modelo físico del Sistema Solar. La rúbrica debe tener 4 niveles de desempeño (Excelente, Muy Bueno, Bueno, En Proceso). Evalúa 3 criterios: Exactitud Científica (proporciones relativas), Creatividad en el uso de materiales de reciclaje, y Claridad en la exposición oral. Describe exactamente qué se espera en cada nivel para cada criterio."
+                            "Actúa como un asesor pedagógico especializado en Ciencias para secundaria en Costa Rica. Diseña una <em>rúbrica analítica</em> para evaluar el componente «Proyecto» (según los lineamientos del REAC 2024, donde este componente vale un 40% de la calificación trimestral). El entregable es un modelo físico tridimensional del Sistema Solar hecho con materiales reciclados. Grado: octavo año. La rúbrica debe tener exactamente 4 niveles de desempeño con sus descriptores observacionales: Excelente (90-100), Muy Bueno (80-89), Bueno (65-79), En Proceso (menos de 65). Los 3 criterios de evaluación son: (1) Exactitud Científica —proporciones relativas de tamaño y distancia; (2) Creatividad e Innovación —uso de materiales reciclados, originalidad estética; (3) Claridad en la Exposición Oral —estructura argumentativa, dominio del tema, dicción. Incluye el peso porcentual de cada criterio. Formato: tabla con filas=criterios y columnas=niveles."
                         </div>
+                        <p class="text-sm text-gray-500">Este prompt aplica el principio de <strong>especificidad instruccional</strong>: incluye nivel educativo, normativa de referencia, porcentaje del rubro, número exacto de niveles con sus rangos numéricos, criterios definidos y formato de salida. Una rúbrica generada con este nivel de detalle puede usarse directamente con ajustes mínimos.</p>
                     </section>
 
                     <section id="s7" class="scroll-mt-24">
+
                         <h2>7. Adaptación por nivel/modalidad</h2>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-6">
                             <div class="border border-gray-200 rounded-lg p-4">
-                                <h4 class="font-bold text-mep-blue text-sm uppercase tracking-wider mb-2">Primaria</h4>
-                                <p class="text-sm text-gray-600">Simplifique el lenguaje de la rúbrica generada para entregarla a los niños como una "lista de chequeo" (Autoevaluación).</p>
+                                <h4 class="font-bold text-mep-blue text-sm uppercase tracking-wider mb-2">Primaria (I y II Ciclo)</h4>
+                                <p class="text-sm text-gray-600">Solicite a la IA que simplifique el lenguaje de la rúbrica para convertirla en una <strong>«lista de chequeo con lenguaje estudiantil»</strong> que los niños puedan usar para autoevaluar su propio trabajo antes de entregarlo (Autoevaluación DUA — Principio III).</p>
                             </div>
                             <div class="border border-gray-200 rounded-lg p-4">
                                 <h4 class="font-bold text-mep-green text-sm uppercase tracking-wider mb-2">Secundaria</h4>
-                                <p class="text-sm text-gray-600">Utilice IA para generar casos de "Fake News" históricas y pida a los estudiantes que las desmientan argumentando (Pensamiento crítico).</p>
+                                <p class="text-sm text-gray-600">Utilice IA para generar casos de <strong>«noticias falsas»</strong> (<em>fake news</em>) históricas y pida a los estudiantes que las desmientan con evidencia argumentada. Esta actividad desarrolla el <em>pensamiento crítico</em> (nivel 4 de la Taxonomía de Bloom revisada: Análisis).</p>
                             </div>
                             <div class="border border-gray-200 rounded-lg p-4">
                                 <h4 class="font-bold text-mep-orange text-sm uppercase tracking-wider mb-2">CTP (Técnica)</h4>
-                                <p class="text-sm text-gray-600">Simule con la IA el rol de un "Cliente Difícil" para que los estudiantes de servicio al cliente practiquen sus respuestas.</p>
+                                <p class="text-sm text-gray-600">Simule con la IA el rol de un <strong>«cliente exigente»</strong> para que los estudiantes de Servicio al Cliente o Hotelería practiquen el manejo de objeciones. Pida a la IA que después evalúe la respuesta del estudiante según criterios de asertividad y resolución de conflictos.</p>
                             </div>
                             <div class="border border-gray-200 rounded-lg p-4">
                                 <h4 class="font-bold text-purple-600 text-sm uppercase tracking-wider mb-2">IPEC / CINDEA</h4>
-                                <p class="text-sm text-gray-600">Relacione los proyectos matemáticos directamente con problemas de emprendedurismo o finanzas personales.</p>
+                                <p class="text-sm text-gray-600">Relacione los proyectos matemáticos directamente con <strong>problemas de emprendedurismo o finanzas personales</strong>: cálculo de intereses, presupuesto familiar, punto de equilibrio de un micronegocio. Esto aplica el principio andragógico de aprendizaje orientado a la experiencia propia (Knowles, 1973).</p>
                             </div>
                         </div>
                     </section>
 
                     <section id="s8" class="scroll-mt-24">
+
                         <h2>8. Riesgos y cuidados éticos</h2>
                         <div class="bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4">
                             <h4 class="text-red-800 font-bold mb-2 flex items-center gap-2">
                                 <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
-                                Sesgos de Evaluación
+                                Sesgos Socioeconómicos en la Evaluación
                             </h4>
-                            <p class="text-sm text-red-700 m-0">Es vital asegurar que la rúbrica generada por IA no incluya exigencias fuera del programa oficial que puedan perjudicar a estudiantes de bajos recursos (ej. penalizar si no se usan materiales comerciales caros en un proyecto escolar).</p>
+                            <p class="text-sm text-red-700 m-0">Es fundamental auditar las rúbricas generadas por IA para detectar criterios que, sin intención, penalicen a estudiantes de menores recursos. Por ejemplo: si la rúbrica para el «Proyecto de maqueta» incluye como criterio «calidad del acabado con pinturas acrílicas importadas», se está penalizando la condición socioeconómica, no el aprendizaje. El REAC exige que la evaluación mida el <strong>logro de indicadores de aprendizaje</strong>, no el acceso a recursos materiales.</p>
+                        </div>
+                        <div class="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-r-lg mt-4">
+                            <h4 class="text-blue-800 font-bold mb-2">📐 Validez y Confiabilidad del Instrumento</h4>
+                            <p class="text-sm text-blue-700 m-0">En teoría de la evaluación educativa, un instrumento es <strong>válido</strong> cuando mide lo que dice medir y <strong>confiable</strong> cuando produce resultados consistentes entre evaluadores distintos. Revise la rúbrica generada preguntándose: «¿Si otro docente de mi materia usara esta rúbrica, llegaría a las mismas conclusiones que yo?». Si la respuesta es dudosa, los descriptores necesitan más especificidad observacional.</p>
                         </div>
                     </section>
 
                     <section id="s9" class="scroll-mt-24">
+
                         <h2>9. Ejemplo Aplicado en Aula</h2>
-                        <p>Para la lección de Estudios Sociales sobre Independencia, usted no solo explica los hechos. Usa IA para generar 3 cartas simuladas desde diferentes perspectivas (un comerciante, un criollo, un español) en el año 1821. Divide la clase en 3 grupos y les pide que analicen las motivaciones económicas de cada uno basándose en las cartas (Aprendizaje Basado en Indagación).</p>
+                        <p>Para la lección de Estudios Sociales sobre la <strong>Independencia de Centroamérica (1821)</strong>, usted no solo explica los hechos. Usa IA para generar <strong>tres cartas históricas simuladas</strong> desde perspectivas diferentes:</p>
+                        <ul>
+                            <li><em>Carta de un comerciante criollo</em> de San José, preocupado por el control del mercado con España.</li>
+                            <li><em>Carta de un cura pároco</em> de Heredia, reflexionando sobre la lealtad a la Corona y el miedo al caos social.</li>
+                            <li><em>Carta de un trabajador indígena</em> de los alrededores de Cartago, expresando sus dudas sobre si la independencia cambiaría algo para su comunidad.</li>
+                        </ul>
+                        <p>Divide la clase en tres grupos, cada uno analiza «su» carta y responde: ¿Qué motivaciones económicas, religiosas o sociales refleja este personaje? Luego, un miembro de cada grupo expone al resto. Esta técnica, denominada <strong>«perspectivas múltiples»</strong> en la didáctica de las Ciencias Sociales, desarrolla la empatía histórica y el pensamiento crítico (Seixas & Morton, 2013), operando en los niveles de <em>Análisis y Evaluación</em> de la Taxonomía de Bloom.</p>
                     </section>
 
                     <section id="s10" class="scroll-mt-24">
+
                         <h2>10. Conexión con la Evaluación</h2>
-                        <p>La IA le permite diversificar sus instrumentos. Al tener rúbricas, guías de observación y listas de cotejo más fáciles de redactar, usted puede documentar el componente de <strong>Trabajo Cotidiano</strong> con mucha mayor robustez y evidencia escrita, reduciendo la subjetividad.</p>
+                        <p>La IA le permite diversificar sus <strong>instrumentos de evaluación formativa</strong>. Al poder generar rúbricas analíticas, listas de cotejo y escalas valorativas en una fracción del tiempo tradicional, usted puede:</p>
+                        <ul>
+                            <li>Documentar el <strong>Trabajo Cotidiano</strong> con mayor robustez y menor subjetividad.</li>
+                            <li>Proveer <strong>retroalimentación específica y diferenciada</strong> por criterio, no solo una nota global.</li>
+                            <li>Generar versiones alternativas del mismo instrumento para estudiantes con adecuaciones curriculares no significativas.</li>
+                        </ul>
+                        <p>Esto es consistente con el enfoque de la <strong>Evaluación Auténtica</strong> (Wiggins, 1990): demostrar aprendizaje a través de desempeños reales y complejos, no solo de respuestas de opción múltiple.</p>
                     </section>
 
                     <section id="s11" class="scroll-mt-24">
+
                         <h2>11. Evidencia que puede recoger</h2>
-                        <p>Guarde en su portafolio docente el "Antes y Después" de una guía de evaluación: muestre cómo era su lista de cotejo manual y cómo evolucionó a una Rúbrica Analítica generada con asistencia de IA.</p>
+                        <p>Conserve en su portafolio docente el <strong>«Antes y Después» de un instrumento de evaluación</strong>:</p>
+                        <ul>
+                            <li><strong>Antes:</strong> la lista de cotejo manual que usaba, con criterios generales («presenta el trabajo» / «no presenta el trabajo»).</li>
+                            <li><strong>Después:</strong> la rúbrica analítica generada con asistencia de IA, con descriptores observacionales específicos por nivel.</li>
+                        </ul>
+                        <p>Esta comparación demuestra el salto cualitativo en sus prácticas evaluativas, evidencia relevante para procesos de actualización docente y para la demostración de competencias en el Marco de Buen Desempeño Docente (MEP).</p>
                     </section>
 
                     <section id="s12" class="scroll-mt-24">
+
                         <h2>12. Versión Inclusiva (DUA)</h2>
-                        <p>Use la IA para generar "Andamiajes Cognitivos" (Scaffolding). Para un estudiante que se abruma con un proyecto grande, pida a la IA que tome las instrucciones del proyecto y las divida en un diagrama de flujo de 5 pequeños pasos (Principio III: Proveer múltiples formas de Implicación/Motivación).</p>
+                        <p>Use la IA para generar <strong>andamiajes cognitivos</strong> (<em>scaffolding</em>) diferenciados. El concepto de Zona de Desarrollo Próximo de Vygotsky (1978) nos recuerda que los estudiantes aprenden mejor cuando reciben apoyo justo en el punto donde su capacidad actual termina y su potencial comienza.</p>
+                        <ul>
+                            <li>Para un estudiante que se siente abrumado por un proyecto grande: pida a la IA que tome las instrucciones del proyecto y las divida en un <strong>diagrama de flujo de 5 micro-pasos</strong>, con preguntas guía para cada paso.</li>
+                            <li>Para un estudiante con alta capacidad intelectual: pida una <strong>extensión del proyecto</strong> con un nivel de complejidad adicional que lo rete sin frustrarlo.</li>
+                        </ul>
+                        <p>Esto operacionaliza el <strong>Principio III del DUA: Múltiples formas de implicación y motivación</strong>, adaptando el nivel de desafío para mantener el <em>flujo cognitivo óptimo</em> (Csikszentmihalyi, 1990) de cada estudiante.</p>
                     </section>
 
                     <section id="s13" class="scroll-mt-24">
+
                         <h2>13. Microreto de Autoformación</h2>
-                        <div class="bg-orange-50 border border-orange-200 rounded-xl p-6 text-center my-6">
-                            <h4 class="text-lg font-bold text-mep-orange mb-2">Reto de 15 Minutos</h4>
-                            <p class="text-gray-700 mb-4">Seleccione el próximo tema que va a evaluar. Copie el <strong>Prompt Avanzado</strong> del apartado 6, ajuste las variables (materia, tema, 3 criterios a evaluar) y ejecútelo en ChatGPT o Gemini. Revise la rúbrica resultante, haga al menos 2 correcciones manuales para ajustarla a su grupo, e imprímala para usarla en su próxima clase.</p>
+                        <div class="bg-blue-50 border border-blue-200 rounded-xl p-6 text-center my-6">
+                            <h4 class="text-lg font-bold text-mep-blue mb-2">⏱️ Reto de 15 Minutos</h4>
+                            <p class="text-gray-700 mb-4">Seleccione el próximo tema que va a evaluar. Copie el Prompt Avanzado del apartado 6, ajuste las variables (<em>materia, grado, tema, 3 criterios de evaluación específicos</em>) y ejecútelo en ChatGPT, Gemini o NotebookLM. Revise la rúbrica resultante con la siguiente lista de chequeo de calidad: (a) ¿Los criterios corresponden a indicadores del Programa de Estudios MEP? (b) ¿Los descriptores son observacionales y no subjetivos? (c) ¿Algún criterio penaliza el acceso a recursos materiales? Haga al menos 2 correcciones manuales y úsela en su próxima evaluación.</p>
                         </div>
                     </section>
 
                     <section id="s14" class="scroll-mt-24">
+
                         <h2>14. Checklist Rápido</h2>
                         <ul class="space-y-2 list-none pl-0">
                             <li class="flex items-center gap-3">
-                                <input type="checkbox" class="w-5 h-5 text-mep-orange rounded focus:ring-mep-orange border-gray-300">
-                                <span class="text-gray-700">Sé redactar prompts estructurados para instrumentos de evaluación.</span>
+                                <input type="checkbox" class="w-5 h-5 text-orange-500 rounded focus:ring-orange-500 border-gray-300">
+                                <span class="text-gray-700">Sé redactar prompts estructurados con contexto, normativa y formato para instrumentos REAC.</span>
                             </li>
                             <li class="flex items-center gap-3">
-                                <input type="checkbox" class="w-5 h-5 text-mep-orange rounded focus:ring-mep-orange border-gray-300">
-                                <span class="text-gray-700">Reviso siempre que las rúbricas no tengan sesgos socioeconómicos.</span>
+                                <input type="checkbox" class="w-5 h-5 text-orange-500 rounded focus:ring-orange-500 border-gray-300">
+                                <span class="text-gray-700">Reviso que las rúbricas no contengan sesgos socioeconómicos ni criterios ajenos al currículo.</span>
                             </li>
                             <li class="flex items-center gap-3">
-                                <input type="checkbox" class="w-5 h-5 text-mep-orange rounded focus:ring-mep-orange border-gray-300">
-                                <span class="text-gray-700">Utilizo IA para proveer adaptaciones (DUA) a estudiantes que lo requieren.</span>
+                                <input type="checkbox" class="w-5 h-5 text-orange-500 rounded focus:ring-orange-500 border-gray-300">
+                                <span class="text-gray-700">Utilizo IA para generar andamiajes cognitivos (scaffolding) diferenciados para distintos perfiles de estudiantes.</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <input type="checkbox" class="w-5 h-5 text-orange-500 rounded focus:ring-orange-500 border-gray-300">
+                                <span class="text-gray-700">Comprendo la diferencia entre evaluación formativa (para el aprendizaje) y sumativa (del aprendizaje).</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <input type="checkbox" class="w-5 h-5 text-orange-500 rounded focus:ring-orange-500 border-gray-300">
+                                <span class="text-gray-700">He generado y utilizado al menos una rúbrica analítica asistida por IA en mi práctica docente.</span>
                             </li>
                         </ul>
                     </section>
 
                     <section id="s15" class="scroll-mt-24">
+
                         <h2>15. Recursos Complementarios</h2>
                         <ul>
-                            <li><a href="#" class="text-mep-orange hover:underline">Plantilla Descargable: Prompts para Rúbricas REAC 2026</a></li>
-                            <li><a href="#" class="text-mep-orange hover:underline">Artículo: IA y el Diseño Universal para el Aprendizaje</a></li>
+                            <li><a href="#" class="text-orange-600 hover:underline">Plantilla Descargable: Prompts para Rúbricas REAC 2024 (PDF)</a></li>
+                            <li><a href="#" class="text-orange-600 hover:underline">CAST (2018): Pautas del Diseño Universal para el Aprendizaje — versión en español</a></li>
+                            <li><a href="#" class="text-orange-600 hover:underline">Black & Wiliam (1998): «Inside the Black Box» — La retroalimentación formativa y su efecto en el aprendizaje</a></li>
+                            <li><a href="#" class="text-orange-600 hover:underline">MEP (2024): Reglamento de Evaluación de los Aprendizajes (REAC) — Versión actualizada</a></li>
+                            <li><a href="#" class="text-orange-600 hover:underline">Tutorial: Cómo usar NotebookLM con Programas de Estudio MEP</a></li>
+                            <li><a href="#" class="text-orange-600 hover:underline">Seixas & Morton (2013): Los seis conceptos del pensamiento histórico</a></li>
                         </ul>
                     </section>
                 </div>
@@ -358,7 +454,97 @@
                 </div>
 
             </div>
-        
+
+            <!-- ═══════════════════════════════════════════ -->
+            <!-- Sección Bonus: Micro-Prompts (integrado de M10) -->
+            <!-- ═══════════════════════════════════════════ -->
+            <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 sm:p-10 mt-8" id="microprompts-section">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="px-2.5 py-1 bg-orange-100 text-orange-700 text-xs font-bold rounded-full uppercase tracking-wide">Nivel Rápido</span>
+                    <h2 class="text-xl font-bold text-gray-900">Micro-Prompts para el Día a Día</h2>
+                </div>
+                <p class="text-gray-500 text-sm mb-6">¿Tiene menos de 2 minutos? Use estas plantillas ultracortas para generar ideas de clase al instante. Reemplace los textos entre corchetes con su tema.</p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+
+                    <!-- Card 1 -->
+                    <div class="bg-gray-50 rounded-xl p-4 border border-gray-200 hover:border-orange-300 hover:shadow-sm transition-all">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="text-lg">🧊</span>
+                            <h4 class="font-bold text-gray-800 text-sm">Rompehielos de inicio</h4>
+                        </div>
+                        <code class="text-sm text-orange-700 block bg-white p-3 rounded-lg border border-orange-100 leading-relaxed font-mono">
+                            "Dame 3 preguntas rompehielos sobre [Tema] para adolescentes de [edad] años."
+                        </code>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="bg-gray-50 rounded-xl p-4 border border-gray-200 hover:border-orange-300 hover:shadow-sm transition-all">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="text-lg">🚪</span>
+                            <h4 class="font-bold text-gray-800 text-sm">Ticket de salida</h4>
+                        </div>
+                        <code class="text-sm text-orange-700 block bg-white p-3 rounded-lg border border-orange-100 leading-relaxed font-mono">
+                            "Genera 2 preguntas de reflexión final sobre [Tema de la clase de hoy]."
+                        </code>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="bg-gray-50 rounded-xl p-4 border border-gray-200 hover:border-orange-300 hover:shadow-sm transition-all">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="text-lg">🔀</span>
+                            <h4 class="font-bold text-gray-800 text-sm">Variación de ejercicios</h4>
+                        </div>
+                        <code class="text-sm text-orange-700 block bg-white p-3 rounded-lg border border-orange-100 leading-relaxed font-mono">
+                            "Crea 3 variaciones de este problema con diferente nivel de dificultad: [problema base]."
+                        </code>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="bg-gray-50 rounded-xl p-4 border border-gray-200 hover:border-orange-300 hover:shadow-sm transition-all">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="text-lg">🇨🇷</span>
+                            <h4 class="font-bold text-gray-800 text-sm">Analogía local</h4>
+                        </div>
+                        <code class="text-sm text-orange-700 block bg-white p-3 rounded-lg border border-orange-100 leading-relaxed font-mono">
+                            "Dame una analogía de la vida cotidiana en Costa Rica para explicar [concepto complejo]."
+                        </code>
+                    </div>
+
+                    <!-- Card 5 -->
+                    <div class="bg-gray-50 rounded-xl p-4 border border-gray-200 hover:border-orange-300 hover:shadow-sm transition-all">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="text-lg">💡</span>
+                            <h4 class="font-bold text-gray-800 text-sm">Ideas de proyecto rápido</h4>
+                        </div>
+                        <code class="text-sm text-orange-700 block bg-white p-3 rounded-lg border border-orange-100 leading-relaxed font-mono">
+                            "Sugiere un proyecto de 1 semana donde estudiantes de [grado] apliquen [concepto] usando materiales reciclados."
+                        </code>
+                    </div>
+
+                    <!-- Card 6 -->
+                    <div class="bg-gray-50 rounded-xl p-4 border border-gray-200 hover:border-orange-300 hover:shadow-sm transition-all">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="text-lg">📋</span>
+                            <h4 class="font-bold text-gray-800 text-sm">Rúbrica de un solo punto</h4>
+                        </div>
+                        <code class="text-sm text-orange-700 block bg-white p-3 rounded-lg border border-orange-100 leading-relaxed font-mono">
+                            "Escribe los 3 criterios indispensables que debe tener un ensayo sobre [Tema]."
+                        </code>
+                    </div>
+
+                </div>
+
+                <!-- Alerta ética específica para micro-prompts -->
+                <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 flex gap-3 items-start">
+                    <span class="text-xl flex-shrink-0">⚠️</span>
+                    <div>
+                        <p class="font-bold text-amber-900 text-sm mb-1">Ética en micro-prompts</p>
+                        <p class="text-sm text-amber-800 m-0">Los prompts breves aumentan el riesgo de respuestas con estereotipos culturales o de género. Lea siempre críticamente el resultado antes de usarlo con sus estudiantes. Recuerde: nunca incluya datos reales de sus alumnos, ni siquiera en prompts cortos.</p>
+                    </div>
+                </div>
+            </div>
+
             <!-- ═══════════════════════════════════════════ -->
             <!-- Autoevaluación del Módulo 3 -->
             <!-- ═══════════════════════════════════════════ -->
@@ -508,6 +694,46 @@
             }
             </script>
 
+
+            <!-- ═══ Navegación entre módulos ═══ -->
+            <div class="border-t border-gray-200 mt-10 pt-8 pb-2
+                        flex items-center justify-between gap-4" id="mod-nav">
+                
+        <a href="modulo-2.html"
+           class="flex items-center gap-3 px-5 py-3 bg-white border border-gray-200
+                  rounded-xl text-gray-600 hover:bg-gray-50 hover:border-gray-300
+                  font-medium transition-all group">
+            <svg class="w-4 h-4 flex-shrink-0 group-hover:-translate-x-1 transition-transform"
+                 fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M15 19l-7-7 7-7"/>
+            </svg>
+            <div class="hidden sm:block text-left">
+                <div class="text-xs text-gray-400">Anterior</div>
+                <div class="text-sm font-semibold">Ética y Privacidad</div>
+            </div>
+        </a>
+                <a href="modulos.html"
+                   class="text-sm text-gray-400 hover:text-mep-blue underline transition-colors
+                          hidden sm:block">
+                    Ver catálogo
+                </a>
+                
+        <a href="modulo-4.html"
+           class="flex items-center gap-3 px-5 py-3 bg-mep-blue hover:bg-blue-700
+                  rounded-xl text-white font-medium transition-all group
+                  shadow-lg shadow-blue-500/20">
+            <div class="hidden sm:block text-right">
+                <div class="text-xs text-blue-200">Siguiente</div>
+                <div class="text-sm font-semibold">Herramientas Prácticas</div>
+            </div>
+            <svg class="w-4 h-4 flex-shrink-0 group-hover:translate-x-1 transition-transform"
+                 fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M9 5l7 7-7 7"/>
+            </svg>
+        </a>
+            </div>
         </main>
     </div>
 

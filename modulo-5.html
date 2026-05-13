@@ -76,10 +76,6 @@
                 </svg>
                 <span class="text-sm font-medium hidden sm:block">Preguntas y Respuestas</span>
             </a>
-            <div class="flex items-center gap-3 p-1 pr-3 rounded-full border border-gray-200 hover:bg-gray-50 cursor-pointer transition-colors">
-                <img src="https://ui-avatars.com/api/?name=Docente+MEP&background=006633&color=fff" alt="Perfil de usuario" class="w-8 h-8 rounded-full">
-                <span class="text-sm font-medium text-gray-700 hidden sm:block">Docente</span>
-            </div>
         </div>
     </header>
 
@@ -166,6 +162,15 @@
                     <h3 class="font-bold text-amber-900 mb-1">Importante: Protección de Datos de Estudiantes</h3>
                     <p class="text-sm text-amber-800 leading-relaxed m-0">Nunca ingrese nombres, cédulas, calificaciones ni datos personales de estudiantes en herramientas de IA de terceros (ChatGPT, Gemini, Copilot, etc.). Use siempre <strong>descripciones genéricas</strong> como "estudiante de sétimo con dificultad lectora". Consulte nuestra <a href="politica-privacidad.html" class="text-amber-900 underline font-semibold hover:text-amber-700">Política de Privacidad</a> y la <a href="politica-privacidad.html" class="text-amber-900 underline font-semibold hover:text-amber-700">Ley 8968 / PRODHAB</a>.</p>
                 </div>
+
+            <!-- Banner de prerequisito -->
+            <div class="bg-blue-50 border border-blue-200 rounded-xl p-4 mb-6
+                        flex items-center gap-3" id="prereq-banner">
+                <span class="text-xl flex-shrink-0">📋</span>
+                <p class="text-sm text-blue-800 m-0">
+                    <strong>Prerequisito recomendado:</strong> Para aprovechar mejor este módulo, le recomendamos haber revisado <a href="modulo-4.html" class="font-bold underline hover:text-blue-900">Módulo 4: Herramientas Prácticas</a> primero.
+                </p>
+            </div>
             </div>
 
             <!-- Recursos / Infografías Section -->
@@ -196,139 +201,190 @@
                 <div class="lg:col-span-3 bg-white rounded-2xl border border-gray-200 shadow-sm p-6 sm:p-10 prose max-w-none">
                     
                     <section id="s1" class="scroll-mt-24">
+
                         <h2>1. ¿Para qué le sirve al docente?</h2>
-                        <p>Este módulo le sirve para salir de la teoría y ver aplicaciones tangibles en su materia específica. Entenderá cómo docentes de Matemáticas, Estudios Sociales o Especialidades Técnicas están usando la IA hoy para resolver problemas cotidianos del aula.</p>
+                        <p>Este módulo le sirve para <strong>salir de la teoría y ver aplicaciones tangibles en su materia específica</strong>. Entenderá cómo docentes de Matemáticas, Estudios Sociales, Español, Ciencias y Especialidades Técnicas están usando la IA hoy para resolver problemas cotidianos del aula, conectando los contenidos curriculares con la realidad inmediata de los estudiantes costarricenses.</p>
+                        <p>Desde la perspectiva del <strong>Aprendizaje Situado</strong> (Lave & Wenger, 1991), el conocimiento se adquiere de manera más profunda y duradera cuando está anclado en contextos auténticos y significativos para el aprendiz. La IA permite al docente generar ese contexto de forma rápida y personalizada: problemas matemáticos ambientados en el Mercado Central, simulaciones históricas en el Cabildo de Cartago, debates éticos sobre la pesca artesanal en el Pacífico.</p>
                     </section>
 
                     <section id="s2" class="scroll-mt-24">
+
                         <h2>2. ¿Cuándo sí usar IA?</h2>
-                        <p>Úsela para transversalizar contenidos. Por ejemplo:</p>
+                        <p>Úsela para <strong>transversalizar contenidos</strong> y conectar el currículo formal con los intereses vitales de sus estudiantes. Es especialmente poderosa para:</p>
                         <ul>
-                            <li>Crear problemas matemáticos basados en los intereses de los estudiantes (ej. fútbol o videojuegos).</li>
-                            <li>Diseñar simulaciones de debates históricos.</li>
-                            <li>Generar bancos de preguntas infinitos para prácticas pre-examen.</li>
+                            <li><strong>Contextualizar problemas matemáticos</strong> en situaciones reales de interés para adolescentes: cálculo de estadísticas de fútbol, proporciones en recetas de cocina, probabilidad en videojuegos.</li>
+                            <li><strong>Simular debates históricos o sociales</strong> con múltiples perspectivas (ver Módulo 3), activando el pensamiento crítico y la empatía histórica.</li>
+                            <li><strong>Generar bancos de preguntas infinitos</strong> para prácticas pre-examen con distintos niveles de dificultad (LOTS a HOTS según la Taxonomía de Bloom).</li>
+                            <li><strong>Crear personajes o narradores ficticios</strong> para presentar contenidos: la IA puede «ser» el río Tempisque explicando su propio ecosistema, o el Benemérito Juan Santamaría relatando su perspectiva.</li>
                         </ul>
                     </section>
 
                     <section id="s3" class="scroll-mt-24">
+
                         <h2>3. ¿Cuándo NO usarla?</h2>
-                        <p>Evite usar IA para reemplazar la experiencia empírica. No la use para:</p>
+                        <p>Evite usar la IA para <strong>reemplazar la experiencia empírica directa</strong> que es irreemplazable en el desarrollo de competencias:</p>
                         <ul>
-                            <li>Simular experimentos de laboratorio de ciencias que los estudiantes deben realizar con sus manos.</li>
-                            <li>Reemplazar la lectura de obras literarias completas por resúmenes generados por IA.</li>
+                            <li><strong>Experimentos científicos de laboratorio:</strong> la manipulación directa de materiales, el error manual y la corrección en tiempo real son aprendizajes que ninguna simulación digital puede replicar plenamente. La IA complementa; no sustituye el experimento real.</li>
+                            <li><strong>Lectura de obras literarias completas:</strong> resumir con IA «El Meneíto» o «Marcos Ramírez» priva al estudiante de la experiencia estética y el encuentro con el lenguaje literario en profundidad. Use resúmenes de IA como andamiaje, no como sustituto.</li>
+                            <li><strong>Actividades de educación socioemocional:</strong> los círculos restaurativos, el trabajo en equipo presencial y la resolución de conflictos cara a cara tienen dimensiones relacionales que los LLMs no pueden simular.</li>
                         </ul>
                     </section>
 
                     <section id="s4" class="scroll-mt-24">
+
                         <h2>4. Herramienta sugerida</h2>
                         <div class="flex items-center gap-4 p-4 bg-gray-50 rounded-xl border border-gray-200 my-4">
                             <div class="w-12 h-12 flex-shrink-0 bg-yellow-100 rounded-lg flex items-center justify-center text-2xl">⚡</div>
                             <div>
                                 <h4 class="font-bold text-gray-900 m-0">ChatGPT / Claude</h4>
-                                <p class="text-sm text-gray-600 m-0">Ambas herramientas son excelentes para "role-playing" (juego de roles) y para generar escenarios creativos altamente adaptados a asignaturas específicas debido a su gran base de conocimiento general.</p>
+                                <p class="text-sm text-gray-600 m-0">Ambas herramientas son excelentes para <strong>juegos de rol</strong> (<em>role-playing</em>) y para generar escenarios pedagógicos creativos adaptados a materias específicas. <strong>Claude</strong> (Anthropic) destaca por su capacidad de análisis de documentos largos y por producir respuestas más matizadas y reflexivas, ideal para analizar obras literarias o documentos históricos complejos. <strong>ChatGPT</strong> (OpenAI) es superior para generación creativa libre y para tareas de código o matemáticas. Experimente con ambos y detecte cuál funciona mejor para su materia específica (ver Módulo 7).</p>
                             </div>
                         </div>
                     </section>
 
                     <section id="s5" class="scroll-mt-24">
+
                         <h2>5. Prompt base (Ejemplo Matemáticas)</h2>
                         <div class="bg-gray-900 text-gray-100 p-5 rounded-xl font-mono text-sm shadow-inner mb-4">
                             "Dame 5 problemas de álgebra para mis estudiantes."
                         </div>
-                        <p class="text-sm text-gray-500 italic">Problema: Obtendrá problemas genéricos sobre trenes viajando a distintas velocidades, desconectados de la realidad del estudiante.</p>
+                        <p class="text-sm text-gray-500 italic">Problema: Obtendrá los clásicos enunciados sobre trenes que salen de estaciones a distintas velocidades, completamente desconectados de la realidad vital del estudiante costarricense de 14 años. Estos problemas no activan la <em>relevancia personal</em>, que según la Teoría de la Autodeterminación (Deci & Ryan, 1985) es uno de los tres componentes clave para la motivación intrínseca en el aprendizaje.</p>
                     </section>
 
                     <section id="s6" class="scroll-mt-24">
-                        <h2>6. Uso mejorado (Contextualizado)</h2>
-                        <div class="bg-gray-700 text-white p-5 rounded-xl font-mono text-sm shadow-lg shadow-gray-500/20 mb-4">
-                            "Actúa como profesor de matemáticas de 8vo año en Costa Rica. Genera 5 problemas de ecuaciones de primer grado contextualizados en situaciones reales que le interesen a adolescentes de 14 años (por ejemplo: videojuegos, redes sociales, o música). Explica paso a paso cómo se resuelve el primero."
+
+                        <h2>6. Uso mejorado (Contextualizado y Motivante)</h2>
+                        <div class="bg-yellow-500 text-white p-5 rounded-xl font-mono text-sm shadow-lg mb-4">
+                            "Actúa como profesor de Matemáticas de octavo año en Costa Rica. Genera 5 problemas de ecuaciones de primer grado contextualizados en situaciones reales que interesan a adolescentes costarricenses de 14 años (por ejemplo: gestión de puntos en un videojuego popular, cálculo de seguidores en redes sociales, presupuesto para un concierto o partido de fútbol, precio de datos del teléfono). Cada problema debe ser resoluble en 5 minutos aproximadamente. Para el primer problema, incluye la solución paso a paso con el método de transposición de términos."
                         </div>
+                        <p class="text-sm text-gray-500">La clave de este prompt es la <strong>contextualización cultural y etaria</strong>. Al conectar el contenido matemático con el universo simbólico del adolescente costarricense, se activa la relevancia personal (Deci & Ryan, 1985) y se reduce la resistencia cognitiva hacia la materia. Esto es lo que Paulo Freire llamaba «leer el mundo» antes de «leer la palabra».</p>
                     </section>
 
                     <section id="s7" class="scroll-mt-24">
+
                         <h2>7. Adaptación por nivel/modalidad</h2>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-6">
                             <div class="border border-gray-200 rounded-lg p-4">
-                                <h4 class="font-bold text-mep-blue text-sm uppercase tracking-wider mb-2">Primaria</h4>
-                                <p class="text-sm text-gray-600">Crear cuentos interactivos donde la IA es un personaje de la historia de Costa Rica que responde preguntas a los niños.</p>
+                                <h4 class="font-bold text-mep-blue text-sm uppercase tracking-wider mb-2">Primaria — Español / Estudios Sociales</h4>
+                                <p class="text-sm text-gray-600">Cree cuentos interactivos donde la IA encarna un personaje histórico o un animal del bosque costarricense que «responde preguntas» de los niños. El docente proyecta la conversación en la pizarra y el grupo entero interactúa. Esta estrategia se alinea con el aprendizaje por <em>juego de roles</em> (Vygotsky, 1978).</p>
                             </div>
                             <div class="border border-gray-200 rounded-lg p-4">
-                                <h4 class="font-bold text-mep-green text-sm uppercase tracking-wider mb-2">Secundaria</h4>
-                                <p class="text-sm text-gray-600">Simular entrevistas con autores literarios para la clase de Español.</p>
+                                <h4 class="font-bold text-mep-green text-sm uppercase tracking-wider mb-2">Secundaria — Español / Literatura</h4>
+                                <p class="text-sm text-gray-600">Simule <strong>entrevistas con autores literarios costarricenses</strong>: pida a la IA que «sea» Carmen Lyra o Joaquín Gutiérrez y el grupo le hace preguntas sobre sus obras. Esto desarrolla la comprensión lectora profunda y la apreciación literaria contextualizada.</p>
                             </div>
                             <div class="border border-gray-200 rounded-lg p-4">
-                                <h4 class="font-bold text-mep-orange text-sm uppercase tracking-wider mb-2">CTP (Técnica)</h4>
-                                <p class="text-sm text-gray-600">Generar estudios de caso de fallos técnicos en redes de computadoras para que los estudiantes de informática diagnostiquen el problema.</p>
+                                <h4 class="font-bold text-mep-orange text-sm uppercase tracking-wider mb-2">CTP — Informática / Redes</h4>
+                                <p class="text-sm text-gray-600">Genere <strong>estudios de caso de fallas técnicas reales</strong> en redes de computadoras, sistemas electrónicos o circuitos: descripción del síntoma, pistas de diagnóstico, pregunta de cierre. Los estudiantes trabajan como «técnicos de soporte» que deben diagnosticar el problema usando sus conocimientos. ABP en su forma más auténtica.</p>
                             </div>
                             <div class="border border-gray-200 rounded-lg p-4">
-                                <h4 class="font-bold text-purple-600 text-sm uppercase tracking-wider mb-2">IPEC / CINDEA</h4>
-                                <p class="text-sm text-gray-600">Crear escenarios de presupuesto familiar real para enseñar matemáticas financieras.</p>
+                                <h4 class="font-bold text-purple-600 text-sm uppercase tracking-wider mb-2">IPEC / CINDEA — Matemáticas Financieras</h4>
+                                <p class="text-sm text-gray-600">Cree escenarios de <strong>presupuesto familiar real</strong>: cálculo de cuotas de préstamos, comparación de planes de telefonía, análisis del costo de vida. Conectar las matemáticas con la economía doméstica activa la relevancia inmediata para el adulto trabajador que retoma sus estudios.</p>
                             </div>
                         </div>
                     </section>
 
                     <section id="s8" class="scroll-mt-24">
+
                         <h2>8. Riesgos y cuidados éticos</h2>
-                        <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 rounded-r-lg my-4">
-                            <h4 class="text-yellow-800 font-bold mb-2 flex items-center gap-2">
-                                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
-                                Estereotipos y Sesgos Culturales
-                            </h4>
-                            <p class="text-sm text-yellow-700 m-0">Al pedir a la IA que contextualice, a menudo recurre a estereotipos (ej. asociar fútbol solo con niños). Revise críticamente que los ejemplos sean culturalmente apropiados e inclusivos de género.</p>
+                        <div class="bg-orange-50 border-l-4 border-orange-500 p-4 rounded-r-lg my-4">
+                            <h4 class="text-orange-800 font-bold mb-2">⚠️ Estereotipos y Sesgos Culturales</h4>
+                            <p class="text-sm text-orange-700 m-0">Al pedir a la IA que «contextualice» o use ejemplos locales, a menudo recurre a estereotipos (asociar fútbol solo con niños, asociar cocina con mujeres, asociar pobreza con ciertas zonas geográficas). <strong>Revise críticamente que los ejemplos generados sean culturalmente apropiados, inclusivos de género y representativos de la diversidad costarricense</strong> (población afrocostarricense, pueblos indígenas, personas con discapacidad, diversidad sexual). Si el ejemplo generado reproduce un estereotipo, corríjalo explícitamente antes de usarlo.</p>
+                        </div>
+                        <div class="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-r-lg mt-4">
+                            <h4 class="text-blue-800 font-bold mb-2">🧠 El Docente como Curador Pedagógico</h4>
+                            <p class="text-sm text-blue-700 m-0">La IA genera materia prima; el docente es el curador pedagógico. Esta distinción es fundamental: no presente el material de la IA como si fuera su propio diseño sin haberlo revisado. Su valor profesional reside precisamente en la capacidad de seleccionar, adaptar y contextualizar —habilidades que ningun modelo de lenguaje posee.</p>
                         </div>
                     </section>
 
                     <section id="s9" class="scroll-mt-24">
-                        <h2>9. Ejemplo Aplicado en Aula (Ciencias)</h2>
-                        <p>En lugar de una presentación tradicional sobre ecología, el docente usa Claude para actuar como el "Ministro de Ambiente". Los estudiantes deben prepararse, investigar sobre la biodiversidad local, y luego "entrevistar" a la IA (proyectada en la pizarra), debatiendo sobre políticas de conservación. El docente actúa como moderador.</p>
+
+                        <h2>9. Ejemplo Aplicado en Aula (Ciencias — Rol-Play)</h2>
+                        <p>En lugar de una presentación tradicional sobre <strong>biodiversidad y ecosistemas costarricenses</strong>, el docente diseña la siguiente actividad:</p>
+                        <ol class="list-decimal pl-6 space-y-2 text-gray-600 mb-4">
+                            <li><strong>Preparación (tarea previa):</strong> Los estudiantes investigan durante 15 minutos sobre la biodiversidad de la región Chorotega.</li>
+                            <li><strong>Rol-play en el aula:</strong> La IA (proyectada en la pizarra) actúa como el «Ministro de Ambiente ante la Asamblea Legislativa». Los estudiantes son «diputados» que deben interpelarlo sobre políticas de conservación del Bosque Seco Tropical.</li>
+                            <li><strong>Reglas del juego:</strong> Los estudiantes deben basar sus preguntas en datos reales que investigaron previamente. La IA responde desde su rol.</li>
+                            <li><strong>Cierre metacognitivo:</strong> El docente modera un análisis: «¿Qué respuestas de la IA sonaron reales? ¿Cuáles parecen inventadas? ¿Cómo lo verificarían?»</li>
+                        </ol>
+                        <p>Esta secuencia activa simultáneamente los niveles <em>Analizar, Evaluar y Crear</em> de la Taxonomía de Bloom (Anderson & Krathwohl, 2001), los más altos y los más raramente alcanzados en la educación tradicional.</p>
                     </section>
 
                     <section id="s10" class="scroll-mt-24">
+
                         <h2>10. Conexión con la Evaluación</h2>
-                        <p>Estas aplicaciones prácticas permiten evaluar el componente "Proyecto" de formas más ricas, enfocándose en el proceso de indagación del estudiante en lugar de un entregable de copia y pega.</p>
+                        <p>Las aplicaciones prácticas con IA permiten evaluar el componente <strong>«Proyecto» del REAC</strong> de formas cualitativamente más ricas. En lugar de valorar solo el producto final (el ensayo entregado), el docente puede:</p>
+                        <ul>
+                            <li>Evaluar el <strong>proceso de indagación</strong>: qué preguntas hizo el estudiante a la IA, cómo las refinó, qué información verificó.</li>
+                            <li>Evaluar la <strong>capacidad argumentativa</strong> durante el rol-play o el debate con la IA proyectada.</li>
+                            <li>Solicitar una <strong>«bitácora de prompts»</strong> donde el estudiante documente y reflexione sobre su proceso de interacción con la IA.</li>
+                        </ul>
+                        <p>Esto es consistente con la evaluación del <strong>proceso de aprendizaje</strong> (y no solo del producto), principio central de la evaluación formativa.</p>
                     </section>
 
                     <section id="s11" class="scroll-mt-24">
+
                         <h2>11. Evidencia que puede recoger</h2>
-                        <p>Guarde en su portafolio las transcripciones de las interacciones de los estudiantes con la IA durante los juegos de rol como evidencia cualitativa de su argumentación y pensamiento crítico.</p>
+                        <p>Durante actividades de rol-play o de indagación con IA, solicite a los estudiantes que <strong>capturen y reflexionen sobre sus interacciones</strong> con la herramienta. Una «bitácora de prompts» —con el prompt usado, la respuesta obtenida y una breve valoración crítica («¿qué fue útil? ¿qué fue incorrecto?»)— constituye evidencia cualitativa valiosa del pensamiento crítico y el aprendizaje activo del estudiante.</p>
+                        <p>Guarde en su portafolio docente las transcripciones anonimizadas de las mejores interacciones del grupo como demostración de su diseño pedagógico innovador.</p>
                     </section>
 
                     <section id="s12" class="scroll-mt-24">
+
                         <h2>12. Versión Inclusiva (DUA)</h2>
-                        <p>Las aplicaciones prácticas con IA pueden ser multimodales. Utilice generadores de imágenes (como DALL-E) en paralelo con los textos para apoyar a estudiantes con dominancia de aprendizaje visual, ilustrando conceptos abstractos de biología o historia.</p>
+                        <p>Las aplicaciones prácticas con IA pueden diseñarse para ser intrínsecamente multimodales, atendiendo distintos estilos y necesidades de aprendizaje:</p>
+                        <ul>
+                            <li><strong>Aprendices visuales:</strong> use generadores de imágenes (DALL-E 3 vía Copilot) en paralelo con los textos para ilustrar conceptos abstractos de biología, geografía o historia.</li>
+                            <li><strong>Aprendices kinestésicos:</strong> diseñe actividades donde la interacción con la IA sea el punto de partida para una actividad manual (primero preguntan a la IA, luego construyen un modelo físico del concepto).</li>
+                            <li><strong>Aprendices con barreras lingüísticas</strong> (estudiantes de lengua materna indígena o migrantes): pida a la IA que explique el concepto en un español más sencillo y con analogías de la vida cotidiana.</li>
+                        </ul>
                     </section>
 
                     <section id="s13" class="scroll-mt-24">
+
                         <h2>13. Microreto de Autoformación</h2>
-                        <div class="bg-gray-100 border border-gray-300 rounded-xl p-6 text-center my-6">
-                            <h4 class="text-lg font-bold text-gray-800 mb-2">Reto Interdisciplinario</h4>
-                            <p class="text-gray-700 mb-4">Piense en un tema que enseñe frecuentemente. Pida a ChatGPT que diseñe una actividad de clase que conecte su tema con al menos otra materia distinta (por ejemplo, Español con Música, o Matemáticas con Educación Física). Aplique la actividad la próxima semana.</p>
+                        <div class="bg-yellow-50 border border-yellow-300 rounded-xl p-6 text-center my-6">
+                            <h4 class="text-lg font-bold text-yellow-800 mb-2">🔗 Reto Interdisciplinario</h4>
+                            <p class="text-gray-700 mb-4">Seleccione un tema que enseñe frecuentemente. Pida a ChatGPT que diseñe una actividad de clase que <strong>conecte ese tema con al menos otra materia distinta</strong> (por ejemplo: Biología con Español, Matemáticas con Educación Física, Historia con Artes). El prompt sugerido: «Diseña una actividad de aprendizaje de 45 minutos que conecte [tu materia y tema] con [otra materia]. El nivel es [grado]. La actividad debe ser colaborativa y culminar con un producto tangible». Evalúe el resultado y decida si lo aplica la próxima semana.</p>
                         </div>
                     </section>
 
                     <section id="s14" class="scroll-mt-24">
+
                         <h2>14. Checklist Rápido</h2>
                         <ul class="space-y-2 list-none pl-0">
                             <li class="flex items-center gap-3">
-                                <input type="checkbox" class="w-5 h-5 text-gray-600 rounded focus:ring-gray-600 border-gray-300">
-                                <span class="text-gray-700">Exploré casos de uso en mi área de especialidad.</span>
+                                <input type="checkbox" class="w-5 h-5 text-yellow-600 rounded focus:ring-yellow-600 border-gray-300">
+                                <span class="text-gray-700">Exploré al menos un caso de uso de IA directamente aplicable a mi materia.</span>
                             </li>
                             <li class="flex items-center gap-3">
-                                <input type="checkbox" class="w-5 h-5 text-gray-600 rounded focus:ring-gray-600 border-gray-300">
-                                <span class="text-gray-700">He usado el "rol-play" para contextualizar el aprendizaje.</span>
+                                <input type="checkbox" class="w-5 h-5 text-yellow-600 rounded focus:ring-yellow-600 border-gray-300">
+                                <span class="text-gray-700">He diseñado o probado una actividad de «rol-play» o simulación con apoyo de IA.</span>
                             </li>
                             <li class="flex items-center gap-3">
-                                <input type="checkbox" class="w-5 h-5 text-gray-600 rounded focus:ring-gray-600 border-gray-300">
-                                <span class="text-gray-700">Verifico activamente la ausencia de estereotipos en los ejemplos generados.</span>
+                                <input type="checkbox" class="w-5 h-5 text-yellow-600 rounded focus:ring-yellow-600 border-gray-300">
+                                <span class="text-gray-700">Verifico activamente que los ejemplos generados sean culturalmente apropiados e inclusivos.</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <input type="checkbox" class="w-5 h-5 text-yellow-600 rounded focus:ring-yellow-600 border-gray-300">
+                                <span class="text-gray-700">Entiendo la diferencia entre usar IA como complemento vs. sustituto de la experiencia empírica directa.</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <input type="checkbox" class="w-5 h-5 text-yellow-600 rounded focus:ring-yellow-600 border-gray-300">
+                                <span class="text-gray-700">Completé el microreto interdisciplinario.</span>
                             </li>
                         </ul>
                     </section>
 
                     <section id="s15" class="scroll-mt-24">
+
                         <h2>15. Recursos Complementarios</h2>
                         <ul>
-                            <li><a href="#" class="text-gray-700 hover:underline font-medium">100 ideas para usar ChatGPT en el aula (Documento PDF)</a></li>
-                            <li><a href="#" class="text-gray-700 hover:underline font-medium">Video: Juegos de Rol en Secundaria con IA</a></li>
+                            <li><a href="#" class="text-yellow-700 hover:underline">100 ideas para usar ChatGPT en el aula por materia específica (PDF)</a></li>
+                            <li><a href="#" class="text-yellow-700 hover:underline">Video: Juegos de Rol en Secundaria con IA Generativa — Ejemplos prácticos</a></li>
+                            <li><a href="#" class="text-yellow-700 hover:underline">Lave & Wenger (1991): Aprendizaje situado — Participación periférica legítima</a></li>
+                            <li><a href="#" class="text-yellow-700 hover:underline">Deci & Ryan (1985): Teoría de la Autodeterminación — Motivación intrínseca y extrínseca</a></li>
+                            <li><a href="#" class="text-yellow-700 hover:underline">Anderson & Krathwohl (2001): Taxonomía de Bloom revisada para la era digital</a></li>
+                            <li><a href="#" class="text-yellow-700 hover:underline">MEP (2024): Programas de Estudio por materia y nivel — Repositorio oficial</a></li>
                         </ul>
                     </section>
                 </div>
@@ -508,6 +564,46 @@
             }
             </script>
 
+
+            <!-- ═══ Navegación entre módulos ═══ -->
+            <div class="border-t border-gray-200 mt-10 pt-8 pb-2
+                        flex items-center justify-between gap-4" id="mod-nav">
+                
+        <a href="modulo-4.html"
+           class="flex items-center gap-3 px-5 py-3 bg-white border border-gray-200
+                  rounded-xl text-gray-600 hover:bg-gray-50 hover:border-gray-300
+                  font-medium transition-all group">
+            <svg class="w-4 h-4 flex-shrink-0 group-hover:-translate-x-1 transition-transform"
+                 fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M15 19l-7-7 7-7"/>
+            </svg>
+            <div class="hidden sm:block text-left">
+                <div class="text-xs text-gray-400">Anterior</div>
+                <div class="text-sm font-semibold">Herramientas Prácticas</div>
+            </div>
+        </a>
+                <a href="modulos.html"
+                   class="text-sm text-gray-400 hover:text-mep-blue underline transition-colors
+                          hidden sm:block">
+                    Ver catálogo
+                </a>
+                
+        <a href="modulo-6.html"
+           class="flex items-center gap-3 px-5 py-3 bg-mep-blue hover:bg-blue-700
+                  rounded-xl text-white font-medium transition-all group
+                  shadow-lg shadow-blue-500/20">
+            <div class="hidden sm:block text-right">
+                <div class="text-xs text-blue-200">Siguiente</div>
+                <div class="text-sm font-semibold">Análisis de Datos con IA</div>
+            </div>
+            <svg class="w-4 h-4 flex-shrink-0 group-hover:translate-x-1 transition-transform"
+                 fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M9 5l7 7-7 7"/>
+            </svg>
+        </a>
+            </div>
         </main>
     </div>
 

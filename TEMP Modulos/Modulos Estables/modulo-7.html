@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 7: Herramientas Especializadas - Caja de Herramientas</title>
+    <!-- Tailwind CSS (via CDN para el prototipo estático) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        mep: {
+                            blue: '#0066cc',
+                            green: '#00aa44',
+                            orange: '#ff6b35',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .prose h2 { font-size: 1.5rem; font-weight: 700; color: #111827; margin-top: 2rem; margin-bottom: 1rem; border-bottom: 2px solid #f3f4f6; padding-bottom: 0.5rem; }
+        .prose h3 { font-size: 1.25rem; font-weight: 600; color: #374151; margin-top: 1.5rem; margin-bottom: 0.75rem; }
+        .prose p { margin-bottom: 1rem; line-height: 1.75; color: #4b5563; }
+        .prose ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1rem; color: #4b5563; }
+        .prose li { margin-bottom: 0.5rem; }
+        .toc-link.active { color: #9333ea; font-weight: 600; border-left-color: #9333ea; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans antialiased flex flex-col min-h-screen">
+    <!-- Top Bar Institucional -->
+    <div class="fixed top-0 left-0 right-0 h-14 bg-white border-b border-gray-200 z-[60] flex items-center justify-between px-4 md:px-6 shadow-sm">
+        <div class="flex items-center gap-4 md:gap-6 h-full py-2">
+            <img src="Logos/UCR.png" alt="UCR" class="h-6 md:h-8 object-contain">
+            <img src="Logos/VASUCR.png" alt="VAS" class="h-6 md:h-8 object-contain">
+            <img src="Logos/PuenteVAS.png" alt="Puentes" class="h-6 md:h-8 object-contain hidden sm:block">
+            <img src="Logos/CIOdD.jpg" alt="CIOdD" class="h-6 md:h-8 object-contain">
+        </div>
+        <div class="flex items-center h-full py-2">
+            <img src="Logos/ED3698.png" alt="ED3698" class="h-6 md:h-8 object-contain">
+        </div>
+    </div>
+
+    
+    <!-- Header -->
+    <header class="fixed top-14 left-0 right-0 h-20 bg-white/80 backdrop-blur-md border-b border-gray-200 z-20 flex items-center justify-between px-4 md:px-6 shadow-sm">
+        <div class="flex items-center gap-4">
+            <button class="md:hidden p-2 text-gray-600 hover:bg-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-mep-blue" onclick="toggleSidebar()" aria-label="Toggle Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+            <div class="hidden md:flex items-center gap-2 text-sm font-medium text-gray-500">
+                <a href="modulos.html" class="hover:text-mep-blue transition-colors">Módulos</a>
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                <span class="text-gray-900">Herramientas Especializadas</span>
+            </div>
+        </div>
+        <div class="flex items-center gap-4">
+            <button class="flex items-center gap-2 px-3 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors text-gray-600">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                </svg>
+                <span class="text-sm font-medium hidden sm:block">Notificaciones</span>
+            </button>
+            <a href="preguntas-respuestas.html" class="flex items-center gap-2 px-3 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors text-gray-600">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span class="text-sm font-medium hidden sm:block">Preguntas y Respuestas</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Wrapper Principal -->
+    <div class="flex flex-1 pt-[136px]">
+        
+        <!-- Overlay Sidebar Móvil -->
+        <div id="sidebarOverlay" class="fixed inset-0 bg-gray-900/50 backdrop-blur-sm z-30 hidden transition-opacity duration-300 md:hidden" onclick="toggleSidebar()"></div>
+
+        <!-- Sidebar -->
+        <aside id="sidebar" class="fixed inset-y-0 left-0 z-40 w-64 bg-white border-r border-gray-200 transform -translate-x-full transition-transform duration-300 ease-in-out md:relative md:translate-x-0 flex flex-col shadow-2xl md:shadow-none pt-[136px] md:pt-0">
+            <div class="flex items-center gap-3 px-6 py-5 border-b border-gray-100">
+                <div class="w-10 h-10 bg-gradient-to-br from-mep-blue to-blue-800 rounded-xl flex items-center justify-center text-white text-xl shadow-inner">🎓</div>
+                <div class="text-lg font-bold text-gray-900 tracking-tight">Caja Tools</div>
+            </div>
+
+            <nav class="flex-1 px-4 py-6 space-y-1 overflow-y-auto">
+                <a href="index.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ir a la página de Inicio">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">📊</span>
+                    <span>Inicio</span>
+                </a>
+                <a href="modulos.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all bg-purple-50 text-purple-700" aria-label="Ver todos los módulos del curso">
+                    <span class="text-xl group-hover:scale-110 transition-transform">📚</span>
+                    <span>Módulos</span>
+                </a>
+                <a href="descargas.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ir a la sección de descargas">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">📥</span>
+                    <span>Descargas</span>
+                </a>
+                <a href="comunidad.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ir a la comunidad docente">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">💬</span>
+                    <span>Comunidad</span>
+                </a>
+                <a href="configuracion.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ir a la configuración">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">⚙️</span>
+                    <span>Configuración</span>
+                </a>
+                <div class="pt-6 mt-6 border-t border-gray-100">
+                    <a href="ayuda.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ir a la sección de ayuda">
+                        <span class="text-xl opacity-70 group-hover:opacity-100 transition-opacity">❓</span>
+                        <span>Ayuda</span>
+                    </a>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            
+            <!-- Hero Section -->
+            <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-8 mb-8 relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-purple-400 to-purple-600"></div>
+                <div class="flex flex-col md:flex-row gap-6 items-start md:items-center justify-between">
+                    <div>
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="px-3 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full uppercase tracking-wide">Módulo 7</span>
+                            <span class="flex items-center gap-1 text-sm font-medium text-gray-500">
+                                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                48 minutos
+                            </span>
+                            <span class="flex items-center gap-1 text-sm font-medium text-gray-500">
+                                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                                Activo
+                            </span>
+                        </div>
+                        <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4 tracking-tight">Herramientas Especializadas</h1>
+                        <p class="text-lg text-gray-600 max-w-3xl leading-relaxed">Conozca las diferencias clave entre los principales motores de Inteligencia Artificial (ChatGPT, Gemini, Copilot, Claude) y descubra cuál es el más adecuado según la tarea pedagógica específica que necesite resolver.</p>
+                    </div>
+                    <div class="w-full md:w-auto flex-shrink-0">
+                        <button disabled class="w-full md:w-auto px-6 py-3 bg-gray-300 text-gray-500 font-semibold rounded-xl shadow-sm cursor-not-allowed flex items-center gap-2 justify-center" title="Contenido en desarrollo">
+                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+                            Próximamente
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            
+            <!-- ⚠️ Banner de Advertencia: Datos de Estudiantes -->
+            <div class="bg-amber-50 border border-amber-200 rounded-2xl p-5 mb-8 flex gap-4 items-start">
+                <div class="flex-shrink-0 w-10 h-10 bg-amber-100 rounded-xl flex items-center justify-center text-xl">⚠️</div>
+                <div>
+                    <h3 class="font-bold text-amber-900 mb-1">Importante: Protección de Datos de Estudiantes</h3>
+                    <p class="text-sm text-amber-800 leading-relaxed m-0">Nunca ingrese nombres, cédulas, calificaciones ni datos personales de estudiantes en herramientas de IA de terceros (ChatGPT, Gemini, Copilot, etc.). Use siempre <strong>descripciones genéricas</strong> como "estudiante de sétimo con dificultad lectora". Consulte nuestra <a href="politica-privacidad.html" class="text-amber-900 underline font-semibold hover:text-amber-700">Política de Privacidad</a> y la <a href="politica-privacidad.html" class="text-amber-900 underline font-semibold hover:text-amber-700">Ley 8968 / PRODHAB</a>.</p>
+                </div>
+
+            <!-- Banner de prerequisito -->
+            <div class="bg-blue-50 border border-blue-200 rounded-xl p-4 mb-6
+                        flex items-center gap-3" id="prereq-banner">
+                <span class="text-xl flex-shrink-0">📋</span>
+                <p class="text-sm text-blue-800 m-0">
+                    <strong>Prerequisito recomendado:</strong> Para aprovechar mejor este módulo, le recomendamos haber revisado <a href="modulo-4.html" class="font-bold underline hover:text-blue-900">Módulo 4: Herramientas Prácticas</a> primero.
+                </p>
+            </div>
+            </div>
+
+            <!-- Content Grid: 2 Columns -->
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 relative items-start">
+                
+                <!-- Left Column: 15 Sections Content -->
+                <div class="lg:col-span-3 bg-white rounded-2xl border border-gray-200 shadow-sm p-6 sm:p-10 prose prose-purple max-w-none">
+                    
+                    <section id="s1" class="scroll-mt-24">
+
+                        <h2>1. ¿Para qué le sirve al docente?</h2>
+                        <p>Le sirve para <strong>elegir la herramienta correcta para el trabajo correcto</strong>. Un error frecuente entre docentes que inician en el uso de IA es asumir que todos los modelos son intercambiables: «la IA es la IA». En realidad, cada modelo tiene arquitecturas, datos de entrenamiento, fechas de corte de conocimiento y capacidades técnicas distintas. Usar un modelo inadecuado para una tarea es literalmente «usar un martillo para atornillar un clavo».</p>
+                        <p>Este módulo le proporciona un <strong>mapa de herramientas</strong> para navegar el ecosistema de IA en 2025-2026, basado en los tres criterios más relevantes para el docente: (a) <em>acceso a internet en tiempo real</em>, (b) <em>capacidad de procesar documentos largos</em>, y (c) <em>generación de contenido visual</em>.</p>
+                    </section>
+
+                    <section id="s2" class="scroll-mt-24">
+
+                        <h2>2. ¿Cuándo sí usar IA?</h2>
+                        <p>El principio fundamental es <strong>combinar herramientas según su fortaleza específica</strong>:</p>
+                        <ul>
+                            <li>Use <strong>Claude (Anthropic)</strong> cuando necesite analizar documentos institucionales muy largos —el Programa de Estudios MEP, el REAC, un expediente técnico de 200 páginas— gracias a su ventana de contexto extendida (hasta 200,000 tokens en versiones recientes).</li>
+                            <li>Use <strong>Microsoft Copilot</strong> cuando necesite información actualizada conectada a internet con citas verificables. Copilot cita sus fuentes, lo que le permite contrastar la información antes de usarla.</li>
+                            <li>Use <strong>Google Gemini</strong> cuando trabaje directamente en el ecosistema Google Workspace: redactar en Docs, analizar datos en Sheets, o buscar información en Drive institucional.</li>
+                            <li>Use <strong>ChatGPT</strong> para lluvia de ideas creativa, redacción narrativa libre y programación básica de código.</li>
+                        </ul>
+                    </section>
+
+                    <section id="s3" class="scroll-mt-24">
+
+                        <h2>3. ¿Cuándo NO usarla?</h2>
+                        <p>Los errores más comunes por usar el modelo equivocado:</p>
+                        <ul>
+                            <li><strong>No use ChatGPT gratuito (sin web search) para preguntas sobre normativas o eventos recientes:</strong> su conocimiento tiene una fecha de corte (octubre 2023 para GPT-4) y no puede acceder a circulares MEP de este año. Generará información desactualizada con total confianza.</li>
+                            <li><strong>No use generadores de imágenes (DALL-E, Midjourney) para verificar información factual:</strong> son herramientas de creación visual, no de búsqueda de hechos.</li>
+                            <li><strong>No asuma que porque «un modelo lo sabe», todos lo saben:</strong> los modelos tienen distintas bases de conocimiento y distintas actualizaciones.</li>
+                        </ul>
+                    </section>
+
+                    <section id="s4" class="scroll-mt-24">
+
+                        <h2>4. Herramienta sugerida</h2>
+                        <div class="flex items-center gap-4 p-4 bg-gray-50 rounded-xl border border-gray-200 my-4">
+                            <div class="w-12 h-12 flex-shrink-0 bg-indigo-100 rounded-lg flex items-center justify-center text-2xl">🧩</div>
+                            <div>
+                                <h4 class="font-bold text-gray-900 m-0">El Ecosistema Completo (Cuatro Modelos Clave)</h4>
+                                <p class="text-sm text-gray-600 m-0"><strong>Claude 3.5/4 (Anthropic):</strong> análisis de documentos extensos, lectura crítica, escritura reflexiva y matizada. Ideal para analizar el Programa MEP o el REAC. <strong>ChatGPT-4o (OpenAI):</strong> creatividad, redacción narrativa, código, análisis de datos con plugin. <strong>Microsoft Copilot:</strong> búsqueda conectada a internet con citas, generación de imágenes (DALL-E 3 integrado), integración con Office 365. <strong>Google Gemini 1.5:</strong> integración nativa con Workspace, procesamiento de documentos largos, multimodalidad (texto + imagen + audio).</p>
+                            </div>
+                        </div>
+                        <div class="bg-indigo-50 border border-indigo-200 rounded-xl p-4 mt-4">
+                            <h4 class="font-semibold text-indigo-900 mb-2">📊 Tabla de Decisión Rápida</h4>
+                            <table class="w-full text-sm text-left text-indigo-800 border-collapse">
+                                <thead><tr class="border-b border-indigo-200"><th class="py-1 pr-3">Tarea</th><th class="py-1">Modelo Recomendado</th></tr></thead>
+                                <tbody>
+                                    <tr class="border-b border-indigo-100"><td class="py-1 pr-3">Analizar PDF del MEP (100+ páginas)</td><td class="py-1 font-medium">Claude / NotebookLM</td></tr>
+                                    <tr class="border-b border-indigo-100"><td class="py-1 pr-3">Buscar noticias o decretos recientes</td><td class="py-1 font-medium">Copilot / Gemini</td></tr>
+                                    <tr class="border-b border-indigo-100"><td class="py-1 pr-3">Generar imagen pedagógica</td><td class="py-1 font-medium">Copilot / DALL-E</td></tr>
+                                    <tr class="border-b border-indigo-100"><td class="py-1 pr-3">Redactar en Google Docs</td><td class="py-1 font-medium">Gemini</td></tr>
+                                    <tr><td class="py-1 pr-3">Lluvia de ideas creativas</td><td class="py-1 font-medium">ChatGPT</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+
+                    <section id="s5" class="scroll-mt-24">
+
+                        <h2>5. Prompt base (Problema por Modelo Equivocado)</h2>
+                        <div class="bg-gray-900 text-gray-100 p-5 rounded-xl font-mono text-sm shadow-inner mb-4">
+                            "Busca información sobre las últimas reformas a la ley de educación en Costa Rica." [enviado a ChatGPT sin acceso a internet]
+                        </div>
+                        <p class="text-sm text-gray-500 italic">Problema: ChatGPT sin acceso a internet no puede consultar fuentes en tiempo real. Inventará reformas plausibles basándose en su entrenamiento previo a su fecha de corte, presentándolas con absoluta confianza. El resultado puede ser información completamente desactualizada o fabricada. Usar Copilot o Gemini con búsqueda web habilitada es la solución correcta para este tipo de consulta.</p>
+                    </section>
+
+                    <section id="s6" class="scroll-mt-24">
+
+                        <h2>6. Uso mejorado (Copilot con Internet)</h2>
+                        <div class="bg-indigo-600 text-white p-5 rounded-xl font-mono text-sm shadow-lg mb-4">
+                            "Busca en internet artículos de periódicos costarricenses (La Nación, Semanario Universidad) o circulares oficiales del MEP publicadas en los últimos 6 meses sobre cambios en los lineamientos de calificación o en el REAC. Resume los 3 puntos más importantes que un docente de secundaria debe conocer. Proporciona el enlace directo (URL) a cada fuente consultada para que yo pueda verificarla."
+                        </div>
+                        <p class="text-sm text-gray-500">Este prompt aprovecha las fortalezas únicas de Copilot: (1) acceso a internet en tiempo real, (2) capacidad de citar fuentes con URL verificable, (3) síntesis de múltiples documentos. La instrucción de proporcionar URLs obliga al modelo a ser verificable, reduciendo el riesgo de alucinaciones no detectables. Siempre verifique los enlaces antes de compartir la información.</p>
+                    </section>
+
+                    <section id="s7" class="scroll-mt-24">
+
+                        <h2>7. Adaptación por nivel/modalidad</h2>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-6">
+                            <div class="border border-gray-200 rounded-lg p-4">
+                                <h4 class="font-bold text-mep-blue text-sm uppercase tracking-wider mb-2">Primaria</h4>
+                                <p class="text-sm text-gray-600">Use <strong>Copilot para crear ilustraciones pedagógicas personalizadas</strong>: «Genera una ilustración de libro infantil, colorida y amigable, de un tucán tico explicando cómo reciclar». Estas imágenes únicas captan la atención visual y contextualizan el aprendizaje en la fauna local.</p>
+                            </div>
+                            <div class="border border-gray-200 rounded-lg p-4">
+                                <h4 class="font-bold text-mep-green text-sm uppercase tracking-wider mb-2">Secundaria — Detección de Plagio Ética</h4>
+                                <p class="text-sm text-gray-600">Use <strong>Claude para analizar trabajos extensos</strong> en busca de cambios abruptos de registro lingüístico que puedan indicar uso no declarado de IA —sin emitir acusaciones automáticas—. Claude puede señalar dónde el estilo cambia notablemente para que el docente converse con el estudiante.</p>
+                            </div>
+                            <div class="border border-gray-200 rounded-lg p-4">
+                                <h4 class="font-bold text-mep-orange text-sm uppercase tracking-wider mb-2">CTP — Manuales Técnicos</h4>
+                                <p class="text-sm text-gray-600">Cargue a <strong>Claude un manual técnico de 200 páginas en inglés</strong> (por ejemplo, del fabricante de una máquina del taller) y pida que extraiga los procedimientos de seguridad y los diagrame en pasos numerados en español. Lo que antes tomaría horas de traducción se realiza en minutos.</p>
+                            </div>
+                            <div class="border border-gray-200 rounded-lg p-4">
+                                <h4 class="font-bold text-purple-600 text-sm uppercase tracking-wider mb-2">Educación Especial</h4>
+                                <p class="text-sm text-gray-600">Para estudiantes neurodivergentes que requieren rutinas visuales muy consistentes, use <strong>Copilot para generar pictogramas</strong> con un estilo visual uniforme: «icono minimalista, blanco y negro, trazo grueso, de un niño lavándose las manos». La consistencia visual reduce la ansiedad cognitiva.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="s8" class="scroll-mt-24">
+
+                        <h2>8. Riesgos y cuidados éticos</h2>
+                        <div class="bg-pink-50 border-l-4 border-pink-500 p-4 rounded-r-lg my-4">
+                            <h4 class="text-pink-800 font-bold mb-2">🎨 Derechos de Autor en Imágenes Generadas por IA</h4>
+                            <p class="text-sm text-pink-700 m-0">Cuando utilice generadores de imágenes (Midjourney, DALL-E, Copilot), <strong>evite solicitar imágenes «al estilo de» un artista vivo específico sin su consentimiento</strong>: esto replica su estilo sin compensación, lo que muchos artistas consideran una vulneración de sus derechos morales sobre su obra. Privilegie descripciones de estilo genéricas: «estilo acuarela», «estilo libro infantil de los años 60», «estilo minimalista». El debate legal sobre la propiedad intelectual de las imágenes generadas por IA está aún en evolución en la jurisprudencia internacional.</p>
+                        </div>
+                        <div class="bg-gray-50 border-l-4 border-gray-400 p-4 rounded-r-lg mt-4">
+                            <h4 class="text-gray-800 font-bold mb-2">📝 Citar el Uso de IA como Práctica Profesional</h4>
+                            <p class="text-sm text-gray-700 m-0">Incorpore en el pie de página de sus materiales una nota como: «Material didáctico desarrollado con asistencia de [nombre de la herramienta], revisado y adaptado pedagógicamente por [su nombre], [fecha]». Esto modela la honestidad académica que espera de sus estudiantes y documenta su proceso creativo profesional.</p>
+                        </div>
+                    </section>
+
+                    <section id="s9" class="scroll-mt-24">
+
+                        <h2>9. Ejemplo Aplicado en Aula</h2>
+                        <p>Usted necesita que sus estudiantes de octavo año visualicen la <strong>geografía física de Costa Rica</strong>, pero las ilustraciones del libro de texto son poco claras. El proceso con Copilot:</p>
+                        <ol class="list-decimal pl-6 space-y-2 text-gray-600 mb-4">
+                            <li>Abre Copilot y selecciona la función de generación de imágenes.</li>
+                            <li>Escribe: <em>«Genera una ilustración educativa estilo diagrama 3D de un corte transversal de Costa Rica de oeste a este, mostrando el litoral Pacífico, la Cordillera Volcánica Central con el Poás, el Valle Central donde está San José, la Cordillera de Talamanca y el litoral Caribe. Estilo ilustración para libro de texto de secundaria, colores realistas.»</em></li>
+                            <li>Obtiene en segundos un recurso visual único que contextualiza perfectamente el tema.</li>
+                            <li>Lo importa a su presentación y le pide a los estudiantes que lo analicen antes de comenzar la lectura del libro.</li>
+                        </ol>
+                        <p>Esta imagen actúa como un <strong>organizador previo visual</strong> (<em>advance organizer</em>, Ausubel, 1960): activa el conocimiento previo de los estudiantes y les proporciona un marco conceptual antes de recibir la nueva información.</p>
+                    </section>
+
+                    <section id="s10" class="scroll-mt-24">
+
+                        <h2>10. Conexión con la Evaluación</h2>
+                        <p>Al dominar herramientas conectadas a internet como Copilot, puede actualizar los <strong>«estudios de caso» de sus evaluaciones sumativas</strong> con noticias y eventos ocurridos en las últimas semanas, garantizando que la evaluación siempre sea <strong>pertinente y actual</strong>.</p>
+                        <p>Esta práctica responde al principio de <strong>autenticidad evaluativa</strong> (Wiggins, 1990): evaluar mediante situaciones reales que los estudiantes puedan encontrar fuera del aula. Un examen sobre «la crisis ambiental en el humedal Palo Verde noticiada la semana pasada» es más auténtico que un examen sobre un caso hipotético del libro de texto de 2015.</p>
+                    </section>
+
+                    <section id="s11" class="scroll-mt-24">
+
+                        <h2>11. Evidencia que puede recoger</h2>
+                        <p>Incluya en el pie de página de sus materiales la cita del modelo utilizado. Guarde en su portafolio docente los tres resultados del <strong>«Microreto Multimodelo»</strong> (sección 13) con su análisis comparativo escrito. Esta reflexión sobre las diferencias entre modelos es evidencia de pensamiento crítico aplicado a la tecnología educativa.</p>
+                    </section>
+
+                    <section id="s12" class="scroll-mt-24">
+
+                        <h2>12. Versión Inclusiva (DUA)</h2>
+                        <p>La combinación de herramientas multimodales potencia directamente los tres principios del DUA:</p>
+                        <ul>
+                            <li><strong>Representación múltiple (P-I):</strong> Copilot genera imágenes; Claude genera texto analítico; Gemini integra audio. El mismo concepto puede presentarse en tres formatos distintos según las necesidades del estudiante.</li>
+                            <li><strong>Expresión múltiple (P-II):</strong> Los estudiantes con barreras de escritura pueden usar IA para generar un borrador que luego elaboran oralmente.</li>
+                            <li><strong>Motivación múltiple (P-III):</strong> Los pictogramas generados con Copilot para estudiantes neurodivergentes eliminan barreras de interpretación y reducen la ansiedad situacional.</li>
+                        </ul>
+                    </section>
+
+                    <section id="s13" class="scroll-mt-24">
+
+                        <h2>13. Microreto de Autoformación</h2>
+                        <div class="bg-indigo-50 border border-indigo-200 rounded-xl p-6 text-center my-6">
+                            <h4 class="text-lg font-bold text-indigo-800 mb-2">🔬 Reto Multimodelo</h4>
+                            <p class="text-gray-700 mb-4">Realice la misma solicitud en tres modelos distintos: <em>«Escribe un poema de 4 estrofas sobre la biodiversidad de Costa Rica, adecuado para jóvenes de 14 años, que incluya referencias a al menos 3 animales endémicos y mencione la importancia de su conservación.»</em> Envíelo a <strong>ChatGPT</strong>, luego a <strong>Gemini</strong> y finalmente a <strong>Claude</strong>. Compare los resultados en 3 dimensiones: (a) riqueza poética y uso del lenguaje, (b) precisión científica (¿los animales mencionados son realmente endémicos de CR?), (c) adecuación al nivel etario. Esta es la mejor forma de calibrar las «personalidades» y fortalezas de cada modelo.</p>
+                        </div>
+                    </section>
+
+                    <section id="s14" class="scroll-mt-24">
+
+                        <h2>14. Checklist Rápido</h2>
+                        <ul class="space-y-2 list-none pl-0">
+                            <li class="flex items-center gap-3">
+                                <input type="checkbox" class="w-5 h-5 text-indigo-600 rounded focus:ring-indigo-600 border-gray-300">
+                                <span class="text-gray-700">Sé qué modelos tienen acceso a internet en tiempo real y cuáles tienen fecha de corte de conocimiento.</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <input type="checkbox" class="w-5 h-5 text-indigo-600 rounded focus:ring-indigo-600 border-gray-300">
+                                <span class="text-gray-700">Identifico qué modelo es óptimo para cada tipo de tarea (análisis de PDF / búsqueda en internet / imagen / integración con Workspace).</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <input type="checkbox" class="w-5 h-5 text-indigo-600 rounded focus:ring-indigo-600 border-gray-300">
+                                <span class="text-gray-700">Comprendo el riesgo de derechos de autor al generar imágenes «al estilo de» artistas específicos.</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <input type="checkbox" class="w-5 h-5 text-indigo-600 rounded focus:ring-indigo-600 border-gray-300">
+                                <span class="text-gray-700">He completado el reto multimodelo y puedo articular las diferencias entre al menos dos modelos.</span>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section id="s15" class="scroll-mt-24">
+
+                        <h2>15. Recursos Complementarios</h2>
+                        <ul>
+                            <li><a href="#" class="text-indigo-700 hover:underline">Tabla comparativa actualizada: ChatGPT vs Claude vs Gemini vs Copilot (2025-2026)</a></li>
+                            <li><a href="#" class="text-indigo-700 hover:underline">Guía práctica: Crear pictogramas para DUA con Copilot Designer</a></li>
+                            <li><a href="#" class="text-indigo-700 hover:underline">Ausubel (1960): Los organizadores previos como estrategia instruccional</a></li>
+                            <li><a href="#" class="text-indigo-700 hover:underline">Stanford HAI (2024): AI Index Report — Estado de la IA en Educación</a></li>
+                            <li><a href="#" class="text-indigo-700 hover:underline">Guía de Microsoft Copilot para Docentes — Office of Education</a></li>
+                        </ul>
+                    </section>
+                </div>
+
+                <!-- Right Column: Sticky Navigation (TOC) -->
+                <div class="hidden lg:block lg:col-span-1">
+                    <div class="sticky top-28 bg-white rounded-2xl border border-gray-200 shadow-sm p-5">
+                        <h3 class="text-sm font-bold text-gray-900 uppercase tracking-wider mb-4">Índice del Módulo</h3>
+                        <nav class="space-y-1 text-sm">
+                            <a href="#s1" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">1. Utilidad Docente</a>
+                            <a href="#s2" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">2. ¿Cuándo sí usarla?</a>
+                            <a href="#s3" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">3. ¿Cuándo NO?</a>
+                            <a href="#s4" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">4. Herramienta</a>
+                            <a href="#s5" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">5. Prompt base</a>
+                            <a href="#s6" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">6. Uso mejorado</a>
+                            <a href="#s7" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">7. Adaptaciones</a>
+                            <a href="#s8" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">8. Riesgos éticos</a>
+                            <a href="#s9" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">9. Ejemplo aplicado</a>
+                            <a href="#s10" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">10. Evaluación</a>
+                            <a href="#s11" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">11. Evidencias</a>
+                            <a href="#s12" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">12. Inclusión DUA</a>
+                            <a href="#s13" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">13. Microreto</a>
+                            <a href="#s14" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">14. Checklist</a>
+                            <a href="#s15" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">15. Recursos</a>
+                        </nav>
+                    </div>
+                </div>
+
+            </div>
+        
+            <!-- ═══════════════════════════════════════════ -->
+            <!-- Autoevaluación del Módulo 7 -->
+            <!-- ═══════════════════════════════════════════ -->
+            <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 sm:p-10 mt-8" id="quiz-section-7">
+                <div class="flex items-center gap-3 mb-6 border-b border-gray-100 pb-4">
+                    <span class="text-2xl">📝</span>
+                    <h2 class="text-2xl font-bold text-gray-900 m-0">Autoevaluación del Módulo 7</h2>
+                </div>
+                <p class="text-gray-600 mb-6">Responda las siguientes preguntas para verificar su comprensión. Sus resultados se guardan localmente en su navegador.</p>
+
+                <div id="quiz-container-7">
+                    <!-- Pregunta 1 -->
+                    <div class="mb-6 p-5 bg-gray-50 rounded-xl border border-gray-200">
+                        <p class="font-bold text-gray-900 mb-4">1. ¿Qué son las herramientas especializadas de IA en educación?</p>
+                        <div class="space-y-3">
+                            <label class="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-100 hover:border-mep-blue hover:bg-blue-50 cursor-pointer transition-all"><input type="radio" name="q7_0" value="0" class="w-4 h-4 text-mep-blue focus:ring-mep-blue border-gray-300"><span class="text-gray-700">Las más caras del mercado</span></label>
+                            <label class="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-100 hover:border-mep-blue hover:bg-blue-50 cursor-pointer transition-all"><input type="radio" name="q7_0" value="1" class="w-4 h-4 text-mep-blue focus:ring-mep-blue border-gray-300"><span class="text-gray-700">Herramientas diseñadas para tareas pedagógicas específicas como evaluación o planificación</span></label>
+                            <label class="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-100 hover:border-mep-blue hover:bg-blue-50 cursor-pointer transition-all"><input type="radio" name="q7_0" value="2" class="w-4 h-4 text-mep-blue focus:ring-mep-blue border-gray-300"><span class="text-gray-700">Herramientas que solo usan expertos en tecnología</span></label>
+                            <label class="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-100 hover:border-mep-blue hover:bg-blue-50 cursor-pointer transition-all"><input type="radio" name="q7_0" value="3" class="w-4 h-4 text-mep-blue focus:ring-mep-blue border-gray-300"><span class="text-gray-700">Versiones premium de ChatGPT</span></label>
+                        </div>
+                        <div id="feedback-7-0" class="hidden mt-3 p-3 rounded-lg text-sm"></div>
+                    </div>
+                    <!-- Pregunta 2 -->
+                    <div class="mb-6 p-5 bg-gray-50 rounded-xl border border-gray-200">
+                        <p class="font-bold text-gray-900 mb-4">2. ¿Cuál es la ventaja de usar NotebookLM de Google para docentes?</p>
+                        <div class="space-y-3">
+                            <label class="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-100 hover:border-mep-blue hover:bg-blue-50 cursor-pointer transition-all"><input type="radio" name="q7_1" value="0" class="w-4 h-4 text-mep-blue focus:ring-mep-blue border-gray-300"><span class="text-gray-700">Reemplaza la planificación docente</span></label>
+                            <label class="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-100 hover:border-mep-blue hover:bg-blue-50 cursor-pointer transition-all"><input type="radio" name="q7_1" value="1" class="w-4 h-4 text-mep-blue focus:ring-mep-blue border-gray-300"><span class="text-gray-700">Permite analizar documentos propios sin enviar datos a servidores externos de entrenamiento</span></label>
+                            <label class="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-100 hover:border-mep-blue hover:bg-blue-50 cursor-pointer transition-all"><input type="radio" name="q7_1" value="2" class="w-4 h-4 text-mep-blue focus:ring-mep-blue border-gray-300"><span class="text-gray-700">Es la herramienta más rápida</span></label>
+                            <label class="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-100 hover:border-mep-blue hover:bg-blue-50 cursor-pointer transition-all"><input type="radio" name="q7_1" value="3" class="w-4 h-4 text-mep-blue focus:ring-mep-blue border-gray-300"><span class="text-gray-700">Genera exámenes automáticamente</span></label>
+                        </div>
+                        <div id="feedback-7-1" class="hidden mt-3 p-3 rounded-lg text-sm"></div>
+                    </div>
+                    <!-- Pregunta 3 -->
+                    <div class="mb-6 p-5 bg-gray-50 rounded-xl border border-gray-200">
+                        <p class="font-bold text-gray-900 mb-4">3. ¿Qué criterio es prioritario al elegir una herramienta especializada?</p>
+                        <div class="space-y-3">
+                            <label class="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-100 hover:border-mep-blue hover:bg-blue-50 cursor-pointer transition-all"><input type="radio" name="q7_2" value="0" class="w-4 h-4 text-mep-blue focus:ring-mep-blue border-gray-300"><span class="text-gray-700">Que sea gratuita</span></label>
+                            <label class="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-100 hover:border-mep-blue hover:bg-blue-50 cursor-pointer transition-all"><input type="radio" name="q7_2" value="1" class="w-4 h-4 text-mep-blue focus:ring-mep-blue border-gray-300"><span class="text-gray-700">Que cumpla con estándares de privacidad y se alinee con objetivos pedagógicos</span></label>
+                            <label class="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-100 hover:border-mep-blue hover:bg-blue-50 cursor-pointer transition-all"><input type="radio" name="q7_2" value="2" class="w-4 h-4 text-mep-blue focus:ring-mep-blue border-gray-300"><span class="text-gray-700">Que sea la más popular</span></label>
+                            <label class="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-100 hover:border-mep-blue hover:bg-blue-50 cursor-pointer transition-all"><input type="radio" name="q7_2" value="3" class="w-4 h-4 text-mep-blue focus:ring-mep-blue border-gray-300"><span class="text-gray-700">Que tenga la interfaz más atractiva</span></label>
+                        </div>
+                        <div id="feedback-7-2" class="hidden mt-3 p-3 rounded-lg text-sm"></div>
+                    </div>
+                    <!-- Botón de envío -->
+                    <div class="text-center mt-8">
+                        <button onclick="evaluarQuiz(7)" id="quiz-submit-7" class="px-8 py-3 bg-mep-blue hover:bg-blue-600 text-white font-bold rounded-xl shadow-lg shadow-blue-500/30 transition-all hover:-translate-y-1">
+                            Verificar Respuestas
+                        </button>
+                    </div>
+
+                    <!-- Resultado -->
+                    <div id="quiz-result-7" class="hidden mt-6 p-6 rounded-xl text-center"></div>
+
+                    <!-- Botón reintentar (oculto inicialmente) -->
+                    <div id="quiz-retry-7" class="hidden text-center mt-4">
+                        <button onclick="reintentarQuiz(7)" class="px-6 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 font-medium rounded-lg transition-colors">
+                            🔄 Reintentar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+            (function() {
+                // Datos del quiz
+                const quizData_7 = [{"correct": 1, "explanation": "Son herramientas enfocadas en tareas pedagógicas concretas, como generación de rúbricas, planificación didáctica o creación de material adaptado."}, {"correct": 1, "explanation": "NotebookLM permite trabajar con documentos propios dentro del ecosistema Google, manteniendo mayor control sobre los datos."}, {"correct": 1, "explanation": "La prioridad es que la herramienta cumpla estándares de privacidad (especialmente con datos de menores) y se alinee con los objetivos pedagógicos del docente."}];
+
+                // Restaurar estado previo
+                const saved = localStorage.getItem('caja_modulo_7_quiz');
+                if (saved) {
+                    const data = JSON.parse(saved);
+                    showSavedResult(7, data);
+                }
+
+                // Exponer funciones al scope global
+                window.evaluarQuiz = window.evaluarQuiz || function(mod) {
+                    const data = window['quizData_' + mod];
+                    let correct = 0;
+                    data.forEach((q, i) => {
+                        const selected = document.querySelector('input[name="q' + mod + '_' + i + '"]:checked');
+                        const feedback = document.getElementById('feedback-' + mod + '-' + i);
+                        const options = document.querySelectorAll('input[name="q' + mod + '_' + i + '"]');
+                        
+                        options.forEach(o => o.disabled = true);
+                        
+                        if (selected && parseInt(selected.value) === q.correct) {
+                            correct++;
+                            feedback.innerHTML = '<span class="text-green-700">✅ ¡Correcto! ' + q.explanation + '</span>';
+                            feedback.className = 'mt-3 p-3 rounded-lg text-sm bg-green-50 border border-green-200';
+                        } else {
+                            feedback.innerHTML = '<span class="text-red-700">❌ Incorrecto. ' + q.explanation + '</span>';
+                            feedback.className = 'mt-3 p-3 rounded-lg text-sm bg-red-50 border border-red-200';
+                        }
+                        feedback.classList.remove('hidden');
+                    });
+
+                    const total = data.length;
+                    const passed = correct >= 2;
+                    const resultDiv = document.getElementById('quiz-result-' + mod);
+                    resultDiv.innerHTML = passed
+                        ? '<div class="text-green-800 font-bold text-lg">🎉 ¡Aprobado! ' + correct + '/' + total + ' respuestas correctas.</div><p class="text-green-700 text-sm mt-2">Su progreso ha sido guardado.</p>'
+                        : '<div class="text-orange-800 font-bold text-lg">📘 ' + correct + '/' + total + ' respuestas correctas.</div><p class="text-orange-700 text-sm mt-2">Le recomendamos repasar el contenido y volver a intentarlo.</p>';
+                    resultDiv.className = passed
+                        ? 'mt-6 p-6 rounded-xl text-center bg-green-50 border border-green-200'
+                        : 'mt-6 p-6 rounded-xl text-center bg-orange-50 border border-orange-200';
+                    resultDiv.classList.remove('hidden');
+
+                    document.getElementById('quiz-submit-' + mod).classList.add('hidden');
+                    document.getElementById('quiz-retry-' + mod).classList.remove('hidden');
+
+                    localStorage.setItem('caja_modulo_' + mod + '_quiz', JSON.stringify({
+                        correct: correct, total: total, passed: passed, date: new Date().toISOString()
+                    }));
+                };
+
+                window.reintentarQuiz = window.reintentarQuiz || function(mod) {
+                    localStorage.removeItem('caja_modulo_' + mod + '_quiz');
+                    const container = document.getElementById('quiz-container-' + mod);
+                    container.querySelectorAll('input[type="radio"]').forEach(r => {
+                        r.checked = false;
+                        r.disabled = false;
+                    });
+                    container.querySelectorAll('[id^="feedback-"]').forEach(f => {
+                        f.classList.add('hidden');
+                    });
+                    document.getElementById('quiz-result-' + mod).classList.add('hidden');
+                    document.getElementById('quiz-retry-' + mod).classList.add('hidden');
+                    document.getElementById('quiz-submit-' + mod).classList.remove('hidden');
+                };
+
+                window['quizData_' + 7] = quizData_7;
+            })();
+
+            function showSavedResult(mod, data) {
+                const resultDiv = document.getElementById('quiz-result-' + mod);
+                if (!resultDiv) return;
+                const dateStr = new Date(data.date).toLocaleDateString('es-CR', {day:'numeric',month:'long',year:'numeric'});
+                resultDiv.innerHTML = data.passed
+                    ? '<div class="text-green-800 font-bold text-lg">🎉 Aprobado anteriormente: ' + data.correct + '/' + data.total + '</div><p class="text-green-700 text-sm mt-2">Completado el ' + dateStr + '</p>'
+                    : '<div class="text-orange-800 font-bold text-lg">📘 Resultado anterior: ' + data.correct + '/' + data.total + '</div><p class="text-orange-700 text-sm mt-2">Intentado el ' + dateStr + '. Recomendamos repasar el contenido.</p>';
+                resultDiv.className = data.passed
+                    ? 'mt-6 p-6 rounded-xl text-center bg-green-50 border border-green-200'
+                    : 'mt-6 p-6 rounded-xl text-center bg-orange-50 border border-orange-200';
+                resultDiv.classList.remove('hidden');
+                document.getElementById('quiz-retry-' + mod).classList.remove('hidden');
+            }
+            </script>
+
+
+            <!-- ═══ Navegación entre módulos ═══ -->
+            <div class="border-t border-gray-200 mt-10 pt-8 pb-2
+                        flex items-center justify-between gap-4" id="mod-nav">
+                
+        <a href="modulo-6.html"
+           class="flex items-center gap-3 px-5 py-3 bg-white border border-gray-200
+                  rounded-xl text-gray-600 hover:bg-gray-50 hover:border-gray-300
+                  font-medium transition-all group">
+            <svg class="w-4 h-4 flex-shrink-0 group-hover:-translate-x-1 transition-transform"
+                 fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M15 19l-7-7 7-7"/>
+            </svg>
+            <div class="hidden sm:block text-left">
+                <div class="text-xs text-gray-400">Anterior</div>
+                <div class="text-sm font-semibold">Análisis de Datos con IA</div>
+            </div>
+        </a>
+                <a href="modulos.html"
+                   class="text-sm text-gray-400 hover:text-mep-blue underline transition-colors
+                          hidden sm:block">
+                    Ver catálogo
+                </a>
+                
+        <a href="modulo-8.html"
+           class="flex items-center gap-3 px-5 py-3 bg-mep-blue hover:bg-blue-700
+                  rounded-xl text-white font-medium transition-all group
+                  shadow-lg shadow-blue-500/20">
+            <div class="hidden sm:block text-right">
+                <div class="text-xs text-blue-200">Siguiente</div>
+                <div class="text-sm font-semibold">IA en Colegios Técnicos</div>
+            </div>
+            <svg class="w-4 h-4 flex-shrink-0 group-hover:translate-x-1 transition-transform"
+                 fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M9 5l7 7-7 7"/>
+            </svg>
+        </a>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800 text-gray-300 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 mb-12">
+                <div>
+                    <h3 class="text-white text-lg font-bold mb-4 flex items-center gap-2">
+                        <span class="text-mep-blue bg-white rounded flex items-center justify-center w-6 h-6 text-sm">🎓</span> 
+                        Caja de Herramientas
+                    </h3>
+                    <p class="text-sm text-gray-400 leading-relaxed">
+                        Plataforma de autoformación docente en Inteligencia Artificial, diseñada específicamente para el contexto educativo costarricense y la guía MEP 2026.
+                    </p>
+                </div>
+                <div class="col-span-2 text-right">
+                   <p class="text-sm text-gray-500 mt-8">
+                        Centro de Investigación Observatorio del Desarrollo de la Universidad de Costa Rica. Proyecto ED-3698 Inteligencia Artificial en el aula: una guía para la educación innovadora, 2026.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+            if (sidebar.classList.contains('-translate-x-full')) {
+                sidebar.classList.remove('-translate-x-full');
+                sidebar.classList.add('translate-x-0');
+                overlay.classList.remove('hidden');
+                document.body.classList.add('overflow-hidden');
+            } else {
+                sidebar.classList.add('-translate-x-full');
+                sidebar.classList.remove('translate-x-0');
+                overlay.classList.add('hidden');
+                document.body.classList.remove('overflow-hidden');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        document.querySelectorAll('.toc-link').forEach(link => {
+                            link.classList.remove('active', 'bg-purple-50');
+                            if (link.getAttribute('href') === `#${id}`) {
+                                link.classList.add('active', 'bg-purple-50');
+                            }
+                        });
+                    }
+                });
+            }, { rootMargin: '-100px 0px -60% 0px' });
+
+            document.querySelectorAll('section[id]').forEach((section) => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>

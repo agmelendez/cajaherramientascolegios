@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 2: Ética y Privacidad - Caja de Herramientas</title>
+    <!-- Tailwind CSS (via CDN para el prototipo estático) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        mep: {
+                            blue: '#0066cc',
+                            green: '#00aa44',
+                            orange: '#ff6b35',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans antialiased flex flex-col min-h-screen">
+    <!-- Top Bar Institucional -->
+    <div class="fixed top-0 left-0 right-0 h-14 bg-white border-b border-gray-200 z-[60] flex items-center justify-between px-4 md:px-6 shadow-sm">
+        <div class="flex items-center gap-4 md:gap-6 h-full py-2">
+            <img src="Logos/UCR.png" alt="UCR" class="h-6 md:h-8 object-contain">
+            <img src="Logos/VASUCR.png" alt="VAS" class="h-6 md:h-8 object-contain">
+            <img src="Logos/PuenteVAS.png" alt="Puentes" class="h-6 md:h-8 object-contain hidden sm:block">
+            <img src="Logos/CIOdD.jpg" alt="CIOdD" class="h-6 md:h-8 object-contain">
+        </div>
+        <div class="flex items-center h-full py-2">
+            <img src="Logos/ED3698.png" alt="ED3698" class="h-6 md:h-8 object-contain">
+        </div>
+    </div>
+
+    
+    <!-- Header -->
+    <header class="fixed top-14 left-0 right-0 h-20 bg-white/80 backdrop-blur-md border-b border-gray-200 z-20 flex items-center justify-between px-4 md:px-6 shadow-sm">
+        <div class="flex items-center gap-4">
+            <!-- Botón menú hamburguesa -->
+            <button class="md:hidden p-2 text-gray-600 hover:bg-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-mep-blue" onclick="toggleSidebar()" aria-label="Toggle Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+            <div class="hidden md:block relative">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+                    </svg>
+                </div>
+                <input type="text" placeholder="Buscar módulos..." class="pl-10 pr-4 py-2 border border-gray-200 rounded-lg w-64 focus:outline-none focus:ring-2 focus:ring-mep-blue focus:border-transparent transition-all">
+            </div>
+        </div>
+        <div class="flex items-center gap-4">
+            <button class="flex items-center gap-2 px-3 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors text-gray-600">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                </svg>
+                <span class="text-sm font-medium hidden sm:block">Notificaciones</span>
+            </button>
+            <a href="preguntas-respuestas.html" class="flex items-center gap-2 px-3 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors text-gray-600">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span class="text-sm font-medium hidden sm:block">Preguntas y Respuestas</span>
+            </a>
+            
+        </div>
+    </header>
+
+    <!-- Wrapper Principal -->
+    <div class="flex flex-1 pt-[136px]">
+        
+        <!-- Overlay Sidebar Móvil -->
+        <div id="sidebarOverlay" class="fixed inset-0 bg-gray-900/50 backdrop-blur-sm z-30 hidden transition-opacity duration-300 md:hidden" onclick="toggleSidebar()"></div>
+
+        <!-- Sidebar -->
+        <aside id="sidebar" class="fixed inset-y-0 left-0 z-40 w-64 bg-white border-r border-gray-200 transform -translate-x-full transition-transform duration-300 ease-in-out md:relative md:translate-x-0 flex flex-col shadow-2xl md:shadow-none pt-[136px] md:pt-0">
+            <div class="flex items-center gap-3 px-6 py-5 border-b border-gray-100">
+                <div class="w-10 h-10 bg-gradient-to-br from-mep-blue to-blue-800 rounded-xl flex items-center justify-center text-white text-xl shadow-inner">🎓</div>
+                <div class="text-lg font-bold text-gray-900 tracking-tight">Caja Tools</div>
+            </div>
+
+            <nav class="flex-1 px-4 py-6 space-y-1 overflow-y-auto">
+                <a href="index.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all bg-blue-50 text-mep-blue" aria-label="Ir a la página de Inicio">
+                    <span class="text-xl group-hover:scale-110 transition-transform">📊</span>
+                    <span>Inicio</span>
+                </a>
+                <a href="modulos.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ver todos los módulos del curso">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">📚</span>
+                    <span>Módulos</span>
+                </a>
+                <a href="descargas.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ir a la sección de descargas">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">📥</span>
+                    <span>Descargas</span>
+                </a>
+                <a href="comunidad.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ir a la comunidad docente">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">💬</span>
+                    <span>Comunidad</span>
+                </a>
+                <a href="configuracion.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ir a la configuración">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">⚙️</span>
+                    <span>Configuración</span>
+                </a>
+                <div class="pt-6 mt-6 border-t border-gray-100">
+                    <a href="ayuda.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ir a la sección de ayuda">
+                        <span class="text-xl opacity-70 group-hover:opacity-100 transition-opacity">❓</span>
+                        <span>Ayuda</span>
+                    </a>
+                </div>
+            </nav>
+
+            
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 overflow-y-auto">
+
+            <!-- Page Header -->
+            <div class="mb-10 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                <div>
+                    <div class="flex items-center gap-3 mb-2">
+                        <a href="index.html" class="text-gray-400 hover:text-mep-blue transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                            </svg>
+                        </a>
+                        <h1 class="text-3xl font-bold text-gray-900">🔒 Privacidad, Ética y Verificación</h1>
+                    </div>
+                    <p class="text-gray-600 ml-9">Principios fundamentales para un uso seguro y responsable de la IA, cuidando a nuestros estudiantes y nuestra práctica docente.</p>
+                </div>
+                <div class="flex-shrink-0">
+                    <button disabled class="w-full md:w-auto px-6 py-3 bg-gray-300 text-gray-500 font-semibold rounded-xl shadow-sm cursor-not-allowed flex items-center gap-2 justify-center" title="Contenido en desarrollo">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+                        Próximamente
+                    </button>
+                </div>
+            </div>
+
+            <!-- ⚠️ Banner de Advertencia: Datos de Estudiantes -->
+            <div class="bg-amber-50 border border-amber-200 rounded-2xl p-5 mb-8 flex gap-4 items-start">
+                <div class="flex-shrink-0 w-10 h-10 bg-amber-100 rounded-xl flex items-center justify-center text-xl">⚠️</div>
+                <div>
+                    <h3 class="font-bold text-amber-900 mb-1">Importante: Protección de Datos de Estudiantes</h3>
+                    <p class="text-sm text-amber-800 leading-relaxed m-0">Nunca ingrese nombres, cédulas, calificaciones ni datos personales de estudiantes en herramientas de IA de terceros (ChatGPT, Gemini, Copilot, etc.). Use siempre <strong>descripciones genéricas</strong> como "estudiante de sétimo con dificultad lectora". Consulte nuestra <a href="politica-privacidad.html" class="text-amber-900 underline font-semibold hover:text-amber-700">Política de Privacidad</a> y la <a href="politica-privacidad.html" class="text-amber-900 underline font-semibold hover:text-amber-700">Ley 8968 / PRODHAB</a>.</p>
+                </div>
+            </div>
+
+            <!-- Content Grid: 2 Columns -->
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 relative items-start">
+                
+                <!-- Left Column: 15 Sections Content -->
+                <div class="lg:col-span-3 bg-white rounded-2xl border border-gray-200 shadow-sm p-6 sm:p-10 prose prose-green max-w-none">
+                    
+                    <section id="s1" class="scroll-mt-24">
+
+                        <h2>1. ¿Para qué le sirve al docente?</h2>
+                        <p>Comprender la ética y la privacidad en el uso de IA no es solo una obligación legal: es una competencia profesional que <strong>protege su carrera y el bienestar de sus estudiantes</strong>. Le permite usar la Inteligencia Artificial con confianza y con criterio, sabiendo que cumple con el marco legal costarricense vigente.</p>
+                        <p>Costa Rica cuenta con la <strong>Ley N.° 8968 de Protección de la Persona frente al Tratamiento de sus Datos Personales</strong> (regulada por la Agencia de Protección de Datos de los Habitantes, PRODHAB) y con los lineamientos del MEP sobre uso responsable de tecnologías educativas. Desde la perspectiva de la ética en IA (AI Ethics), los principios de <strong>privacidad por diseño</strong> (<em>privacy by design</em>, Cavoukian, 2009) y de <strong>no maleficencia</strong> (no causar daño) deben guiar toda decisión sobre qué datos ingresar en una herramienta digital.</p>
+                    </section>
+
+                    <section id="s2" class="scroll-mt-24">
+
+                        <h2>2. ¿Cuándo sí usar IA?</h2>
+                        <p>Úsela cuando trabaje con datos completamente anonimizados y en entornos con garantías de privacidad. Por ejemplo:</p>
+                        <ul>
+                            <li><strong>Buscar estrategias metodológicas generales</strong> para abordar una dificultad de aprendizaje sin mencionar al estudiante que la presenta. Ejemplo: «¿Qué estrategias metacognitivas recomiendas para un estudiante de secundaria con dificultades en la comprensión lectora inferencial?».</li>
+                            <li><strong>Generar ejemplos genéricos de exámenes, prácticas o actividades</strong> sin datos reales del grupo.</li>
+                            <li><strong>Cuando la herramienta cuenta con un Acuerdo de Procesamiento de Datos</strong> (DPA, <em>Data Processing Agreement</em>) institucional, como ocurre con Google Workspace for Education o Microsoft 365 Education, que garantizan que los datos no se usan para entrenamiento de modelos.</li>
+                            <li><strong>Reflexionar sobre dilemas éticos</strong> del aula de manera abstracta («¿Cómo manejar un caso hipotético de plagio entre pares en secundaria?»).</li>
+                        </ul>
+                    </section>
+
+                    <section id="s3" class="scroll-mt-24">
+
+                        <h2>3. ¿Cuándo NO usarla?</h2>
+                        <p>La Ley 8968 establece que el tratamiento de datos personales de menores requiere consentimiento explícito y protección reforzada. <strong>NUNCA</strong> use plataformas abiertas de IA si el contexto involucra:</p>
+                        <ul>
+                            <li><strong>Datos personales identificables</strong>: nombres completos, apellidos, números de cédula o expediente.</li>
+                            <li><strong>Calificaciones vinculadas a estudiantes reales</strong> —incluso indirectamente, como «el estudiante más alto del grupo con promedio 85».</li>
+                            <li><strong>Diagnósticos médicos, adecuaciones curriculares o información de salud mental</strong> de menores de edad. Este tipo de dato es considerado «dato sensible» bajo la Ley 8968 y tiene protección especial.</li>
+                            <li><strong>Fotografías, audios o videos no autorizados</strong> de estudiantes o del entorno escolar.</li>
+                            <li><strong>Situaciones familiares o contextos socioeconómicos específicos</strong> que permitan identificar a una familia.</li>
+                        </ul>
+                    </section>
+
+                    <section id="s4" class="scroll-mt-24">
+
+                        <h2>4. Herramienta sugerida</h2>
+                        <div class="flex items-center gap-4 p-4 bg-gray-50 rounded-xl border border-gray-200 my-4">
+                            <div class="w-12 h-12 flex-shrink-0 bg-green-100 rounded-lg flex items-center justify-center text-2xl">🛡️</div>
+                            <div>
+                                <h4 class="font-bold text-gray-900 m-0">Plataformas con DPA Institucional (MEP / UCR)</h4>
+                                <p class="text-sm text-gray-600 m-0">Prefiera siempre herramientas que cuenten con convenios formales de privacidad para el sector educativo. <strong>Google Workspace for Education</strong> y <strong>Microsoft 365 Education</strong> tienen cláusulas contractuales que garantizan que los datos escolares no se usan para entrenar modelos de IA. Si usa herramientas abiertas (ChatGPT gratuito, Claude sin plan Enterprise, Gemini básico), asuma que toda información introducida puede ser utilizada para mejorar el modelo según los términos de servicio vigentes.</p>
+                            </div>
+                        </div>
+                        <div class="bg-yellow-50 border border-yellow-200 rounded-xl p-4 mt-4">
+                            <h4 class="font-semibold text-yellow-900 mb-2">🔍 Cómo verificar la política de privacidad de una herramienta</h4>
+                            <p class="text-sm text-yellow-800 m-0">Busque en los «Términos de Servicio» o «Privacy Policy» las palabras clave: <em>training data</em>, <em>model improvement</em> o <em>data retention</em>. Si no encuentra una cláusula explícita que excluya los datos educativos del entrenamiento, adopte el principio de precaución: no ingrese información sensible.</p>
+                        </div>
+                    </section>
+
+                    <section id="s5" class="scroll-mt-24">
+
+                        <h2>5. Prompt base (Peligroso)</h2>
+                        <div class="bg-gray-900 text-gray-100 p-5 rounded-xl font-mono text-sm shadow-inner mb-4">
+                            "Analiza estas calificaciones de mis alumnos de séptimo año (Juan P, María L...) y dime quién necesita ayuda extra."
+                        </div>
+                        <p class="text-sm text-red-500 italic">Problema: Este prompt constituye una <strong>infracción directa a la Ley 8968 de PRODHAB</strong>. Está ingresando datos personales de menores de edad —nombre y calificación— en una plataforma de terceros sin consentimiento ni marco contractual de protección. Adicionalmente, delega en el algoritmo una valoración que requiere criterio docente y conocimiento del contexto.</p>
+                    </section>
+
+                    <section id="s6" class="scroll-mt-24">
+
+                        <h2>6. Uso mejorado (Anonimizado y Ético)</h2>
+                        <div class="bg-gray-700 text-white p-5 rounded-xl font-mono text-sm shadow-lg shadow-gray-500/20 mb-4">
+                            "Actúa como asesor pedagógico especialista en aprendizaje diferenciado. Te voy a proporcionar una lista de 20 promedios completamente anónimos (Estudiante A: 65, Estudiante B: 85, etc.). Agrupa los resultados en tres niveles de desempeño (alto, medio, bajo). Para el grupo de nivel bajo, sugiere tres estrategias específicas de nivelación basadas en enfoques de <em>aprendizaje mastery</em> y proporciona una actividad concreta para implementar la próxima semana."
+                        </div>
+                        <p class="text-sm text-gray-500">Esta versión cumple con los principios de <strong>minimización de datos</strong> (principio GDPR/Ley 8968: usar solo los datos estrictamente necesarios) y <strong>anonimización robusta</strong>. El resultado pedagógico es equivalente o superior al del prompt peligroso, sin exponer a ningún menor.</p>
+                    </section>
+
+                    <section id="s7" class="scroll-mt-24">
+
+                        <h2>7. Adaptación por nivel/modalidad</h2>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-6">
+                            <div class="border border-gray-200 rounded-lg p-4">
+                                <h4 class="font-bold text-mep-blue text-sm uppercase tracking-wider mb-2">Primaria</h4>
+                                <p class="text-sm text-gray-600">Enfóquese en no compartir anécdotas de aula que permitan identificar al niño en su comunidad («el niño que llora todos los lunes» puede ser suficiente para reconocerlo). La privacidad infantil es una <strong>consideración de protección especial</strong> bajo la Convención de Derechos del Niño (ONU, 1989), ratificada por Costa Rica.</p>
+                            </div>
+                            <div class="border border-gray-200 rounded-lg p-4">
+                                <h4 class="font-bold text-mep-green text-sm uppercase tracking-wider mb-2">Secundaria</h4>
+                                <p class="text-sm text-gray-600">Tenga cuidado al ingresar ensayos originales de adolescentes en detectores de plagio por IA no seguros: el texto del estudiante podría ser indexado. Explique este riesgo a los jóvenes como parte de la educación en <em>huella digital</em>.</p>
+                            </div>
+                            <div class="border border-gray-200 rounded-lg p-4">
+                                <h4 class="font-bold text-mep-orange text-sm uppercase tracking-wider mb-2">CTP (Técnica)</h4>
+                                <p class="text-sm text-gray-600">Al simular proyectos empresariales con IA, evite usar datos reales financieros o de inventario de los micronegocios que los estudiantes practican. Construya escenarios ficticios pero verosímiles.</p>
+                            </div>
+                            <div class="border border-gray-200 rounded-lg p-4">
+                                <h4 class="font-bold text-purple-600 text-sm uppercase tracking-wider mb-2">Educación Especial</h4>
+                                <p class="text-sm text-gray-600">Máxima protección: el diagnóstico clínico (TDAH, TEA, discapacidad intelectual) es un <strong>dato sensible de salud</strong>, protegido de manera reforzada por la Ley 8968, artículo 9. No lo ingrese en ninguna plataforma de IA de acceso abierto bajo ninguna circunstancia.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="s8" class="scroll-mt-24">
+
+                        <h2>8. Riesgos y cuidados éticos</h2>
+                        <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 rounded-r-lg my-4">
+                            <h4 class="text-yellow-800 font-bold mb-2 flex items-center gap-2">
+                                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+                                Falsos Positivos en Detección de Plagio por IA
+                            </h4>
+                            <p class="text-sm text-yellow-700 m-0">Los detectores de «texto generado por IA» (como Turnitin AI, GPTZero) presentan tasas de error significativas, especialmente en español. Estudios de Stanford y MIT (2023) reportan tasas de falsos positivos superiores al 15% para estudiantes cuyo idioma nativo no es el inglés. <strong>Acusar a un estudiante basándose únicamente en un software</strong> puede dañar irremediablemente el vínculo pedagógico, vulnerar su derecho al debido proceso y contradecir la jurisprudencia educativa costarricense.</p>
+                        </div>
+                        <div class="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-r-lg mt-4">
+                            <h4 class="text-blue-800 font-bold mb-2">🔎 Sesgos Algorítmicos</h4>
+                            <p class="text-sm text-blue-700 m-0">Los LLMs reflejan los sesgos presentes en sus datos de entrenamiento (mayoritariamente en inglés y de contextos del Norte Global). Textos de estudiantes costarricenses, con giros propios del español centroamericano, pueden ser clasificados erróneamente como «generados por IA» por detectores entrenados en otro tipo de español. Use siempre el juicio profesional y la conversación directa con el estudiante como primer recurso diagnóstico.</p>
+                        </div>
+                    </section>
+
+                    <section id="s9" class="scroll-mt-24">
+
+                        <h2>9. Ejemplo Aplicado en Aula</h2>
+                        <p>Antes de implementar un proyecto donde los estudiantes usarán IA para investigar, el docente diseña un <strong>«Acuerdo de Uso Responsable de IA»</strong> construido colaborativamente con el grupo. El proceso tiene tres momentos:</p>
+                        <ul>
+                            <li><strong>Sensibilización (15 min):</strong> El docente muestra dos ejemplos —uno con datos reales ingresados en ChatGPT y uno anonimizado— y discute con el grupo las implicaciones legales y éticas.</li>
+                            <li><strong>Construcción colaborativa (20 min):</strong> En grupos de 4, los estudiantes proponen reglas: ¿cuándo es válido consultar la IA?, ¿cómo se cita una respuesta de IA?, ¿por qué no se deben ingresar fotos personales?</li>
+                            <li><strong>Formalización (10 min):</strong> El acuerdo queda firmado por el grupo y publicado en el aula virtual. Esto constituye un ejercicio de <em>ciudadanía digital activa</em>, alineado con los ejes transversales del MEP.</li>
+                        </ul>
+                    </section>
+
+                    <section id="s10" class="scroll-mt-24">
+
+                        <h2>10. Conexión con la Evaluación</h2>
+                        <p>Evalúe el <strong>proceso y no solo el producto final</strong>. El REAC 2024 valora la demostración del aprendizaje a través de múltiples evidencias. Si los estudiantes defienden oralmente su trabajo (sustentación, coloquio, «exposición de proceso»), usted puede validar que el aprendizaje ocurrió con independencia de la herramienta que utilizaron para redactar el entregable escrito.</p>
+                        <p>Incorpore en sus instrumentos de evaluación formativa una <strong>«Declaración de Uso de IA»</strong> donde el estudiante indique: qué herramienta usó, qué prompts utilizó y cómo verificó la información generada. Esto fomenta la metacognición y la integridad académica simultáneamente.</p>
+                    </section>
+
+                    <section id="s11" class="scroll-mt-24">
+
+                        <h2>11. Evidencia que puede recoger</h2>
+                        <p>Incluya en sus portafolios de planeamiento docente la <strong>versión del «Acuerdo de Uso Responsable de IA»</strong> diseñado con el grupo, junto con evidencia fotográfica del proceso de construcción colaborativa.</p>
+                        <p>Si implementa la «Declaración de Uso de IA» en un trabajo estudiantil, guarde un ejemplo anonimizado como evidencia de que está integrando prácticas de integridad académica vinculadas al uso de tecnología, documentando así su desarrollo profesional en competencias digitales éticas.</p>
+                    </section>
+
+                    <section id="s12" class="scroll-mt-24">
+
+                        <h2>12. Versión Inclusiva (DUA)</h2>
+                        <p>La IA puede generar contenido con <strong>sesgos de representación</strong>: mostrar personas de cierta etnia predominantemente en roles de liderazgo, o presentar siempre figuras masculinas en contextos científicos. El docente tiene la responsabilidad ética de <strong>auditar el contenido generado</strong> antes de presentarlo al grupo.</p>
+                        <p>Bajo el <strong>Principio II del DUA (Múltiples medios de acción y expresión)</strong>, la IA puede generar variantes de un mismo material para diferentes necesidades: versiones en audio (texto leído en voz alta), versiones con vocabulario simplificado, versiones con apoyo pictográfico. Cada variante puede producirse con un prompt específico, reduciendo la carga de trabajo del docente sin reducir la equidad en el acceso.</p>
+                    </section>
+
+                    <section id="s13" class="scroll-mt-24">
+
+                        <h2>13. Microreto de Autoformación</h2>
+                        <div class="bg-gray-100 border border-gray-300 rounded-xl p-6 text-center my-6">
+                            <h4 class="text-lg font-bold text-gray-800 mb-2">🔍 Auditoría Personal de Privacidad</h4>
+                            <p class="text-gray-700 mb-4">Ingrese a los «Términos y Condiciones» o «Política de Privacidad» de su herramienta de IA favorita. Use la función de búsqueda del navegador (CTRL+F) y busque las palabras <em>«training»</em> o <em>«entrenamiento»</em>. Descubra si sus conversaciones se usan por defecto para mejorar el modelo. Luego ubique el ajuste de privacidad para desactivarlo. Documente el proceso en una captura de pantalla comentada: este es un ejercicio de <strong>literacidad digital crítica</strong> que también puede replicar con sus estudiantes mayores de edad.</p>
+                        </div>
+                    </section>
+
+                    <section id="s14" class="scroll-mt-24">
+
+                        <h2>14. Checklist Rápido</h2>
+                        <ul class="space-y-2 list-none pl-0">
+                            <li class="flex items-center gap-3">
+                                <input type="checkbox" class="w-5 h-5 text-green-600 rounded focus:ring-green-600 border-gray-300">
+                                <span class="text-gray-700">Verifiqué que no hay nombres, cédulas ni datos sensibles de estudiantes en el prompt.</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <input type="checkbox" class="w-5 h-5 text-green-600 rounded focus:ring-green-600 border-gray-300">
+                                <span class="text-gray-700">Contraté los datos generados con fuentes primarias (para evitar alucinaciones).</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <input type="checkbox" class="w-5 h-5 text-green-600 rounded focus:ring-green-600 border-gray-300">
+                                <span class="text-gray-700">Fui transparente con el grupo sobre el uso de IA en la planeación o materiales.</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <input type="checkbox" class="w-5 h-5 text-green-600 rounded focus:ring-green-600 border-gray-300">
+                                <span class="text-gray-700">Conozco la diferencia entre plataformas con DPA institucional y plataformas de uso libre.</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <input type="checkbox" class="w-5 h-5 text-green-600 rounded focus:ring-green-600 border-gray-300">
+                                <span class="text-gray-700">Completé la auditoría de privacidad de mi herramienta de IA principal.</span>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section id="s15" class="scroll-mt-24">
+
+                        <h2>15. Recursos Complementarios</h2>
+                        <ul>
+                            <li><a href="politica-privacidad.html" class="text-green-700 hover:underline font-medium">Ley 8968: Protección de la persona frente al tratamiento de sus datos personales (PRODHAB)</a></li>
+                            <li><a href="#" class="text-green-700 hover:underline font-medium">Guía de Privacidad para Docentes en Entornos Digitales (PDF — MEP / CIOdD-UCR)</a></li>
+                            <li><a href="#" class="text-green-700 hover:underline font-medium">UNESCO (2023): Guía para el uso de IA Generativa en Educación y Políticas de Privacidad</a></li>
+                            <li><a href="#" class="text-green-700 hover:underline font-medium">CAST (2018): Principio II del DUA — Múltiples medios de acción y expresión</a></li>
+                            <li><a href="#" class="text-green-700 hover:underline font-medium">Cavoukian (2009): Privacy by Design — Los 7 principios fundacionales</a></li>
+                        </ul>
+                    </section>
+                </div>
+
+                <!-- Right Column: Sticky Navigation (TOC) -->
+                <div class="hidden lg:block lg:col-span-1">
+                    <div class="sticky top-28 bg-white rounded-2xl border border-gray-200 shadow-sm p-5">
+                        <h3 class="text-sm font-bold text-gray-900 uppercase tracking-wider mb-4">Índice del Módulo</h3>
+                        <nav class="space-y-1 text-sm">
+                            <a href="#s1" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">1. Utilidad Docente</a>
+                            <a href="#s2" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">2. ¿Cuándo sí usarla?</a>
+                            <a href="#s3" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">3. ¿Cuándo NO?</a>
+                            <a href="#s4" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">4. Herramienta</a>
+                            <a href="#s5" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">5. Prompt base</a>
+                            <a href="#s6" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">6. Uso mejorado</a>
+                            <a href="#s7" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">7. Adaptaciones</a>
+                            <a href="#s8" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">8. Riesgos éticos</a>
+                            <a href="#s9" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">9. Ejemplo aplicado</a>
+                            <a href="#s10" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">10. Evaluación</a>
+                            <a href="#s11" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">11. Evidencias</a>
+                            <a href="#s12" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">12. Inclusión DUA</a>
+                            <a href="#s13" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">13. Microreto</a>
+                            <a href="#s14" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">14. Checklist</a>
+                            <a href="#s15" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">15. Recursos</a>
+                        </nav>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- ═══════════════════════════════════════════ -->
+            <!-- Autoevaluación del Módulo 2 -->
+            <!-- ═══════════════════════════════════════════ -->
+            <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 sm:p-10 mt-8" id="quiz-section-2">
+                <div class="flex items-center gap-3 mb-6 border-b border-gray-100 pb-4">
+                    <span class="text-2xl">📝</span>
+                    <h2 class="text-2xl font-bold text-gray-900 m-0">Autoevaluación del Módulo 2</h2>
+                </div>
+                <p class="text-gray-600 mb-6">Responda las siguientes preguntas para verificar su comprensión. Sus resultados se guardan localmente en su navegador.</p>
+
+                <div id="quiz-container-2">
+                    <!-- Pregunta 1 -->
+                    <div class="mb-6 p-5 bg-gray-50 rounded-xl border border-gray-200">
+                        <p class="font-bold text-gray-900 mb-4">1. ¿Qué datos de estudiantes NUNCA deben ingresarse en herramientas de IA de terceros?</p>
+                        <div class="space-y-3">
+                            <label class="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-100 hover:border-mep-blue hover:bg-blue-50 cursor-pointer transition-all"><input type="radio" name="q2_0" value="0" class="w-4 h-4 text-mep-blue focus:ring-mep-blue border-gray-300"><span class="text-gray-700">Temas generales del currículo</span></label>
+                            <label class="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-100 hover:border-mep-blue hover:bg-blue-50 cursor-pointer transition-all"><input type="radio" name="q2_0" value="1" class="w-4 h-4 text-mep-blue focus:ring-mep-blue border-gray-300"><span class="text-gray-700">Nombres, cédulas y calificaciones</span></label>
+                            <label class="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-100 hover:border-mep-blue hover:bg-blue-50 cursor-pointer transition-all"><input type="radio" name="q2_0" value="2" class="w-4 h-4 text-mep-blue focus:ring-mep-blue border-gray-300"><span class="text-gray-700">Estrategias pedagógicas genéricas</span></label>
+                            <label class="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-100 hover:border-mep-blue hover:bg-blue-50 cursor-pointer transition-all"><input type="radio" name="q2_0" value="3" class="w-4 h-4 text-mep-blue focus:ring-mep-blue border-gray-300"><span class="text-gray-700">Nombres de asignaturas</span></label>
+                        </div>
+                        <div id="feedback-2-0" class="hidden mt-3 p-3 rounded-lg text-sm"></div>
+                    </div>
+                    <!-- Pregunta 2 -->
+                    <div class="mb-6 p-5 bg-gray-50 rounded-xl border border-gray-200">
+                        <p class="font-bold text-gray-900 mb-4">2. ¿Qué son los 'sesgos' en la IA?</p>
+                        <div class="space-y-3">
+                            <label class="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-100 hover:border-mep-blue hover:bg-blue-50 cursor-pointer transition-all"><input type="radio" name="q2_1" value="0" class="w-4 h-4 text-mep-blue focus:ring-mep-blue border-gray-300"><span class="text-gray-700">Errores de ortografía en las respuestas</span></label>
+                            <label class="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-100 hover:border-mep-blue hover:bg-blue-50 cursor-pointer transition-all"><input type="radio" name="q2_1" value="1" class="w-4 h-4 text-mep-blue focus:ring-mep-blue border-gray-300"><span class="text-gray-700">Prejuicios reflejados desde los datos de entrenamiento</span></label>
+                            <label class="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-100 hover:border-mep-blue hover:bg-blue-50 cursor-pointer transition-all"><input type="radio" name="q2_1" value="2" class="w-4 h-4 text-mep-blue focus:ring-mep-blue border-gray-300"><span class="text-gray-700">Problemas de conexión a internet</span></label>
+                            <label class="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-100 hover:border-mep-blue hover:bg-blue-50 cursor-pointer transition-all"><input type="radio" name="q2_1" value="3" class="w-4 h-4 text-mep-blue focus:ring-mep-blue border-gray-300"><span class="text-gray-700">Limitaciones de idioma</span></label>
+                        </div>
+                        <div id="feedback-2-1" class="hidden mt-3 p-3 rounded-lg text-sm"></div>
+                    </div>
+                    <!-- Pregunta 3 -->
+                    <div class="mb-6 p-5 bg-gray-50 rounded-xl border border-gray-200">
+                        <p class="font-bold text-gray-900 mb-4">3. ¿Cuál es la diferencia entre uso válido de IA y plagio?</p>
+                        <div class="space-y-3">
+                            <label class="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-100 hover:border-mep-blue hover:bg-blue-50 cursor-pointer transition-all"><input type="radio" name="q2_2" value="0" class="w-4 h-4 text-mep-blue focus:ring-mep-blue border-gray-300"><span class="text-gray-700">No hay diferencia</span></label>
+                            <label class="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-100 hover:border-mep-blue hover:bg-blue-50 cursor-pointer transition-all"><input type="radio" name="q2_2" value="1" class="w-4 h-4 text-mep-blue focus:ring-mep-blue border-gray-300"><span class="text-gray-700">El uso válido es transparente, fomenta aprendizaje y es validado</span></label>
+                            <label class="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-100 hover:border-mep-blue hover:bg-blue-50 cursor-pointer transition-all"><input type="radio" name="q2_2" value="2" class="w-4 h-4 text-mep-blue focus:ring-mep-blue border-gray-300"><span class="text-gray-700">Solo es plagio si se copia todo el texto</span></label>
+                            <label class="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-100 hover:border-mep-blue hover:bg-blue-50 cursor-pointer transition-all"><input type="radio" name="q2_2" value="3" class="w-4 h-4 text-mep-blue focus:ring-mep-blue border-gray-300"><span class="text-gray-700">Depende de la herramienta utilizada</span></label>
+                        </div>
+                        <div id="feedback-2-2" class="hidden mt-3 p-3 rounded-lg text-sm"></div>
+                    </div>
+                    <!-- Botón de envío -->
+                    <div class="text-center mt-8">
+                        <button onclick="evaluarQuiz(2)" id="quiz-submit-2" class="px-8 py-3 bg-mep-blue hover:bg-blue-600 text-white font-bold rounded-xl shadow-lg shadow-blue-500/30 transition-all hover:-translate-y-1">
+                            Verificar Respuestas
+                        </button>
+                    </div>
+
+                    <!-- Resultado -->
+                    <div id="quiz-result-2" class="hidden mt-6 p-6 rounded-xl text-center"></div>
+
+                    <!-- Botón reintentar (oculto inicialmente) -->
+                    <div id="quiz-retry-2" class="hidden text-center mt-4">
+                        <button onclick="reintentarQuiz(2)" class="px-6 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 font-medium rounded-lg transition-colors">
+                            🔄 Reintentar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+            (function() {
+                // Datos del quiz
+                const quizData_2 = [{"correct": 1, "explanation": "Los datos personales de menores (nombres, cédulas, calificaciones, datos médicos) están protegidos por la Ley 8968 y nunca deben ingresarse en chatbots externos."}, {"correct": 1, "explanation": "Los sesgos son prejuicios heredados de los datos de entrenamiento que pueden reflejar falta de diversidad o estereotipos."}, {"correct": 1, "explanation": "El uso es válido cuando es transparente, fomenta el aprendizaje y el resultado es verificado por el docente. Copiar sin entender ni declarar es inaceptable."}];
+
+                // Restaurar estado previo
+                const saved = localStorage.getItem('caja_modulo_2_quiz');
+                if (saved) {
+                    const data = JSON.parse(saved);
+                    showSavedResult(2, data);
+                }
+
+                // Exponer funciones al scope global
+                window.evaluarQuiz = window.evaluarQuiz || function(mod) {
+                    const data = window['quizData_' + mod];
+                    let correct = 0;
+                    data.forEach((q, i) => {
+                        const selected = document.querySelector('input[name="q' + mod + '_' + i + '"]:checked');
+                        const feedback = document.getElementById('feedback-' + mod + '-' + i);
+                        const options = document.querySelectorAll('input[name="q' + mod + '_' + i + '"]');
+                        
+                        options.forEach(o => o.disabled = true);
+                        
+                        if (selected && parseInt(selected.value) === q.correct) {
+                            correct++;
+                            feedback.innerHTML = '<span class="text-green-700">✅ ¡Correcto! ' + q.explanation + '</span>';
+                            feedback.className = 'mt-3 p-3 rounded-lg text-sm bg-green-50 border border-green-200';
+                        } else {
+                            feedback.innerHTML = '<span class="text-red-700">❌ Incorrecto. ' + q.explanation + '</span>';
+                            feedback.className = 'mt-3 p-3 rounded-lg text-sm bg-red-50 border border-red-200';
+                        }
+                        feedback.classList.remove('hidden');
+                    });
+
+                    const total = data.length;
+                    const passed = correct >= 2;
+                    const resultDiv = document.getElementById('quiz-result-' + mod);
+                    resultDiv.innerHTML = passed
+                        ? '<div class="text-green-800 font-bold text-lg">🎉 ¡Aprobado! ' + correct + '/' + total + ' respuestas correctas.</div><p class="text-green-700 text-sm mt-2">Su progreso ha sido guardado.</p>'
+                        : '<div class="text-orange-800 font-bold text-lg">📘 ' + correct + '/' + total + ' respuestas correctas.</div><p class="text-orange-700 text-sm mt-2">Le recomendamos repasar el contenido y volver a intentarlo.</p>';
+                    resultDiv.className = passed
+                        ? 'mt-6 p-6 rounded-xl text-center bg-green-50 border border-green-200'
+                        : 'mt-6 p-6 rounded-xl text-center bg-orange-50 border border-orange-200';
+                    resultDiv.classList.remove('hidden');
+
+                    document.getElementById('quiz-submit-' + mod).classList.add('hidden');
+                    document.getElementById('quiz-retry-' + mod).classList.remove('hidden');
+
+                    localStorage.setItem('caja_modulo_' + mod + '_quiz', JSON.stringify({
+                        correct: correct, total: total, passed: passed, date: new Date().toISOString()
+                    }));
+                };
+
+                window.reintentarQuiz = window.reintentarQuiz || function(mod) {
+                    localStorage.removeItem('caja_modulo_' + mod + '_quiz');
+                    const container = document.getElementById('quiz-container-' + mod);
+                    container.querySelectorAll('input[type="radio"]').forEach(r => {
+                        r.checked = false;
+                        r.disabled = false;
+                    });
+                    container.querySelectorAll('[id^="feedback-"]').forEach(f => {
+                        f.classList.add('hidden');
+                    });
+                    document.getElementById('quiz-result-' + mod).classList.add('hidden');
+                    document.getElementById('quiz-retry-' + mod).classList.add('hidden');
+                    document.getElementById('quiz-submit-' + mod).classList.remove('hidden');
+                };
+
+                window['quizData_' + 2] = quizData_2;
+            })();
+
+            function showSavedResult(mod, data) {
+                const resultDiv = document.getElementById('quiz-result-' + mod);
+                if (!resultDiv) return;
+                const dateStr = new Date(data.date).toLocaleDateString('es-CR', {day:'numeric',month:'long',year:'numeric'});
+                resultDiv.innerHTML = data.passed
+                    ? '<div class="text-green-800 font-bold text-lg">🎉 Aprobado anteriormente: ' + data.correct + '/' + data.total + '</div><p class="text-green-700 text-sm mt-2">Completado el ' + dateStr + '</p>'
+                    : '<div class="text-orange-800 font-bold text-lg">📘 Resultado anterior: ' + data.correct + '/' + data.total + '</div><p class="text-orange-700 text-sm mt-2">Intentado el ' + dateStr + '. Recomendamos repasar el contenido.</p>';
+                resultDiv.className = data.passed
+                    ? 'mt-6 p-6 rounded-xl text-center bg-green-50 border border-green-200'
+                    : 'mt-6 p-6 rounded-xl text-center bg-orange-50 border border-orange-200';
+                resultDiv.classList.remove('hidden');
+                document.getElementById('quiz-retry-' + mod).classList.remove('hidden');
+            }
+            </script>
+
+
+            <!-- ═══ Navegación entre módulos ═══ -->
+            <div class="border-t border-gray-200 mt-10 pt-8 pb-2
+                        flex items-center justify-between gap-4" id="mod-nav">
+                
+        <a href="modulo-1.html"
+           class="flex items-center gap-3 px-5 py-3 bg-white border border-gray-200
+                  rounded-xl text-gray-600 hover:bg-gray-50 hover:border-gray-300
+                  font-medium transition-all group">
+            <svg class="w-4 h-4 flex-shrink-0 group-hover:-translate-x-1 transition-transform"
+                 fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M15 19l-7-7 7-7"/>
+            </svg>
+            <div class="hidden sm:block text-left">
+                <div class="text-xs text-gray-400">Anterior</div>
+                <div class="text-sm font-semibold">Fundamentos de IA</div>
+            </div>
+        </a>
+                <a href="modulos.html"
+                   class="text-sm text-gray-400 hover:text-mep-blue underline transition-colors
+                          hidden sm:block">
+                    Ver catálogo
+                </a>
+                
+        <a href="modulo-3.html"
+           class="flex items-center gap-3 px-5 py-3 bg-mep-blue hover:bg-blue-700
+                  rounded-xl text-white font-medium transition-all group
+                  shadow-lg shadow-blue-500/20">
+            <div class="hidden sm:block text-right">
+                <div class="text-xs text-blue-200">Siguiente</div>
+                <div class="text-sm font-semibold">Aplicaciones en el Aula</div>
+            </div>
+            <svg class="w-4 h-4 flex-shrink-0 group-hover:translate-x-1 transition-transform"
+                 fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M9 5l7 7-7 7"/>
+            </svg>
+        </a>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800 text-gray-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 mb-12">
+                <div>
+                    <h3 class="text-white text-lg font-bold mb-4 flex items-center gap-2">
+                        <span class="text-mep-blue bg-white rounded flex items-center justify-center w-6 h-6 text-sm">🎓</span> 
+                        Caja de Herramientas
+                    </h3>
+                    <p class="text-sm text-gray-400 leading-relaxed">
+                        Plataforma de autoformación docente en Inteligencia Artificial, diseñada específicamente para el contexto educativo costarricense y la guía MEP 2026.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-white text-sm font-bold uppercase tracking-wider mb-4">Enlaces Rápidos</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-sm text-gray-400 hover:text-white transition-colors flex items-center gap-2"><span>→</span> Documentación</a></li>
+                        <li><a href="#" class="text-sm text-gray-400 hover:text-white transition-colors flex items-center gap-2"><span>→</span> Soporte Técnico</a></li>
+                        <li><a href="#" class="text-sm text-gray-400 hover:text-white transition-colors flex items-center gap-2"><span>→</span> Comunidad Docente</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-white text-sm font-bold uppercase tracking-wider mb-4">Marco Legal</h3>
+                    <ul class="space-y-3">
+                        <li><a href="politica-privacidad.html" class="text-sm text-gray-400 hover:text-white transition-colors flex items-center gap-2"><span>→</span> Política de Privacidad</a></li>
+                        <li><a href="terminos-uso.html" class="text-sm text-gray-400 hover:text-white transition-colors flex items-center gap-2"><span>→</span> Términos de Servicio</a></li>
+                        <li><a href="politica-privacidad.html" class="text-sm text-gray-400 hover:text-white transition-colors flex items-center gap-2"><span>→</span> Ley 8968 / PRODHAB</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-sm text-gray-500 text-center md:text-left">
+                    Centro de Investigación Observatorio del Desarrollo de la Universidad de Costa Rica. Proyecto ED-3698 Inteligencia Artificial en el aula: una guía para la educación innovadora, 2026.
+                </p>
+                <div class="flex gap-6">
+                    <a href="https://www.facebook.com/CIOdD.UCR" target="_blank" class="text-gray-500 hover:text-white transition-colors">
+                        <span class="sr-only">Facebook</span>
+                        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
+                    </a>
+                    <a href="https://x.com/CIOdDUCR" target="_blank" class="text-gray-500 hover:text-white transition-colors">
+                        <span class="sr-only">Twitter</span>
+                        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Manejo de estado UI (Vainilla JS) -->
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+            
+            if (sidebar.classList.contains('-translate-x-full')) {
+                // Open sidebar
+                sidebar.classList.remove('-translate-x-full');
+                sidebar.classList.add('translate-x-0');
+                overlay.classList.remove('hidden');
+                document.body.classList.add('overflow-hidden'); // Prevent background scrolling
+            } else {
+                // Close sidebar
+                sidebar.classList.add('-translate-x-full');
+                sidebar.classList.remove('translate-x-0');
+                overlay.classList.add('hidden');
+                document.body.classList.remove('overflow-hidden');
+            }
+        }
+    </script>
+</body>
+</html>

@@ -76,10 +76,6 @@
                 </svg>
                 <span class="text-sm font-medium hidden sm:block">Preguntas y Respuestas</span>
             </a>
-            <div class="flex items-center gap-3 p-1 pr-3 rounded-full border border-gray-200 hover:bg-gray-50 cursor-pointer transition-colors">
-                <img src="https://ui-avatars.com/api/?name=Docente+MEP&background=006633&color=fff" alt="Perfil de usuario" class="w-8 h-8 rounded-full">
-                <span class="text-sm font-medium text-gray-700 hidden sm:block">Docente</span>
-            </div>
         </div>
     </header>
 
@@ -163,95 +159,354 @@
                 <!-- Left Column: 15 Sections Content -->
                 <div class="lg:col-span-3 bg-white rounded-2xl border border-gray-200 shadow-sm p-6 sm:p-10 prose prose-pink max-w-none">
                     <section id="s1" class="scroll-mt-24">
-                        <h2>1. ¿Qué es un Micro-Prompt?</h2>
-                        <p>Un micro-prompt es una instrucción extremadamente corta (1-2 líneas) diseñada para generar ideas rápidas cuando el docente tiene muy poco tiempo. No produce materiales finales, sino chispas de inspiración.</p>
-                    </section>
+<h2>1. ¿Qué es un Micro-Prompt?</h2>
+<p>Un <strong>micro-prompt</strong> es una instrucción compacta —generalmente de una o dos oraciones— diseñada para extraer ideas generativas de un modelo de lenguaje en el menor tiempo posible. A diferencia de un prompt estructurado (que puede incluir rol, contexto, restricciones y formato), el micro-prompt opera bajo el principio del <em>mínimo insumo viable</em>: proporciona la señal mínima necesaria para que el modelo produzca una salida útil.</p>
+<p>Su fundamento teórico descansa en la <strong>Teoría de la Carga Cognitiva</strong> (Sweller, 1988; Sweller, van Merriënboer &amp; Paas, 1998), que distingue entre carga cognitiva intrínseca (complejidad del contenido), extrínseca (dificultad innecesaria del diseño instruccional) y germinal (esfuerzo productivo de aprendizaje). El micro-prompt reduce deliberadamente la carga extrínseca para el docente: redactar una instrucción breve demanda menos recursos cognitivos que construir un prompt complejo, liberando así capacidad mental para evaluar y seleccionar los resultados.</p>
+<p>En el contexto pedagógico costarricense, donde los docentes administran grupos numerosos, coberturas curriculares ajustadas al Marco Curricular del MEP 2022 y tiempos de planificación escasos, el micro-prompt funciona como una herramienta de <em>agilidad cognitiva</em>: no reemplaza la planificación didáctica profunda, sino que actúa como catalizador de ideas en los márgenes del tiempo disponible.</p>
+<div class="bg-blue-50 border border-blue-200 rounded-xl p-5 my-4">
+  <h4 class="text-blue-800 font-bold mb-2">📌 Distinción clave</h4>
+  <p class="text-blue-900 text-sm mb-0">El micro-prompt <strong>genera inspiración</strong>, no materiales finales. Es el equivalente digital de escribir una nota rápida en un Post-it antes de desarrollar la idea completa. El producto de un micro-prompt siempre requiere revisión crítica, adaptación pedagógica y verificación ética por parte del docente antes de llevarse al aula.</p>
+</div>
+</section>
 
                     <section id="s2" class="scroll-mt-24">
-                        <h2>2. Estructura del Micro-Prompt</h2>
-                        <p>Verbo de acción + Tema + Audiencia. Ejemplo: "Lista 5 ideas para enseñar fracciones a niños de 8 años de forma lúdica".</p>
-                    </section>
+<h2>2. Estructura del Micro-Prompt</h2>
+<p>Aunque el micro-prompt es breve, su eficacia aumenta considerablemente cuando sigue una estructura mínima reconocible. La fórmula más directa combina tres elementos:</p>
+<div class="bg-gray-50 border border-gray-200 rounded-xl p-5 my-4">
+  <p class="text-center text-lg font-bold text-gray-800 mb-2">🔷 Verbo de acción + Tema + Audiencia</p>
+  <p class="text-center text-gray-600 text-sm">Ejemplo: <em>"Lista 5 ideas para enseñar fracciones a niños de 8 años de forma lúdica."</em></p>
+</div>
+<p>Desde la perspectiva de la lingüística instruccional, el <strong>verbo de acción</strong> opera como operador de tarea: orienta al modelo sobre qué tipo de operación cognitiva debe ejecutar. Los verbos más productivos en contextos educativos incluyen <em>listar, generar, comparar, explicar, crear, adaptar, simplificar, proponer</em> y <em>reescribir</em>. La selección del verbo no es trivial: "lista" produce enumeraciones discretas, mientras que "explica" produce prosa argumentativa. Esta distinción se alinea con los niveles de la Taxonomía de Bloom Revisada (Anderson &amp; Krathwohl, 2001), donde diferentes verbos activan diferentes procesos cognitivos.</p>
+<p>El componente de <strong>audiencia</strong> es el más frecuentemente omitido y, paradójicamente, el que más impacto tiene sobre la pertinencia del resultado. Indicar "estudiantes de octavo año del Colegio Técnico Profesional" produce respuestas sustancialmente diferentes a "adolescentes de 14 años", incluso con el mismo tema y verbo. En el contexto costarricense, especificar la modalidad educativa (académica diurna, técnica, IPEC, Cindea) mejora significativamente la contextualización de las sugerencias generadas.</p>
+<h3>Variantes estructurales según propósito</h3>
+<div class="overflow-x-auto my-4">
+  <table class="w-full text-sm border-collapse">
+    <thead><tr class="bg-pink-100"><th class="border border-pink-200 px-3 py-2 text-left">Propósito</th><th class="border border-pink-200 px-3 py-2 text-left">Estructura sugerida</th><th class="border border-pink-200 px-3 py-2 text-left">Ejemplo</th></tr></thead>
+    <tbody>
+      <tr class="bg-white"><td class="border border-gray-200 px-3 py-2">Ideación rápida</td><td class="border border-gray-200 px-3 py-2">Verbo + Tema + Nº ideas</td><td class="border border-gray-200 px-3 py-2">"Dame 3 formas de enseñar el ciclo del agua"</td></tr>
+      <tr class="bg-gray-50"><td class="border border-gray-200 px-3 py-2">Diferenciación</td><td class="border border-gray-200 px-3 py-2">Verbo + Tema + Nivel específico</td><td class="border border-gray-200 px-3 py-2">"Adapta este ejercicio para estudiantes con dificultad lectora"</td></tr>
+      <tr class="bg-white"><td class="border border-gray-200 px-3 py-2">Contextualización</td><td class="border border-gray-200 px-3 py-2">Verbo + Concepto + Referente local</td><td class="border border-gray-200 px-3 py-2">"Explica la inflación usando el precio del colón tico"</td></tr>
+      <tr class="bg-gray-50"><td class="border border-gray-200 px-3 py-2">Metacognición</td><td class="border border-gray-200 px-3 py-2">Verbo + Proceso + Reflexión</td><td class="border border-gray-200 px-3 py-2">"Escribe 2 preguntas para que mis estudiantes evalúen su propio aprendizaje hoy"</td></tr>
+    </tbody>
+  </table>
+</div>
+</section>
 
                     <section id="s3" class="scroll-mt-24">
-                        <h2>3. Generación de Rompehielos</h2>
-                        <p>"Dame 3 preguntas rompehielos sobre [Tema] para adolescentes."</p>
-                    </section>
+<h2>3. Micro-Prompts para Rompehielos</h2>
+<p>El rompehielos (<em>icebreaker</em>) cumple una función pedagógica que va más allá de la socialización inicial: desde la perspectiva del aprendizaje sociocultural (Vygotsky, 1978), activa la Zona de Desarrollo Próximo al conectar el nuevo conocimiento con experiencias previas compartidas. Un buen rompehielos reduce la ansiedad cognitiva, establece un clima de aula seguro y focaliza la atención del grupo en el tema de la lección.</p>
+<p>La teoría del <strong>brainstorming pedagógico</strong> (Osborn, 1953; adaptada por Torrance, 1966 para entornos educativos) sugiere que la generación de ideas creativas requiere primero suspender el juicio crítico. El micro-prompt para rompehielos aprovecha esta lógica: permite al docente obtener tres o cuatro opciones en segundos y seleccionar la más adecuada para el grupo específico.</p>
+<div class="bg-pink-50 border border-pink-200 rounded-xl p-5 my-4">
+  <h4 class="text-pink-800 font-bold mb-3">💬 Plantilla base</h4>
+  <p class="font-mono text-sm bg-white p-3 rounded border border-pink-200">"Dame 3 preguntas rompehielos sobre [Tema] para adolescentes de [nivel] que nunca hayan escuchado antes."</p>
+</div>
+<h3>Variaciones según objetivo pedagógico</h3>
+<ul>
+  <li><strong>Para activar conocimientos previos:</strong> <em>"Dame 2 preguntas que mis estudiantes de décimo puedan responder desde su experiencia cotidiana antes de estudiar [Ecosistemas]."</em></li>
+  <li><strong>Para generar disonancia cognitiva:</strong> <em>"Escribe 1 pregunta sorprendente o contradictoria sobre [la Segunda Guerra Mundial] que haga dudar a adolescentes de 15 años."</em> — Este tipo activa el conflicto cognitivo descrito por Piaget (1952), motor del aprendizaje por acomodación.</li>
+  <li><strong>Para modalidad técnica (CTP):</strong> <em>"Dame 3 preguntas de inicio sobre [soldadura] conectadas con proyectos reales que puedan hacer en su comunidad."</em></li>
+  <li><strong>Para grupos IPEC o adultos:</strong> <em>"Sugiere 2 preguntas de inicio sobre [emprendimiento] que conecten con la experiencia laboral de adultos mayores de 25 años."</em></li>
+</ul>
+<div class="bg-yellow-50 border border-yellow-200 rounded-xl p-4 my-4">
+  <p class="text-yellow-900 text-sm"><strong>⚠️ Revisión crítica:</strong> La IA puede generar rompehielos culturalmente descontextualizados (referencias a celebridades o contextos anglosajones). Siempre verifique que las preguntas resuenen con la realidad costarricense del grupo y no refuercen estereotipos de género, etnia o nivel socioeconómico.</p>
+</div>
+</section>
 
                     <section id="s4" class="scroll-mt-24">
-                        <h2>4. Cierres de Clase (Tickets de Salida)</h2>
-                        <p>"Genera 2 preguntas de reflexión final sobre [Tema de la clase]."</p>
-                    </section>
+<h2>4. Micro-Prompts para Cierres de Clase (Tickets de Salida)</h2>
+<p>Los cierres de clase estructurados, también llamados <strong>tickets de salida</strong> (<em>exit tickets</em>), constituyen uno de los instrumentos de Evaluación Formativa más respaldados por la investigación educativa. Black &amp; Wiliam (1998), en su influyente revisión <em>Inside the Black Box</em>, documentaron que las prácticas de evaluación formativa continua —incluyendo preguntas de cierre— producen ganancias de aprendizaje equivalentes a 0,4–0,7 desviaciones estándar, un efecto comparable a la reducción del tamaño de grupo.</p>
+<p>En el marco del REAC 2024 del MEP costarricense, el cierre de lección es una fase didáctica obligatoria que debe evidenciar el logro de los desempeños de comprensión esperados. Un micro-prompt bien construido puede generar preguntas de cierre alineadas con esos desempeños en segundos, garantizando coherencia entre lo enseñado y lo evaluado.</p>
+<div class="bg-pink-50 border border-pink-200 rounded-xl p-5 my-4">
+  <h4 class="text-pink-800 font-bold mb-3">🎫 Plantilla base</h4>
+  <p class="font-mono text-sm bg-white p-3 rounded border border-pink-200">"Genera 2 preguntas de reflexión final sobre [Tema de la clase] que mis estudiantes puedan responder en 3 minutos."</p>
+</div>
+<h3>Variaciones según tipo de cierre</h3>
+<ul>
+  <li><strong>Cierre cognitivo (comprensión):</strong> <em>"Escribe 1 pregunta para que mis estudiantes expliquen con sus propias palabras qué es [la fotosíntesis]."</em></li>
+  <li><strong>Cierre metacognitivo:</strong> <em>"Dame 2 preguntas para que mis estudiantes reflexionen sobre qué estrategia de estudio usaron hoy y qué cambiarían."</em> — Activa la metacognición, capacidad identificada por Hattie (2009) como uno de los predictores más potentes del rendimiento académico (efecto = 0.69).</li>
+  <li><strong>Cierre aplicativo (Bloom, nivel 3):</strong> <em>"Genera una pregunta donde el estudiante deba usar [las leyes de Newton] para resolver un problema de su vida real."</em></li>
+  <li><strong>Cierre evaluativo (Bloom, nivel 5):</strong> <em>"Escribe 1 pregunta donde el estudiante critique o defienda una posición sobre [el uso de transgénicos en Costa Rica]."</em></li>
+</ul>
+<div class="bg-blue-50 border border-blue-200 rounded-xl p-4 my-4">
+  <p class="text-blue-900 text-sm"><strong>💡 Integración REAC:</strong> Para alinear con la rúbrica de evidencias del REAC, especifique en el prompt el <em>desempeño de comprensión</em> exacto: <em>"Genera un ticket de salida para el desempeño 'el estudiante analiza cómo los factores abióticos condicionan la distribución de organismos en el Pacífico Central'."</em></p>
+</div>
+</section>
 
                     <section id="s5" class="scroll-mt-24">
-                        <h2>5. Ideas de Proyectos Rápidos</h2>
-                        <p>"Sugiere un proyecto de 1 semana donde estudiantes de noveno apliquen [Concepto] usando materiales reciclados."</p>
-                    </section>
+<h2>5. Micro-Prompts para Ideas de Proyectos Rápidos</h2>
+<p>El Aprendizaje Basado en Proyectos (ABP) es reconocido por múltiples marcos curriculares —incluyendo el Marco Curricular del MEP 2022 y los Perfiles de Egreso nacionales— como una estrategia central para desarrollar competencias para el siglo XXI. Sin embargo, un obstáculo frecuente para su implementación es el tiempo que demanda diseñar un proyecto pedagógicamente coherente desde cero.</p>
+<p>El micro-prompt para proyectos actúa como generador de <strong>semillas de diseño instruccional</strong>: produce bocetos de proyecto que el docente puede refinar, contextualizar y alinear con los programas de estudio. Desde la teoría del Aprendizaje Situado (Lave &amp; Wenger, 1991), los mejores proyectos emergen de problemas auténticos de la comunidad local. Especificar ese anclaje local en el micro-prompt mejora significativamente la relevancia de las sugerencias.</p>
+<div class="bg-pink-50 border border-pink-200 rounded-xl p-5 my-4">
+  <h4 class="text-pink-800 font-bold mb-3">🛠️ Plantilla base</h4>
+  <p class="font-mono text-sm bg-white p-3 rounded border border-pink-200">"Sugiere un proyecto de 1 semana donde estudiantes de noveno apliquen [Concepto] usando materiales reciclados o recursos de su comunidad."</p>
+</div>
+<h3>Variaciones por modalidad y contexto costarricense</h3>
+<ul>
+  <li><strong>Contexto ambiental:</strong> <em>"Dame la idea de un proyecto de 3 días donde estudiantes de undécimo investiguen un problema ambiental de su cantón y propongan una solución usando datos reales."</em></li>
+  <li><strong>Contexto CTP/técnico:</strong> <em>"Sugiere un mini-proyecto para un grupo de electricidad industrial donde construyan un circuito útil para una microempresa local."</em> — Conecta con la filosofía de aprendizaje dual que orienta la educación técnica costarricense (INA, SNED).</li>
+  <li><strong>Interdisciplinario:</strong> <em>"Propón un proyecto de 2 semanas que combine Estudios Sociales y Matemáticas, donde el producto final sea una infografía sobre la desigualdad en su provincia."</em></li>
+  <li><strong>Con producto digital:</strong> <em>"Dame una idea de proyecto donde estudiantes de octavo creen un podcast corto sobre [un tema de Ciencias] para compartir con la comunidad escolar."</em></li>
+</ul>
+<div class="bg-green-50 border border-green-200 rounded-xl p-4 my-4">
+  <p class="text-green-900 text-sm"><strong>🌱 Anclaje local:</strong> Mencionar provincias, cantones o problemáticas específicas de Costa Rica (deforestación en el Corredor Biológico, contaminación de ríos, acceso a agua potable en zonas rurales) activa en el modelo referencias más pertinentes y culturalmente situadas. Compare: <em>"proyecto sobre agua"</em> vs. <em>"proyecto sobre acceso al agua potable en comunidades indígenas del Territorio Bribrí de Talamanca."</em></p>
+</div>
+</section>
 
                     <section id="s6" class="scroll-mt-24">
-                        <h2>6. Ejemplos de la Vida Real</h2>
-                        <p>"Dame una analogía de la vida cotidiana en Costa Rica para explicar [Concepto complejo]."</p>
-                    </section>
+<h2>6. Micro-Prompts para Ejemplos de la Vida Real</h2>
+<p>La construcción de analogías y ejemplos contextualizados es uno de los recursos pedagógicos más potentes para facilitar la comprensión de conceptos abstractos. Desde la teoría del Aprendizaje Significativo (Ausubel, 1963), el conocimiento nuevo se ancla en estructuras cognitivas previas mediante <strong>organizadores avanzados</strong>: puentes entre lo que el estudiante ya sabe y lo que debe aprender. Un buen ejemplo cumple exactamente esa función de puente.</p>
+<p>El micro-prompt para ejemplos explota una capacidad específica de los modelos de lenguaje grande: su acceso a un vasto repositorio de analogías inter-dominio. Sin embargo, la calidad de la analogía depende críticamente de la especificidad del contexto provisto. Indicar "Costa Rica" o, mejor aún, una referencia cultural específica (el colón, el pejibaye, la temporada de lluvias, el tráfico en la Ruta 27) produce resultados significativamente más aterrizados que una solicitud genérica.</p>
+<div class="bg-pink-50 border border-pink-200 rounded-xl p-5 my-4">
+  <h4 class="text-pink-800 font-bold mb-3">🌎 Plantilla base</h4>
+  <p class="font-mono text-sm bg-white p-3 rounded border border-pink-200">"Dame una analogía de la vida cotidiana en Costa Rica para explicar [Concepto complejo] a estudiantes de [nivel]."</p>
+</div>
+<h3>Ejemplos de micro-prompts con resultado esperado</h3>
+<div class="space-y-3 my-4">
+  <div class="bg-white border border-gray-200 rounded-lg p-4">
+    <p class="text-xs font-bold text-gray-500 uppercase mb-1">Química · Décimo</p>
+    <p class="font-mono text-sm text-gray-700 mb-2">"Explica el concepto de catalizador usando algo que los ticos usamos en la cocina todos los días."</p>
+    <p class="text-sm text-gray-600"><em>Respuesta esperada:</em> El culantro en el gallo pinto —no se consume pero transforma el sabor— como analogía del catalizador que acelera la reacción sin consumirse.</p>
+  </div>
+  <div class="bg-white border border-gray-200 rounded-lg p-4">
+    <p class="text-xs font-bold text-gray-500 uppercase mb-1">Economía · Undécimo</p>
+    <p class="font-mono text-sm text-gray-700 mb-2">"Explica la inflación usando el precio del casado en una soda tica durante los últimos 5 años."</p>
+    <p class="text-sm text-gray-600"><em>Resultado:</em> Analogía accesible que conecta macroeconomía con experiencia directa del estudiante.</p>
+  </div>
+  <div class="bg-white border border-gray-200 rounded-lg p-4">
+    <p class="text-xs font-bold text-gray-500 uppercase mb-1">Física · Noveno</p>
+    <p class="font-mono text-sm text-gray-700 mb-2">"Dame 2 ejemplos de la Ley de Inercia usando situaciones en un bus interurbano de la ruta San José-Cartago."</p>
+    <p class="text-sm text-gray-600"><em>Resultado:</em> El frenazo en La Paulina y la aceleración al salir del terminal, como experiencias kinestésicas directas del concepto.</p>
+  </div>
+</div>
+<p>La investigación sobre aprendizaje por analogías (Gentner, 1983; Holyoak &amp; Thagard, 1995) señala que las mejores analogías comparten la <strong>estructura relacional</strong> del concepto original, no meramente sus atributos superficiales. Al revisar el resultado del micro-prompt, verifique que la analogía preserve la lógica del concepto, no solo su apariencia.</p>
+</section>
 
                     <section id="s7" class="scroll-mt-24">
-                        <h2>7. Variación de Ejercicios</h2>
-                        <p>"Crea 3 variaciones de este problema matemático con diferente nivel de dificultad: [Problema base]."</p>
-                    </section>
+<h2>7. Micro-Prompts para Variación de Ejercicios</h2>
+<p>La diferenciación curricular —adaptar el contenido, el proceso o el producto según las necesidades del estudiante (Tomlinson, 2001)— es uno de los principios más citados en la educación inclusiva, pero también uno de los más difíciles de implementar en aulas numerosas con presiones de cobertura curricular. El micro-prompt para variación de ejercicios democratiza esta práctica: en menos de 60 segundos, un docente puede obtener tres versiones de un mismo problema calibradas para diferentes niveles de competencia.</p>
+<p>Este uso se alinea directamente con el Diseño Universal para el Aprendizaje (DUA/UDL, CAST, 2018), específicamente con el Principio I (Múltiples formas de representación) y el Principio II (Múltiples formas de acción y expresión). Ofrecer el mismo concepto en diferentes niveles de andamiaje respeta la heterogeneidad cognitiva del aula costarricense.</p>
+<div class="bg-pink-50 border border-pink-200 rounded-xl p-5 my-4">
+  <h4 class="text-pink-800 font-bold mb-3">🔀 Plantilla base</h4>
+  <p class="font-mono text-sm bg-white p-3 rounded border border-pink-200">"Crea 3 variaciones de este problema con diferente nivel de dificultad (básico, intermedio, avanzado): [Problema base]."</p>
+</div>
+<h3>Variaciones por tipo de diferenciación</h3>
+<ul>
+  <li><strong>Por andamiaje (scaffolding):</strong> <em>"Reescribe este problema de matemáticas en tres versiones: una con todos los pasos guiados, una con pistas y una abierta sin guía."</em> — Operacionaliza la Zona de Desarrollo Próximo (Vygotsky, 1978) en formato de tarea.</li>
+  <li><strong>Por formato de respuesta:</strong> <em>"Convierte esta pregunta de análisis histórico en tres formatos: respuesta escrita, mapa conceptual y debate oral."</em></li>
+  <li><strong>Por complejidad cognitiva (Bloom):</strong> <em>"Genera 3 preguntas sobre [la Revolución Industrial]: una de recordar (nivel 1), una de analizar (nivel 4) y una de crear (nivel 6)."</em></li>
+  <li><strong>Para estudiantes con NEET:</strong> <em>"Adapta este ejercicio de comprensión lectora para un estudiante con dificultades de decodificación: simplifícalo visualmente y reduce la extensión del texto."</em></li>
+</ul>
+<div class="bg-blue-50 border border-blue-200 rounded-xl p-4 my-4">
+  <p class="text-blue-900 text-sm"><strong>📋 Nota de implementación:</strong> Para grupos con Planes de Apoyo Individualizado (PAI) según la Normativa de Acceso 3951 del MEP, el micro-prompt puede generar versiones preliminares de adaptaciones curriculares que el docente luego revisa y ajusta con el equipo de apoyo del centro educativo. Nunca use el output directamente como documento oficial.</p>
+</div>
+</section>
 
                     <section id="s8" class="scroll-mt-24">
-                        <h2>8. Rúbricas de un solo punto</h2>
-                        <p>"Escribe los 3 criterios indispensables que debe tener un ensayo sobre [Tema]."</p>
-                    </section>
+<h2>8. Micro-Prompts para Rúbricas de un Solo Punto</h2>
+<p>La <strong>rúbrica de un solo punto</strong> (<em>single-point rubric</em>) es un instrumento de evaluación formativa que describe únicamente el nivel de logro esperado (el estándar), sin columnas para niveles inferiores o superiores. Desarrollada como alternativa a las rúbricas holísticas tradicionales (Gonzalez, 2014), tiene como ventaja principal su economía cognitiva: tanto el docente al diseñarla como el estudiante al usarla deben invertir menos tiempo sin perder precisión criterial.</p>
+<p>En el contexto del REAC 2024, donde los desempeños de comprensión son el eje de la evaluación, la rúbrica de un punto puede redactarse directamente a partir de esos descriptores de logro, generando coherencia entre el planeamiento y la evaluación (principio de alineación constructiva, Biggs, 1999).</p>
+<div class="bg-pink-50 border border-pink-200 rounded-xl p-5 my-4">
+  <h4 class="text-pink-800 font-bold mb-3">📏 Plantilla base</h4>
+  <p class="font-mono text-sm bg-white p-3 rounded border border-pink-200">"Escribe los 3 criterios indispensables que debe cumplir [producto/tarea] para demostrar comprensión de [Tema]. Redacta cada criterio en una sola oración clara y observable."</p>
+</div>
+<h3>Ejemplos por materia y nivel</h3>
+<div class="space-y-3 my-4">
+  <div class="bg-white border border-gray-200 rounded-lg p-4">
+    <p class="text-xs font-bold text-gray-500 uppercase mb-1">Español · Octavo</p>
+    <p class="font-mono text-sm text-gray-700 mb-2">"Dame 3 criterios para evaluar un ensayo argumentativo de 400 palabras sobre el cambio climático, en lenguaje comprensible para un estudiante de 14 años."</p>
+  </div>
+  <div class="bg-white border border-gray-200 rounded-lg p-4">
+    <p class="text-xs font-bold text-gray-500 uppercase mb-1">Matemáticas · Sétimo</p>
+    <p class="font-mono text-sm text-gray-700 mb-2">"Escribe los criterios mínimos que debe tener la solución de un problema de proporcionalidad directa para considerar que el estudiante lo comprendió."</p>
+  </div>
+  <div class="bg-white border border-gray-200 rounded-lg p-4">
+    <p class="text-xs font-bold text-gray-500 uppercase mb-1">Biología · Décimo</p>
+    <p class="font-mono text-sm text-gray-700 mb-2">"Lista 3 indicadores observables de que un informe de laboratorio sobre mitosis cumple el nivel esperado para décimo año."</p>
+  </div>
+</div>
+<div class="bg-yellow-50 border border-yellow-200 rounded-xl p-4 my-4">
+  <p class="text-yellow-900 text-sm"><strong>⚠️ Revisión obligatoria:</strong> Los criterios generados por IA tienden a ser genéricos. Antes de usar la rúbrica, verifique que cada criterio sea: (1) <em>observable</em> en el producto real del estudiante, (2) <em>específico</em> al tema del desempeño y (3) <em>redactado en lenguaje positivo</em> (qué SÍ debe tener, no qué debe evitar).</p>
+</div>
+</section>
 
                     <section id="s9" class="scroll-mt-24">
-                        <h2>9. Asegurando la Ética</h2>
-                        <p>Incluso en micro-prompts, recuerde revisar los sesgos. La brevedad del prompt a menudo hace que la IA asuma estereotipos. Siempre lea críticamente el resultado.</p>
-                    </section>
+<h2>9. Asegurando la Ética en el Micro-Prompt</h2>
+<p>La brevedad del micro-prompt introduce un riesgo ético específico: al reducir el contexto proporcionado al modelo, se incrementa la probabilidad de que este active sesgos estadísticos subyacentes en sus datos de entrenamiento. Esto ocurre porque los modelos de lenguaje operan mediante <strong>inferencia probabilística contextual</strong>: en ausencia de restricciones explícitas, generan la respuesta más probable dado el patrón estadístico del corpus de entrenamiento —que refleja los sesgos históricos, culturales y de género presentes en los textos digitales a nivel global.</p>
+<h3>Tipos de sesgo frecuentes en micro-prompts educativos</h3>
+<ul>
+  <li><strong>Sesgo de género:</strong> Ejemplos de científicos o ingenieros consistentemente masculinos; profesiones de cuidado consistentemente femeninas. <em>Corrección:</em> Añadir <em>"usa ejemplos de diversidad de género"</em> al prompt.</li>
+  <li><strong>Sesgo de centralidad urbana:</strong> Ejemplos anclados en contextos metropolitanos (San José) cuando el docente trabaja en zonas rurales. <em>Corrección:</em> Especificar <em>"en una comunidad rural de la Zona Norte de Costa Rica"</em>.</li>
+  <li><strong>Sesgo anglocéntrico:</strong> Referencias a celebridades, marcas o eventos de EE.UU. irrelevantes para el contexto costarricense. <em>Corrección:</em> Incluir <em>"usa referencias costarricenses"</em>.</li>
+  <li><strong>Sesgo de clase social:</strong> Ejemplos que asumen acceso a tecnología, viajes internacionales o recursos económicos elevados. <em>Corrección:</em> Especificar el contexto socioeconómico del grupo.</li>
+  <li><strong>Sesgo de representación étnica:</strong> Ausencia de referencias a comunidades afrodescendientes, indígenas (Bribri, Maleku, Boruca) o migrantes en los ejemplos. <em>Corrección:</em> Solicitar explícitamente diversidad étnica.</li>
+</ul>
+<div class="bg-red-50 border border-red-200 rounded-xl p-5 my-4">
+  <h4 class="text-red-800 font-bold mb-2">🔍 Protocolo mínimo de revisión ética</h4>
+  <ol class="list-decimal pl-5 text-red-900 text-sm space-y-1">
+    <li>¿Hay estereotipos de género en los ejemplos o roles sugeridos?</li>
+    <li>¿Son los ejemplos culturalmente pertinentes para el grupo específico?</li>
+    <li>¿El contenido asume condiciones socioeconómicas no universales en el grupo?</li>
+    <li>¿Se incluyen perspectivas de comunidades históricamente subrepresentadas?</li>
+    <li>¿El resultado podría generar incomodidad, exclusión o daño en algún estudiante?</li>
+  </ol>
+</div>
+<p>La Ley 8968 de Protección de Datos Personales de Costa Rica y las directrices del MEP sobre privacidad en entornos digitales (Circular DVM-AC-003-2024) establecen que los datos de estudiantes —incluyendo características demográficas, desempeño y situación familiar— no deben ser incluidos en prompts enviados a plataformas externas sin consentimiento informado. Un micro-prompt no es excepción a esta regla: la brevedad no exime la responsabilidad.</p>
+</section>
 
                     <section id="s10" class="scroll-mt-24">
-                        <h2>10. El límite del Micro-Prompt</h2>
-                        <p>No use micro-prompts cuando necesite planeamientos detallados, rúbricas formales o documentos oficiales. Para eso, use la técnica de "Uso mejorado" (prompts estructurados).</p>
-                    </section>
+<h2>10. Los Límites del Micro-Prompt</h2>
+<p>Reconocer los límites de una herramienta es condición necesaria para usarla con profesionalismo. El micro-prompt es una herramienta de <em>agilidad</em>, no de profundidad. Su valor radica precisamente en lo que omite: la exhaustividad, la trazabilidad argumentativa y la coherencia curricular extensa que sí requieren los instrumentos formales.</p>
+<h3>Cuándo NO usar un micro-prompt</h3>
+<div class="overflow-x-auto my-4">
+  <table class="w-full text-sm border-collapse">
+    <thead><tr class="bg-red-100"><th class="border border-red-200 px-3 py-2 text-left">Situación</th><th class="border border-red-200 px-3 py-2 text-left">Por qué no</th><th class="border border-red-200 px-3 py-2 text-left">Alternativa</th></tr></thead>
+    <tbody>
+      <tr class="bg-white"><td class="border border-gray-200 px-3 py-2">Planeamiento quincenal o de unidad</td><td class="border border-gray-200 px-3 py-2">Requiere alineación con programas MEP, REAC y criterios de evaluación sumativa</td><td class="border border-gray-200 px-3 py-2">Prompt estructurado con rol, contexto curricular y formato específico</td></tr>
+      <tr class="bg-gray-50"><td class="border border-gray-200 px-3 py-2">Rúbricas para evaluación sumativa</td><td class="border border-gray-200 px-3 py-2">Deben alinearse con los descriptores de logro del REAC y ser revisadas por el equipo docente</td><td class="border border-gray-200 px-3 py-2">Diseño colaborativo con prompts detallados + revisión pares</td></tr>
+      <tr class="bg-white"><td class="border border-gray-200 px-3 py-2">Informes de conducta o notas oficiales</td><td class="border border-gray-200 px-3 py-2">Documentos legales con consecuencias para el estudiante; requieren precisión y responsabilidad del docente</td><td class="border border-gray-200 px-3 py-2">Redacción docente directa; la IA puede ayudar en borrador con supervisión total</td></tr>
+      <tr class="bg-gray-50"><td class="border border-gray-200 px-3 py-2">Comunicaciones a padres sobre situaciones sensibles</td><td class="border border-gray-200 px-3 py-2">Requieren empatía contextual, conocimiento del historial familiar y tono apropiado</td><td class="border border-gray-200 px-3 py-2">Redacción personal con posible apoyo de orientación</td></tr>
+      <tr class="bg-white"><td class="border border-gray-200 px-3 py-2">Adaptaciones curriculares PAI formales</td><td class="border border-gray-200 px-3 py-2">Proceso interdisciplinario regulado por la Normativa de Acceso 3951 del MEP</td><td class="border border-gray-200 px-3 py-2">Proceso colaborativo con el equipo de apoyo del centro</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Desde la perspectiva de la Teoría de la Carga Cognitiva (Sweller, 1988), el micro-prompt es óptimo cuando la tarea de generación tiene baja complejidad intrínseca y alta frecuencia de uso. Cuando la complejidad intrínseca es alta —como en el diseño de evaluaciones sumativas— un prompt demasiado breve produce outputs que el docente debe reelaborar extensamente, eliminando la ventaja de tiempo y añadiendo riesgo de error por omisión de criterios relevantes.</p>
+<div class="bg-blue-50 border border-blue-200 rounded-xl p-4 my-4">
+  <p class="text-blue-900 text-sm"><strong>💡 Regla práctica:</strong> Si el output del micro-prompt va a ser usado directamente en el aula (presentado a estudiantes o familias), siempre dedique al menos 2 minutos a revisarlo críticamente. Si va a incorporarse a un documento oficial del centro educativo, use un proceso de generación y revisión más robusto.</p>
+</div>
+</section>
 
                     <section id="s11" class="scroll-mt-24">
-                        <h2>11. Integración Diaria</h2>
-                        <p>Tenga la aplicación de IA abierta en su celular o computadora y úsela en los 5 minutos antes de que empiece la lección para buscar esa última idea brillante.</p>
-                    </section>
+<h2>11. Integración Diaria del Micro-Prompt</h2>
+<p>La integración sostenida de cualquier nueva práctica pedagógica depende de su incorporación en rutinas preexistentes. La investigación sobre formación y cambio docente (Guskey, 2000; Fullan, 2007) coincide en que las innovaciones que sobreviven son aquellas que se <em>embeben</em> en flujos de trabajo ya establecidos, en lugar de añadir una carga cognitiva adicional al docente.</p>
+<p>El principio de la <strong>práctica espaciada</strong> (Ebbinghaus, 1885; Cepeda et al., 2006) ofrece un marco adicional: el uso frecuente y distribuido del micro-prompt —en lugar de sesiones intensivas esporádicas— construye habilidad de prompting de manera más eficiente y duradera. Cinco minutos diarios durante tres semanas superan ampliamente una sesión de dos horas mensual en términos de consolidación de la práctica.</p>
+<h3>Momentos naturales de integración en la jornada docente</h3>
+<div class="space-y-3 my-4">
+  <div class="flex gap-3 items-start bg-white border border-gray-200 rounded-lg p-4">
+    <span class="text-2xl">🌅</span>
+    <div>
+      <p class="font-bold text-gray-800 text-sm mb-1">Antes de la primera lección (5 min)</p>
+      <p class="text-gray-600 text-sm">Un micro-prompt de rompehielos para la primera hora. Mientras espera que suene el timbre o llegan los estudiantes, genera tres opciones y selecciona una.</p>
+    </div>
+  </div>
+  <div class="flex gap-3 items-start bg-white border border-gray-200 rounded-lg p-4">
+    <span class="text-2xl">☕</span>
+    <div>
+      <p class="font-bold text-gray-800 text-sm mb-1">En el recreo corto (3 min)</p>
+      <p class="text-gray-600 text-sm">Un micro-prompt de cierre para la última lección del día. La idea generada puede ajustarse en los 10 minutos siguientes.</p>
+    </div>
+  </div>
+  <div class="flex gap-3 items-start bg-white border border-gray-200 rounded-lg p-4">
+    <span class="text-2xl">🚗</span>
+    <div>
+      <p class="font-bold text-gray-800 text-sm mb-1">Trayecto al colegio (dictado de voz, 2 min)</p>
+      <p class="text-gray-600 text-sm">Muchas aplicaciones de IA aceptan entrada de voz. Un micro-prompt dictado en el camino puede generar ideas que se revisan al llegar.</p>
+    </div>
+  </div>
+  <div class="flex gap-3 items-start bg-white border border-gray-200 rounded-lg p-4">
+    <span class="text-2xl">📓</span>
+    <div>
+      <p class="font-bold text-gray-800 text-sm mb-1">Al final de la semana (10 min, viernes)</p>
+      <p class="text-gray-600 text-sm">Un micro-prompt de variación de ejercicios para la semana siguiente. Esta rutina semanal es la más valiosa para la diferenciación curricular sostenida.</p>
+    </div>
+  </div>
+</div>
+<p>Para docentes con acceso limitado a internet en el centro educativo, aplicaciones como <em>Claude</em> (Anthropic) y <em>Gemini</em> (Google) tienen versiones móviles que funcionan con conexión celular estándar. En zonas con conectividad intermitente, los prompts pueden prepararse sin conexión y enviarse cuando el acceso esté disponible.</p>
+</section>
 
                     <section id="s12" class="scroll-mt-24">
-                        <h2>12. Microreto de Autoformación</h2>
-                        <div class="bg-pink-50 border border-pink-200 rounded-xl p-6 text-center my-6"><h4 class="text-lg font-bold text-pink-700 mb-2">Reto del Minuto</h4><p class="text-gray-700 mb-4">Tómese 60 segundos. Escriba 3 micro-prompts distintos para su próxima clase y vea cuál genera la mejor idea.</p></div>
-                    </section>
+<h2>12. Microreto de Autoformación</h2>
+<div class="bg-pink-50 border border-pink-200 rounded-xl p-6 text-center my-6">
+  <h4 class="text-lg font-bold text-pink-700 mb-2">⏱️ Reto del Minuto</h4>
+  <p class="text-gray-700 mb-4">Tómese 60 segundos. Escriba 3 micro-prompts distintos para su próxima clase —uno de rompehielos, uno de variación de ejercicio y uno de cierre— y compare cuál genera la mejor idea en cada categoría.</p>
+</div>
+<p>Este microreto aplica la estrategia de <strong>generación de variantes múltiples</strong>, documentada en la investigación sobre creatividad docente (Craft, 2005): producir varias opciones antes de seleccionar una activa el pensamiento divergente y reduce el sesgo de anclaje hacia la primera idea disponible.</p>
+<h3>Para profundizar: el Reto de los 5 Días</h3>
+<p>Si desea construir la práctica de manera sostenida, propóngase la siguiente secuencia durante una semana laboral:</p>
+<div class="overflow-x-auto my-4">
+  <table class="w-full text-sm border-collapse">
+    <thead><tr class="bg-pink-100"><th class="border border-pink-200 px-3 py-2">Día</th><th class="border border-pink-200 px-3 py-2">Tipo de micro-prompt</th><th class="border border-pink-200 px-3 py-2">Tiempo</th><th class="border border-pink-200 px-3 py-2">Reflexión</th></tr></thead>
+    <tbody>
+      <tr class="bg-white"><td class="border border-gray-200 px-3 py-2 font-medium">Lunes</td><td class="border border-gray-200 px-3 py-2">Rompehielos para su clase más desafiante</td><td class="border border-gray-200 px-3 py-2">2 min</td><td class="border border-gray-200 px-3 py-2">¿Funcionó? ¿Por qué?</td></tr>
+      <tr class="bg-gray-50"><td class="border border-gray-200 px-3 py-2 font-medium">Martes</td><td class="border border-gray-200 px-3 py-2">Analogía local para un concepto difícil</td><td class="border border-gray-200 px-3 py-2">2 min</td><td class="border border-gray-200 px-3 py-2">¿La usaron los estudiantes?</td></tr>
+      <tr class="bg-white"><td class="border border-gray-200 px-3 py-2 font-medium">Miércoles</td><td class="border border-gray-200 px-3 py-2">Variación de un ejercicio existente</td><td class="border border-gray-200 px-3 py-2">3 min</td><td class="border border-gray-200 px-3 py-2">¿Qué nivel funcionó mejor?</td></tr>
+      <tr class="bg-gray-50"><td class="border border-gray-200 px-3 py-2 font-medium">Jueves</td><td class="border border-gray-200 px-3 py-2">Ticket de salida metacognitivo</td><td class="border border-gray-200 px-3 py-2">2 min</td><td class="border border-gray-200 px-3 py-2">¿Qué revelaron las respuestas?</td></tr>
+      <tr class="bg-white"><td class="border border-gray-200 px-3 py-2 font-medium">Viernes</td><td class="border border-gray-200 px-3 py-2">Idea de mini-proyecto para la semana siguiente</td><td class="border border-gray-200 px-3 py-2">3 min</td><td class="border border-gray-200 px-3 py-2">¿Es viable con los recursos disponibles?</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Al final de la semana, tendrá un registro de 5 micro-prompts, sus resultados y sus reflexiones: los fundamentos de un portafolio docente de práctica reflexiva en IA.</p>
+</section>
 
                     <section id="s13" class="scroll-mt-24">
-                        <h2>13. Checklist Rápido</h2>
-                        <ul class="space-y-2 list-none pl-0"><li class="flex items-center gap-3"><input type="checkbox" class="w-5 h-5 text-pink-600 rounded"><span>Uso micro-prompts solo para inspiración, no para productos finales.</span></li></ul>
-                    </section>
+<h2>13. Checklist Rápido</h2>
+<ul class="space-y-2 list-none pl-0">
+  <li class="flex items-start gap-3"><input type="checkbox" class="w-5 h-5 text-pink-600 rounded mt-0.5"><span>Uso micro-prompts solo para inspiración inicial, no como producto final listo para el aula.</span></li>
+  <li class="flex items-start gap-3"><input type="checkbox" class="w-5 h-5 text-pink-600 rounded mt-0.5"><span>Reviso éticamente el output: verifico sesgos de género, cultura, clase social y etnia antes de usarlo.</span></li>
+  <li class="flex items-start gap-3"><input type="checkbox" class="w-5 h-5 text-pink-600 rounded mt-0.5"><span>No incluyo datos personales de estudiantes (nombres, desempeños, situación familiar) en el prompt.</span></li>
+  <li class="flex items-start gap-3"><input type="checkbox" class="w-5 h-5 text-pink-600 rounded mt-0.5"><span>Identifico cuándo la tarea requiere un prompt estructurado en lugar de un micro-prompt.</span></li>
+  <li class="flex items-start gap-3"><input type="checkbox" class="w-5 h-5 text-pink-600 rounded mt-0.5"><span>Contexto mi micro-prompt con referencias costarricenses cuando necesito mayor pertinencia cultural.</span></li>
+  <li class="flex items-start gap-3"><input type="checkbox" class="w-5 h-5 text-pink-600 rounded mt-0.5"><span>Practico al menos un micro-prompt diario para consolidar la habilidad (práctica espaciada).</span></li>
+</ul>
+</section>
 
                     <section id="s14" class="scroll-mt-24">
-                        <h2>14. Recursos Complementarios</h2>
-                        <ul><li><a href="#" class="text-pink-600 hover:underline font-medium">Banco de 50 Micro-Prompts Docentes</a></li></ul>
-                    </section>
+<h2>14. Recursos Complementarios</h2>
+<ul>
+  <li><a href="#" class="text-pink-600 hover:underline font-medium">Banco de 50 Micro-Prompts Docentes (CIOdD-UCR, 2026)</a></li>
+  <li><a href="https://www.cast.org/impact/universal-design-for-learning-udl" class="text-pink-600 hover:underline font-medium" target="_blank">UDL Guidelines 3.0 — CAST (2018)</a> — Marco DUA para diferenciación curricular.</li>
+  <li><a href="https://www.mep.go.cr/sites/default/files/documentos/reac-2024.pdf" class="text-pink-600 hover:underline font-medium" target="_blank">REAC 2024 — Ministerio de Educación Pública de Costa Rica</a></li>
+  <li><a href="https://www.iste.org/areas-of-focus/AI-in-education" class="text-pink-600 hover:underline font-medium" target="_blank">ISTE AI in Education Resources</a> — Incluye guías de prompting pedagógico.</li>
+  <li><a href="https://educación.gob.es/ia-en-educacion" class="text-pink-600 hover:underline font-medium" target="_blank">IA en Educación — Ministerio de Educación de España</a> — Guías iberoamericanas adaptables al contexto costarricense.</li>
+</ul>
+<h3>Referencias académicas (APA 7.ª ed.)</h3>
+<ul class="text-sm text-gray-600 space-y-1">
+  <li>Anderson, L. W., &amp; Krathwohl, D. R. (Eds.). (2001). <em>A taxonomy for learning, teaching, and assessing: A revision of Bloom's taxonomy of educational objectives</em>. Longman.</li>
+  <li>Ausubel, D. P. (1963). <em>The psychology of meaningful verbal learning</em>. Grune &amp; Stratton.</li>
+  <li>Black, P., &amp; Wiliam, D. (1998). Assessment and classroom learning. <em>Assessment in Education, 5</em>(1), 7–74.</li>
+  <li>CAST. (2018). <em>Universal design for learning guidelines version 2.2</em>. http://udlguidelines.cast.org</li>
+  <li>Ebbinghaus, H. (1885). <em>Über das Gedächtnis: Untersuchungen zur experimentellen Psychologie</em>. Duncker &amp; Humblot.</li>
+  <li>Hattie, J. (2009). <em>Visible learning: A synthesis of over 800 meta-analyses relating to achievement</em>. Routledge.</li>
+  <li>Lave, J., &amp; Wenger, E. (1991). <em>Situated learning: Legitimate peripheral participation</em>. Cambridge University Press.</li>
+  <li>Osborn, A. F. (1953). <em>Applied imagination: Principles and procedures of creative problem solving</em>. Scribner.</li>
+  <li>Sweller, J. (1988). Cognitive load during problem solving: Effects on learning. <em>Cognitive Science, 12</em>(2), 257–285.</li>
+  <li>Tomlinson, C. A. (2001). <em>How to differentiate instruction in mixed-ability classrooms</em> (2nd ed.). ASCD.</li>
+  <li>Vygotsky, L. S. (1978). <em>Mind in society: The development of higher psychological processes</em>. Harvard University Press.</li>
+</ul>
+</section>
 
                     <section id="s15" class="scroll-mt-24">
-                        <h2>15. Ejercicio Práctico Guiado</h2>
-                        <div class="bg-pink-50 border-l-4 border-pink-500 p-6 rounded-r-lg my-6">
-                            <h4 class="text-pink-800 font-bold mb-3 text-lg flex items-center gap-2">
-                                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
-                                Manos a la obra: El Rompehielo del Minuto
-                            </h4>
-                            <p class="text-pink-900 mb-4"><strong>Paso 1:</strong> Abra ChatGPT o Gemini, idealmente desde su teléfono celular.</p>
-                            <p class="text-pink-900 mb-4"><strong>Paso 2:</strong> Configure un temporizador de 60 segundos y envíe exactamente este micro-prompt (reemplazando los corchetes):</p>
-                            <div class="bg-white text-gray-800 p-4 rounded border border-pink-200 font-mono text-sm shadow-inner mb-4">
-                                "Dame 3 preguntas rompehielos inusuales para iniciar mi próxima clase de [su materia, ej. Matemáticas] con adolescentes de [edad] años."
-                            </div>
-                            <p class="text-pink-900"><strong>Paso 3:</strong> Antes de que termine el minuto, elija la mejor de las tres opciones. ¡Ya tiene lista su introducción para la clase de mañana!</p>
-                        </div>
-                    </section>
+<h2>15. Ejercicio Práctico Guiado</h2>
+<div class="bg-pink-50 border-l-4 border-pink-500 p-6 rounded-r-lg my-6">
+  <h4 class="text-pink-800 font-bold mb-3 text-lg flex items-center gap-2">
+    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+    Manos a la Obra: El Rompehielo del Minuto (con revisión ética)
+  </h4>
+  <p class="text-pink-900 mb-3"><strong>Paso 1 — Contexto (10 s):</strong> Abra ChatGPT, Gemini o Claude desde su teléfono o computadora. Piense en la primera clase que tiene mañana: materia, nivel, tema del día.</p>
+  <p class="text-pink-900 mb-3"><strong>Paso 2 — Micro-prompt base (30 s):</strong> Configure un temporizador de 60 segundos y envíe exactamente este micro-prompt (reemplazando los corchetes):</p>
+  <div class="bg-white text-gray-800 p-4 rounded border border-pink-200 font-mono text-sm shadow-inner mb-4">
+    "Dame 3 preguntas rompehielos inusuales para iniciar mi próxima clase de [su materia, ej. Ciencias] con adolescentes de [edad] años en Costa Rica. Evita estereotipos de género."
+  </div>
+  <p class="text-pink-900 mb-3"><strong>Paso 3 — Selección crítica (20 s):</strong> Lea las tres opciones. Aplique el protocolo ético mínimo: ¿alguna asume condiciones socioeconómicas particulares? ¿Hay referencias culturalmente ajenas al grupo? ¿Hay sesgo de género implícito? Seleccione o ajuste la mejor opción.</p>
+  <p class="text-pink-900 mb-3"><strong>Paso 4 — Refinamiento (opcional, 30 s):</strong> Si ninguna le convence completamente, envíe este micro-prompt de segundo nivel:</p>
+  <div class="bg-white text-gray-800 p-4 rounded border border-pink-200 font-mono text-sm shadow-inner mb-4">
+    "Mejora la opción [número] haciéndola más cercana a la realidad de una comunidad [rural/urbana] de [provincia costarricense]."
+  </div>
+  <p class="text-pink-900"><strong>Resultado esperado:</strong> En menos de 2 minutos habrá generado, revisado éticamente y contextualizado un rompehielos listo para usar. Esta secuencia de dos micro-prompts ilustra el flujo completo de uso responsable: generación rápida → filtro crítico → refinamiento contextual.</p>
+</div>
+</section>
 
                     <section id="s16" class="scroll-mt-24">
-                        <h2>16. Conclusión</h2>
-                        <p>Los micro-prompts son la herramienta de agilidad por excelencia del docente moderno: mínimo esfuerzo de entrada, máxima inspiración de salida.</p>
-                    </section>
+<h2>16. Conclusión</h2>
+<p>Los micro-prompts representan la intersección entre la agilidad cognitiva que demanda la práctica docente cotidiana y el potencial generativo de los modelos de lenguaje de última generación. Como herramienta, no exigen dominio técnico avanzado ni transforman la identidad pedagógica del docente; simplemente amplían su repertorio de recursos creativos de planificación.</p>
+<p>Sin embargo, su simplicidad superficial no debe ocultar los principios que subyacen a su uso responsable: la <strong>Teoría de la Carga Cognitiva</strong> explica por qué funcionan; la <strong>Teoría del Aprendizaje Situado</strong> justifica por qué la contextualización local mejora su calidad; los marcos de <strong>evaluación formativa</strong> y el <strong>DUA</strong> definen sus aplicaciones más valiosas en el aula; y los principios éticos —desde la Ley 8968 hasta el protocolo de revisión crítica— garantizan que su uso sea consistente con los valores profesionales del magisterio costarricense.</p>
+<p>Al completar los diez módulos de este curso, usted ha recorrido un itinerario que va desde los fundamentos conceptuales de la inteligencia artificial hasta las herramientas más ágiles de su aplicación en el aula. El reto ahora no es técnico sino pedagógico: integrar estas herramientas en una práctica docente que coloque siempre en el centro el desarrollo integral, la equidad y el pensamiento crítico de sus estudiantes.</p>
+<div class="bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl p-6 my-6 text-center">
+  <p class="text-2xl mb-2">🎓</p>
+  <p class="text-lg font-bold text-gray-800 mb-2">Felicitaciones por completar el curso</p>
+  <p class="text-gray-600 text-sm max-w-xl mx-auto">Ha adquirido fundamentos sólidos para integrar la IA en su práctica pedagógica de manera informada, ética y contextualizada al sistema educativo costarricense. La tecnología cambiará; su criterio docente, no.</p>
+  <p class="text-gray-500 text-xs mt-3">Proyecto ED-3698 · CIOdD-UCR · 2026</p>
+</div>
+</section>
 
                 </div>
 

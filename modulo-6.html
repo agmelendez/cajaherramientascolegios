@@ -162,6 +162,15 @@
                     <h3 class="font-bold text-amber-900 mb-1">Importante: Protección de Datos de Estudiantes</h3>
                     <p class="text-sm text-amber-800 leading-relaxed m-0">Nunca ingrese nombres, cédulas, calificaciones ni datos personales de estudiantes en herramientas de IA de terceros (ChatGPT, Gemini, Copilot, etc.). Use siempre <strong>descripciones genéricas</strong> como "estudiante de sétimo con dificultad lectora". Consulte nuestra <a href="politica-privacidad.html" class="text-amber-900 underline font-semibold hover:text-amber-700">Política de Privacidad</a> y la <a href="politica-privacidad.html" class="text-amber-900 underline font-semibold hover:text-amber-700">Ley 8968 / PRODHAB</a>.</p>
                 </div>
+
+            <!-- Banner de prerequisito -->
+            <div class="bg-blue-50 border border-blue-200 rounded-xl p-4 mb-6
+                        flex items-center gap-3" id="prereq-banner">
+                <span class="text-xl flex-shrink-0">📋</span>
+                <p class="text-sm text-blue-800 m-0">
+                    <strong>Prerequisito recomendado:</strong> Para aprovechar mejor este módulo, le recomendamos haber revisado <a href="modulo-4.html" class="font-bold underline hover:text-blue-900">Módulo 4: Herramientas Prácticas</a> primero.
+                </p>
+            </div>
             </div>
 
             <!-- Content Grid: 2 Columns -->
@@ -171,139 +180,195 @@
                 <div class="lg:col-span-3 bg-white rounded-2xl border border-gray-200 shadow-sm p-6 sm:p-10 prose prose-blue max-w-none">
                     
                     <section id="s1" class="scroll-mt-24">
+
                         <h2>1. ¿Para qué le sirve al docente?</h2>
-                        <p>Le sirve para transformar el trabajo administrativo de tabular notas en una oportunidad de análisis pedagógico profundo. La IA puede tomar un Excel lleno de calificaciones e indicarle inmediatamente qué temas fueron los más difíciles para el grupo, ahorrándole horas de análisis manual.</p>
+                        <p>Le sirve para transformar el <strong>trabajo administrativo de tabular notas</strong> en una oportunidad de <strong>análisis pedagógico profundo y accionable</strong>. La IA puede tomar un archivo de calificaciones anonimizado e indicarle inmediatamente qué temas presentaron mayor rezago grupal, qué estudiantes están en riesgo de reprobación y qué estrategia de recuperación específica se ajusta mejor a cada situación.</p>
+                        <p>Desde la perspectiva del <strong>Data-Driven Decision Making</strong> (toma de decisiones basada en datos), una práctica que la investigación educativa ha vinculado consistentemente con mejoras en el rendimiento estudiantil (Wayman & Stringfield, 2006), la IA democratiza el análisis de datos: convierte capacidades que antes requerían un especialista en estadística en herramientas accesibles para cualquier docente.</p>
                     </section>
 
                     <section id="s2" class="scroll-mt-24">
+
                         <h2>2. ¿Cuándo sí usar IA?</h2>
-                        <p>Úsela cuando necesite encontrar patrones. Por ejemplo:</p>
+                        <p>Úsela cuando necesite <strong>identificar patrones y tomar decisiones pedagógicas informadas</strong>:</p>
                         <ul>
-                            <li>Analizar los resultados de una prueba diagnóstica para agrupar a los estudiantes según sus necesidades de refuerzo.</li>
-                            <li>Generar gráficos automáticamente a partir de los datos de un proyecto científico escolar.</li>
-                            <li>Sintetizar decenas de respuestas abiertas de una encuesta de retroalimentación de fin de trimestre.</li>
+                            <li><strong>Analizar pruebas diagnósticas</strong> para agrupar estudiantes según sus necesidades de refuerzo antes de iniciar un nuevo bloque temático.</li>
+                            <li><strong>Generar gráficos de rendimiento</strong> automáticamente a partir de los datos de un proyecto científico escolar para que los propios estudiantes interpreten sus resultados.</li>
+                            <li><strong>Sintetizar respuestas abiertas</strong> de una encuesta de retroalimentación de fin de trimestre: «¿Qué fue lo que más te costó aprender este trimestre?» — la IA puede categorizar 30 respuestas en 3 temas recurrentes en segundos.</li>
+                            <li><strong>Detectar outliers pedagógicos</strong>: estudiantes cuyo rendimiento en una habilidad es notablemente divergente respecto al grupo, lo que puede indicar una necesidad de apoyo especializado o, en el otro extremo, una necesidad de enriquecimiento.</li>
                         </ul>
                     </section>
 
                     <section id="s3" class="scroll-mt-24">
+
                         <h2>3. ¿Cuándo NO usarla?</h2>
-                        <p>NO la use si va a exponer datos sensibles.</p>
+                        <p>Los límites son principalmente <strong>legales y de validez estadística</strong>:</p>
                         <ul>
-                            <li>Nunca suba archivos que contengan números de cédula, nombres completos, expedientes médicos o direcciones de los estudiantes.</li>
-                            <li>No confíe ciegamente en los cálculos estadísticos avanzados sin verificar una muestra manualmente.</li>
+                            <li><strong>Nunca suba datos con identificadores personales.</strong> La Ley 8968 (PRODHAB) exige anonimización estricta. Un archivo con «E001, E002...» es legal; uno con «Juan Pérez, María López...» constituye una infracción.</li>
+                            <li><strong>No confíe ciegamente en los cálculos estadísticos avanzados</strong> sin verificar una muestra manual. Los LLMs no ejecutan código estadístico a menos que tengan herramientas habilitadas: pueden «calcular» de forma textual e introducir errores. Use siempre una herramienta de cálculo independiente (Excel, Google Sheets, SPSS) para validar los números.</li>
+                            <li><strong>No use los patrones identificados para etiquetar permanentemente a los estudiantes.</strong> Los datos reflejan un momento específico, no una capacidad inmutable.</li>
                         </ul>
                     </section>
 
                     <section id="s4" class="scroll-mt-24">
+
                         <h2>4. Herramienta sugerida</h2>
                         <div class="flex items-center gap-4 p-4 bg-gray-50 rounded-xl border border-gray-200 my-4">
-                            <div class="w-12 h-12 flex-shrink-0 bg-blue-100 rounded-lg flex items-center justify-center text-2xl">📊</div>
+                            <div class="w-12 h-12 flex-shrink-0 bg-teal-100 rounded-lg flex items-center justify-center text-2xl">📊</div>
                             <div>
-                                <h4 class="font-bold text-gray-900 m-0">ChatGPT (Advanced Data Analysis) / Google Sheets Smart Fill</h4>
-                                <p class="text-sm text-gray-600 m-0">ChatGPT permite subir archivos CSV/Excel y pedirle en lenguaje natural que analice los datos y cree gráficos. Las herramientas nativas de Google Sheets también integran IA para autocompletar fórmulas complejas.</p>
+                                <h4 class="font-bold text-gray-900 m-0">ChatGPT Advanced Data Analysis / Google Sheets con IA</h4>
+                                <p class="text-sm text-gray-600 m-0">La función <strong>«Advanced Data Analysis»</strong> (antes llamada «Code Interpreter») de ChatGPT Plus/Team permite subir archivos CSV o Excel y pedirle en lenguaje natural que analice los datos, genere visualizaciones y detecte patrones. Para docentes sin acceso a ChatGPT Plus, <strong>Google Sheets</strong> integra IA nativa para autocompletar fórmulas complejas (ejemplo: VLOOKUP, PERCENTILE, COUNTIF) escribiendo su intención en lenguaje natural. Ambas son opciones válidas según el nivel de análisis requerido.</p>
                             </div>
+                        </div>
+                        <div class="bg-teal-50 border border-teal-200 rounded-xl p-4 mt-4">
+                            <h4 class="font-semibold text-teal-900 mb-2">📋 Flujo de trabajo seguro (3 pasos)</h4>
+                            <ol class="text-sm text-teal-800 list-decimal pl-5 space-y-1">
+                                <li><strong>Anonimizar:</strong> Reemplace nombres por códigos (E001, E002) en Excel antes de cualquier otra acción.</li>
+                                <li><strong>Exportar a CSV:</strong> Guarde el archivo como .csv para mayor compatibilidad.</li>
+                                <li><strong>Cargar y preguntar:</strong> Suba el CSV y haga preguntas en lenguaje natural.</li>
+                            </ol>
                         </div>
                     </section>
 
                     <section id="s5" class="scroll-mt-24">
-                        <h2>5. Prompt base (Ejemplo de Análisis)</h2>
+
+                        <h2>5. Prompt base (Análisis Superficial)</h2>
                         <div class="bg-gray-900 text-gray-100 p-5 rounded-xl font-mono text-sm shadow-inner mb-4">
-                            "Analiza este archivo de excel y dime cómo le fue a los estudiantes."
+                            "Analiza este archivo de Excel y dime cómo les fue a los estudiantes."
                         </div>
-                        <p class="text-sm text-gray-500 italic">Problema: Generará un resumen superficial (ej. "el promedio fue 75") que no le aporta valor pedagógico accionable.</p>
+                        <p class="text-sm text-gray-500 italic">Problema: Generará un resumen descriptivo superficial («el promedio fue 75, el más alto fue 98, el más bajo fue 42») que no aporta <strong>valor pedagógico accionable</strong>. El docente ya puede calcular eso manualmente. El poder de la IA está en identificar patrones, no en recalcular promedios.</p>
                     </section>
 
                     <section id="s6" class="scroll-mt-24">
-                        <h2>6. Uso mejorado (Análisis Pedagógico)</h2>
-                        <div class="bg-mep-blue text-white p-5 rounded-xl font-mono text-sm shadow-lg shadow-blue-500/20 mb-4">
-                            "[Adjunto Excel anonimizado]. Este archivo contiene los resultados de la prueba diagnóstica de Español de 7mo año. Cada columna (C a F) representa una habilidad específica: Comprensión Lectora, Ortografía, Redacción y Análisis Literario. Identifica qué habilidad presenta el mayor rezago grupal. Luego, agrupa a los estudiantes (Estudiante 1, Estudiante 2...) en 3 niveles de desempeño basándote en su nota total, y sugiéreme una estrategia de recuperación distinta para cada grupo."
+
+                        <h2>6. Uso mejorado (Análisis Pedagógico Profundo)</h2>
+                        <div class="bg-teal-600 text-white p-5 rounded-xl font-mono text-sm shadow-lg mb-4">
+                            "[Adjunto: resultados_diagnostico_7mo_anonimizado.csv] Este archivo contiene los resultados de la prueba diagnóstica de Español de sétimo año. Cada columna (C a F) representa una habilidad específica: C=Comprensión Lectora, D=Ortografía, E=Redacción, F=Análisis Literario. Haz lo siguiente: (1) Identifica qué habilidad presenta el mayor rezago grupal (promedio más bajo). (2) Agrupa a los estudiantes en 3 niveles de desempeño basándote en la nota total: Nivel 1 (menor de 65), Nivel 2 (65-79), Nivel 3 (80 o más). (3) Para el Nivel 1, sugiere dos estrategias de recuperación específicas para la habilidad con mayor rezago. (4) Genera un gráfico de barras mostrando el promedio por habilidad."
                         </div>
+                        <p class="text-sm text-gray-500">Este prompt produce <strong>análisis pedagógico accionable</strong>: no solo describe los datos sino que los interpreta, los clasifica y recomienda acciones diferenciadas. El resultado puede orientar directamente su mediación pedagógica de la próxima semana.</p>
                     </section>
 
                     <section id="s7" class="scroll-mt-24">
+
                         <h2>7. Adaptación por nivel/modalidad</h2>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-6">
                             <div class="border border-gray-200 rounded-lg p-4">
-                                <h4 class="font-bold text-mep-blue text-sm uppercase tracking-wider mb-2">Primaria</h4>
-                                <p class="text-sm text-gray-600">Analizar patrones de fluidez lectora (palabras por minuto) a lo largo de varios meses para detectar a tiempo posibles dislexias.</p>
+                                <h4 class="font-bold text-mep-blue text-sm uppercase tracking-wider mb-2">Primaria — Detección Temprana</h4>
+                                <p class="text-sm text-gray-600">Analice patrones de <strong>fluidez lectora</strong> (palabras correctas por minuto, WCPM) a lo largo de varios meses. Una caída sostenida en el ritmo de lectura puede ser un indicador temprano de dificultades como dislexia que merece atención especializada. La IA puede graficar la evolución temporal de forma automática.</p>
                             </div>
                             <div class="border border-gray-200 rounded-lg p-4">
-                                <h4 class="font-bold text-mep-green text-sm uppercase tracking-wider mb-2">Secundaria</h4>
-                                <p class="text-sm text-gray-600">Procesar respuestas largas de foros de discusión virtuales para identificar los temas que más interesaron a los estudiantes.</p>
+                                <h4 class="font-bold text-mep-green text-sm uppercase tracking-wider mb-2">Secundaria — Análisis de Foros Virtuales</h4>
+                                <p class="text-sm text-gray-600">Procese las <strong>respuestas abiertas de foros de discusión virtuales</strong> para identificar los temas que generaron más debate, las concepciones alternativas más frecuentes y el nivel de argumentación del grupo. La IA puede hacer este análisis de contenido cualitativo en segundos.</p>
                             </div>
                             <div class="border border-gray-200 rounded-lg p-4">
-                                <h4 class="font-bold text-mep-orange text-sm uppercase tracking-wider mb-2">CTP (Técnica)</h4>
-                                <p class="text-sm text-gray-600">Utilizar IA para interpretar gráficos de rendimiento de maquinaria en talleres de mecánica o electrónica de precisión.</p>
+                                <h4 class="font-bold text-mep-orange text-sm uppercase tracking-wider mb-2">CTP — Control de Calidad Técnico</h4>
+                                <p class="text-sm text-gray-600">Utilice IA para interpretar <strong>gráficos de rendimiento de maquinaria</strong> en talleres de mecánica o electrónica (gráficas de temperatura, voltaje, presión), convirtiendo datos de sensores en informes comprensibles que los estudiantes aprenden a redactar.</p>
                             </div>
                             <div class="border border-gray-200 rounded-lg p-4">
-                                <h4 class="font-bold text-purple-600 text-sm uppercase tracking-wider mb-2">Administrativo</h4>
-                                <p class="text-sm text-gray-600">Directores: Analizar tendencias de ausentismo cruzadas con días de la semana o condiciones climáticas para generar alertas tempranas.</p>
+                                <h4 class="font-bold text-purple-600 text-sm uppercase tracking-wider mb-2">Administrativo — Dirección</h4>
+                                <p class="text-sm text-gray-600">Los directores y subdirectores pueden usar IA para analizar <strong>tendencias de ausentismo por día de semana, hora, materia y nivel</strong>, identificando correlaciones con rendimiento académico que orienten decisiones de política institucional basadas en evidencia.</p>
                             </div>
                         </div>
                     </section>
 
                     <section id="s8" class="scroll-mt-24">
+
                         <h2>8. Riesgos y cuidados éticos</h2>
-                        <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg my-4">
-                            <h4 class="text-blue-800 font-bold mb-2 flex items-center gap-2">
-                                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
-                                Anonimización de Datos (Ley 8968)
-                            </h4>
-                            <p class="text-sm text-blue-700 m-0"><strong>NUNCA</strong> suba nombres reales. Antes de cargar un Excel a cualquier IA, reemplace los nombres por códigos (ej. E001, E002) y elimine columnas de identificación personal. La Ley de Protección de la Persona frente al Tratamiento de sus Datos Personales exige este nivel de cuidado.</p>
+                        <div class="bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg my-4">
+                            <h4 class="text-red-800 font-bold mb-2">🔒 Anonimización Obligatoria (Ley 8968)</h4>
+                            <p class="text-sm text-red-700 m-0"><strong>NUNCA suba nombres, cédulas ni identificadores personales</strong> a ninguna plataforma de IA. El proceso de anonimización debe ocurrir <em>antes</em> de cualquier interacción con la herramienta: (1) Abra su Excel con los datos originales, (2) En una nueva columna, asigne códigos correlativos (E001, E002...), (3) Elimine todas las columnas con datos identificables, (4) Guarde el archivo anónimo como CSV. Este proceso, denominado <em>«pseudoanonimización»</em> en la normativa GDPR y la Ley 8968, es el mínimo requerido para el tratamiento de datos educativos.</p>
+                        </div>
+                        <div class="bg-amber-50 border-l-4 border-amber-400 p-4 rounded-r-lg mt-4">
+                            <h4 class="text-amber-800 font-bold mb-2">📐 Validez Estadística</h4>
+                            <p class="text-sm text-amber-700 m-0">Con grupos pequeños (menos de 20 estudiantes), los promedios y percentiles son estadísticamente poco robustos. Un solo valor atípico puede distorsionar significativamente el análisis grupal. Interprete los resultados como <em>indicadores orientadores</em>, no como verdades absolutas, y siempre complemente con su conocimiento cualitativo del grupo.</p>
                         </div>
                     </section>
 
                     <section id="s9" class="scroll-mt-24">
+
                         <h2>9. Ejemplo Aplicado en Aula</h2>
-                        <p>Usted realizó un examen corto de Matemáticas usando Google Forms. Descarga los resultados en Excel, anonimiza los datos y los sube a la IA. La herramienta le devuelve un gráfico que muestra que el 80% de la clase falló la pregunta 4. Además, la IA le indica que todas las respuestas incorrectas seleccionaron la misma opción, sugiriendo un error conceptual específico ("confundieron perímetro con área"). En lugar de avanzar al siguiente tema, usted decide iniciar la próxima clase aclarando ese error exacto.</p>
+                        <p>Usted realizó un examen diagnóstico de Matemáticas de noveno año usando Google Forms con 8 preguntas distribuidas en 3 habilidades: Álgebra, Geometría y Estadística. Descarga los resultados, anonimiza los nombres y sube el CSV a ChatGPT Advanced Data Analysis. Le pide:</p>
+                        <div class="bg-gray-100 p-4 rounded-xl font-mono text-sm my-3">
+                            <em>"Analiza este archivo CSV. Tengo 3 grupos de preguntas: Álgebra (Q1-Q3), Geometría (Q4-Q6), Estadística (Q7-Q8). Calcula el porcentaje de respuestas correctas por grupo de habilidad. Identifica qué habilidad necesita más atención. Genera un gráfico de barras comparativo. Luego dime qué error conceptual específico sugiere el patrón de respuestas incorrectas más frecuente en la habilidad con mayor rezago."</em>
+                        </div>
+                        <p>La herramienta le devuelve el gráfico y le indica: «El 78% de los estudiantes falló las preguntas Q4 y Q5 (Geometría). El patrón de errores sugiere que están confundiendo perímetro con área». En lugar de avanzar al siguiente tema, usted dedica la siguiente lección a corregir este error conceptual específico con una actividad kinestésica de medición. Esto es <strong>enseñanza responsiva a los datos</strong> (<em>Responsive Teaching</em>, Leahy et al., 2005).</p>
                     </section>
 
                     <section id="s10" class="scroll-mt-24">
+
                         <h2>10. Conexión con la Evaluación</h2>
-                        <p>El análisis de datos con IA facilita el ciclo de retroalimentación de la Evaluación Formativa. Permite "ver el bosque y no solo los árboles", identificando necesidades colectivas que requerirían ajustes en la mediación pedagógica, tal como lo exige el REAC.</p>
+                        <p>El análisis de datos con IA facilita el <strong>ciclo de retroalimentación de la Evaluación Formativa</strong> propuesto por el REAC. Este ciclo tiene cuatro momentos: (1) recoger evidencia del aprendizaje, (2) interpretarla con rapidez, (3) ajustar la mediación pedagógica, (4) volver a evaluar.</p>
+                        <p>Históricamente, el paso (2) era el cuello de botella: analizar 30 pruebas de forma manual tomaba horas. La IA <strong>reduce ese tiempo a minutos</strong>, haciendo el ciclo formativo verdaderamente viable en el ritmo cotidiano del aula costarricense.</p>
+                        <p>Los gráficos generados también constituyen <strong>evidencia empírica robusta</strong> para justificar adecuaciones curriculares no significativas grupales en los expedientes académicos.</p>
                     </section>
 
                     <section id="s11" class="scroll-mt-24">
+
                         <h2>11. Evidencia que puede recoger</h2>
-                        <p>Los gráficos generados por la IA sirven como evidencia empírica para adjuntar a sus informes de rendimiento académico al final del trimestre, justificando el porqué de sus adecuaciones curriculares no significativas grupalmente.</p>
+                        <p>Los <strong>gráficos y tablas de análisis generados por la IA</strong> sirven como evidencia empírica para incluir en:</p>
+                        <ul>
+                            <li>Sus informes de rendimiento académico trimestral.</li>
+                            <li>Las justificaciones de ajustes de mediación pedagógica para la comisión de evaluación.</li>
+                            <li>Su portafolio de desarrollo profesional como evidencia de uso de datos para la toma de decisiones.</li>
+                        </ul>
+                        <p>Incluya siempre una <strong>breve reflexión pedagógica</strong> que acompañe el gráfico: ¿qué decisión tomó a partir de esos datos? Esa interpretación es la evidencia del juicio profesional del docente, que no puede ser reemplazada por la IA.</p>
                     </section>
 
                     <section id="s12" class="scroll-mt-24">
+
                         <h2>12. Versión Inclusiva (DUA)</h2>
-                        <p>Si un estudiante requiere apoyo visual para comprender su propio avance, use la IA para convertir su tabla de calificaciones en un infográfico amigable (ej. un gráfico de "crecimiento de una planta" que sube conforme mejoran sus notas de Tareas).</p>
+                        <p>Si un estudiante requiere apoyo visual para comprender su propio avance, use la IA para <strong>convertir su historial de calificaciones en una visualización personalizada y motivadora</strong>:</p>
+                        <ul>
+                            <li>Un «gráfico de crecimiento» que muestre su evolución entre el diagnóstico y el último examen (siempre con datos anónimos o con el consentimiento del estudiante mayor de edad).</li>
+                            <li>Una <strong>«infografía de fortalezas»</strong> que muestre en qué habilidades el estudiante está por encima del promedio, reforzando su autoeficacia (Bandura, 1977).</li>
+                        </ul>
+                        <p>Desde el DUA, esto responde al <strong>Principio III (Múltiples formas de implicación)</strong>: cuando los estudiantes pueden «ver» su propio progreso de forma visual y personalizada, su motivación intrínseca aumenta significativamente.</p>
                     </section>
 
                     <section id="s13" class="scroll-mt-24">
+
                         <h2>13. Microreto de Autoformación</h2>
-                        <div class="bg-blue-50 border border-blue-200 rounded-xl p-6 text-center my-6">
-                            <h4 class="text-lg font-bold text-mep-blue mb-2">Reto de Anonimización</h4>
-                            <p class="text-gray-700 mb-4">Tome una lista de calificaciones antigua. Abra Excel o Google Sheets. Use la función "Buscar y Reemplazar" o cree una nueva columna que asigne números correlativos (1 al 30) en lugar de los nombres. Borre la columna original de nombres y guarde el archivo como CSV. Ha dado el primer paso seguro hacia el análisis de datos con IA.</p>
+                        <div class="bg-teal-50 border border-teal-300 rounded-xl p-6 text-center my-6">
+                            <h4 class="text-lg font-bold text-teal-800 mb-2">🔐 Reto de Anonimización Segura</h4>
+                            <p class="text-gray-700 mb-4">Tome una lista de calificaciones de un trimestre pasado. Abra Excel o Google Sheets y practique el proceso completo de anonimización: (1) cree una nueva columna con códigos E001, E002...; (2) elimine la columna de nombres; (3) exporte como CSV. Luego suba ese CSV a ChatGPT o Gemini y pida: «Calcula el promedio por columna y dime qué columna tiene el valor más bajo. Sugiere una estrategia pedagógica para abordar esa habilidad con un grupo de secundaria costarricense». Ha completado un ciclo completo de análisis de datos ético y pedagógicamente informado.</p>
                         </div>
                     </section>
 
                     <section id="s14" class="scroll-mt-24">
+
                         <h2>14. Checklist Rápido</h2>
                         <ul class="space-y-2 list-none pl-0">
                             <li class="flex items-center gap-3">
-                                <input type="checkbox" class="w-5 h-5 text-mep-blue rounded focus:ring-mep-blue border-gray-300">
-                                <span class="text-gray-700">Comprendo el proceso absoluto de anonimizar datos antes de usar IA.</span>
+                                <input type="checkbox" class="w-5 h-5 text-teal-600 rounded focus:ring-teal-600 border-gray-300">
+                                <span class="text-gray-700">Comprendo el proceso obligatorio de anonimizar datos antes de usar cualquier IA.</span>
                             </li>
                             <li class="flex items-center gap-3">
-                                <input type="checkbox" class="w-5 h-5 text-mep-blue rounded focus:ring-mep-blue border-gray-300">
-                                <span class="text-gray-700">Sé pedirle a la IA que agrupe estudiantes por nivel de desempeño.</span>
+                                <input type="checkbox" class="w-5 h-5 text-teal-600 rounded focus:ring-teal-600 border-gray-300">
+                                <span class="text-gray-700">Sé redactar prompts que soliciten análisis pedagógico accionable, no solo estadísticas descriptivas.</span>
                             </li>
                             <li class="flex items-center gap-3">
-                                <input type="checkbox" class="w-5 h-5 text-mep-blue rounded focus:ring-mep-blue border-gray-300">
-                                <span class="text-gray-700">Reviso que las estrategias sugeridas por la IA tengan sentido en mi contexto.</span>
+                                <input type="checkbox" class="w-5 h-5 text-teal-600 rounded focus:ring-teal-600 border-gray-300">
+                                <span class="text-gray-700">Verifico manualmente los cálculos estadísticos antes de tomar decisiones pedagógicas importantes.</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <input type="checkbox" class="w-5 h-5 text-teal-600 rounded focus:ring-teal-600 border-gray-300">
+                                <span class="text-gray-700">He completado el reto de anonimización y analizado un conjunto de datos real.</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <input type="checkbox" class="w-5 h-5 text-teal-600 rounded focus:ring-teal-600 border-gray-300">
+                                <span class="text-gray-700">Comprendo el concepto de «enseñanza responsiva a los datos» y cómo implementarlo.</span>
                             </li>
                         </ul>
                     </section>
 
                     <section id="s15" class="scroll-mt-24">
+
                         <h2>15. Recursos Complementarios</h2>
                         <ul>
-                            <li><a href="#" class="text-mep-blue hover:underline font-medium">Video tutorial: Cómo usar Data Analysis en ChatGPT</a></li>
-                            <li><a href="#" class="text-mep-blue hover:underline font-medium">Guía MEP: Ley de Protección de Datos en el Entorno Escolar</a></li>
+                            <li><a href="#" class="text-teal-700 hover:underline">Video tutorial: Cómo usar Advanced Data Analysis en ChatGPT para docentes</a></li>
+                            <li><a href="#" class="text-teal-700 hover:underline">Guía PRODHAB: Protección de datos en el entorno escolar costarricense (PDF)</a></li>
+                            <li><a href="#" class="text-teal-700 hover:underline">Wayman & Stringfield (2006): Data Use for School Improvement — Toma de decisiones educativas basada en datos</a></li>
+                            <li><a href="#" class="text-teal-700 hover:underline">Leahy et al. (2005): Classroom Assessment — Minute by Minute, Day by Day (Evaluación formativa responsiva)</a></li>
+                            <li><a href="#" class="text-teal-700 hover:underline">Tutorial: Anonimización de datos en Google Sheets paso a paso</a></li>
                         </ul>
                     </section>
                 </div>
@@ -483,6 +548,46 @@
             }
             </script>
 
+
+            <!-- ═══ Navegación entre módulos ═══ -->
+            <div class="border-t border-gray-200 mt-10 pt-8 pb-2
+                        flex items-center justify-between gap-4" id="mod-nav">
+                
+        <a href="modulo-5.html"
+           class="flex items-center gap-3 px-5 py-3 bg-white border border-gray-200
+                  rounded-xl text-gray-600 hover:bg-gray-50 hover:border-gray-300
+                  font-medium transition-all group">
+            <svg class="w-4 h-4 flex-shrink-0 group-hover:-translate-x-1 transition-transform"
+                 fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M15 19l-7-7 7-7"/>
+            </svg>
+            <div class="hidden sm:block text-left">
+                <div class="text-xs text-gray-400">Anterior</div>
+                <div class="text-sm font-semibold">Aplicaciones Prácticas</div>
+            </div>
+        </a>
+                <a href="modulos.html"
+                   class="text-sm text-gray-400 hover:text-mep-blue underline transition-colors
+                          hidden sm:block">
+                    Ver catálogo
+                </a>
+                
+        <a href="modulo-7.html"
+           class="flex items-center gap-3 px-5 py-3 bg-mep-blue hover:bg-blue-700
+                  rounded-xl text-white font-medium transition-all group
+                  shadow-lg shadow-blue-500/20">
+            <div class="hidden sm:block text-right">
+                <div class="text-xs text-blue-200">Siguiente</div>
+                <div class="text-sm font-semibold">Comparativa de Herramientas Especializadas</div>
+            </div>
+            <svg class="w-4 h-4 flex-shrink-0 group-hover:translate-x-1 transition-transform"
+                 fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M9 5l7 7-7 7"/>
+            </svg>
+        </a>
+            </div>
         </main>
     </div>
 

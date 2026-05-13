@@ -309,6 +309,46 @@
             })();
             </script>
 
+            <!-- Widget de progreso global -->
+            <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 mb-8">
+                <div class="flex items-center justify-between mb-3">
+                    <h2 class="text-lg font-bold text-gray-900 flex items-center gap-2">
+                        <span>📊</span> Tu Progreso de Formación
+                    </h2>
+                    <span class="text-sm font-bold text-mep-blue" id="prog-text">0 / 9 módulos</span>
+                </div>
+                <div class="w-full bg-gray-100 rounded-full h-2.5 mb-4">
+                    <div id="prog-bar" class="bg-gradient-to-r from-mep-blue to-mep-green h-2.5 rounded-full transition-all duration-700" style="width:0%"></div>
+                </div>
+                <div class="flex flex-wrap gap-2" id="prog-badges"></div>
+            </div>
+
+            <script>
+            function renderProgreso() {
+                const ids = [1,2,3,4,5,6,7,8,9];
+                const completados = ids.filter(n => {
+                    const d = localStorage.getItem('caja_modulo_' + n + '_quiz');
+                    return d && JSON.parse(d).passed === true;
+                });
+                const pct = Math.round((completados.length / ids.length) * 100);
+                document.getElementById('prog-bar').style.width = pct + '%';
+                document.getElementById('prog-text').textContent = completados.length + ' / ' + ids.length + ' módulos';
+
+                const badges = document.getElementById('prog-badges');
+                badges.innerHTML = ''; // Limpiar antes de renderizar
+                ids.forEach(n => {
+                    const done = completados.includes(n);
+                    badges.innerHTML += `<a href="modulo-${n}.html"
+                        class="px-2 py-1 rounded-full text-xs font-bold transition-all hover:-translate-y-0.5 ${done
+                        ? 'bg-green-100 text-green-700 border border-green-200'
+                        : 'bg-gray-100 text-gray-400 border border-gray-200'}">
+                        M${n} ${done ? '✅' : ''}
+                    </a>`;
+                });
+            }
+            document.addEventListener('DOMContentLoaded', renderProgreso);
+            </script>
+
             <!-- Features Grid -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
                 <a href="ia-educacion.html" class="block bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center group">

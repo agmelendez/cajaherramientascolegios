@@ -76,10 +76,6 @@
                 </svg>
                 <span class="text-sm font-medium hidden sm:block">Preguntas y Respuestas</span>
             </a>
-            <div class="flex items-center gap-3 p-1 pr-3 rounded-full border border-gray-200 hover:bg-gray-50 cursor-pointer transition-colors">
-                <img src="https://ui-avatars.com/api/?name=Docente+MEP&background=006633&color=fff" alt="Perfil de usuario" class="w-8 h-8 rounded-full">
-                <span class="text-sm font-medium text-gray-700 hidden sm:block">Docente</span>
-            </div>
         </div>
     </header>
 
@@ -165,6 +161,15 @@
                     <h3 class="font-bold text-amber-900 mb-1">Importante: Protección de Datos de Estudiantes</h3>
                     <p class="text-sm text-amber-800 leading-relaxed m-0">Nunca ingrese nombres, cédulas, calificaciones ni datos personales de estudiantes en herramientas de IA de terceros (ChatGPT, Gemini, Copilot, etc.). Use siempre <strong>descripciones genéricas</strong> como "estudiante de sétimo con dificultad lectora". Consulte nuestra <a href="politica-privacidad.html" class="text-amber-900 underline font-semibold hover:text-amber-700">Política de Privacidad</a> y la <a href="politica-privacidad.html" class="text-amber-900 underline font-semibold hover:text-amber-700">Ley 8968 / PRODHAB</a>.</p>
                 </div>
+
+            <!-- Banner de prerequisito -->
+            <div class="bg-blue-50 border border-blue-200 rounded-xl p-4 mb-6
+                        flex items-center gap-3" id="prereq-banner">
+                <span class="text-xl flex-shrink-0">📋</span>
+                <p class="text-sm text-blue-800 m-0">
+                    <strong>Prerequisito recomendado:</strong> Para aprovechar mejor este módulo, le recomendamos haber revisado <a href="modulo-4.html" class="font-bold underline hover:text-blue-900">Módulo 4: Herramientas Prácticas</a> primero.
+                </p>
+            </div>
             </div>
 
             <!-- Content Grid: 2 Columns -->
@@ -174,138 +179,192 @@
                 <div class="lg:col-span-3 bg-white rounded-2xl border border-gray-200 shadow-sm p-6 sm:p-10 prose prose-purple max-w-none">
                     
                     <section id="s1" class="scroll-mt-24">
+
                         <h2>1. ¿Para qué le sirve al docente?</h2>
-                        <p>Le sirve para elegir la herramienta correcta para el trabajo correcto. A menudo los docentes se frustran cuando una IA no genera un buen resultado, sin saber que quizás están usando "un martillo para atornillar un clavo". Este módulo le enseña las fortalezas únicas de cada modelo del mercado.</p>
+                        <p>Le sirve para <strong>elegir la herramienta correcta para el trabajo correcto</strong>. Un error frecuente entre docentes que inician en el uso de IA es asumir que todos los modelos son intercambiables: «la IA es la IA». En realidad, cada modelo tiene arquitecturas, datos de entrenamiento, fechas de corte de conocimiento y capacidades técnicas distintas. Usar un modelo inadecuado para una tarea es literalmente «usar un martillo para atornillar un clavo».</p>
+                        <p>Este módulo le proporciona un <strong>mapa de herramientas</strong> para navegar el ecosistema de IA en 2025-2026, basado en los tres criterios más relevantes para el docente: (a) <em>acceso a internet en tiempo real</em>, (b) <em>capacidad de procesar documentos largos</em>, y (c) <em>generación de contenido visual</em>.</p>
                     </section>
 
                     <section id="s2" class="scroll-mt-24">
+
                         <h2>2. ¿Cuándo sí usar IA?</h2>
-                        <p>Úsela combinando herramientas. Por ejemplo:</p>
+                        <p>El principio fundamental es <strong>combinar herramientas según su fortaleza específica</strong>:</p>
                         <ul>
-                            <li>Use <strong>Claude</strong> para analizar y resumir documentos oficiales muy largos y complejos del MEP.</li>
-                            <li>Use <strong>Copilot (Microsoft)</strong> cuando necesite generar imágenes o buscar información que deba estar estrictamente conectada a internet en tiempo real (con enlaces a las fuentes).</li>
-                            <li>Use <strong>Gemini</strong> cuando esté integrando directamente el texto en un Google Doc escolar.</li>
+                            <li>Use <strong>Claude (Anthropic)</strong> cuando necesite analizar documentos institucionales muy largos —el Programa de Estudios MEP, el REAC, un expediente técnico de 200 páginas— gracias a su ventana de contexto extendida (hasta 200,000 tokens en versiones recientes).</li>
+                            <li>Use <strong>Microsoft Copilot</strong> cuando necesite información actualizada conectada a internet con citas verificables. Copilot cita sus fuentes, lo que le permite contrastar la información antes de usarla.</li>
+                            <li>Use <strong>Google Gemini</strong> cuando trabaje directamente en el ecosistema Google Workspace: redactar en Docs, analizar datos en Sheets, o buscar información en Drive institucional.</li>
+                            <li>Use <strong>ChatGPT</strong> para lluvia de ideas creativa, redacción narrativa libre y programación básica de código.</li>
                         </ul>
                     </section>
 
                     <section id="s3" class="scroll-mt-24">
+
                         <h2>3. ¿Cuándo NO usarla?</h2>
-                        <p>No asuma que una sola IA es perfecta para todo.</p>
+                        <p>Los errores más comunes por usar el modelo equivocado:</p>
                         <ul>
-                            <li>No use el ChatGPT gratuito (sin búsqueda web) para preguntar sobre noticias, reformas o decretos que sucedieron hace pocos meses, porque su conocimiento estará desactualizado.</li>
+                            <li><strong>No use ChatGPT gratuito (sin web search) para preguntas sobre normativas o eventos recientes:</strong> su conocimiento tiene una fecha de corte (octubre 2023 para GPT-4) y no puede acceder a circulares MEP de este año. Generará información desactualizada con total confianza.</li>
+                            <li><strong>No use generadores de imágenes (DALL-E, Midjourney) para verificar información factual:</strong> son herramientas de creación visual, no de búsqueda de hechos.</li>
+                            <li><strong>No asuma que porque «un modelo lo sabe», todos lo saben:</strong> los modelos tienen distintas bases de conocimiento y distintas actualizaciones.</li>
                         </ul>
                     </section>
 
                     <section id="s4" class="scroll-mt-24">
+
                         <h2>4. Herramienta sugerida</h2>
                         <div class="flex items-center gap-4 p-4 bg-gray-50 rounded-xl border border-gray-200 my-4">
-                            <div class="w-12 h-12 flex-shrink-0 bg-purple-100 rounded-lg flex items-center justify-center text-2xl">🧩</div>
+                            <div class="w-12 h-12 flex-shrink-0 bg-indigo-100 rounded-lg flex items-center justify-center text-2xl">🧩</div>
                             <div>
-                                <h4 class="font-bold text-gray-900 m-0">El Ecosistema Completo</h4>
-                                <p class="text-sm text-gray-600 m-0">Claude 3 (Anthropic) para análisis literario y de documentos; ChatGPT para lluvias de ideas y redacción creativa; Copilot para búsqueda conectada e imágenes; Gemini para integración en Workspace.</p>
+                                <h4 class="font-bold text-gray-900 m-0">El Ecosistema Completo (Cuatro Modelos Clave)</h4>
+                                <p class="text-sm text-gray-600 m-0"><strong>Claude 3.5/4 (Anthropic):</strong> análisis de documentos extensos, lectura crítica, escritura reflexiva y matizada. Ideal para analizar el Programa MEP o el REAC. <strong>ChatGPT-4o (OpenAI):</strong> creatividad, redacción narrativa, código, análisis de datos con plugin. <strong>Microsoft Copilot:</strong> búsqueda conectada a internet con citas, generación de imágenes (DALL-E 3 integrado), integración con Office 365. <strong>Google Gemini 1.5:</strong> integración nativa con Workspace, procesamiento de documentos largos, multimodalidad (texto + imagen + audio).</p>
                             </div>
+                        </div>
+                        <div class="bg-indigo-50 border border-indigo-200 rounded-xl p-4 mt-4">
+                            <h4 class="font-semibold text-indigo-900 mb-2">📊 Tabla de Decisión Rápida</h4>
+                            <table class="w-full text-sm text-left text-indigo-800 border-collapse">
+                                <thead><tr class="border-b border-indigo-200"><th class="py-1 pr-3">Tarea</th><th class="py-1">Modelo Recomendado</th></tr></thead>
+                                <tbody>
+                                    <tr class="border-b border-indigo-100"><td class="py-1 pr-3">Analizar PDF del MEP (100+ páginas)</td><td class="py-1 font-medium">Claude / NotebookLM</td></tr>
+                                    <tr class="border-b border-indigo-100"><td class="py-1 pr-3">Buscar noticias o decretos recientes</td><td class="py-1 font-medium">Copilot / Gemini</td></tr>
+                                    <tr class="border-b border-indigo-100"><td class="py-1 pr-3">Generar imagen pedagógica</td><td class="py-1 font-medium">Copilot / DALL-E</td></tr>
+                                    <tr class="border-b border-indigo-100"><td class="py-1 pr-3">Redactar en Google Docs</td><td class="py-1 font-medium">Gemini</td></tr>
+                                    <tr><td class="py-1 pr-3">Lluvia de ideas creativas</td><td class="py-1 font-medium">ChatGPT</td></tr>
+                                </tbody>
+                            </table>
                         </div>
                     </section>
 
                     <section id="s5" class="scroll-mt-24">
-                        <h2>5. Prompt base</h2>
+
+                        <h2>5. Prompt base (Problema por Modelo Equivocado)</h2>
                         <div class="bg-gray-900 text-gray-100 p-5 rounded-xl font-mono text-sm shadow-inner mb-4">
-                            "Busca información sobre las últimas reformas a la ley de educación."
+                            "Busca información sobre las últimas reformas a la ley de educación en Costa Rica." [enviado a ChatGPT sin acceso a internet]
                         </div>
-                        <p class="text-sm text-gray-500 italic">Problema: Si usa un modelo que no está conectado a internet, inventará reformas o le dará reformas de años anteriores.</p>
+                        <p class="text-sm text-gray-500 italic">Problema: ChatGPT sin acceso a internet no puede consultar fuentes en tiempo real. Inventará reformas plausibles basándose en su entrenamiento previo a su fecha de corte, presentándolas con absoluta confianza. El resultado puede ser información completamente desactualizada o fabricada. Usar Copilot o Gemini con búsqueda web habilitada es la solución correcta para este tipo de consulta.</p>
                     </section>
 
                     <section id="s6" class="scroll-mt-24">
-                        <h2>6. Uso mejorado (en Copilot)</h2>
-                        <div class="bg-purple-600 text-white p-5 rounded-xl font-mono text-sm shadow-lg shadow-purple-500/20 mb-4">
-                            "Busca en internet artículos periodísticos o circulares oficiales del MEP de los últimos 6 meses sobre cambios en los lineamientos de calificación en Costa Rica. Resume los 3 puntos más importantes y proporcióname los enlaces directos (links) a cada fuente que consultaste."
+
+                        <h2>6. Uso mejorado (Copilot con Internet)</h2>
+                        <div class="bg-indigo-600 text-white p-5 rounded-xl font-mono text-sm shadow-lg mb-4">
+                            "Busca en internet artículos de periódicos costarricenses (La Nación, Semanario Universidad) o circulares oficiales del MEP publicadas en los últimos 6 meses sobre cambios en los lineamientos de calificación o en el REAC. Resume los 3 puntos más importantes que un docente de secundaria debe conocer. Proporciona el enlace directo (URL) a cada fuente consultada para que yo pueda verificarla."
                         </div>
+                        <p class="text-sm text-gray-500">Este prompt aprovecha las fortalezas únicas de Copilot: (1) acceso a internet en tiempo real, (2) capacidad de citar fuentes con URL verificable, (3) síntesis de múltiples documentos. La instrucción de proporcionar URLs obliga al modelo a ser verificable, reduciendo el riesgo de alucinaciones no detectables. Siempre verifique los enlaces antes de compartir la información.</p>
                     </section>
 
                     <section id="s7" class="scroll-mt-24">
+
                         <h2>7. Adaptación por nivel/modalidad</h2>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-6">
                             <div class="border border-gray-200 rounded-lg p-4">
                                 <h4 class="font-bold text-mep-blue text-sm uppercase tracking-wider mb-2">Primaria</h4>
-                                <p class="text-sm text-gray-600">Usar Copilot para crear imágenes personalizadas ("Genera un dibujo coloreable de un tucán con una mascarilla") para ilustrar materiales.</p>
+                                <p class="text-sm text-gray-600">Use <strong>Copilot para crear ilustraciones pedagógicas personalizadas</strong>: «Genera una ilustración de libro infantil, colorida y amigable, de un tucán tico explicando cómo reciclar». Estas imágenes únicas captan la atención visual y contextualizan el aprendizaje en la fauna local.</p>
                             </div>
                             <div class="border border-gray-200 rounded-lg p-4">
-                                <h4 class="font-bold text-mep-green text-sm uppercase tracking-wider mb-2">Secundaria</h4>
-                                <p class="text-sm text-gray-600">Usar Claude para analizar ensayos largos de los estudiantes y detectar si hay un cambio repentino de estilo de escritura (posible plagio).</p>
+                                <h4 class="font-bold text-mep-green text-sm uppercase tracking-wider mb-2">Secundaria — Detección de Plagio Ética</h4>
+                                <p class="text-sm text-gray-600">Use <strong>Claude para analizar trabajos extensos</strong> en busca de cambios abruptos de registro lingüístico que puedan indicar uso no declarado de IA —sin emitir acusaciones automáticas—. Claude puede señalar dónde el estilo cambia notablemente para que el docente converse con el estudiante.</p>
                             </div>
                             <div class="border border-gray-200 rounded-lg p-4">
-                                <h4 class="font-bold text-mep-orange text-sm uppercase tracking-wider mb-2">CTP (Técnica)</h4>
-                                <p class="text-sm text-gray-600">Cargar a Claude un manual técnico de 200 páginas en inglés y pedirle que le extraiga los diagramas de seguridad explicados en español.</p>
+                                <h4 class="font-bold text-mep-orange text-sm uppercase tracking-wider mb-2">CTP — Manuales Técnicos</h4>
+                                <p class="text-sm text-gray-600">Cargue a <strong>Claude un manual técnico de 200 páginas en inglés</strong> (por ejemplo, del fabricante de una máquina del taller) y pida que extraiga los procedimientos de seguridad y los diagrame en pasos numerados en español. Lo que antes tomaría horas de traducción se realiza en minutos.</p>
                             </div>
                             <div class="border border-gray-200 rounded-lg p-4">
                                 <h4 class="font-bold text-purple-600 text-sm uppercase tracking-wider mb-2">Educación Especial</h4>
-                                <p class="text-sm text-gray-600">Generar apoyos visuales y pictogramas específicos de la rutina del aula costarricense (usando generadores de imágenes integrados).</p>
+                                <p class="text-sm text-gray-600">Para estudiantes neurodivergentes que requieren rutinas visuales muy consistentes, use <strong>Copilot para generar pictogramas</strong> con un estilo visual uniforme: «icono minimalista, blanco y negro, trazo grueso, de un niño lavándose las manos». La consistencia visual reduce la ansiedad cognitiva.</p>
                             </div>
                         </div>
                     </section>
 
                     <section id="s8" class="scroll-mt-24">
+
                         <h2>8. Riesgos y cuidados éticos</h2>
-                        <div class="bg-purple-50 border-l-4 border-purple-500 p-4 rounded-r-lg my-4">
-                            <h4 class="text-purple-800 font-bold mb-2 flex items-center gap-2">
-                                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
-                                Derechos de Autor en Imágenes
-                            </h4>
-                            <p class="text-sm text-purple-700 m-0">Cuando utilice generadores de imágenes (Midjourney, DALL-E, Copilot) evite pedir que el arte sea "al estilo de" un artista vivo específico sin su permiso. Privilegie estilos genéricos ("estilo acuarela", "estilo libro infantil").</p>
+                        <div class="bg-pink-50 border-l-4 border-pink-500 p-4 rounded-r-lg my-4">
+                            <h4 class="text-pink-800 font-bold mb-2">🎨 Derechos de Autor en Imágenes Generadas por IA</h4>
+                            <p class="text-sm text-pink-700 m-0">Cuando utilice generadores de imágenes (Midjourney, DALL-E, Copilot), <strong>evite solicitar imágenes «al estilo de» un artista vivo específico sin su consentimiento</strong>: esto replica su estilo sin compensación, lo que muchos artistas consideran una vulneración de sus derechos morales sobre su obra. Privilegie descripciones de estilo genéricas: «estilo acuarela», «estilo libro infantil de los años 60», «estilo minimalista». El debate legal sobre la propiedad intelectual de las imágenes generadas por IA está aún en evolución en la jurisprudencia internacional.</p>
+                        </div>
+                        <div class="bg-gray-50 border-l-4 border-gray-400 p-4 rounded-r-lg mt-4">
+                            <h4 class="text-gray-800 font-bold mb-2">📝 Citar el Uso de IA como Práctica Profesional</h4>
+                            <p class="text-sm text-gray-700 m-0">Incorpore en el pie de página de sus materiales una nota como: «Material didáctico desarrollado con asistencia de [nombre de la herramienta], revisado y adaptado pedagógicamente por [su nombre], [fecha]». Esto modela la honestidad académica que espera de sus estudiantes y documenta su proceso creativo profesional.</p>
                         </div>
                     </section>
 
                     <section id="s9" class="scroll-mt-24">
+
                         <h2>9. Ejemplo Aplicado en Aula</h2>
-                        <p>Usted necesita que sus estudiantes entiendan la geografía de Costa Rica, pero el libro de texto no tiene buenas ilustraciones. Abre Copilot y le pide: "Genera una ilustración hiperrealista en 3D de un corte transversal de la geografía de Costa Rica, mostrando la costa, el bosque lluvioso y un volcán en el centro". Copia la imagen resultante, la pega en su presentación y ahora tiene un recurso visual único que capta la atención inmediata.</p>
+                        <p>Usted necesita que sus estudiantes de octavo año visualicen la <strong>geografía física de Costa Rica</strong>, pero las ilustraciones del libro de texto son poco claras. El proceso con Copilot:</p>
+                        <ol class="list-decimal pl-6 space-y-2 text-gray-600 mb-4">
+                            <li>Abre Copilot y selecciona la función de generación de imágenes.</li>
+                            <li>Escribe: <em>«Genera una ilustración educativa estilo diagrama 3D de un corte transversal de Costa Rica de oeste a este, mostrando el litoral Pacífico, la Cordillera Volcánica Central con el Poás, el Valle Central donde está San José, la Cordillera de Talamanca y el litoral Caribe. Estilo ilustración para libro de texto de secundaria, colores realistas.»</em></li>
+                            <li>Obtiene en segundos un recurso visual único que contextualiza perfectamente el tema.</li>
+                            <li>Lo importa a su presentación y le pide a los estudiantes que lo analicen antes de comenzar la lectura del libro.</li>
+                        </ol>
+                        <p>Esta imagen actúa como un <strong>organizador previo visual</strong> (<em>advance organizer</em>, Ausubel, 1960): activa el conocimiento previo de los estudiantes y les proporciona un marco conceptual antes de recibir la nueva información.</p>
                     </section>
 
                     <section id="s10" class="scroll-mt-24">
+
                         <h2>10. Conexión con la Evaluación</h2>
-                        <p>Al dominar herramientas conectadas a internet (como Copilot), usted puede actualizar los "Estudios de Caso" que usa en sus exámenes sumativos con noticias que ocurrieron hace tan solo una semana, asegurando que la evaluación siempre sea pertinente y actual (Requisito fundamental del aprendizaje significativo).</p>
+                        <p>Al dominar herramientas conectadas a internet como Copilot, puede actualizar los <strong>«estudios de caso» de sus evaluaciones sumativas</strong> con noticias y eventos ocurridos en las últimas semanas, garantizando que la evaluación siempre sea <strong>pertinente y actual</strong>.</p>
+                        <p>Esta práctica responde al principio de <strong>autenticidad evaluativa</strong> (Wiggins, 1990): evaluar mediante situaciones reales que los estudiantes puedan encontrar fuera del aula. Un examen sobre «la crisis ambiental en el humedal Palo Verde noticiada la semana pasada» es más auténtico que un examen sobre un caso hipotético del libro de texto de 2015.</p>
                     </section>
 
                     <section id="s11" class="scroll-mt-24">
+
                         <h2>11. Evidencia que puede recoger</h2>
-                        <p>Incluya en el pie de página de sus materiales didácticos o rúbricas la cita de la herramienta utilizada ("Material visual generado y revisado pedagógicamente usando Microsoft Copilot"). Esto modela la honestidad académica para sus estudiantes.</p>
+                        <p>Incluya en el pie de página de sus materiales la cita del modelo utilizado. Guarde en su portafolio docente los tres resultados del <strong>«Microreto Multimodelo»</strong> (sección 13) con su análisis comparativo escrito. Esta reflexión sobre las diferencias entre modelos es evidencia de pensamiento crítico aplicado a la tecnología educativa.</p>
                     </section>
 
                     <section id="s12" class="scroll-mt-24">
+
                         <h2>12. Versión Inclusiva (DUA)</h2>
-                        <p>Para estudiantes neurodivergentes (ej. Autismo) que requieren rutinas muy visuales, puede generar rápidamente decenas de pictogramas de las actividades diarias del aula usando indicaciones de estilo consistentes en Copilot ("icono minimalista, blanco y negro, contorno grueso de un niño lavándose las manos").</p>
+                        <p>La combinación de herramientas multimodales potencia directamente los tres principios del DUA:</p>
+                        <ul>
+                            <li><strong>Representación múltiple (P-I):</strong> Copilot genera imágenes; Claude genera texto analítico; Gemini integra audio. El mismo concepto puede presentarse en tres formatos distintos según las necesidades del estudiante.</li>
+                            <li><strong>Expresión múltiple (P-II):</strong> Los estudiantes con barreras de escritura pueden usar IA para generar un borrador que luego elaboran oralmente.</li>
+                            <li><strong>Motivación múltiple (P-III):</strong> Los pictogramas generados con Copilot para estudiantes neurodivergentes eliminan barreras de interpretación y reducen la ansiedad situacional.</li>
+                        </ul>
                     </section>
 
                     <section id="s13" class="scroll-mt-24">
+
                         <h2>13. Microreto de Autoformación</h2>
-                        <div class="bg-purple-50 border border-purple-200 rounded-xl p-6 text-center my-6">
-                            <h4 class="text-lg font-bold text-purple-700 mb-2">Reto Multimodelo</h4>
-                            <p class="text-gray-700 mb-4">Realice la misma solicitud ("Escribe un poema de 4 estrofas sobre la biodiversidad de Costa Rica adecuado para niños de 8 años") en ChatGPT, luego en Gemini, y finalmente en Claude. Compare los tres resultados. ¿Cuál fue más poético? ¿Cuál usó vocabulario más adecuado? Aprenda a identificar la "personalidad" de cada modelo.</p>
+                        <div class="bg-indigo-50 border border-indigo-200 rounded-xl p-6 text-center my-6">
+                            <h4 class="text-lg font-bold text-indigo-800 mb-2">🔬 Reto Multimodelo</h4>
+                            <p class="text-gray-700 mb-4">Realice la misma solicitud en tres modelos distintos: <em>«Escribe un poema de 4 estrofas sobre la biodiversidad de Costa Rica, adecuado para jóvenes de 14 años, que incluya referencias a al menos 3 animales endémicos y mencione la importancia de su conservación.»</em> Envíelo a <strong>ChatGPT</strong>, luego a <strong>Gemini</strong> y finalmente a <strong>Claude</strong>. Compare los resultados en 3 dimensiones: (a) riqueza poética y uso del lenguaje, (b) precisión científica (¿los animales mencionados son realmente endémicos de CR?), (c) adecuación al nivel etario. Esta es la mejor forma de calibrar las «personalidades» y fortalezas de cada modelo.</p>
                         </div>
                     </section>
 
                     <section id="s14" class="scroll-mt-24">
+
                         <h2>14. Checklist Rápido</h2>
                         <ul class="space-y-2 list-none pl-0">
                             <li class="flex items-center gap-3">
-                                <input type="checkbox" class="w-5 h-5 text-purple-600 rounded focus:ring-purple-600 border-gray-300">
-                                <span class="text-gray-700">Conozco qué IAs tienen acceso a internet en tiempo real y cuáles no.</span>
+                                <input type="checkbox" class="w-5 h-5 text-indigo-600 rounded focus:ring-indigo-600 border-gray-300">
+                                <span class="text-gray-700">Sé qué modelos tienen acceso a internet en tiempo real y cuáles tienen fecha de corte de conocimiento.</span>
                             </li>
                             <li class="flex items-center gap-3">
-                                <input type="checkbox" class="w-5 h-5 text-purple-600 rounded focus:ring-purple-600 border-gray-300">
-                                <span class="text-gray-700">Sé qué modelo es mejor para resumir PDFs largos (Claude).</span>
+                                <input type="checkbox" class="w-5 h-5 text-indigo-600 rounded focus:ring-indigo-600 border-gray-300">
+                                <span class="text-gray-700">Identifico qué modelo es óptimo para cada tipo de tarea (análisis de PDF / búsqueda en internet / imagen / integración con Workspace).</span>
                             </li>
                             <li class="flex items-center gap-3">
-                                <input type="checkbox" class="w-5 h-5 text-purple-600 rounded focus:ring-purple-600 border-gray-300">
-                                <span class="text-gray-700">Comprendo cómo usar IAs para generar apoyos visuales y gráficos.</span>
+                                <input type="checkbox" class="w-5 h-5 text-indigo-600 rounded focus:ring-indigo-600 border-gray-300">
+                                <span class="text-gray-700">Comprendo el riesgo de derechos de autor al generar imágenes «al estilo de» artistas específicos.</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <input type="checkbox" class="w-5 h-5 text-indigo-600 rounded focus:ring-indigo-600 border-gray-300">
+                                <span class="text-gray-700">He completado el reto multimodelo y puedo articular las diferencias entre al menos dos modelos.</span>
                             </li>
                         </ul>
                     </section>
 
                     <section id="s15" class="scroll-mt-24">
+
                         <h2>15. Recursos Complementarios</h2>
                         <ul>
-                            <li><a href="#" class="text-purple-600 hover:underline font-medium">Tabla Comparativa Trimestral: ChatGPT vs Claude vs Gemini</a></li>
-                            <li><a href="#" class="text-purple-600 hover:underline font-medium">Guía Práctica: Crear pictogramas para DUA con Inteligencia Artificial</a></li>
+                            <li><a href="#" class="text-indigo-700 hover:underline">Tabla comparativa actualizada: ChatGPT vs Claude vs Gemini vs Copilot (2025-2026)</a></li>
+                            <li><a href="#" class="text-indigo-700 hover:underline">Guía práctica: Crear pictogramas para DUA con Copilot Designer</a></li>
+                            <li><a href="#" class="text-indigo-700 hover:underline">Ausubel (1960): Los organizadores previos como estrategia instruccional</a></li>
+                            <li><a href="#" class="text-indigo-700 hover:underline">Stanford HAI (2024): AI Index Report — Estado de la IA en Educación</a></li>
+                            <li><a href="#" class="text-indigo-700 hover:underline">Guía de Microsoft Copilot para Docentes — Office of Education</a></li>
                         </ul>
                     </section>
                 </div>
@@ -485,6 +544,46 @@
             }
             </script>
 
+
+            <!-- ═══ Navegación entre módulos ═══ -->
+            <div class="border-t border-gray-200 mt-10 pt-8 pb-2
+                        flex items-center justify-between gap-4" id="mod-nav">
+                
+        <a href="modulo-6.html"
+           class="flex items-center gap-3 px-5 py-3 bg-white border border-gray-200
+                  rounded-xl text-gray-600 hover:bg-gray-50 hover:border-gray-300
+                  font-medium transition-all group">
+            <svg class="w-4 h-4 flex-shrink-0 group-hover:-translate-x-1 transition-transform"
+                 fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M15 19l-7-7 7-7"/>
+            </svg>
+            <div class="hidden sm:block text-left">
+                <div class="text-xs text-gray-400">Anterior</div>
+                <div class="text-sm font-semibold">Análisis de Datos con IA</div>
+            </div>
+        </a>
+                <a href="modulos.html"
+                   class="text-sm text-gray-400 hover:text-mep-blue underline transition-colors
+                          hidden sm:block">
+                    Ver catálogo
+                </a>
+                
+        <a href="modulo-8.html"
+           class="flex items-center gap-3 px-5 py-3 bg-mep-blue hover:bg-blue-700
+                  rounded-xl text-white font-medium transition-all group
+                  shadow-lg shadow-blue-500/20">
+            <div class="hidden sm:block text-right">
+                <div class="text-xs text-blue-200">Siguiente</div>
+                <div class="text-sm font-semibold">IA en Colegios Técnicos</div>
+            </div>
+            <svg class="w-4 h-4 flex-shrink-0 group-hover:translate-x-1 transition-transform"
+                 fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M9 5l7 7-7 7"/>
+            </svg>
+        </a>
+            </div>
         </main>
     </div>
 

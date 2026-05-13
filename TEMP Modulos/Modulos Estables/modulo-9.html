@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 9: Jóvenes y Adultos - Caja de Herramientas</title>
+    <!-- Tailwind CSS (via CDN para el prototipo estático) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        mep: {
+                            blue: '#0066cc',
+                            green: '#00aa44',
+                            orange: '#ff6b35',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .prose h2 { font-size: 1.5rem; font-weight: 700; color: #111827; margin-top: 2rem; margin-bottom: 1rem; border-bottom: 2px solid #f3f4f6; padding-bottom: 0.5rem; }
+        .prose h3 { font-size: 1.25rem; font-weight: 600; color: #374151; margin-top: 1.5rem; margin-bottom: 0.75rem; }
+        .prose p { margin-bottom: 1rem; line-height: 1.75; color: #4b5563; }
+        .prose ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1rem; color: #4b5563; }
+        .prose li { margin-bottom: 0.5rem; }
+        .toc-link.active { color: #9333ea; font-weight: 600; border-left-color: #9333ea; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans antialiased flex flex-col min-h-screen">
+    <!-- Top Bar Institucional -->
+    <div class="fixed top-0 left-0 right-0 h-14 bg-white border-b border-gray-200 z-[60] flex items-center justify-between px-4 md:px-6 shadow-sm">
+        <div class="flex items-center gap-4 md:gap-6 h-full py-2">
+            <img src="Logos/UCR.png" alt="UCR" class="h-6 md:h-8 object-contain">
+            <img src="Logos/VASUCR.png" alt="VAS" class="h-6 md:h-8 object-contain">
+            <img src="Logos/PuenteVAS.png" alt="Puentes" class="h-6 md:h-8 object-contain hidden sm:block">
+            <img src="Logos/CIOdD.jpg" alt="CIOdD" class="h-6 md:h-8 object-contain">
+        </div>
+        <div class="flex items-center h-full py-2">
+            <img src="Logos/ED3698.png" alt="ED3698" class="h-6 md:h-8 object-contain">
+        </div>
+    </div>
+
+    
+    <!-- Header -->
+    <header class="fixed top-14 left-0 right-0 h-20 bg-white/80 backdrop-blur-md border-b border-gray-200 z-20 flex items-center justify-between px-4 md:px-6 shadow-sm">
+        <div class="flex items-center gap-4">
+            <button class="md:hidden p-2 text-gray-600 hover:bg-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-mep-blue" onclick="toggleSidebar()" aria-label="Toggle Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+            <div class="hidden md:flex items-center gap-2 text-sm font-medium text-gray-500">
+                <a href="modulos.html" class="hover:text-mep-blue transition-colors">Módulos</a>
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                <span class="text-gray-900">Jóvenes y Adultos</span>
+            </div>
+        </div>
+        <div class="flex items-center gap-4">
+            <button class="flex items-center gap-2 px-3 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors text-gray-600">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                </svg>
+                <span class="text-sm font-medium hidden sm:block">Notificaciones</span>
+            </button>
+            <a href="preguntas-respuestas.html" class="flex items-center gap-2 px-3 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors text-gray-600">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span class="text-sm font-medium hidden sm:block">Preguntas y Respuestas</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Wrapper Principal -->
+    <div class="flex flex-1 pt-[136px]">
+        
+        <!-- Overlay Sidebar Móvil -->
+        <div id="sidebarOverlay" class="fixed inset-0 bg-gray-900/50 backdrop-blur-sm z-30 hidden transition-opacity duration-300 md:hidden" onclick="toggleSidebar()"></div>
+
+        <!-- Sidebar -->
+        <aside id="sidebar" class="fixed inset-y-0 left-0 z-40 w-64 bg-white border-r border-gray-200 transform -translate-x-full transition-transform duration-300 ease-in-out md:relative md:translate-x-0 flex flex-col shadow-2xl md:shadow-none pt-[136px] md:pt-0">
+            <div class="flex items-center gap-3 px-6 py-5 border-b border-gray-100">
+                <div class="w-10 h-10 bg-gradient-to-br from-mep-blue to-blue-800 rounded-xl flex items-center justify-center text-white text-xl shadow-inner">🎓</div>
+                <div class="text-lg font-bold text-gray-900 tracking-tight">Caja Tools</div>
+            </div>
+
+            <nav class="flex-1 px-4 py-6 space-y-1 overflow-y-auto">
+                <a href="index.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ir a la página de Inicio">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">📊</span>
+                    <span>Inicio</span>
+                </a>
+                <a href="modulos.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all bg-teal-50 text-teal-700" aria-label="Ver todos los módulos del curso">
+                    <span class="text-xl group-hover:scale-110 transition-transform">📚</span>
+                    <span>Módulos</span>
+                </a>
+                <a href="descargas.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ir a la sección de descargas">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">📥</span>
+                    <span>Descargas</span>
+                </a>
+                <a href="comunidad.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ir a la comunidad docente">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">💬</span>
+                    <span>Comunidad</span>
+                </a>
+                <a href="configuracion.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ir a la configuración">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">⚙️</span>
+                    <span>Configuración</span>
+                </a>
+                <div class="pt-6 mt-6 border-t border-gray-100">
+                    <a href="ayuda.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ir a la sección de ayuda">
+                        <span class="text-xl opacity-70 group-hover:opacity-100 transition-opacity">❓</span>
+                        <span>Ayuda</span>
+                    </a>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            
+            <!-- Hero Section -->
+            <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-8 mb-8 relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-teal-400 to-teal-600"></div>
+                <div class="flex flex-col md:flex-row gap-6 items-start md:items-center justify-between">
+                    <div>
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="px-3 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full uppercase tracking-wide">Módulo 9</span>
+                            <span class="flex items-center gap-1 text-sm font-medium text-gray-500">
+                                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                38 minutos
+                            </span>
+                            <span class="flex items-center gap-1 text-sm font-medium text-gray-500">
+                                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                                Activo
+                            </span>
+                        </div>
+                        <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4 tracking-tight">Jóvenes y Adultos</h1>
+                        <p class="text-lg text-gray-600 max-w-3xl leading-relaxed">Cómo utilizar la IA para dar retroalimentación rápida a estudiantes de IPEC y CINDEA en modalidades nocturnas.</p>
+                    </div>
+                    <div class="w-full md:w-auto flex-shrink-0">
+                        <button disabled class="w-full md:w-auto px-6 py-3 bg-gray-300 text-gray-500 font-semibold rounded-xl shadow-sm cursor-not-allowed flex items-center gap-2 justify-center" title="Contenido en desarrollo">
+                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+                            Próximamente
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            
+            <!-- ⚠️ Banner de Advertencia: Datos de Estudiantes -->
+            <div class="bg-amber-50 border border-amber-200 rounded-2xl p-5 mb-8 flex gap-4 items-start">
+                <div class="flex-shrink-0 w-10 h-10 bg-amber-100 rounded-xl flex items-center justify-center text-xl">⚠️</div>
+                <div>
+                    <h3 class="font-bold text-amber-900 mb-1">Importante: Protección de Datos de Estudiantes</h3>
+                    <p class="text-sm text-amber-800 leading-relaxed m-0">Nunca ingrese nombres, cédulas, calificaciones ni datos personales de estudiantes en herramientas de IA de terceros (ChatGPT, Gemini, Copilot, etc.). Use siempre <strong>descripciones genéricas</strong> como "estudiante de sétimo con dificultad lectora". Consulte nuestra <a href="politica-privacidad.html" class="text-amber-900 underline font-semibold hover:text-amber-700">Política de Privacidad</a> y la <a href="politica-privacidad.html" class="text-amber-900 underline font-semibold hover:text-amber-700">Ley 8968 / PRODHAB</a>.</p>
+                </div>
+
+            <!-- Banner de prerequisito -->
+            <div class="bg-blue-50 border border-blue-200 rounded-xl p-4 mb-6
+                        flex items-center gap-3" id="prereq-banner">
+                <span class="text-xl flex-shrink-0">📋</span>
+                <p class="text-sm text-blue-800 m-0">
+                    <strong>Prerequisito recomendado:</strong> Para aprovechar mejor este módulo, le recomendamos haber revisado <a href="modulo-2.html" class="font-bold underline hover:text-blue-900">Módulo 2: Ética y Privacidad</a> y <a href="modulo-4.html" class="font-bold underline hover:text-blue-900">Módulo 4: Herramientas Prácticas</a> primero.
+                </p>
+            </div>
+            </div>
+
+            <!-- Content Grid: 2 Columns -->
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 relative items-start">
+                
+                <!-- Left Column: 15 Sections Content -->
+                <div class="lg:col-span-3 bg-white rounded-2xl border border-gray-200 shadow-sm p-6 sm:p-10 prose prose-teal max-w-none">
+                    <section id="s1" class="scroll-mt-24">
+
+                        <h2>1. El Reto de la Andragogía: Enseñar a Adultos</h2>
+                        <p>Los estudiantes de <strong>IPEC y CINDEA</strong> son fundamentalmente distintos a los de la educación regular. Son jóvenes y adultos que retoman sus estudios después de años de pausa, muchas veces mientras trabajan jornadas completas y gestionan responsabilidades familiares. Esta realidad exige un enfoque pedagógico radicalmente diferente: la <strong>Andragogía</strong>.</p>
+                        <p>Malcolm Knowles (1973), el padre de la andragogía moderna, identificó cinco principios que caracterizan el aprendizaje adulto: (1) <em>autoconcepto</em>: el adulto se percibe como agente autónomo, no como receptor pasivo; (2) <em>experiencia previa</em>: es el recurso más rico disponible; (3) <em>disposición a aprender</em>: vinculada directamente a su relevancia vital inmediata; (4) <em>orientación al aprendizaje</em>: busca resolver problemas reales, no acumular conocimiento abstracto; (5) <em>motivación intrínseca</em>: superior a la motivación extrínseca.</p>
+                        <p>La IA permite al docente de IPEC/CINDEA <strong>materializar estos principios de forma práctica</strong>: personalizar los materiales a la experiencia laboral específica de cada estudiante, ofrecer retroalimentación empática y contextualizada, y diseñar itinerarios flexibles que respetan la autonomía adulta.</p>
+                    </section>
+
+                    <section id="s2" class="scroll-mt-24">
+
+                        <h2>2. IA para Jornadas Nocturnas y Comunicaciones</h2>
+                        <p>Los estudiantes de IPEC/CINDEA tienen jornadas demandantes. La comunicación del docente debe ser <strong>directa, empática y respetuosa del tiempo</strong> del adulto trabajador. La IA puede ser una aliada para producir comunicaciones que reflejen ese tono.</p>
+                        <div class="bg-gray-100 p-4 rounded-xl mt-4">
+                            <h4 class="font-bold text-gray-800 mb-2">📱 Ejemplo de Prompt para Comunicación Empática:</h4>
+                            <p class="text-sm text-gray-600 italic">«Soy docente de colegio nocturno en Costa Rica. Redacta un mensaje motivador de WhatsApp de máximo 3 líneas para mis estudiantes adultos, recordándoles que la entrega del proyecto de Cívica se pospuso para el próximo martes, agradeciéndoles su esfuerzo después de una jornada laboral larga. El tono debe ser cálido y respetuoso, reconociendo el sacrificio que significa estudiar después de trabajar.»</p>
+                        </div>
+                        <p class="mt-3 text-sm text-gray-600">La diferencia entre este mensaje y uno genérico es el <strong>reconocimiento explícito del contexto de vida</strong> del estudiante. Desde la perspectiva de la Teoría de la Autodeterminación (Deci & Ryan, 1985), ese reconocimiento satisface la necesidad psicológica de <em>relación y competencia</em>, fortaleciendo la motivación para continuar en un sistema educativo que históricamente los ha excluido.</p>
+                    </section>
+
+                    <section id="s3" class="scroll-mt-24">
+
+                        <h2>3. Adaptación de Materiales al Perfil Adulto</h2>
+                        <p>El adulto que retoma sus estudios tiene una <strong>experiencia de vida acumulada</strong> que puede ser el punto de conexión más poderoso para el aprendizaje. La IA puede ayudar a reescribir materiales académicos con un tono más maduro, profesional y conectado a esa experiencia.</p>
+                        <p>El principio pedagógico subyacente es el del <strong>Aprendizaje Transformador</strong> (Mezirow, 1991): los adultos aprenden de manera más profunda cuando el contenido les invita a cuestionar y enriquecer sus marcos de referencia previos, no cuando se les trata como «estudiantes en blanco».</p>
+                        <div class="bg-purple-50 border border-purple-200 rounded-xl p-4 mt-4">
+                            <p class="text-sm text-purple-800 italic">Prompt de adaptación: «Reescribe este concepto de educación cívica [texto] orientándolo hacia un adulto costarricense de 35 años que trabaja en el sector informal. Conecta el concepto con su experiencia cotidiana de ciudadanía: derechos laborales, participación en la comunidad, uso de servicios públicos. Tono: respetuoso, entre colegas, sin condescendencia.»</p>
+                        </div>
+                    </section>
+
+                    <section id="s4" class="scroll-mt-24">
+
+                        <h2>4. Prompt base</h2>
+                        <div class="bg-gray-900 text-gray-100 p-5 rounded-xl font-mono text-sm shadow-inner mb-4">
+                            "Reescribe este texto sobre historia para un estudiante adulto."
+                        </div>
+                        <p class="text-sm text-gray-500 italic">Problema: La instrucción «para un estudiante adulto» no aporta ningún contexto diferenciador. La IA no sabe qué tipo de adulto, qué experiencia laboral, qué nivel de lectura, qué conexión con su vida cotidiana se busca. El resultado será una simplificación genérica que podría resultar patronizante.</p>
+                    </section>
+
+                    <section id="s5" class="scroll-mt-24">
+
+                        <h2>5. Uso mejorado (Contextualización Andragógica)</h2>
+                        <div class="bg-purple-600 text-white p-5 rounded-xl font-mono text-sm shadow-lg mb-4">
+                            "Reescribe este concepto de educación cívica: [pega el texto]. El destinatario es un adulto costarricense de unos 30-40 años que trabaja en construcción o comercio, retomó sus estudios nocturnos y tiene poco tiempo libre. Conecta el concepto directamente con su vida laboral y familiar: cómo le afecta en su día a día, cómo puede ejercer ese derecho desde donde está. Evita lenguaje técnico o académico. El tono debe ser como el de un colega que le explica algo importante, no como el de un libro de texto."
+                        </div>
+                        <p class="text-sm text-gray-500">Este prompt aplica los principios andragógicos de Knowles al proceso de prompt engineering: (1) reconoce la <em>experiencia previa</em> del adulto, (2) conecta con su <em>orientación al aprendizaje</em> (problemas reales), (3) respeta su <em>autoconcepto</em> como agente autónomo (tono entre colegas).</p>
+                    </section>
+
+                    <section id="s6" class="scroll-mt-24">
+
+                        <h2>6. Simulaciones Laborales como Estrategia Pedagógica</h2>
+                        <p>Una de las aplicaciones más poderosas para IPEC/CINDEA es el uso de IA para crear <strong>simulaciones de situaciones laborales reales</strong> que los estudiantes enfrentan o enfrentarán:</p>
+                        <ul>
+                            <li><strong>Simulación de entrevistas de trabajo:</strong> la IA actúa como empleador y el estudiante practica su presentación, respuesta a preguntas difíciles y gestión de los nervios. Después, la IA puede dar retroalimentación sobre su desempeño comunicativo.</li>
+                            <li><strong>Redacción de correos profesionales:</strong> muchos adultos trabajadores nunca aprendieron a redactar comunicaciones formales. La IA puede guiarlos desde borradores básicos hasta versiones pulidas, explicando el porqué de cada ajuste.</li>
+                            <li><strong>Cálculo financiero aplicado:</strong> presupuestos familiares, cálculo de intereses de préstamos, análisis de contratos laborales sencillos.</li>
+                        </ul>
+                    </section>
+
+                    <section id="s7" class="scroll-mt-24">
+
+                        <h2>7. Horarios Flexibles y Planes de Estudio Modulares</h2>
+                        <p>La <strong>intermitencia</strong> es una realidad frecuente en la educación de adultos: ausencias por trabajo, enfermedad o compromisos familiares que generan vacíos de conocimiento. La IA puede ayudar al docente a diseñar <strong>planes de recuperación individualizados</strong> de forma eficiente:</p>
+                        <div class="bg-gray-100 p-4 rounded-xl font-mono text-sm my-3">
+                            <em>«Diseña un plan de recuperación de 3 sesiones de 90 minutos para un adulto que se perdió el bloque de álgebra básica (factorización y ecuaciones de primer grado). El estudiante tiene nivel de lectura de adulto funcional y trabaja en ferretería, así que usa ejemplos de medidas, materiales y precios. Cada sesión debe incluir: un repaso conceptual de 20 minutos, 30 minutos de práctica guiada y 40 minutos de práctica independiente.»</em>
+                        </div>
+                        <p>Este tipo de plan individualizado sería impracticable sin apoyo tecnológico. La IA lo hace viable en el ritmo cotidiano del docente de educación de adultos.</p>
+                    </section>
+
+                    <section id="s8" class="scroll-mt-24">
+
+                        <h2>8. Ejemplo Aplicado: Retroalimentación de Escritura</h2>
+                        <p>Un estudiante adulto entrega un ensayo sobre «La importancia del voto en la democracia costarricense». El docente detecta que los errores más frecuentes son el uso incorrecto de la coma y la confusión entre «porque», «por que», «por qué» y «porqué».</p>
+                        <p>En lugar de corregir los 30 ensayos manualmente uno por uno, el docente:</p>
+                        <ol class="list-decimal pl-6 space-y-2 text-gray-600 mb-4">
+                            <li>Pega en la IA un fragmento anónimo del ensayo con los errores.</li>
+                            <li>Pide: «Identifica los dos errores gramaticales más frecuentes y genera 5 ejercicios de práctica específicamente diseñados para cada error, contextualizados en temas de ciudadanía y participación democrática».</li>
+                            <li>Obtiene una hoja de ejercicios personalizada que entrega al grupo.</li>
+                        </ol>
+                        <p>Este enfoque aplica el principio del <strong>feedback correctivo focalizado</strong> (Long, 1991): más efectivo que la corrección exhaustiva de todos los errores, que puede resultar abrumadora y desalentadora para el adulto que ya siente inseguridad académica.</p>
+                    </section>
+
+                    <section id="s9" class="scroll-mt-24">
+
+                        <h2>9. Retroalimentación Empática en Contextos de Rezago</h2>
+                        <p>Muchos adultos en IPEC/CINDEA retoman sus estudios después de años —incluso décadas— de pausa. Llegan cargando el peso del fracaso escolar previo, la vergüenza de «no haber podido» y el temor a volver a equivocarse. Una retroalimentación mal entregada puede anular el progreso motivacional de meses.</p>
+                        <p>La IA puede ayudar al docente a formular retroalimentaciones que <strong>validen el esfuerzo, corrijan lo necesario y preserven la autoestima</strong>:</p>
+                        <div class="bg-purple-50 p-4 rounded-xl font-mono text-sm my-3 border border-purple-200">
+                            <em>«Ayúdame a redactar retroalimentación para un adulto que entregó este ensayo [texto]. Estructura la retroalimentación así: primero, un párrafo genuino de reconocimiento de sus fortalezas ('Lo que hiciste excelente'); segundo, UN solo aspecto a mejorar ('Un área pequeña para crecer'), explicando el porqué con paciencia y sin condescendencia. Evita listas largas de errores. El tono debe ser el de un mentor que cree en el potencial del estudiante.»</em>
+                        </div>
+                        <p>Esta estructura de retroalimentación se basa en la técnica del <strong>«sándwich de retroalimentación»</strong> adaptada al contexto andragógico, y en las investigaciones de Dweck (2006) sobre la <em>mentalidad de crecimiento</em> (<em>growth mindset</em>): el elogio por el esfuerzo y el proceso —no por el talento— es más efectivo para sostener la motivación a largo plazo.</p>
+                    </section>
+
+                    <section id="s10" class="scroll-mt-24">
+
+                        <h2>10. Ética, Datos Sensibles y Autonomía del Adulto</h2>
+                        <p>La población adulta de IPEC/CINDEA tiene el mismo <strong>derecho irrenunciable a la privacidad de sus datos</strong> que cualquier ciudadano bajo la Ley 8968. Adicionalmente, por tratarse de personas adultas, tienen plena autonomía legal sobre su información personal.</p>
+                        <ul>
+                            <li><strong>No ingrese información sobre situaciones laborales, de salud o familiares</strong> de sus estudiantes adultos en ninguna plataforma de IA, aunque ellos se las hayan compartido en confianza.</li>
+                            <li><strong>Sea transparente:</strong> si usa IA para dar retroalimentación de sus trabajos, infórmeles. Muchos adultos aprecian la honestidad y pueden tener opiniones formadas sobre la IA que merecen ser consideradas.</li>
+                            <li><strong>Anonimice siempre</strong> antes de compartir cualquier trabajo con una herramienta externa.</li>
+                        </ul>
+                    </section>
+
+                    <section id="s11" class="scroll-mt-24">
+
+                        <h2>11. Motivación y Retención: La Batalla Central</h2>
+                        <p>La tasa de abandono en la educación de adultos en Costa Rica es significativamente más alta que en la educación regular. Los factores más frecuentes son la incompatibilidad laboral, la carga familiar y la desmotivación ante el rezago acumulado.</p>
+                        <p>La IA puede contribuir a la <strong>retención</strong> de dos formas:</p>
+                        <ul>
+                            <li><strong>Mensajes de apoyo personalizados:</strong> «Redacta un mensaje motivacional para un estudiante adulto que lleva 3 semanas sin asistir por enfermedad de un familiar. El mensaje debe reconocer la dificultad de su situación, invitarle a retomar cuando pueda, y ofrecerle un plan de dos semanas para ponerse al día sin agobio.»</li>
+                            <li><strong>Materiales de recuperación graduados:</strong> planes modulares que permiten retomar desde donde se quedó sin sentir que «tiene que empezar de cero».</li>
+                        </ul>
+                    </section>
+
+                    <section id="s12" class="scroll-mt-24">
+
+                        <h2>12. Microreto de Autoformación</h2>
+                        <div class="bg-purple-50 border border-purple-300 rounded-xl p-6 text-center my-6">
+                            <h4 class="text-lg font-bold text-purple-800 mb-2">🔗 Reto de Contextualización Laboral</h4>
+                            <p class="text-gray-700 mb-4">Tome un tema de su currículo que considera abstracto o difícil de conectar con la vida cotidiana. Pida a la IA que lo explique usando <strong>analogías del ámbito laboral más común en su comunidad</strong> (construcción, comercio, agricultura, servicios). Luego compare: ¿La versión con analogías laborales es más accesible? ¿Pierde precisión conceptual? ¿Necesita ajustes? Esta reflexión le ayudará a calibrar cuándo la contextualización enriquece el aprendizaje y cuándo lo puede simplificar en exceso.</p>
+                        </div>
+                    </section>
+
+                    <section id="s13" class="scroll-mt-24">
+
+                        <h2>13. Checklist Rápido</h2>
+                        <ul class="space-y-2 list-none pl-0">
+                            <li class="flex items-center gap-3">
+                                <input type="checkbox" class="w-5 h-5 text-purple-600 rounded focus:ring-purple-600 border-gray-300">
+                                <span class="text-gray-700">Uso un tono andragógico en mis prompts: entre colegas, contextualizado laboralmente, sin condescendencia.</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <input type="checkbox" class="w-5 h-5 text-purple-600 rounded focus:ring-purple-600 border-gray-300">
+                                <span class="text-gray-700">Diseño retroalimentaciones que validan el esfuerzo y señalan un solo aspecto de mejora por vez.</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <input type="checkbox" class="w-5 h-5 text-purple-600 rounded focus:ring-purple-600 border-gray-300">
+                                <span class="text-gray-700">Comprendo los 5 principios andragógicos de Knowles y cómo se operacionalizan con el uso de IA.</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <input type="checkbox" class="w-5 h-5 text-purple-600 rounded focus:ring-purple-600 border-gray-300">
+                                <span class="text-gray-700">Aplico el principio de privacidad con adultos: no ingreso información sensible de sus vidas en herramientas externas.</span>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section id="s14" class="scroll-mt-24">
+
+                        <h2>14. Recursos Complementarios</h2>
+                        <ul>
+                            <li><a href="#" class="text-purple-700 hover:underline">Plantillas de retroalimentación empática para jóvenes y adultos (PDF)</a></li>
+                            <li><a href="#" class="text-purple-700 hover:underline">Knowles (1973/1984): The Adult Learner: A Neglected Species — Los principios de la andragogía</a></li>
+                            <li><a href="#" class="text-purple-700 hover:underline">Mezirow (1991): Transformative Dimensions of Adult Learning — Aprendizaje transformador</a></li>
+                            <li><a href="#" class="text-purple-700 hover:underline">Dweck (2006): Mindset: The New Psychology of Success — Mentalidad de crecimiento</a></li>
+                            <li><a href="#" class="text-purple-700 hover:underline">MEP (2024): Marco Curricular para la Educación de Personas Jóvenes y Adultas (EPJA)</a></li>
+                        </ul>
+                    </section>
+
+                    <section id="s15" class="scroll-mt-24">
+
+                        <h2>15. Ejercicio Práctico Guiado: Feedback Empático</h2>
+                        <div class="bg-purple-50 border border-purple-200 rounded-xl p-6 my-6">
+                            <h4 class="text-lg font-bold text-purple-800 mb-3">💬 Manos a la Obra</h4>
+                            <p class="text-gray-700 mb-3"><strong>Objetivo:</strong> Generar retroalimentación constructiva y empática para un trabajo con errores frecuentes.</p>
+                            <ol class="list-decimal pl-5 space-y-2 text-sm text-gray-700">
+                                <li>Ingrese a Claude o Gemini.</li>
+                                <li>Piense en un error gramatical o conceptual que cometen frecuentemente sus estudiantes adultos.</li>
+                                <li>Use este prompt: <span class="font-mono text-xs bg-gray-100 p-1 rounded inline-block mt-1">«Soy docente de [su materia] en educación nocturna en Costa Rica. Mis estudiantes son adultos trabajadores. Un estudiante cometió este error: [describa el error]. Redacta un párrafo de retroalimentación constructiva que: (1) reconozca genuinamente lo positivo de su intento; (2) explique el error con una analogía de la vida cotidiana del adulto; (3) dé un ejercicio concreto de práctica de 5 minutos para reforzar el concepto correcto. Tono: alentador y respetuoso.»</span></li>
+                                <li>Compare la retroalimentación generada con cómo usted la daría normalmente. ¿En qué difiere? ¿Qué tomaría de la versión de la IA?</li>
+                            </ol>
+                        </div>
+                    </section>
+
+                    <section id="s16" class="scroll-mt-24">
+                        <h2>16. Conclusión</h2>
+                        <p>La IA permite una educación más empática y ajustada a la compleja realidad del estudiante adulto.</p>
+                    </section>
+
+                </div>
+
+                <!-- Right Column: Sticky Navigation (TOC) -->
+                <div class="hidden lg:block lg:col-span-1">
+                    <div class="sticky top-28 bg-white rounded-2xl border border-gray-200 shadow-sm p-5">
+                        <h3 class="text-sm font-bold text-gray-900 uppercase tracking-wider mb-4">Índice del Módulo</h3>
+                        <nav class="space-y-1 text-sm">
+                            <a href="#s1" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">1. Andragogía</a>
+                            <a href="#s2" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">2. Comunicaciones</a>
+                            <a href="#s3" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">3. Adaptación</a>
+                            <a href="#s4" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">4. Prompt base</a>
+                            <a href="#s5" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">5. Uso mejorado</a>
+                            <a href="#s6" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">6. Simulaciones</a>
+                            <a href="#s7" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">7. Horarios</a>
+                            <a href="#s8" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">8. Ejemplo Aplicado</a>
+                            <a href="#s9" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">9. Rezago Educativo</a>
+                            <a href="#s10" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">10. Ética y Privacidad</a>
+                            <a href="#s11" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">11. Motivación</a>
+                            <a href="#s12" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">12. Microreto</a>
+                            <a href="#s13" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">13. Checklist</a>
+                            <a href="#s14" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">14. Recursos</a>
+                            <a href="#s15" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">15. Ejercicio Práctico</a>
+                            <a href="#s16" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">16. Conclusión</a>
+                        </nav>
+                    </div>
+                </div>
+
+            </div>
+        
+            <!-- ═══════════════════════════════════════════ -->
+            <!-- Autoevaluación del Módulo 9 -->
+            <!-- ═══════════════════════════════════════════ -->
+            <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 sm:p-10 mt-8" id="quiz-section-9">
+                <div class="flex items-center gap-3 mb-6 border-b border-gray-100 pb-4">
+                    <span class="text-2xl">📝</span>
+                    <h2 class="text-2xl font-bold text-gray-900 m-0">Autoevaluación del Módulo 9</h2>
+                </div>
+                <p class="text-gray-600 mb-6">Responda las siguientes preguntas para verificar su comprensión. Sus resultados se guardan localmente en su navegador.</p>
+
+                <div id="quiz-container-9">
+                    <!-- Pregunta 1 -->
+                    <div class="mb-6 p-5 bg-gray-50 rounded-xl border border-gray-200">
+                        <p class="font-bold text-gray-900 mb-4">1. ¿Qué característica especial tiene la población de IPEC/CINDEA?</p>
+                        <div class="space-y-3">
+                            <label class="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-100 hover:border-mep-blue hover:bg-blue-50 cursor-pointer transition-all"><input type="radio" name="q9_0" value="0" class="w-4 h-4 text-mep-blue focus:ring-mep-blue border-gray-300"><span class="text-gray-700">Son todos menores de edad</span></label>
+                            <label class="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-100 hover:border-mep-blue hover:bg-blue-50 cursor-pointer transition-all"><input type="radio" name="q9_0" value="1" class="w-4 h-4 text-mep-blue focus:ring-mep-blue border-gray-300"><span class="text-gray-700">Son personas jóvenes y adultas que combinan estudio con trabajo y responsabilidades familiares</span></label>
+                            <label class="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-100 hover:border-mep-blue hover:bg-blue-50 cursor-pointer transition-all"><input type="radio" name="q9_0" value="2" class="w-4 h-4 text-mep-blue focus:ring-mep-blue border-gray-300"><span class="text-gray-700">No necesitan adaptaciones</span></label>
+                            <label class="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-100 hover:border-mep-blue hover:bg-blue-50 cursor-pointer transition-all"><input type="radio" name="q9_0" value="3" class="w-4 h-4 text-mep-blue focus:ring-mep-blue border-gray-300"><span class="text-gray-700">Solo estudian presencialmente</span></label>
+                        </div>
+                        <div id="feedback-9-0" class="hidden mt-3 p-3 rounded-lg text-sm"></div>
+                    </div>
+                    <!-- Pregunta 2 -->
+                    <div class="mb-6 p-5 bg-gray-50 rounded-xl border border-gray-200">
+                        <p class="font-bold text-gray-900 mb-4">2. ¿Cómo debe adaptarse el tono de las comunicaciones generadas con IA para esta población?</p>
+                        <div class="space-y-3">
+                            <label class="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-100 hover:border-mep-blue hover:bg-blue-50 cursor-pointer transition-all"><input type="radio" name="q9_1" value="0" class="w-4 h-4 text-mep-blue focus:ring-mep-blue border-gray-300"><span class="text-gray-700">Usar lenguaje infantil y sencillo</span></label>
+                            <label class="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-100 hover:border-mep-blue hover:bg-blue-50 cursor-pointer transition-all"><input type="radio" name="q9_1" value="1" class="w-4 h-4 text-mep-blue focus:ring-mep-blue border-gray-300"><span class="text-gray-700">Usar un tono respetuoso, directo y profesional, reconociendo su experiencia de vida</span></label>
+                            <label class="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-100 hover:border-mep-blue hover:bg-blue-50 cursor-pointer transition-all"><input type="radio" name="q9_1" value="2" class="w-4 h-4 text-mep-blue focus:ring-mep-blue border-gray-300"><span class="text-gray-700">Usar un tono académico formal</span></label>
+                            <label class="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-100 hover:border-mep-blue hover:bg-blue-50 cursor-pointer transition-all"><input type="radio" name="q9_1" value="3" class="w-4 h-4 text-mep-blue focus:ring-mep-blue border-gray-300"><span class="text-gray-700">No hay necesidad de adaptarlo</span></label>
+                        </div>
+                        <div id="feedback-9-1" class="hidden mt-3 p-3 rounded-lg text-sm"></div>
+                    </div>
+                    <!-- Pregunta 3 -->
+                    <div class="mb-6 p-5 bg-gray-50 rounded-xl border border-gray-200">
+                        <p class="font-bold text-gray-900 mb-4">3. ¿Qué estrategia de IA es más útil para docentes de educación de adultos?</p>
+                        <div class="space-y-3">
+                            <label class="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-100 hover:border-mep-blue hover:bg-blue-50 cursor-pointer transition-all"><input type="radio" name="q9_2" value="0" class="w-4 h-4 text-mep-blue focus:ring-mep-blue border-gray-300"><span class="text-gray-700">Generar contenido extenso y detallado</span></label>
+                            <label class="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-100 hover:border-mep-blue hover:bg-blue-50 cursor-pointer transition-all"><input type="radio" name="q9_2" value="1" class="w-4 h-4 text-mep-blue focus:ring-mep-blue border-gray-300"><span class="text-gray-700">Crear resúmenes concisos, materiales autoexplicativos y comunicaciones directas al punto</span></label>
+                            <label class="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-100 hover:border-mep-blue hover:bg-blue-50 cursor-pointer transition-all"><input type="radio" name="q9_2" value="2" class="w-4 h-4 text-mep-blue focus:ring-mep-blue border-gray-300"><span class="text-gray-700">Usar solo herramientas avanzadas</span></label>
+                            <label class="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-100 hover:border-mep-blue hover:bg-blue-50 cursor-pointer transition-all"><input type="radio" name="q9_2" value="3" class="w-4 h-4 text-mep-blue focus:ring-mep-blue border-gray-300"><span class="text-gray-700">Automatizar toda la interacción</span></label>
+                        </div>
+                        <div id="feedback-9-2" class="hidden mt-3 p-3 rounded-lg text-sm"></div>
+                    </div>
+                    <!-- Botón de envío -->
+                    <div class="text-center mt-8">
+                        <button onclick="evaluarQuiz(9)" id="quiz-submit-9" class="px-8 py-3 bg-mep-blue hover:bg-blue-600 text-white font-bold rounded-xl shadow-lg shadow-blue-500/30 transition-all hover:-translate-y-1">
+                            Verificar Respuestas
+                        </button>
+                    </div>
+
+                    <!-- Resultado -->
+                    <div id="quiz-result-9" class="hidden mt-6 p-6 rounded-xl text-center"></div>
+
+                    <!-- Botón reintentar (oculto inicialmente) -->
+                    <div id="quiz-retry-9" class="hidden text-center mt-4">
+                        <button onclick="reintentarQuiz(9)" class="px-6 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 font-medium rounded-lg transition-colors">
+                            🔄 Reintentar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+            (function() {
+                // Datos del quiz
+                const quizData_9 = [{"correct": 1, "explanation": "La población IPEC/CINDEA incluye jóvenes y adultos que trabajan y tienen responsabilidades familiares, requiriendo comunicaciones concisas y horarios flexibles."}, {"correct": 1, "explanation": "El tono debe ser respetuoso, directo y profesional, reconociendo que son personas adultas con experiencia de vida valiosa."}, {"correct": 1, "explanation": "Para adultos que trabajan, los materiales deben ser concisos, autoexplicativos y directos, maximizando el valor del tiempo limitado de estudio."}];
+
+                // Restaurar estado previo
+                const saved = localStorage.getItem('caja_modulo_9_quiz');
+                if (saved) {
+                    const data = JSON.parse(saved);
+                    showSavedResult(9, data);
+                }
+
+                // Exponer funciones al scope global
+                window.evaluarQuiz = window.evaluarQuiz || function(mod) {
+                    const data = window['quizData_' + mod];
+                    let correct = 0;
+                    data.forEach((q, i) => {
+                        const selected = document.querySelector('input[name="q' + mod + '_' + i + '"]:checked');
+                        const feedback = document.getElementById('feedback-' + mod + '-' + i);
+                        const options = document.querySelectorAll('input[name="q' + mod + '_' + i + '"]');
+                        
+                        options.forEach(o => o.disabled = true);
+                        
+                        if (selected && parseInt(selected.value) === q.correct) {
+                            correct++;
+                            feedback.innerHTML = '<span class="text-green-700">✅ ¡Correcto! ' + q.explanation + '</span>';
+                            feedback.className = 'mt-3 p-3 rounded-lg text-sm bg-green-50 border border-green-200';
+                        } else {
+                            feedback.innerHTML = '<span class="text-red-700">❌ Incorrecto. ' + q.explanation + '</span>';
+                            feedback.className = 'mt-3 p-3 rounded-lg text-sm bg-red-50 border border-red-200';
+                        }
+                        feedback.classList.remove('hidden');
+                    });
+
+                    const total = data.length;
+                    const passed = correct >= 2;
+                    const resultDiv = document.getElementById('quiz-result-' + mod);
+                    resultDiv.innerHTML = passed
+                        ? '<div class="text-green-800 font-bold text-lg">🎉 ¡Aprobado! ' + correct + '/' + total + ' respuestas correctas.</div><p class="text-green-700 text-sm mt-2">Su progreso ha sido guardado.</p>'
+                        : '<div class="text-orange-800 font-bold text-lg">📘 ' + correct + '/' + total + ' respuestas correctas.</div><p class="text-orange-700 text-sm mt-2">Le recomendamos repasar el contenido y volver a intentarlo.</p>';
+                    resultDiv.className = passed
+                        ? 'mt-6 p-6 rounded-xl text-center bg-green-50 border border-green-200'
+                        : 'mt-6 p-6 rounded-xl text-center bg-orange-50 border border-orange-200';
+                    resultDiv.classList.remove('hidden');
+
+                    document.getElementById('quiz-submit-' + mod).classList.add('hidden');
+                    document.getElementById('quiz-retry-' + mod).classList.remove('hidden');
+
+                    localStorage.setItem('caja_modulo_' + mod + '_quiz', JSON.stringify({
+                        correct: correct, total: total, passed: passed, date: new Date().toISOString()
+                    }));
+                };
+
+                window.reintentarQuiz = window.reintentarQuiz || function(mod) {
+                    localStorage.removeItem('caja_modulo_' + mod + '_quiz');
+                    const container = document.getElementById('quiz-container-' + mod);
+                    container.querySelectorAll('input[type="radio"]').forEach(r => {
+                        r.checked = false;
+                        r.disabled = false;
+                    });
+                    container.querySelectorAll('[id^="feedback-"]').forEach(f => {
+                        f.classList.add('hidden');
+                    });
+                    document.getElementById('quiz-result-' + mod).classList.add('hidden');
+                    document.getElementById('quiz-retry-' + mod).classList.add('hidden');
+                    document.getElementById('quiz-submit-' + mod).classList.remove('hidden');
+                };
+
+                window['quizData_' + 9] = quizData_9;
+            })();
+
+            function showSavedResult(mod, data) {
+                const resultDiv = document.getElementById('quiz-result-' + mod);
+                if (!resultDiv) return;
+                const dateStr = new Date(data.date).toLocaleDateString('es-CR', {day:'numeric',month:'long',year:'numeric'});
+                resultDiv.innerHTML = data.passed
+                    ? '<div class="text-green-800 font-bold text-lg">🎉 Aprobado anteriormente: ' + data.correct + '/' + data.total + '</div><p class="text-green-700 text-sm mt-2">Completado el ' + dateStr + '</p>'
+                    : '<div class="text-orange-800 font-bold text-lg">📘 Resultado anterior: ' + data.correct + '/' + data.total + '</div><p class="text-orange-700 text-sm mt-2">Intentado el ' + dateStr + '. Recomendamos repasar el contenido.</p>';
+                resultDiv.className = data.passed
+                    ? 'mt-6 p-6 rounded-xl text-center bg-green-50 border border-green-200'
+                    : 'mt-6 p-6 rounded-xl text-center bg-orange-50 border border-orange-200';
+                resultDiv.classList.remove('hidden');
+                document.getElementById('quiz-retry-' + mod).classList.remove('hidden');
+            }
+            </script>
+
+
+            <!-- ═══ Navegación entre módulos ═══ -->
+            <div class="border-t border-gray-200 mt-10 pt-8 pb-2
+                        flex items-center justify-between gap-4" id="mod-nav">
+                
+        <a href="modulo-8.html"
+           class="flex items-center gap-3 px-5 py-3 bg-white border border-gray-200
+                  rounded-xl text-gray-600 hover:bg-gray-50 hover:border-gray-300
+                  font-medium transition-all group">
+            <svg class="w-4 h-4 flex-shrink-0 group-hover:-translate-x-1 transition-transform"
+                 fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M15 19l-7-7 7-7"/>
+            </svg>
+            <div class="hidden sm:block text-left">
+                <div class="text-xs text-gray-400">Anterior</div>
+                <div class="text-sm font-semibold">IA en Colegios Técnicos</div>
+            </div>
+        </a>
+                <a href="modulos.html"
+                   class="text-sm text-gray-400 hover:text-mep-blue underline transition-colors
+                          hidden sm:block">
+                    Ver catálogo
+                </a>
+                
+        <div class="flex items-center gap-3 px-5 py-3 bg-green-50 border border-green-200
+                    rounded-xl text-green-800 font-medium">
+            <span class="text-xl">🎉</span>
+            <div class="hidden sm:block text-left">
+                <div class="text-xs text-green-600 font-semibold uppercase tracking-wide">¡Completado!</div>
+                <div class="text-sm font-semibold">Has recorrido todos los módulos</div>
+            </div>
+        </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800 text-gray-300 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 mb-12">
+                <div>
+                    <h3 class="text-white text-lg font-bold mb-4 flex items-center gap-2">
+                        <span class="text-mep-blue bg-white rounded flex items-center justify-center w-6 h-6 text-sm">🎓</span> 
+                        Caja de Herramientas
+                    </h3>
+                    <p class="text-sm text-gray-400 leading-relaxed">
+                        Plataforma de autoformación docente en Inteligencia Artificial, diseñada específicamente para el contexto educativo costarricense y la guía MEP 2026.
+                    </p>
+                </div>
+                <div class="col-span-2 text-right">
+                   <p class="text-sm text-gray-500 mt-8">
+                        Centro de Investigación Observatorio del Desarrollo de la Universidad de Costa Rica. Proyecto ED-3698 Inteligencia Artificial en el aula: una guía para la educación innovadora, 2026.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+            if (sidebar.classList.contains('-translate-x-full')) {
+                sidebar.classList.remove('-translate-x-full');
+                sidebar.classList.add('translate-x-0');
+                overlay.classList.remove('hidden');
+                document.body.classList.add('overflow-hidden');
+            } else {
+                sidebar.classList.add('-translate-x-full');
+                sidebar.classList.remove('translate-x-0');
+                overlay.classList.add('hidden');
+                document.body.classList.remove('overflow-hidden');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        document.querySelectorAll('.toc-link').forEach(link => {
+                            link.classList.remove('active', 'bg-teal-50');
+                            if (link.getAttribute('href') === `#${id}`) {
+                                link.classList.add('active', 'bg-teal-50');
+                            }
+                        });
+                    }
+                });
+            }, { rootMargin: '-100px 0px -60% 0px' });
+
+            document.querySelectorAll('section[id]').forEach((section) => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>

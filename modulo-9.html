@@ -76,10 +76,6 @@
                 </svg>
                 <span class="text-sm font-medium hidden sm:block">Preguntas y Respuestas</span>
             </a>
-            <div class="flex items-center gap-3 p-1 pr-3 rounded-full border border-gray-200 hover:bg-gray-50 cursor-pointer transition-colors">
-                <img src="https://ui-avatars.com/api/?name=Docente+MEP&background=006633&color=fff" alt="Perfil de usuario" class="w-8 h-8 rounded-full">
-                <span class="text-sm font-medium text-gray-700 hidden sm:block">Docente</span>
-            </div>
         </div>
     </header>
 
@@ -138,7 +134,7 @@
                             <span class="px-3 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full uppercase tracking-wide">Módulo 9</span>
                             <span class="flex items-center gap-1 text-sm font-medium text-gray-500">
                                 <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                                12 minutos
+                                38 minutos
                             </span>
                             <span class="flex items-center gap-1 text-sm font-medium text-gray-500">
                                 <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
@@ -165,6 +161,15 @@
                     <h3 class="font-bold text-amber-900 mb-1">Importante: Protección de Datos de Estudiantes</h3>
                     <p class="text-sm text-amber-800 leading-relaxed m-0">Nunca ingrese nombres, cédulas, calificaciones ni datos personales de estudiantes en herramientas de IA de terceros (ChatGPT, Gemini, Copilot, etc.). Use siempre <strong>descripciones genéricas</strong> como "estudiante de sétimo con dificultad lectora". Consulte nuestra <a href="politica-privacidad.html" class="text-amber-900 underline font-semibold hover:text-amber-700">Política de Privacidad</a> y la <a href="politica-privacidad.html" class="text-amber-900 underline font-semibold hover:text-amber-700">Ley 8968 / PRODHAB</a>.</p>
                 </div>
+
+            <!-- Banner de prerequisito -->
+            <div class="bg-blue-50 border border-blue-200 rounded-xl p-4 mb-6
+                        flex items-center gap-3" id="prereq-banner">
+                <span class="text-xl flex-shrink-0">📋</span>
+                <p class="text-sm text-blue-800 m-0">
+                    <strong>Prerequisito recomendado:</strong> Para aprovechar mejor este módulo, le recomendamos haber revisado <a href="modulo-2.html" class="font-bold underline hover:text-blue-900">Módulo 2: Ética y Privacidad</a> y <a href="modulo-4.html" class="font-bold underline hover:text-blue-900">Módulo 4: Herramientas Prácticas</a> primero.
+                </p>
+            </div>
             </div>
 
             <!-- Content Grid: 2 Columns -->
@@ -173,88 +178,175 @@
                 <!-- Left Column: 15 Sections Content -->
                 <div class="lg:col-span-3 bg-white rounded-2xl border border-gray-200 shadow-sm p-6 sm:p-10 prose prose-teal max-w-none">
                     <section id="s1" class="scroll-mt-24">
-                        <h2>1. El reto de la Andragogía</h2>
-                        <p>Los jóvenes y adultos en IPEC y CINDEA tienen necesidades de aprendizaje directo, práctico y relevante para su vida laboral. La IA ayuda a personalizar el aprendizaje para estos contextos.</p>
+
+                        <h2>1. El Reto de la Andragogía: Enseñar a Adultos</h2>
+                        <p>Los estudiantes de <strong>IPEC y CINDEA</strong> son fundamentalmente distintos a los de la educación regular. Son jóvenes y adultos que retoman sus estudios después de años de pausa, muchas veces mientras trabajan jornadas completas y gestionan responsabilidades familiares. Esta realidad exige un enfoque pedagógico radicalmente diferente: la <strong>Andragogía</strong>.</p>
+                        <p>Malcolm Knowles (1973), el padre de la andragogía moderna, identificó cinco principios que caracterizan el aprendizaje adulto: (1) <em>autoconcepto</em>: el adulto se percibe como agente autónomo, no como receptor pasivo; (2) <em>experiencia previa</em>: es el recurso más rico disponible; (3) <em>disposición a aprender</em>: vinculada directamente a su relevancia vital inmediata; (4) <em>orientación al aprendizaje</em>: busca resolver problemas reales, no acumular conocimiento abstracto; (5) <em>motivación intrínseca</em>: superior a la motivación extrínseca.</p>
+                        <p>La IA permite al docente de IPEC/CINDEA <strong>materializar estos principios de forma práctica</strong>: personalizar los materiales a la experiencia laboral específica de cada estudiante, ofrecer retroalimentación empática y contextualizada, y diseñar itinerarios flexibles que respetan la autonomía adulta.</p>
                     </section>
 
                     <section id="s2" class="scroll-mt-24">
-                        <h2>2. Retroalimentación Rápida</h2>
-                        <p>Utilice la IA para generar borradores de retroalimentación constructiva sobre los trabajos de los estudiantes, ahorrando tiempo valioso en modalidades nocturnas donde el tiempo es limitado.</p>
+
+                        <h2>2. IA para Jornadas Nocturnas y Comunicaciones</h2>
+                        <p>Los estudiantes de IPEC/CINDEA tienen jornadas demandantes. La comunicación del docente debe ser <strong>directa, empática y respetuosa del tiempo</strong> del adulto trabajador. La IA puede ser una aliada para producir comunicaciones que reflejen ese tono.</p>
+                        <div class="bg-gray-100 p-4 rounded-xl mt-4">
+                            <h4 class="font-bold text-gray-800 mb-2">📱 Ejemplo de Prompt para Comunicación Empática:</h4>
+                            <p class="text-sm text-gray-600 italic">«Soy docente de colegio nocturno en Costa Rica. Redacta un mensaje motivador de WhatsApp de máximo 3 líneas para mis estudiantes adultos, recordándoles que la entrega del proyecto de Cívica se pospuso para el próximo martes, agradeciéndoles su esfuerzo después de una jornada laboral larga. El tono debe ser cálido y respetuoso, reconociendo el sacrificio que significa estudiar después de trabajar.»</p>
+                        </div>
+                        <p class="mt-3 text-sm text-gray-600">La diferencia entre este mensaje y uno genérico es el <strong>reconocimiento explícito del contexto de vida</strong> del estudiante. Desde la perspectiva de la Teoría de la Autodeterminación (Deci & Ryan, 1985), ese reconocimiento satisface la necesidad psicológica de <em>relación y competencia</em>, fortaleciendo la motivación para continuar en un sistema educativo que históricamente los ha excluido.</p>
                     </section>
 
                     <section id="s3" class="scroll-mt-24">
-                        <h2>3. Adaptación de Materiales</h2>
-                        <p>Pida a la IA que reescriba textos escolares con un tono más maduro y profesional, adecuado para adultos que retoman sus estudios.</p>
+
+                        <h2>3. Adaptación de Materiales al Perfil Adulto</h2>
+                        <p>El adulto que retoma sus estudios tiene una <strong>experiencia de vida acumulada</strong> que puede ser el punto de conexión más poderoso para el aprendizaje. La IA puede ayudar a reescribir materiales académicos con un tono más maduro, profesional y conectado a esa experiencia.</p>
+                        <p>El principio pedagógico subyacente es el del <strong>Aprendizaje Transformador</strong> (Mezirow, 1991): los adultos aprenden de manera más profunda cuando el contenido les invita a cuestionar y enriquecer sus marcos de referencia previos, no cuando se les trata como «estudiantes en blanco».</p>
+                        <div class="bg-purple-50 border border-purple-200 rounded-xl p-4 mt-4">
+                            <p class="text-sm text-purple-800 italic">Prompt de adaptación: «Reescribe este concepto de educación cívica [texto] orientándolo hacia un adulto costarricense de 35 años que trabaja en el sector informal. Conecta el concepto con su experiencia cotidiana de ciudadanía: derechos laborales, participación en la comunidad, uso de servicios públicos. Tono: respetuoso, entre colegas, sin condescendencia.»</p>
+                        </div>
                     </section>
 
                     <section id="s4" class="scroll-mt-24">
+
                         <h2>4. Prompt base</h2>
-                        <div class="bg-gray-900 text-gray-100 p-5 rounded-xl font-mono text-sm shadow-inner mb-4">"Reescribe este texto sobre historia para un estudiante adulto."</div>
+                        <div class="bg-gray-900 text-gray-100 p-5 rounded-xl font-mono text-sm shadow-inner mb-4">
+                            "Reescribe este texto sobre historia para un estudiante adulto."
+                        </div>
+                        <p class="text-sm text-gray-500 italic">Problema: La instrucción «para un estudiante adulto» no aporta ningún contexto diferenciador. La IA no sabe qué tipo de adulto, qué experiencia laboral, qué nivel de lectura, qué conexión con su vida cotidiana se busca. El resultado será una simplificación genérica que podría resultar patronizante.</p>
                     </section>
 
                     <section id="s5" class="scroll-mt-24">
-                        <h2>5. Uso mejorado</h2>
-                        <div class="bg-teal-600 text-white p-5 rounded-xl font-mono text-sm shadow-lg shadow-teal-500/20 mb-4">"Reescribe este concepto de educación cívica enfocándolo en cómo afecta la vida laboral y familiar de un adulto trabajador en Costa Rica, manteniendo un tono respetuoso y profesional."</div>
+
+                        <h2>5. Uso mejorado (Contextualización Andragógica)</h2>
+                        <div class="bg-purple-600 text-white p-5 rounded-xl font-mono text-sm shadow-lg mb-4">
+                            "Reescribe este concepto de educación cívica: [pega el texto]. El destinatario es un adulto costarricense de unos 30-40 años que trabaja en construcción o comercio, retomó sus estudios nocturnos y tiene poco tiempo libre. Conecta el concepto directamente con su vida laboral y familiar: cómo le afecta en su día a día, cómo puede ejercer ese derecho desde donde está. Evita lenguaje técnico o académico. El tono debe ser como el de un colega que le explica algo importante, no como el de un libro de texto."
+                        </div>
+                        <p class="text-sm text-gray-500">Este prompt aplica los principios andragógicos de Knowles al proceso de prompt engineering: (1) reconoce la <em>experiencia previa</em> del adulto, (2) conecta con su <em>orientación al aprendizaje</em> (problemas reales), (3) respeta su <em>autoconcepto</em> como agente autónomo (tono entre colegas).</p>
                     </section>
 
                     <section id="s6" class="scroll-mt-24">
-                        <h2>6. Simulaciones Laborales</h2>
-                        <p>Cree simulaciones de entrevistas de trabajo o redacción de correos profesionales para que los estudiantes practiquen habilidades blandas.</p>
+
+                        <h2>6. Simulaciones Laborales como Estrategia Pedagógica</h2>
+                        <p>Una de las aplicaciones más poderosas para IPEC/CINDEA es el uso de IA para crear <strong>simulaciones de situaciones laborales reales</strong> que los estudiantes enfrentan o enfrentarán:</p>
+                        <ul>
+                            <li><strong>Simulación de entrevistas de trabajo:</strong> la IA actúa como empleador y el estudiante practica su presentación, respuesta a preguntas difíciles y gestión de los nervios. Después, la IA puede dar retroalimentación sobre su desempeño comunicativo.</li>
+                            <li><strong>Redacción de correos profesionales:</strong> muchos adultos trabajadores nunca aprendieron a redactar comunicaciones formales. La IA puede guiarlos desde borradores básicos hasta versiones pulidas, explicando el porqué de cada ajuste.</li>
+                            <li><strong>Cálculo financiero aplicado:</strong> presupuestos familiares, cálculo de intereses de préstamos, análisis de contratos laborales sencillos.</li>
+                        </ul>
                     </section>
 
                     <section id="s7" class="scroll-mt-24">
-                        <h2>7. Horarios Flexibles</h2>
-                        <p>La IA puede ayudar a crear planes de estudio modulares y flexibles que los estudiantes adultos puedan seguir a su propio ritmo.</p>
+
+                        <h2>7. Horarios Flexibles y Planes de Estudio Modulares</h2>
+                        <p>La <strong>intermitencia</strong> es una realidad frecuente en la educación de adultos: ausencias por trabajo, enfermedad o compromisos familiares que generan vacíos de conocimiento. La IA puede ayudar al docente a diseñar <strong>planes de recuperación individualizados</strong> de forma eficiente:</p>
+                        <div class="bg-gray-100 p-4 rounded-xl font-mono text-sm my-3">
+                            <em>«Diseña un plan de recuperación de 3 sesiones de 90 minutos para un adulto que se perdió el bloque de álgebra básica (factorización y ecuaciones de primer grado). El estudiante tiene nivel de lectura de adulto funcional y trabaja en ferretería, así que usa ejemplos de medidas, materiales y precios. Cada sesión debe incluir: un repaso conceptual de 20 minutos, 30 minutos de práctica guiada y 40 minutos de práctica independiente.»</em>
+                        </div>
+                        <p>Este tipo de plan individualizado sería impracticable sin apoyo tecnológico. La IA lo hace viable en el ritmo cotidiano del docente de educación de adultos.</p>
                     </section>
 
                     <section id="s8" class="scroll-mt-24">
-                        <h2>8. Ejemplo Aplicado</h2>
-                        <p>Un estudiante entrega un ensayo. El docente usa IA para identificar rápidamente los 2 errores gramaticales más comunes y genera ejercicios específicos solo para esos errores.</p>
+
+                        <h2>8. Ejemplo Aplicado: Retroalimentación de Escritura</h2>
+                        <p>Un estudiante adulto entrega un ensayo sobre «La importancia del voto en la democracia costarricense». El docente detecta que los errores más frecuentes son el uso incorrecto de la coma y la confusión entre «porque», «por que», «por qué» y «porqué».</p>
+                        <p>En lugar de corregir los 30 ensayos manualmente uno por uno, el docente:</p>
+                        <ol class="list-decimal pl-6 space-y-2 text-gray-600 mb-4">
+                            <li>Pega en la IA un fragmento anónimo del ensayo con los errores.</li>
+                            <li>Pide: «Identifica los dos errores gramaticales más frecuentes y genera 5 ejercicios de práctica específicamente diseñados para cada error, contextualizados en temas de ciudadanía y participación democrática».</li>
+                            <li>Obtiene una hoja de ejercicios personalizada que entrega al grupo.</li>
+                        </ol>
+                        <p>Este enfoque aplica el principio del <strong>feedback correctivo focalizado</strong> (Long, 1991): más efectivo que la corrección exhaustiva de todos los errores, que puede resultar abrumadora y desalentadora para el adulto que ya siente inseguridad académica.</p>
                     </section>
 
                     <section id="s9" class="scroll-mt-24">
-                        <h2>9. Evaluación Formativa</h2>
-                        <p>Implemente quizzes cortos generados por IA que los estudiantes puedan hacer desde sus teléfonos móviles en sus tiempos libres (ej. en el autobús).</p>
+
+                        <h2>9. Retroalimentación Empática en Contextos de Rezago</h2>
+                        <p>Muchos adultos en IPEC/CINDEA retoman sus estudios después de años —incluso décadas— de pausa. Llegan cargando el peso del fracaso escolar previo, la vergüenza de «no haber podido» y el temor a volver a equivocarse. Una retroalimentación mal entregada puede anular el progreso motivacional de meses.</p>
+                        <p>La IA puede ayudar al docente a formular retroalimentaciones que <strong>validen el esfuerzo, corrijan lo necesario y preserven la autoestima</strong>:</p>
+                        <div class="bg-purple-50 p-4 rounded-xl font-mono text-sm my-3 border border-purple-200">
+                            <em>«Ayúdame a redactar retroalimentación para un adulto que entregó este ensayo [texto]. Estructura la retroalimentación así: primero, un párrafo genuino de reconocimiento de sus fortalezas ('Lo que hiciste excelente'); segundo, UN solo aspecto a mejorar ('Un área pequeña para crecer'), explicando el porqué con paciencia y sin condescendencia. Evita listas largas de errores. El tono debe ser el de un mentor que cree en el potencial del estudiante.»</em>
+                        </div>
+                        <p>Esta estructura de retroalimentación se basa en la técnica del <strong>«sándwich de retroalimentación»</strong> adaptada al contexto andragógico, y en las investigaciones de Dweck (2006) sobre la <em>mentalidad de crecimiento</em> (<em>growth mindset</em>): el elogio por el esfuerzo y el proceso —no por el talento— es más efectivo para sostener la motivación a largo plazo.</p>
                     </section>
 
                     <section id="s10" class="scroll-mt-24">
-                        <h2>10. Consideraciones de Privacidad</h2>
-                        <p>Al usar IA para analizar trabajos de los estudiantes, asegúrese de anonimizar los datos y no incluir información personal.</p>
+
+                        <h2>10. Ética, Datos Sensibles y Autonomía del Adulto</h2>
+                        <p>La población adulta de IPEC/CINDEA tiene el mismo <strong>derecho irrenunciable a la privacidad de sus datos</strong> que cualquier ciudadano bajo la Ley 8968. Adicionalmente, por tratarse de personas adultas, tienen plena autonomía legal sobre su información personal.</p>
+                        <ul>
+                            <li><strong>No ingrese información sobre situaciones laborales, de salud o familiares</strong> de sus estudiantes adultos en ninguna plataforma de IA, aunque ellos se las hayan compartido en confianza.</li>
+                            <li><strong>Sea transparente:</strong> si usa IA para dar retroalimentación de sus trabajos, infórmeles. Muchos adultos aprecian la honestidad y pueden tener opiniones formadas sobre la IA que merecen ser consideradas.</li>
+                            <li><strong>Anonimice siempre</strong> antes de compartir cualquier trabajo con una herramienta externa.</li>
+                        </ul>
                     </section>
 
                     <section id="s11" class="scroll-mt-24">
-                        <h2>11. Motivación y Retención</h2>
-                        <p>Genere mensajes motivacionales personalizados para estudiantes que han faltado a lecciones debido a compromisos laborales.</p>
+
+                        <h2>11. Motivación y Retención: La Batalla Central</h2>
+                        <p>La tasa de abandono en la educación de adultos en Costa Rica es significativamente más alta que en la educación regular. Los factores más frecuentes son la incompatibilidad laboral, la carga familiar y la desmotivación ante el rezago acumulado.</p>
+                        <p>La IA puede contribuir a la <strong>retención</strong> de dos formas:</p>
+                        <ul>
+                            <li><strong>Mensajes de apoyo personalizados:</strong> «Redacta un mensaje motivacional para un estudiante adulto que lleva 3 semanas sin asistir por enfermedad de un familiar. El mensaje debe reconocer la dificultad de su situación, invitarle a retomar cuando pueda, y ofrecerle un plan de dos semanas para ponerse al día sin agobio.»</li>
+                            <li><strong>Materiales de recuperación graduados:</strong> planes modulares que permiten retomar desde donde se quedó sin sentir que «tiene que empezar de cero».</li>
+                        </ul>
                     </section>
 
                     <section id="s12" class="scroll-mt-24">
+
                         <h2>12. Microreto de Autoformación</h2>
-                        <div class="bg-teal-50 border border-teal-200 rounded-xl p-6 text-center my-6"><h4 class="text-lg font-bold text-teal-700 mb-2">Reto de Contextualización</h4><p class="text-gray-700 mb-4">Tome un tema de su currículo y pida a la IA que lo explique usando analogías del ámbito de la construcción o del comercio minorista.</p></div>
+                        <div class="bg-purple-50 border border-purple-300 rounded-xl p-6 text-center my-6">
+                            <h4 class="text-lg font-bold text-purple-800 mb-2">🔗 Reto de Contextualización Laboral</h4>
+                            <p class="text-gray-700 mb-4">Tome un tema de su currículo que considera abstracto o difícil de conectar con la vida cotidiana. Pida a la IA que lo explique usando <strong>analogías del ámbito laboral más común en su comunidad</strong> (construcción, comercio, agricultura, servicios). Luego compare: ¿La versión con analogías laborales es más accesible? ¿Pierde precisión conceptual? ¿Necesita ajustes? Esta reflexión le ayudará a calibrar cuándo la contextualización enriquece el aprendizaje y cuándo lo puede simplificar en exceso.</p>
+                        </div>
                     </section>
 
                     <section id="s13" class="scroll-mt-24">
+
                         <h2>13. Checklist Rápido</h2>
-                        <ul class="space-y-2 list-none pl-0"><li class="flex items-center gap-3"><input type="checkbox" class="w-5 h-5 text-teal-600 rounded"><span>Uso un tono andragógico (adulto) en los prompts.</span></li></ul>
+                        <ul class="space-y-2 list-none pl-0">
+                            <li class="flex items-center gap-3">
+                                <input type="checkbox" class="w-5 h-5 text-purple-600 rounded focus:ring-purple-600 border-gray-300">
+                                <span class="text-gray-700">Uso un tono andragógico en mis prompts: entre colegas, contextualizado laboralmente, sin condescendencia.</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <input type="checkbox" class="w-5 h-5 text-purple-600 rounded focus:ring-purple-600 border-gray-300">
+                                <span class="text-gray-700">Diseño retroalimentaciones que validan el esfuerzo y señalan un solo aspecto de mejora por vez.</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <input type="checkbox" class="w-5 h-5 text-purple-600 rounded focus:ring-purple-600 border-gray-300">
+                                <span class="text-gray-700">Comprendo los 5 principios andragógicos de Knowles y cómo se operacionalizan con el uso de IA.</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <input type="checkbox" class="w-5 h-5 text-purple-600 rounded focus:ring-purple-600 border-gray-300">
+                                <span class="text-gray-700">Aplico el principio de privacidad con adultos: no ingreso información sensible de sus vidas en herramientas externas.</span>
+                            </li>
+                        </ul>
                     </section>
 
                     <section id="s14" class="scroll-mt-24">
+
                         <h2>14. Recursos Complementarios</h2>
-                        <ul><li><a href="#" class="text-teal-600 hover:underline font-medium">Plantillas de retroalimentación para jóvenes y adultos</a></li></ul>
+                        <ul>
+                            <li><a href="#" class="text-purple-700 hover:underline">Plantillas de retroalimentación empática para jóvenes y adultos (PDF)</a></li>
+                            <li><a href="#" class="text-purple-700 hover:underline">Knowles (1973/1984): The Adult Learner: A Neglected Species — Los principios de la andragogía</a></li>
+                            <li><a href="#" class="text-purple-700 hover:underline">Mezirow (1991): Transformative Dimensions of Adult Learning — Aprendizaje transformador</a></li>
+                            <li><a href="#" class="text-purple-700 hover:underline">Dweck (2006): Mindset: The New Psychology of Success — Mentalidad de crecimiento</a></li>
+                            <li><a href="#" class="text-purple-700 hover:underline">MEP (2024): Marco Curricular para la Educación de Personas Jóvenes y Adultas (EPJA)</a></li>
+                        </ul>
                     </section>
 
                     <section id="s15" class="scroll-mt-24">
-                        <h2>15. Ejercicio Práctico Guiado</h2>
-                        <div class="bg-teal-50 border-l-4 border-teal-500 p-6 rounded-r-lg my-6">
-                            <h4 class="text-teal-800 font-bold mb-3 text-lg flex items-center gap-2">
-                                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>
-                                Manos a la obra: Feedback Empático
-                            </h4>
-                            <p class="text-teal-900 mb-4"><strong>Paso 1:</strong> Ingrese a Claude o Gemini.</p>
-                            <p class="text-teal-900 mb-4"><strong>Paso 2:</strong> Piense en un error común que cometen sus estudiantes adultos y utilice este prompt:</p>
-                            <div class="bg-white text-gray-800 p-4 rounded border border-teal-200 font-mono text-sm shadow-inner mb-4">
-                                "Soy docente de [su materia] en educación nocturna. Mis estudiantes son adultos que trabajan todo el día. Imagina que un estudiante cometió este error común: [escriba el error, ej. confundir el sujeto con el predicado]. Redacta un párrafo corto de retroalimentación constructiva que valide su esfuerzo, no lo desmotive, y le explique de forma clara cómo corregirlo."
-                            </div>
-                            <p class="text-teal-900"><strong>Paso 3:</strong> Revise el resultado. ¿El tono es adecuado? ¿Siente que motivaría a un estudiante adulto a no desertar?</p>
+
+                        <h2>15. Ejercicio Práctico Guiado: Feedback Empático</h2>
+                        <div class="bg-purple-50 border border-purple-200 rounded-xl p-6 my-6">
+                            <h4 class="text-lg font-bold text-purple-800 mb-3">💬 Manos a la Obra</h4>
+                            <p class="text-gray-700 mb-3"><strong>Objetivo:</strong> Generar retroalimentación constructiva y empática para un trabajo con errores frecuentes.</p>
+                            <ol class="list-decimal pl-5 space-y-2 text-sm text-gray-700">
+                                <li>Ingrese a Claude o Gemini.</li>
+                                <li>Piense en un error gramatical o conceptual que cometen frecuentemente sus estudiantes adultos.</li>
+                                <li>Use este prompt: <span class="font-mono text-xs bg-gray-100 p-1 rounded inline-block mt-1">«Soy docente de [su materia] en educación nocturna en Costa Rica. Mis estudiantes son adultos trabajadores. Un estudiante cometió este error: [describa el error]. Redacta un párrafo de retroalimentación constructiva que: (1) reconozca genuinamente lo positivo de su intento; (2) explique el error con una analogía de la vida cotidiana del adulto; (3) dé un ejercicio concreto de práctica de 5 minutos para reforzar el concepto correcto. Tono: alentador y respetuoso.»</span></li>
+                                <li>Compare la retroalimentación generada con cómo usted la daría normalmente. ¿En qué difiere? ¿Qué tomaría de la versión de la IA?</li>
+                            </ol>
                         </div>
                     </section>
 
@@ -271,15 +363,15 @@
                         <h3 class="text-sm font-bold text-gray-900 uppercase tracking-wider mb-4">Índice del Módulo</h3>
                         <nav class="space-y-1 text-sm">
                             <a href="#s1" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">1. Andragogía</a>
-                            <a href="#s2" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">2. Retroalimentación</a>
+                            <a href="#s2" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">2. Comunicaciones</a>
                             <a href="#s3" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">3. Adaptación</a>
                             <a href="#s4" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">4. Prompt base</a>
                             <a href="#s5" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">5. Uso mejorado</a>
                             <a href="#s6" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">6. Simulaciones</a>
                             <a href="#s7" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">7. Horarios</a>
                             <a href="#s8" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">8. Ejemplo Aplicado</a>
-                            <a href="#s9" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">9. Evaluación Formativa</a>
-                            <a href="#s10" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">10. Privacidad</a>
+                            <a href="#s9" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">9. Rezago Educativo</a>
+                            <a href="#s10" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">10. Ética y Privacidad</a>
                             <a href="#s11" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">11. Motivación</a>
                             <a href="#s12" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">12. Microreto</a>
                             <a href="#s13" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">13. Checklist</a>
@@ -441,6 +533,40 @@
             }
             </script>
 
+
+            <!-- ═══ Navegación entre módulos ═══ -->
+            <div class="border-t border-gray-200 mt-10 pt-8 pb-2
+                        flex items-center justify-between gap-4" id="mod-nav">
+                
+        <a href="modulo-8.html"
+           class="flex items-center gap-3 px-5 py-3 bg-white border border-gray-200
+                  rounded-xl text-gray-600 hover:bg-gray-50 hover:border-gray-300
+                  font-medium transition-all group">
+            <svg class="w-4 h-4 flex-shrink-0 group-hover:-translate-x-1 transition-transform"
+                 fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M15 19l-7-7 7-7"/>
+            </svg>
+            <div class="hidden sm:block text-left">
+                <div class="text-xs text-gray-400">Anterior</div>
+                <div class="text-sm font-semibold">IA en Colegios Técnicos</div>
+            </div>
+        </a>
+                <a href="modulos.html"
+                   class="text-sm text-gray-400 hover:text-mep-blue underline transition-colors
+                          hidden sm:block">
+                    Ver catálogo
+                </a>
+                
+        <div class="flex items-center gap-3 px-5 py-3 bg-green-50 border border-green-200
+                    rounded-xl text-green-800 font-medium">
+            <span class="text-xl">🎉</span>
+            <div class="hidden sm:block text-left">
+                <div class="text-xs text-green-600 font-semibold uppercase tracking-wide">¡Completado!</div>
+                <div class="text-sm font-semibold">Has recorrido todos los módulos</div>
+            </div>
+        </div>
+            </div>
         </main>
     </div>
 
