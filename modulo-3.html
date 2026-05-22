@@ -101,6 +101,18 @@
                     <span class="text-xl group-hover:scale-110 transition-transform">📚</span>
                     <span>Módulos</span>
                 </a>
+                <a href="rol-docente-ia.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ver rol docente en la era de la IA">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">🧭</span>
+                    <span>Rol Docente e IA</span>
+                </a>
+                <a href="referencias.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ver referencias bibliográficas del proyecto">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">📖</span>
+                    <span>Referencias</span>
+                </a>
+                <a href="glosario.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ver glosario de términos de IA">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">📖</span>
+                    <span>Glosario</span>
+                </a>
                 <a href="descargas.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ir a la sección de descargas">
                     <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">📥</span>
                     <span>Descargas</span>
@@ -109,9 +121,9 @@
                     <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">💬</span>
                     <span>Comunidad</span>
                 </a>
-                <a href="configuracion.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ir a la configuración">
-                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">⚙️</span>
-                    <span>Configuración</span>
+                <a href="configuracion.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ir a la sección de información">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">ℹ️</span>
+                    <span>Información</span>
                 </a>
                 <a href="https://iadocenciaed3698.my.canva.site/pruebacajaherramientacolegios" target="_blank" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ir a la evaluación del curso">
                     <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">📋</span>
@@ -128,6 +140,55 @@
 
         <!-- Main Content -->
         <main class="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+            <!-- 🔑 Panel de Prerrequisitos Dinámicos (Sprint 5) -->
+            <div id="caja-prerrequisitos" class="hidden bg-orange-50 border border-orange-200 rounded-2xl p-5 mb-8 flex gap-4 items-start shadow-sm transition-all duration-300">
+                <div class="flex-shrink-0 w-10 h-10 bg-orange-100 rounded-xl flex items-center justify-center text-xl">🔑</div>
+                <div class="flex-1">
+                    <h3 class="font-bold text-orange-950 mb-1 flex items-center gap-2">Recomendación de Prerrequisitos</h3>
+                    <p class="text-sm text-orange-900 leading-relaxed m-0">
+                        Te sugerimos completar los siguientes módulos antes de continuar para asegurar una mejor comprensión del contenido actual: 
+                        <span id="prereq-list" class="font-extrabold text-orange-950"></span>.
+                    </p>
+                    <div class="mt-3 flex gap-2">
+                        <a href="modulos.html" class="px-3.5 py-1.5 bg-orange-600 hover:bg-orange-700 text-white text-xs font-bold rounded-lg transition-colors flex items-center gap-1 shadow-sm">
+                            🗺️ Ver Mapa de Ruta
+                        </a>
+                        <button onclick="document.getElementById('caja-prerrequisitos').remove()" class="px-3.5 py-1.5 bg-orange-100 hover:bg-orange-200 text-orange-800 text-xs font-bold rounded-lg transition-colors">
+                            Omitir recomendación
+                        </button>
+                    </div>
+                </div>
+                <script>
+                    document.addEventListener('DOMContentLoaded', () => {
+                        const requiredPrereqs = [1];
+                        const namesMap = {
+                            1: "Módulo 1: IA en Educación",
+                            2: "Módulo 2: Ética y Privacidad",
+                            3: "Módulo 3: Prompts Efectivos",
+                            4: "Módulo 4: Herramientas Prácticas de IA",
+                            5: "Módulo 5: Aplicaciones Prácticas",
+                            6: "Módulo 6: Análisis de Datos",
+                            7: "Módulo 7: Comparativa de Motores de IA",
+                            8: "Módulo 8: IA en Colegios Técnicos",
+                            9: "Módulo 9: Jóvenes y Adultos",
+                            10: "Módulo 10: Micro-Prompts"
+                        };
+                        const missing = requiredPrereqs.filter(id => localStorage.getItem("caja_modulo_" + id + "_quiz") === null);
+                        if (missing.length > 0) {
+                            const listEl = document.getElementById('prereq-list');
+                            if (listEl) {
+                                listEl.innerText = missing.map(id => namesMap[id]).join(', ');
+                            }
+                            const bannerEl = document.getElementById('caja-prerrequisitos');
+                            if (bannerEl) {
+                                bannerEl.classList.remove('hidden');
+                            }
+                        }
+                    });
+                </script>
+            </div>
+            <!-- Fin Panel de Prerrequisitos -->
             
             <!-- Hero Section -->
             <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-8 mb-8 relative overflow-hidden">
@@ -193,6 +254,15 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-mep-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg>
                                 Ampliar Infografía
                             </p>
+                            <p class="text-[10px] text-gray-500 mt-1 font-normal leading-tight text-center">
+                                Elaborado por NotebookLM, a partir de documentos oficiales, 2026
+                            </p>
+                            <p class="text-[10px] text-gray-500 mt-1 font-normal leading-tight text-center">
+                                Elaborado por NotebookLM, a partir de documentos oficiales, 2026
+                            </p>
+                            <p class="text-[10px] text-gray-500 mt-1 font-normal leading-tight text-center">
+                                Elaborado por NotebookLM, a partir de documentos oficiales, 2026
+                            </p>
                         </div>
                     </div>
                     
@@ -232,7 +302,8 @@
 
                         <h2>1. ¿Para qué le sirve al docente?</h2>
                         <p>Este módulo le permite dar el salto de «consumidor de herramientas» a <strong>«diseñador de experiencias de aprendizaje enriquecidas»</strong>. Le servirá para vincular el uso de IA directamente con los dos marcos normativos que rigen su práctica cotidiana: el <strong>Reglamento de Evaluación de los Aprendizajes (REAC)</strong> y los principios del <strong>Diseño Universal para el Aprendizaje (DUA)</strong>.</p>
-                        <p>En términos del modelo SAMR (Puentedura, 2010), este módulo opera en los niveles de <strong>Modificación y Redefinición</strong>: la IA no solo sustituye una tarea manual (como redactar una rúbrica a mano) sino que permite crear instrumentos de evaluación <em>cualitativamente distintos</em> —más detallados, más diferenciados, más alineados al currículo— que serían impracticables sin apoyo tecnológico.</p>
+                        <p>En términos del modelo <strong>SAMR (Puentedura, 2006)</strong>, la incorporación de la Inteligencia Artificial debe estructurarse desde las necesidades de la evaluación formativa y sumativa, y no desde la herramienta misma. En este módulo, el tránsito hacia niveles de <strong>Modificación y Redefinición</strong> no responde a un afán tecnológico, sino al propósito pedagógico de diversificar los instrumentos de evaluación (por ejemplo, creando rúbricas personalizadas o andamiajes específicos) para responder a la diversidad de los estudiantes (DUA).</p>
+                        <p>No obstante, asumimos la perspectiva crítica de <strong>Hamilton, Rosenberg y Akcaoglu (2016)</strong>, quienes nos recuerdan la importancia de evitar el determinismo tecnológico. El uso de la IA para la simple <em>Sustitución</em> o <em>Aumento</em> (como digitalizar o automatizar el formato de una rúbrica) es perfectamente válido y sumamente valioso si reduce la sobrecarga administrativa del docente, liberando tiempo para la retroalimentación personalizada y el acompañamiento directo en el aula. El juicio profesional docente y los objetivos de aprendizaje siempre preceden al prompt y a la escala del modelo.</p>
                         <p>Desde el enfoque de la <strong>Evaluación para el Aprendizaje</strong> (<em>Assessment for Learning</em>, Black & Wiliam, 1998), la retroalimentación oportuna y específica es uno de los factores con mayor efecto positivo comprobado en el rendimiento estudiantil. La IA puede ser una aliada poderosa para escalar ese tipo de retroalimentación.</p>
                     </section>
 
@@ -431,6 +502,46 @@
                             <li><a href="#" class="text-orange-600 hover:underline">Seixas & Morton (2013): Los seis conceptos del pensamiento histórico</a></li>
                         </ul>
                     </section>
+
+                    <!-- ═══════════════════════════════════════════ -->
+                    <!-- 16. ¿Qué sigue siendo tuyo? (Reflexión Crítica) -->
+                    <!-- ═══════════════════════════════════════════ -->
+                    <section id="s16" class="scroll-mt-24">
+                        <h2>16. ¿Qué sigue siendo tuyo?</h2>
+                        <div class="bg-gradient-to-br from-blue-50/30 to-orange-50/20 border border-gray-200 rounded-2xl p-6 mb-8 not-prose">
+                            <div class="flex items-center gap-2 mb-4">
+                                <span class="text-2xl">🌱</span>
+                                <span class="text-xs font-bold text-mep-blue uppercase tracking-wider bg-blue-50 px-2 py-1 rounded">Marco Gert Biesta (2017)</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-gray-900 mb-2">La Redescubierta del Sentido de la Enseñanza</h3>
+                            <p class="text-sm text-gray-600 leading-relaxed mb-6">
+                                Al utilizar asistentes digitales en su labor cotidiana, le invitamos a realizar una pausa reflexiva sobre lo que **ninguna tecnología ni predicción estadística** podrá jamás sustituir de su práctica profesional: el criterio de valor, el tacto relacional y el acompañamiento afectivo.
+                            </p>
+
+                            <div class="space-y-6">
+                                <!-- Pregunta 1 -->
+                                <div>
+                                    <label for="reflexion-m3-p1" class="block text-sm font-bold text-gray-800 mb-2">1. El Tacto Pedagógico y la Realidad del Aula:</label>
+                                    <p class="text-xs text-gray-500 mb-2">Un prompt estructurado puede generar una secuencia didáctica en segundos. ¿Cómo ajusta esa estructura para responder al clima emocional y las dinámicas reales de su grupo que ningún prompt puede capturar?</p>
+                                    <textarea id="reflexion-m3-p1" rows="3" class="w-full rounded-xl border-gray-300 shadow-sm focus:border-mep-blue focus:ring-mep-blue text-sm p-3 bg-white border" placeholder="Escriba su reflexión aquí..."></textarea>
+                                </div>
+
+                                <!-- Pregunta 2 -->
+                                <div>
+                                    <label for="reflexion-m3-p2" class="block text-sm font-bold text-gray-800 mb-2">2. Rigurosidad y Ética Evaluativa:</label>
+                                    <p class="text-xs text-gray-500 mb-2">Al diseñar rúbricas con IA, ¿de qué manera garantiza que los criterios evalúen comprensiones profundas y no meras respuestas automáticas o superficiales que los estudiantes podrían delegar también?</p>
+                                    <textarea id="reflexion-m3-p2" rows="3" class="w-full rounded-xl border-gray-300 shadow-sm focus:border-mep-blue focus:ring-mep-blue text-sm p-3 bg-white border" placeholder="Escriba su reflexión aquí..."></textarea>
+                                </div>
+
+                                <!-- Pregunta 3 -->
+                                <div>
+                                    <label for="reflexion-m3-p3" class="block text-sm font-bold text-gray-800 mb-2">3. Autonomía del Aprendiz y Valor Docente:</label>
+                                    <p class="text-xs text-gray-500 mb-2">En un entorno donde la IA puede resolver tareas instrumentales, ¿cómo rediseña sus evaluaciones para que el esfuerzo reflexivo y el proceso del estudiante vuelvan a ser el centro del valor educativo?</p>
+                                    <textarea id="reflexion-m3-p3" rows="3" class="w-full rounded-xl border-gray-300 shadow-sm focus:border-mep-blue focus:ring-mep-blue text-sm p-3 bg-white border" placeholder="Escriba su reflexión aquí..."></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
                 </div>
 
                 <!-- Right Column: Sticky Navigation (TOC) -->
@@ -453,6 +564,7 @@
                             <a href="#s13" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">13. Microreto</a>
                             <a href="#s14" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">14. Checklist</a>
                             <a href="#s15" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">15. Recursos</a>
+                            <a href="#s16" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">16. ¿Qué es tuyo?</a>
                         </nav>
                     </div>
                 </div>
@@ -798,6 +910,44 @@
 
             document.querySelectorAll('section[id]').forEach((section) => {
                 observer.observe(section);
+            });
+        });
+
+        // Persistencia de Reflexiones Críticas (Sprint 4)
+        document.addEventListener('DOMContentLoaded', () => {
+            const fields = ['reflexion-m3-p1', 'reflexion-m3-p2', 'reflexion-m3-p3'];
+            const storageKey = 'caja_reflexion_modulo_3';
+            
+            // Cargar valores previos
+            const saved = localStorage.getItem(storageKey);
+            if (saved) {
+                try {
+                    const data = JSON.parse(saved);
+                    fields.forEach(id => {
+                        if (data[id]) {
+                            const el = document.getElementById(id);
+                            if (el) el.value = data[id];
+                        }
+                    });
+                } catch (e) {
+                    console.error("Error al cargar reflexiones:", e);
+                }
+            }
+            
+            // Guardar valores al escribir
+            fields.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) {
+                    el.addEventListener('input', () => {
+                        const current = localStorage.getItem(storageKey);
+                        let data = {};
+                        if (current) {
+                            try { data = JSON.parse(current); } catch (e) {}
+                        }
+                        data[id] = el.value;
+                        localStorage.setItem(storageKey, JSON.stringify(data));
+                    });
+                }
             });
         });
     </script>

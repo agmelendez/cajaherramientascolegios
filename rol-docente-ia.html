@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rol Docente en la Era de la IA - Caja de Herramientas</title>
+    <!-- Tailwind CSS (via CDN para el prototipo estático) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        mep: {
+                            blue: '#0066cc',
+                            green: '#00aa44',
+                            orange: '#ff6b35',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Estilos personalizados para el contenido de mediación crítica */
+        .prose h2 { font-size: 1.5rem; font-weight: 700; color: #111827; margin-top: 2.5rem; margin-bottom: 1rem; border-bottom: 2px solid #f3f4f6; padding-bottom: 0.5rem; }
+        .prose h3 { font-size: 1.25rem; font-weight: 600; color: #374151; margin-top: 1.75rem; margin-bottom: 0.75rem; }
+        .prose p { margin-bottom: 1.25rem; line-height: 1.75; color: #4b5563; text-align: justify; }
+        .prose ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.25rem; color: #4b5563; }
+        .prose li { margin-bottom: 0.5rem; }
+        .toc-link.active { color: #0066cc; font-weight: 600; border-left-color: #0066cc; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans antialiased flex flex-col min-h-screen">
+    <!-- Top Bar Institucional -->
+    <div class="fixed top-0 left-0 right-0 h-14 bg-white border-b border-gray-200 z-[60] flex items-center justify-between px-4 md:px-6 shadow-sm">
+        <div class="flex items-center gap-4 md:gap-6 h-full py-2">
+            <img src="Logos/UCR.png" alt="UCR" class="h-6 md:h-8 object-contain">
+            <img src="Logos/VASUCR.png" alt="VAS" class="h-6 md:h-8 object-contain">
+            <img src="Logos/PuenteVAS.png" alt="Puentes" class="h-6 md:h-8 object-contain hidden sm:block">
+            <img src="Logos/CIOdD.jpg" alt="CIOdD" class="h-6 md:h-8 object-contain">
+        </div>
+        <div class="flex items-center h-full py-2">
+            <img src="Logos/ED3698.png" alt="ED3698" class="h-6 md:h-8 object-contain">
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="fixed top-14 left-0 right-0 h-20 bg-white/80 backdrop-blur-md border-b border-gray-200 z-20 flex items-center justify-between px-4 md:px-6 shadow-sm">
+        <div class="flex items-center gap-4">
+            <button class="md:hidden p-2 text-gray-600 hover:bg-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-mep-blue" onclick="toggleSidebar()" aria-label="Toggle Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+            <div class="hidden md:flex items-center gap-2 text-sm font-medium text-gray-500">
+                <a href="modulos.html" class="hover:text-mep-blue transition-colors">Módulos</a>
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                <span class="text-gray-900">Rol Docente en la Era de la IA</span>
+            </div>
+        </div>
+        <div class="flex items-center gap-4">
+            <button class="flex items-center gap-2 px-3 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors text-gray-600">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                </svg>
+                <span class="text-sm font-medium hidden sm:block">Notificaciones</span>
+            </button>
+            <a href="preguntas-respuestas.html" class="flex items-center gap-2 px-3 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors text-gray-600">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span class="text-sm font-medium hidden sm:block">Preguntas y Respuestas</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Wrapper Principal -->
+    <div class="flex flex-1 pt-[136px]">
+        <!-- Overlay Sidebar Móvil -->
+        <div id="sidebarOverlay" class="fixed inset-0 bg-gray-900/50 backdrop-blur-sm z-30 hidden transition-opacity duration-300 md:hidden" onclick="toggleSidebar()"></div>
+
+        <!-- Sidebar -->
+        <aside id="sidebar" class="fixed inset-y-0 left-0 z-40 w-64 bg-white border-r border-gray-200 transform -translate-x-full transition-transform duration-300 ease-in-out md:relative md:translate-x-0 flex flex-col shadow-2xl md:shadow-none pt-[136px] md:pt-0">
+            <div class="flex items-center gap-3 px-6 py-5 border-b border-gray-100">
+                <div class="w-10 h-10 bg-gradient-to-br from-mep-blue to-blue-800 rounded-xl flex items-center justify-center text-white text-xl shadow-inner">🎓</div>
+                <div class="text-lg font-bold text-gray-900 tracking-tight">Caja Tools</div>
+            </div>
+
+            <nav class="flex-1 px-4 py-6 space-y-1 overflow-y-auto">
+                <a href="index.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ir a la página de Inicio">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">📊</span>
+                    <span>Inicio</span>
+                </a>
+                <a href="modulos.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ver todos los módulos del curso">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">📚</span>
+                    <span>Módulos</span>
+                </a>
+                <a href="rol-docente-ia.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all bg-blue-50 text-mep-blue" aria-label="Ver rol docente en la era de la IA">
+                    <span class="text-xl group-hover:scale-110 transition-transform">🧭</span>
+                    <span>Rol Docente e IA</span>
+                </a>
+                <a href="referencias.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ver referencias bibliográficas del proyecto">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">📖</span>
+                    <span>Referencias</span>
+                </a>
+                <a href="glosario.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ver glosario de términos de IA">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">📖</span>
+                    <span>Glosario</span>
+                </a>
+                <a href="descargas.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ir a la sección de descargas">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">📥</span>
+                    <span>Descargas</span>
+                </a>
+                <a href="comunidad.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ir a la comunidad docente">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">💬</span>
+                    <span>Comunidad</span>
+                </a>
+                <a href="configuracion.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ir a la sección de información">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">ℹ️</span>
+                    <span>Información</span>
+                </a>
+                <a href="https://iadocenciaed3698.my.canva.site/pruebacajaherramientacolegios" target="_blank" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ir a la evaluación del curso">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">📋</span>
+                    <span>Evaluación del Curso</span>
+                </a>
+                <div class="pt-6 mt-6 border-t border-gray-100">
+                    <a href="ayuda.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ir a la sección de ayuda">
+                        <span class="text-xl opacity-70 group-hover:opacity-100 transition-opacity">❓</span>
+                        <span>Ayuda</span>
+                    </a>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            
+            <!-- Hero Section -->
+            <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-8 mb-8 relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-mep-orange via-mep-green to-mep-blue"></div>
+                <div class="flex flex-col md:flex-row gap-6 items-start md:items-center justify-between">
+                    <div>
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="px-3 py-1 bg-orange-100 text-mep-orange text-xs font-bold rounded-full uppercase tracking-wide">Marco de Mediación</span>
+                            <span class="flex items-center gap-1 text-sm font-medium text-gray-500">
+                                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                Lectura Crítica
+                            </span>
+                            <span class="flex items-center gap-1 text-sm font-medium text-gray-500">
+                                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                                Nivel Reflexivo
+                            </span>
+                        </div>
+                        <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4 tracking-tight">El Rol Docente en la Era de la Inteligencia Artificial</h1>
+                        <p class="text-lg text-gray-600 max-w-3xl leading-relaxed">Una exploración conceptual, ética y metodológica sobre la integración de la IA en la mediación pedagógica costarricense.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ⚠️ Banner de Advertencia: Datos de Estudiantes -->
+            <div class="bg-amber-50 border border-amber-200 rounded-2xl p-5 mb-8 flex gap-4 items-start">
+                <div class="flex-shrink-0 w-10 h-10 bg-amber-100 rounded-xl flex items-center justify-center text-xl">⚠️</div>
+                <div>
+                    <h3 class="font-bold text-amber-900 mb-1">Importante: Perspectiva Ética Obligatoria</h3>
+                    <p class="text-sm text-amber-800 leading-relaxed m-0">La incorporación de la Inteligencia Artificial debe estar supeditada siempre al <strong>juicio pedagógico del docente</strong> y al cumplimiento normativo del MEP. La delegación no crítica de las decisiones didácticas constituye un riesgo para la equidad educativa y el desarrollo cognitivo de los estudiantes.</p>
+                </div>
+            </div>
+
+            <!-- Content Grid: 2 Columns -->
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 relative items-start">
+                
+                <!-- Left Column: Sections Content -->
+                <div class="lg:col-span-3 bg-white rounded-2xl border border-gray-200 shadow-sm p-6 sm:p-10 prose prose-blue max-w-none">
+                    
+                    <section id="s1" class="scroll-mt-24">
+                        <h2>1. ¿Por qué incorporar la Inteligencia Artificial?</h2>
+                        <p>La adopción de tecnologías digitales en las aulas suele presentarse bajo una narrativa de progreso inevitable y optimismo desbordado. Autores como <strong>Neil Selwyn (2019)</strong> y <strong>Williamson, Bayne y Shay (2020)</strong> nos invitan a cuestionar esta visión, advirtiendo que los discursos pro-tecnología en la educación a menudo están impulsados por intereses corporativos y lógicas comerciales de "solucionismo tecnológico" en lugar de verdaderas necesidades educativas.</p>
+                        
+                        <p>Por lo tanto, la incorporación de la Inteligencia Artificial Generativa no debe responder a la moda o a la presión de "mantenerse al día" con la última herramienta comercial. La verdadera justificación pedagógica radica en su capacidad para actuar como un <strong>andamiaje cognitivo sofisticado y diversificado</strong> que apoye al docente a:</p>
+                        <ul>
+                            <li><strong>Reducir la carga administrativa y el trabajo repetitivo</strong> (como formatear plantillas, redactar esquemas curriculares o estructurar rúbricas), liberando tiempo cualitativo para la interacción humana directa con los estudiantes.</li>
+                            <li><strong>Atender la diversidad en el aula</strong> mediante los principios del Diseño Universal para el Aprendizaje (DUA), traduciendo o adaptando un mismo material a múltiples formatos y niveles de complejidad sin incurrir en una sobrecarga de planificación insostenible.</li>
+                            <li><strong>Enriquecer los entornos de aprendizaje</strong> proporcionando simulaciones, contraejemplos o perspectivas múltiples que sirvan de detonantes para el pensamiento de nivel superior de los estudiantes.</li>
+                        </ul>
+                        
+                        <!-- Caja de Autoreflexión 1 -->
+                        <div class="bg-gray-50 border border-gray-200 rounded-xl p-5 my-6">
+                            <h4 class="text-mep-blue font-bold mb-3 flex items-center gap-2">
+                                <span>✍️</span> Preguntas de Metacognición
+                            </h4>
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2" for="r1_1">¿Cuáles presiones externas (institucionales, de mercado o sociales) experimenta usted para usar IA en sus lecciones?</label>
+                                    <textarea id="r1_1" rows="3" class="w-full rounded-lg border-gray-300 shadow-sm border p-3 focus:ring-mep-blue focus:border-mep-blue sm:text-sm" placeholder="Escriba su reflexión aquí..."></textarea>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2" for="r1_2">¿De qué manera puede utilizar la IA como apoyo a la inclusión (DUA) sin que ello implique una segregación del estudiantado?</label>
+                                    <textarea id="r1_2" rows="3" class="w-full rounded-lg border-gray-300 shadow-sm border p-3 focus:ring-mep-blue focus:border-mep-blue sm:text-sm" placeholder="Escriba su reflexión aquí..."></textarea>
+                                </div>
+                            </div>
+                            <div class="mt-4 flex justify-between items-center">
+                                <button onclick="saveReflections('s1')" class="px-4 py-2 bg-mep-blue text-white rounded-lg text-sm font-semibold hover:bg-blue-600 transition-colors shadow-sm">Guardar Reflexiones</button>
+                                <span id="msg-s1" class="text-xs text-green-600 font-medium hidden">¡Guardado localmente!</span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="s2" class="scroll-mt-24">
+                        <h2>2. ¿Qué concepción del aprendizaje subyace a su uso?</h2>
+                        <p>Cuando incorporamos herramientas de IA en la práctica docente, implícitamente estamos reforzando una teoría del aprendizaje. Si utilizamos la IA principalmente para generar pruebas cortas de opción única, mecanizar tareas escritas o automatizar la evaluación de resúmenes, estamos promoviendo una concepción <strong>conductista e instrumental</strong> del aprendizaje, donde la educación se reduce a la adquisición pasiva y repetición de fragmentos de información (Williamson et al., 2020).</p>
+                        
+                        <p>Frente a esto, proponemos un uso de la IA bajo una concepción <strong>socioconstructivista, crítica y colaborativa</strong> del aprendizaje. En esta perspectiva:</p>
+                        <ul>
+                            <li>El conocimiento no se "extrae" de la IA como si fuera un oráculo de verdades, sino que se <strong>co-construye socialmente</strong> a través del debate, la crítica mutua y la contrastación.</li>
+                            <li>La IA actúa en la <strong>Zona de Desarrollo Próximo (Vygotsky)</strong> brindando andamios temporales (ej. explicaciones de un concepto en 3 niveles de complejidad) que el docente retira paulatinamente a medida que el estudiante gana autonomía.</li>
+                            <li>Se fomenta la <strong>metacognición</strong>: se evalúa cómo el estudiante dialoga con la IA, cómo cuestiona sus respuestas, cómo identifica sesgos y cómo decide qué información incorporar, en lugar de evaluar únicamente el documento final.</li>
+                        </ul>
+
+                        <!-- Caja de Autoreflexión 2 -->
+                        <div class="bg-gray-50 border border-gray-200 rounded-xl p-5 my-6">
+                            <h4 class="text-mep-green font-bold mb-3 flex items-center gap-2">
+                                <span>✍️</span> Preguntas de Metacognición
+                            </h4>
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2" for="r2_1">Si un estudiante usa ChatGPT para redactar un ensayo en 10 segundos, ¿cuál concepción del aprendizaje se está evidenciando y cómo podría reestructurarse la actividad para exigir pensamiento crítico?</label>
+                                    <textarea id="r2_1" rows="3" class="w-full rounded-lg border-gray-300 shadow-sm border p-3 focus:ring-mep-blue focus:border-mep-blue sm:text-sm" placeholder="Escriba su reflexión aquí..."></textarea>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2" for="r2_2">¿Cómo diseñaría un "andamiaje" con IA para un tema complejo de su asignatura, asegurando que el estudiante realice el esfuerzo cognitivo fundamental?</label>
+                                    <textarea id="r2_2" rows="3" class="w-full rounded-lg border-gray-300 shadow-sm border p-3 focus:ring-mep-blue focus:border-mep-blue sm:text-sm" placeholder="Escriba su reflexión aquí..."></textarea>
+                                </div>
+                            </div>
+                            <div class="mt-4 flex justify-between items-center">
+                                <button onclick="saveReflections('s2')" class="px-4 py-2 bg-mep-green text-white rounded-lg text-sm font-semibold hover:bg-green-600 transition-colors shadow-sm">Guardar Reflexiones</button>
+                                <span id="msg-s2" class="text-xs text-green-600 font-medium hidden">¡Guardado localmente!</span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="s3" class="scroll-mt-24">
+                        <h2>3. ¿Qué es lo pedagógicamente insustituible del ser docente?</h2>
+                        <p>Los modelos fundacionales de IA (LLMs) son capaces de imitar el lenguaje humano de forma convincente, resolver problemas lógicos y sintetizar el conocimiento humano acumulado en Internet. Esto puede generar la ilusión de que el docente es un elemento prescindible que puede ser reemplazado por un "tutor inteligente adaptativo". Esta premisa ignora la naturaleza profunda del hecho pedagógico.</p>
+                        
+                        <p><strong>Neil Selwyn (2019)</strong> enfatiza que la educación es intrínsecamente un proceso <strong>relacional, afectivo y ético</strong>. Lo insustituible del ser docente, aquello que ningún algoritmo puede emular, reside en:</p>
+                        <ul>
+                            <li><strong>El tacto pedagógico:</strong> La sensibilidad profesional para leer los gestos de frustración o apatía de un estudiante, comprender las causas socioculturales de su rezago y responder con empatía y cercanía oportunas.</li>
+                            <li><strong>La validación emocional:</strong> El aliento genuino que fortalece la autoestima académica de un joven y le infunde el deseo de aprender. Las máquinas no experimentan emociones; solo simulan empatía prefabricada.</li>
+                            <li><strong>El modelaje ético:</strong> La construcción activa de ciudadanía, valores, juicio moral y sentido de justicia mediante las interacciones diarias en la comunidad del aula.</li>
+                            <li><strong>El conocimiento contextual profundo:</strong> El docente conoce el entorno local de su colegio (MEP), la situación socioeconómica de las familias y la realidad comunitaria, elementos que la IA desconoce por completo.</li>
+                        </ul>
+
+                        <!-- Caja de Autoreflexión 3 -->
+                        <div class="bg-gray-50 border border-gray-200 rounded-xl p-5 my-6">
+                            <h4 class="text-mep-orange font-bold mb-3 flex items-center gap-2">
+                                <span>✍️</span> Preguntas de Metacognición
+                            </h4>
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2" for="r3_1">Recuerde una experiencia de mediación reciente donde la empatía o el tacto humano hayan sido determinantes para el aprendizaje de un estudiante. ¿Qué valor aportó usted que una IA jamás podría replicar?</label>
+                                    <textarea id="r3_1" rows="3" class="w-full rounded-lg border-gray-300 shadow-sm border p-3 focus:ring-mep-blue focus:border-mep-blue sm:text-sm" placeholder="Escriba su reflexión aquí..."></textarea>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2" for="r3_2">¿Cómo podemos educar a los estudiantes para que no confundan la simulación de empatía de un LLM con una relación humana auténtica y ética?</label>
+                                    <textarea id="r3_2" rows="3" class="w-full rounded-lg border-gray-300 shadow-sm border p-3 focus:ring-mep-blue focus:border-mep-blue sm:text-sm" placeholder="Escriba su reflexión aquí..."></textarea>
+                                </div>
+                            </div>
+                            <div class="mt-4 flex justify-between items-center">
+                                <button onclick="saveReflections('s3')" class="px-4 py-2 bg-mep-orange text-white rounded-lg text-sm font-semibold hover:bg-orange-600 transition-colors shadow-sm">Guardar Reflexiones</button>
+                                <span id="msg-s3" class="text-xs text-green-600 font-medium hidden">¡Guardado localmente!</span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="s4" class="scroll-mt-24">
+                        <h2>4. ¿Cómo cambia el rol del docente en la mediación?</h2>
+                        <p>Con el acceso ubicuo a la información sintetizada por la IA, el rol del docente se desplaza definitivamente de la figura clásica de "transmisor principal de información" hacia la de <strong>curador didáctico, facilitador y socio de diálogo crítico</strong>.</p>
+                        
+                        <p>Este cambio de rol exige que el docente ejerza como:</p>
+                        <ul>
+                            <li><strong>Un agente de literacidad crítica:</strong> Enseñar al estudiantado a interrogar a la máquina, contrastar sus alucinaciones, rastrear fuentes primarias y detectar sesgos ideológicos, políticos o culturales heredados de los datos de entrenamiento occidentales.</li>
+                            <li><strong>Un diseñador de ecologías de aprendizaje:</strong> Estructurar actividades donde los estudiantes usen la IA no como sustituto de su pensamiento, sino como un interlocutor crítico para pulir argumentos, debatir o buscar múltiples alternativas a un problema.</li>
+                            <li><strong>Un garante de la equidad:</strong> Velar para que el uso de la tecnología no profundice la brecha social, asegurando que todos los estudiantes tengan las mismas oportunidades de desarrollo de habilidades cognoscitivas superiores, independientemente de sus recursos.</li>
+                        </ul>
+
+                        <!-- Caja de Autoreflexión 4 -->
+                        <div class="bg-gray-50 border border-gray-200 rounded-xl p-5 my-6">
+                            <h4 class="text-purple-600 font-bold mb-3 flex items-center gap-2">
+                                <span>✍️</span> Preguntas de Metacognición
+                            </h4>
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2" for="r4_1">¿Cómo modifica usted la formulación de sus lecciones cuando asume que sus estudiantes ya tienen acceso a explicaciones instantáneas y estructuradas provistas por IA?</label>
+                                    <textarea id="r4_1" rows="3" class="w-full rounded-lg border-gray-300 shadow-sm border p-3 focus:ring-mep-blue focus:border-mep-blue sm:text-sm" placeholder="Escriba su reflexión aquí..."></textarea>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2" for="r4_2">¿Qué habilidades o actitudes profesionales considera que debe desarrollar o fortalecer para transitar con éxito hacia este rol de curador crítico?</label>
+                                    <textarea id="r4_2" rows="3" class="w-full rounded-lg border-gray-300 shadow-sm border p-3 focus:ring-mep-blue focus:border-mep-blue sm:text-sm" placeholder="Escriba su reflexión aquí..."></textarea>
+                                </div>
+                            </div>
+                            <div class="mt-4 flex justify-between items-center">
+                                <button onclick="saveReflections('s4')" class="px-4 py-2 bg-purple-600 text-white rounded-lg text-sm font-semibold hover:bg-purple-700 transition-colors shadow-sm">Guardar Reflexiones</button>
+                                <span id="msg-s4" class="text-xs text-green-600 font-medium hidden">¡Guardado localmente!</span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="s5" class="scroll-mt-24">
+                        <h2>5. Mapa de la IA en las Etapas Didácticas</h2>
+                        <p>La verdadera integración crítica se demuestra en las decisiones específicas del quehacer pedagógico. A continuación, se presenta un mapa que contrasta el rol docente irremplazable, el apoyo instrumental que puede brindar la IA y los riesgos ético-didácticos críticos de delegar en el algoritmo sin criterio profesional.</p>
+                        
+                        <!-- Tabla Responsiva Interactiva -->
+                        <div class="overflow-x-auto my-8 border border-gray-200 rounded-xl shadow-sm bg-white">
+                            <table class="min-w-full divide-y divide-gray-200 text-sm">
+                                <thead class="bg-gray-50">
+                                    <tr>
+                                        <th scope="col" class="px-4 py-3.5 text-left font-bold text-gray-900 w-1/5">Etapa Didáctica</th>
+                                        <th scope="col" class="px-4 py-3.5 text-left font-bold text-gray-900 w-1/4">Rol del Docente (Saber Didáctico)</th>
+                                        <th scope="col" class="px-4 py-3.5 text-left font-bold text-gray-900 w-1/4">Apoyo Potencial de la IA (Saber Tecnológico)</th>
+                                        <th scope="col" class="px-4 py-3.5 text-left font-bold text-red-700 w-3/10">Riesgo Crítico de Delegación (Perspectiva Crítica)</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-gray-200 bg-white">
+                                    <tr class="hover:bg-blue-50/20 transition-colors cursor-pointer" onclick="highlightRow(this)">
+                                        <td class="px-4 py-4 font-semibold text-gray-900">1. Definición de Objetivos y Planificación</td>
+                                        <td class="px-4 py-4 text-gray-600">Establecer los propósitos formativos basados en el programa oficial MEP, contextualizándolos a la realidad socio-comunitaria de los estudiantes.</td>
+                                        <td class="px-4 py-4 text-gray-600">Sugerir ideas creativas para actividades interdisciplinarias, redactar borradores de objetivos cognoscitivos o procedimentales y proponer adaptaciones de tiempo.</td>
+                                        <td class="px-4 py-4 text-red-800 bg-red-50/50 border-l-4 border-red-500 font-medium"><strong>Delegar el diseño curricular completo en la IA:</strong> Produce planes de estudio genéricos, descontextualizados, que ignoran la realidad del colegio y los ritmos de aprendizaje reales.</td>
+                                    </tr>
+                                    <tr class="hover:bg-blue-50/20 transition-colors cursor-pointer" onclick="highlightRow(this)">
+                                        <td class="px-4 py-4 font-semibold text-gray-900">2. Selección y Curación de Contenidos</td>
+                                        <td class="px-4 py-4 text-gray-600">Evaluar la veracidad científica, la pertinencia cultural y el alineamiento epistemológico de la información para la lección.</td>
+                                        <td class="px-4 py-4 text-gray-600">Sintetizar textos extensos, adaptar el nivel de complejidad lectora de un artículo para estudiantes con adecuaciones y traducir fuentes actualizadas.</td>
+                                        <td class="px-4 py-4 text-red-800 bg-red-50/50 border-l-4 border-red-500 font-medium"><strong>Aceptar "alucinaciones" u omisiones ideológicas de la IA:</strong> Los modelos pueden reproducir sesgos históricos o geográficos eurocéntricos, invisibilizando la realidad local y costarricense.</td>
+                                    </tr>
+                                    <tr class="hover:bg-blue-50/20 transition-colors cursor-pointer" onclick="highlightRow(this)">
+                                        <td class="px-4 py-4 font-semibold text-gray-900">3. Diseño de Estrategias de Mediación</td>
+                                        <td class="px-4 py-4 text-gray-600">Orquestar interacciones cooperativas, debates dialógicos, trabajo de campo y dinámicas afectivas que promuevan la socialización en el aula.</td>
+                                        <td class="px-4 py-4 text-gray-600">Generar sugerencias de preguntas orientadoras para debates, estructurar flujos de trabajo cooperativo y crear guiones instruccionales de role-playing.</td>
+                                        <td class="px-4 py-4 text-red-800 bg-red-50/50 border-l-4 border-red-500 font-medium"><strong>Sustituir el trabajo colaborativo por interacciones individuales estudiante-pantalla:</strong> Aísla al estudiante y debilita las competencias socioemocionales indispensables.</td>
+                                    </tr>
+                                    <tr class="hover:bg-blue-50/20 transition-colors cursor-pointer" onclick="highlightRow(this)">
+                                        <td class="px-4 py-4 font-semibold text-gray-900">4. Evaluación de los Aprendizajes</td>
+                                        <td class="px-4 py-4 text-gray-600">Ejercer el juicio profesional de forma ética, justa y humana, de acuerdo con el REAC, valorando el esfuerzo, el proceso cualitativo y las adecuaciones del estudiante.</td>
+                                        <td class="px-4 py-4 text-gray-600">Generar borradores de rúbricas analíticas, escalas de calificación, listas de cotejo y sugerir andamiajes evaluativos diversificados según DUA.</td>
+                                        <td class="px-4 py-4 text-red-800 bg-red-50/50 border-l-4 border-red-500 font-medium"><strong>Calificar automáticamente ensayos u obras creadas por estudiantes:</strong> La evaluación sumativa requiere responsabilidad profesional e intransferible. Delegarla deshumaniza el proceso y vulnera los derechos estudiantiles bajo el REAC.</td>
+                                    </tr>
+                                    <tr class="hover:bg-blue-50/20 transition-colors cursor-pointer" onclick="highlightRow(this)">
+                                        <td class="px-4 py-4 font-semibold text-gray-900">5. Retroalimentación y Acompañamiento</td>
+                                        <td class="px-4 py-4 text-gray-600">Brindar retroalimentación cálida, empática, que estimule el crecimiento de la autoestima académica y oriente en la superación de dificultades.</td>
+                                        <td class="px-4 py-4 text-gray-600">Proporcionar borradores de explicaciones alternativas para un mismo error conceptual, permitiendo diversificar las rutas de repaso para grupos numerosos.</td>
+                                        <td class="px-4 py-4 text-red-800 bg-red-50/50 border-l-4 border-red-500 font-medium"><strong>Automatizar la comunicación afectiva:</strong> Un mensaje de aliento prefabricado por un LLM destruye la confianza y la autenticidad en la relación pedagógica.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="text-xs text-gray-500 italic mt-2">💡 Consejo: Haga clic en cualquier fila para destacarla visualmente en su sesión de estudio.</p>
+                    </section>
+
+                    <section id="s6" class="scroll-mt-24">
+                        <h2>6. Referencias Académicas</h2>
+                        <ul class="space-y-3 list-none pl-0 text-sm">
+                            <li class="border-b border-gray-100 pb-2">
+                                📚 <strong>Selwyn, N. (2019).</strong> <em>Should robots replace teachers? AI and the future of education.</em> Polity Press.
+                            </li>
+                            <li class="border-b border-gray-100 pb-2">
+                                📚 <strong>Williamson, B., Bayne, S., & Shay, S. (2020).</strong> The datafication and platformisation of higher education: technologies, organizations and and epistemologies. <em>Learning, Media and Technology</em>, 45(4), 351-365.
+                            </li>
+                        </ul>
+                    </section>
+
+                </div>
+
+                <!-- Right Column: Sticky Navigation (TOC) -->
+                <div class="hidden lg:block lg:col-span-1">
+                    <div class="sticky top-28 bg-white rounded-2xl border border-gray-200 shadow-sm p-5">
+                        <h3 class="text-sm font-bold text-gray-900 uppercase tracking-wider mb-4">Índice de Lectura</h3>
+                        <nav class="space-y-1 text-sm">
+                            <a href="#s1" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all active bg-blue-50">1. ¿Por qué incorporar IA?</a>
+                            <a href="#s2" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">2. Concepción Aprendizaje</a>
+                            <a href="#s3" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">3. Lo Insustituible</a>
+                            <a href="#s4" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">4. Cambio de Rol</a>
+                            <a href="#s5" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">5. Mapa Etapas Didácticas</a>
+                            <a href="#s6" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">6. Referencias</a>
+                        </nav>
+                    </div>
+                </div>
+
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Script de Funcionalidad Interactiva -->
+    <script>
+        // Control del Menú Hamburguesa en Móvil
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+            
+            if (sidebar.classList.contains('-translate-x-full')) {
+                sidebar.classList.remove('-translate-x-full');
+                sidebar.classList.add('translate-x-0');
+                overlay.classList.remove('hidden');
+                document.body.classList.add('overflow-hidden');
+            } else {
+                sidebar.classList.add('-translate-x-full');
+                sidebar.classList.remove('translate-x-0');
+                overlay.classList.add('hidden');
+                document.body.classList.remove('overflow-hidden');
+            }
+        }
+
+        // Resaltar Filas del Mapa de Etapas Didácticas
+        function highlightRow(row) {
+            const tbody = row.parentNode;
+            Array.from(tbody.children).forEach(r => {
+                r.classList.remove('bg-blue-50/40', 'ring-2', 'ring-mep-blue');
+            });
+            row.classList.add('bg-blue-50/40', 'ring-2', 'ring-mep-blue');
+        }
+
+        // Guardar Reflexiones en localStorage
+        function saveReflections(sectionId) {
+            const textareas = document.querySelectorAll(`#${sectionId} textarea`);
+            textareas.forEach(textarea => {
+                localStorage.setItem(`reflection_${textarea.id}`, textarea.value);
+            });
+            
+            const msg = document.getElementById(`msg-${sectionId}`);
+            if (msg) {
+                msg.classList.remove('hidden');
+                msg.classList.add('animate-pulse');
+                setTimeout(() => {
+                    msg.classList.add('hidden');
+                }, 3000);
+            }
+        }
+
+        // Cargar Reflexiones Guardadas al Inicio
+        document.addEventListener('DOMContentLoaded', () => {
+            const textareas = document.querySelectorAll('textarea');
+            textareas.forEach(textarea => {
+                const savedValue = localStorage.getItem(`reflection_${textarea.id}`);
+                if (savedValue) {
+                    textarea.value = savedValue;
+                }
+            });
+
+            // Intersection Observer para actualizar el TOC activo
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        document.querySelectorAll('.toc-link').forEach(link => {
+                            link.classList.remove('active', 'bg-blue-50', 'text-mep-blue', 'font-semibold');
+                            if (link.getAttribute('href') === `#${id}`) {
+                                link.classList.add('active', 'bg-blue-50', 'text-mep-blue', 'font-semibold');
+                            }
+                        });
+                    }
+                });
+            }, { rootMargin: '-100px 0px -60% 0px' });
+
+            document.querySelectorAll('section[id]').forEach((section) => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>

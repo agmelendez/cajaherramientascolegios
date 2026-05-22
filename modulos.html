@@ -25,6 +25,39 @@
             }
         }
     </script>
+    <style>
+        .roadmap-node circle {
+            transition: all 0.3s ease;
+        }
+        .roadmap-node:hover circle {
+            r: 22px;
+            filter: drop-shadow(0 0 10px rgba(0, 102, 204, 0.6));
+        }
+        .node-completed circle {
+            fill: #00aa44 !important;
+            stroke: #14532d !important;
+        }
+        .node-recommended circle {
+            fill: #0066cc !important;
+            stroke: #1e3a8a !important;
+            filter: drop-shadow(0 0 8px rgba(0, 102, 204, 0.7));
+            animation: pulse-glow 2s infinite alternate;
+        }
+        .node-locked circle {
+            fill: #4b5563 !important;
+            stroke: #1f2937 !important;
+            opacity: 0.7;
+        }
+        .node-active circle {
+            stroke: #ff6b35 !important;
+            stroke-width: 4px !important;
+            r: 22px !important;
+        }
+        @keyframes pulse-glow {
+            from { filter: drop-shadow(0 0 3px rgba(0, 102, 204, 0.4)); }
+            to { filter: drop-shadow(0 0 10px rgba(0, 102, 204, 0.8)); }
+        }
+    </style>
 </head>
 <body class="bg-gray-50 text-gray-900 font-sans antialiased flex flex-col min-h-screen">
     <!-- Top Bar Institucional -->
@@ -98,6 +131,18 @@
                     <span class="text-xl group-hover:scale-110 transition-transform">📚</span>
                     <span>Módulos</span>
                 </a>
+                <a href="rol-docente-ia.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ver rol docente en la era de la IA">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">🧭</span>
+                    <span>Rol Docente e IA</span>
+                </a>
+                <a href="referencias.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ver referencias bibliográficas del proyecto">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">📖</span>
+                    <span>Referencias</span>
+                </a>
+                <a href="glosario.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ver glosario de términos de IA">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">📖</span>
+                    <span>Glosario</span>
+                </a>
                 <a href="descargas.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ir a la sección de descargas">
                     <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">📥</span>
                     <span>Descargas</span>
@@ -106,9 +151,9 @@
                     <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">💬</span>
                     <span>Comunidad</span>
                 </a>
-                <a href="configuracion.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ir a la configuración">
-                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">⚙️</span>
-                    <span>Configuración</span>
+                <a href="configuracion.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ir a la sección de información">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">ℹ️</span>
+                    <span>Información</span>
                 </a>
                 <a href="https://iadocenciaed3698.my.canva.site/pruebacajaherramientacolegios" target="_blank" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ir a la evaluación del curso">
                     <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">📋</span>
@@ -133,6 +178,154 @@
                 <div>
                     <h1 class="text-3xl font-extrabold text-gray-900 mb-2">Módulos</h1>
                     <p class="text-gray-600">Gestiona los módulos de autoformación docente</p>
+                </div>
+            </div>
+
+            <!-- Mapa de Ruta Interactivo (Sprint 5) -->
+            <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm mb-8">
+                <div class="flex flex-col lg:flex-row gap-6">
+                    <!-- Columna SVG -->
+                    <div class="flex-1 flex flex-col">
+                        <div class="flex items-center justify-between mb-4">
+                            <div>
+                                <h2 class="text-lg font-bold text-gray-900 flex items-center gap-2">
+                                    <span class="text-mep-blue">🗺️</span> Mapa de Ruta y Red de Aprendizaje
+                                </h2>
+                                <p class="text-xs text-gray-500">Visualiza tu ruta conceptual personalizada según tu perfil de docente</p>
+                            </div>
+                            <div class="flex items-center gap-3 text-xs font-semibold text-gray-500 bg-gray-50 px-3 py-1.5 rounded-lg border border-gray-100">
+                                <span class="flex items-center gap-1"><span class="w-3.5 h-3.5 rounded-full bg-[#00aa44]"></span> Completado</span>
+                                <span class="flex items-center gap-1"><span class="w-3.5 h-3.5 rounded-full bg-[#0066cc] animate-pulse"></span> Recomendado</span>
+                                <span class="flex items-center gap-1"><span class="w-3.5 h-3.5 rounded-full bg-gray-400"></span> Pendiente</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Contenedor del SVG interactivo -->
+                        <div class="bg-slate-900 rounded-xl p-4 border border-slate-800 shadow-inner flex justify-center items-center overflow-x-auto min-h-[300px]">
+                            <!-- SVG Roadmap -->
+                            <svg id="roadmap-svg" viewBox="0 0 960 380" class="w-full min-w-[700px] h-auto select-none" xmlns="http://www.w3.org/2000/svg">
+                                <!-- Definición de marcadores para flechas -->
+                                <defs>
+                                    <marker id="arrow" viewBox="0 0 10 10" refX="22" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                        <path d="M 0 1 L 10 5 L 0 9 z" fill="#4a5568" />
+                                    </marker>
+                                    <marker id="arrow-completed" viewBox="0 0 10 10" refX="22" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                        <path d="M 0 1 L 10 5 L 0 9 z" fill="#00aa44" />
+                                    </marker>
+                                    <marker id="arrow-recommended" viewBox="0 0 10 10" refX="22" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                        <path d="M 0 1 L 10 5 L 0 9 z" fill="#0066cc" />
+                                    </marker>
+                                </defs>
+
+                                <!-- CONEXIONES (LÍNEAS DE RUTA) -->
+                                <!-- Etapa 1 a Etapa 2 -->
+                                <line x1="80" y1="190" x2="220" y2="100" stroke="#4a5568" stroke-width="2" marker-end="url(#arrow)" id="link-1-2" class="roadmap-link" />
+                                <line x1="80" y1="190" x2="220" y2="280" stroke="#4a5568" stroke-width="2" marker-end="url(#arrow)" id="link-1-3" class="roadmap-link" />
+
+                                <!-- Etapa 2 a Etapa 3 -->
+                                <line x1="220" y1="100" x2="480" y2="70" stroke="#4a5568" stroke-width="2" marker-end="url(#arrow)" id="link-2-4" class="roadmap-link" />
+                                <line x1="220" y1="280" x2="480" y2="190" stroke="#4a5568" stroke-width="2" marker-end="url(#arrow)" id="link-3-5" class="roadmap-link" />
+                                <line x1="220" y1="280" x2="480" y2="310" stroke="#4a5568" stroke-width="2" marker-end="url(#arrow)" id="link-3-6" class="roadmap-link" />
+
+                                <!-- Etapa 3 a Etapa 4 -->
+                                <line x1="480" y1="70" x2="780" y2="60" stroke="#4a5568" stroke-width="2" marker-end="url(#arrow)" id="link-4-7" class="roadmap-link" />
+                                <line x1="480" y1="190" x2="780" y2="150" stroke="#4a5568" stroke-width="2" marker-end="url(#arrow)" id="link-5-8" class="roadmap-link" />
+                                <line x1="480" y1="310" x2="780" y2="240" stroke="#4a5568" stroke-width="2" marker-end="url(#arrow)" id="link-6-9" class="roadmap-link" />
+                                <line x1="220" y1="280" x2="780" y2="330" stroke="#4a5568" stroke-width="2" marker-end="url(#arrow)" id="link-3-10" class="roadmap-link" />
+
+                                <!-- NODOS (Círculos Interactivos) -->
+                                <!-- Etapa 1: Inicio -->
+                                <g id="node-1" class="roadmap-node cursor-pointer select-none transition-all duration-300" onclick="selectNode(1)">
+                                    <circle cx="80" cy="190" r="18" fill="#4a5568" stroke="#1e293b" stroke-width="3" id="circle-1" class="transition-colors duration-300" />
+                                    <text x="80" y="194" fill="#ffffff" font-size="11" font-weight="900" text-anchor="middle">1</text>
+                                    <text x="80" y="222" fill="#94a3b8" font-size="10" font-weight="700" text-anchor="middle">M1: Educación</text>
+                                </g>
+
+                                <!-- Etapa 2: Básica -->
+                                <g id="node-2" class="roadmap-node cursor-pointer select-none transition-all duration-300" onclick="selectNode(2)">
+                                    <circle cx="220" cy="100" r="18" fill="#4a5568" stroke="#1e293b" stroke-width="3" id="circle-2" />
+                                    <text x="220" y="104" fill="#ffffff" font-size="11" font-weight="900" text-anchor="middle">2</text>
+                                    <text x="220" y="132" fill="#94a3b8" font-size="10" font-weight="700" text-anchor="middle">M2: Ética</text>
+                                </g>
+                                <g id="node-3" class="roadmap-node cursor-pointer select-none transition-all duration-300" onclick="selectNode(3)">
+                                    <circle cx="220" cy="280" r="18" fill="#4a5568" stroke="#1e293b" stroke-width="3" id="circle-3" />
+                                    <text x="220" y="284" fill="#ffffff" font-size="11" font-weight="900" text-anchor="middle">3</text>
+                                    <text x="220" y="312" fill="#94a3b8" font-size="10" font-weight="700" text-anchor="middle">M3: Prompts</text>
+                                </g>
+
+                                <!-- Etapa 3: Media -->
+                                <g id="node-4" class="roadmap-node cursor-pointer select-none transition-all duration-300" onclick="selectNode(4)">
+                                    <circle cx="480" cy="70" r="18" fill="#4a5568" stroke="#1e293b" stroke-width="3" id="circle-4" />
+                                    <text x="480" y="74" fill="#ffffff" font-size="11" font-weight="900" text-anchor="middle">4</text>
+                                    <text x="480" y="102" fill="#94a3b8" font-size="10" font-weight="700" text-anchor="middle">M4: Evaluac.</text>
+                                </g>
+                                <g id="node-5" class="roadmap-node cursor-pointer select-none transition-all duration-300" onclick="selectNode(5)">
+                                    <circle cx="480" cy="190" r="18" fill="#4a5568" stroke="#1e293b" stroke-width="3" id="circle-5" />
+                                    <text x="480" y="194" fill="#ffffff" font-size="11" font-weight="900" text-anchor="middle">5</text>
+                                    <text x="480" y="222" fill="#94a3b8" font-size="10" font-weight="700" text-anchor="middle">M5: Planific.</text>
+                                </g>
+                                <g id="node-6" class="roadmap-node cursor-pointer select-none transition-all duration-300" onclick="selectNode(6)">
+                                    <circle cx="480" cy="310" r="18" fill="#4a5568" stroke="#1e293b" stroke-width="3" id="circle-6" />
+                                    <text x="480" y="314" fill="#ffffff" font-size="11" font-weight="900" text-anchor="middle">6</text>
+                                    <text x="480" y="338" fill="#94a3b8" font-size="10" font-weight="700" text-anchor="middle">M6: Contenido</text>
+                                </g>
+
+                                <!-- Etapa 4: Avanzada -->
+                                <g id="node-7" class="roadmap-node cursor-pointer select-none transition-all duration-300" onclick="selectNode(7)">
+                                    <circle cx="780" cy="60" r="18" fill="#4a5568" stroke="#1e293b" stroke-width="3" id="circle-7" />
+                                    <text x="780" y="64" fill="#ffffff" font-size="11" font-weight="900" text-anchor="middle">7</text>
+                                    <text x="780" y="92" fill="#94a3b8" font-size="10" font-weight="700" text-anchor="middle">M7: Rúbricas</text>
+                                </g>
+                                <g id="node-8" class="roadmap-node cursor-pointer select-none transition-all duration-300" onclick="selectNode(8)">
+                                    <circle cx="780" cy="150" r="18" fill="#4a5568" stroke="#1e293b" stroke-width="3" id="circle-8" />
+                                    <text x="780" y="154" fill="#ffffff" font-size="11" font-weight="900" text-anchor="middle">8</text>
+                                    <text x="780" y="178" fill="#94a3b8" font-size="10" font-weight="700" text-anchor="middle">M8: Técnico</text>
+                                </g>
+                                <g id="node-9" class="roadmap-node cursor-pointer select-none transition-all duration-300" onclick="selectNode(9)">
+                                    <circle cx="780" cy="240" r="18" fill="#4a5568" stroke="#1e293b" stroke-width="3" id="circle-9" />
+                                    <text x="780" y="244" fill="#ffffff" font-size="11" font-weight="900" text-anchor="middle">9</text>
+                                    <text x="780" y="268" fill="#94a3b8" font-size="10" font-weight="700" text-anchor="middle">M9: Adultos</text>
+                                </g>
+                                <g id="node-10" class="roadmap-node cursor-pointer select-none transition-all duration-300" onclick="selectNode(10)">
+                                    <circle cx="780" cy="330" r="18" fill="#4a5568" stroke="#1e293b" stroke-width="3" id="circle-10" />
+                                    <text x="780" y="334" fill="#ffffff" font-size="11" font-weight="900" text-anchor="middle">10</text>
+                                    <text x="780" y="358" fill="#94a3b8" font-size="10" font-weight="700" text-anchor="middle">M10: Prompts U</text>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                    
+                    <!-- Panel Lateral Informativo -->
+                    <div class="w-full lg:w-80 bg-slate-50 border border-gray-100 rounded-xl p-5 flex flex-col justify-between shadow-inner">
+                        <div id="node-detail-content">
+                            <div class="flex items-center justify-between mb-3">
+                                <span id="node-stage-badge" class="px-2.5 py-1 bg-blue-100 text-mep-blue text-[10px] font-black uppercase tracking-wider rounded-full border border-blue-200">Etapa 1: Inicio</span>
+                                <span id="node-status-badge" class="px-2 py-0.5 bg-gray-200 text-gray-700 text-[9px] font-bold rounded-full uppercase tracking-wider">Pendiente</span>
+                            </div>
+                            <h3 id="node-title" class="text-base font-extrabold text-gray-900 mb-2 leading-tight">Módulo 1: Fundamentos de la IA</h3>
+                            <p id="node-desc" class="text-xs text-gray-600 mb-4 leading-relaxed">Selecciona cualquier nodo de la red para visualizar sus prerrequisitos, tiempo estimado, objetivos instruccionales y acceder directamente al material.</p>
+                            
+                            <div class="space-y-2 border-t border-gray-200 pt-3 text-xs text-gray-600 font-medium">
+                                <div class="flex justify-between">
+                                    <span class="text-gray-400">⏱️ Duración:</span>
+                                    <span id="node-time" class="font-bold text-gray-900">42 min</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-400">🔑 Prerrequisitos:</span>
+                                    <span id="node-prereq" class="font-bold text-gray-900">Ninguno</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-400">📈 Temas:</span>
+                                    <span id="node-topics" class="font-bold text-gray-900">4 temas didácticos</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pt-5 mt-5 border-t border-gray-200">
+                            <a id="node-action-btn" href="modulo-1.html" class="w-full py-2.5 bg-mep-blue text-white rounded-xl text-xs font-black uppercase tracking-widest text-center shadow-lg hover:bg-blue-700 active:scale-95 transition-all flex items-center justify-center gap-1.5">
+                                Empezar Módulo
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -378,6 +571,24 @@
                     </div>
                 </a>
 
+                <!-- Módulo 10 -->
+                <a href="modulo-10.html" data-nivel="secundaria" data-proposito="ideas" data-trimestre="t3" data-tipo="prompt" data-duracion="corta" data-tags="etico" class="module-card block bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col cursor-pointer group">
+                    <div class="h-2 bg-gradient-to-r from-indigo-500 to-purple-600"></div>
+                    <div class="p-6 flex flex-col flex-1">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">⚡</div>
+                            <span class="px-2.5 py-1 bg-green-100 text-green-700 text-xs font-semibold rounded-full border border-green-200">Activo</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2 group-hover:text-indigo-600 transition-colors">Módulo 10: Micro-Prompts</h3>
+                        <p class="text-sm text-gray-500 mb-6 flex-1">Colección de prompts ultracortos para generar ideas de clase en menos de 1 minuto asegurando ética.</p>
+                        
+                        <div class="pt-4 border-t border-gray-100 flex items-center justify-between text-sm text-gray-500 font-medium">
+                            <div class="flex items-center gap-1.5"><svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 002-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg> 4 temas</div>
+                            <div class="flex items-center gap-1.5"><svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> 8 min</div>
+                        </div>
+                    </div>
+                </a>
+
 </div>
             
             <div id="noResults" class="hidden text-center py-16">
@@ -430,26 +641,181 @@
         </div>
     </footer>
 
-    <!-- Manejo de estado UI (Vainilla JS) -->
+    <!-- Manejo de estado UI (Vainilla JS) y Roadmap Controller (Sprint 5) -->
     <script>
         function toggleSidebar() {
             const sidebar = document.getElementById('sidebar');
             const overlay = document.getElementById('sidebarOverlay');
-            
             if (sidebar.classList.contains('-translate-x-full')) {
-                // Open sidebar
                 sidebar.classList.remove('-translate-x-full');
                 sidebar.classList.add('translate-x-0');
                 overlay.classList.remove('hidden');
-                document.body.classList.add('overflow-hidden'); // Prevent background scrolling
+                document.body.classList.add('overflow-hidden');
             } else {
-                // Close sidebar
                 sidebar.classList.add('-translate-x-full');
                 sidebar.classList.remove('translate-x-0');
                 overlay.classList.add('hidden');
                 document.body.classList.remove('overflow-hidden');
             }
         }
+
+        // Roadmap JS Controller (Sprint 5)
+        const modulesData = {
+            1: { id: 1, title: "Módulo 1: Fundamentos de la IA en la Educación", stage: "Etapa 1: Inicio", desc: "Aprende qué es la IA generativa, cómo operan los LLMs y cómo integrar la tecnología con rigor pedagógico usando el modelo TPACK.", time: "42 min", prereqs: "Ninguno", topics: "4 temas didácticos", url: "modulo-1.html" },
+            2: { id: 2, title: "Módulo 2: Ética y Privacidad en el Aula", stage: "Etapa 2: Básica", desc: "Domina el marco ético y la legalidad local (Ley 8968) para el manejo de datos de menores al interactuar con inteligencias artificiales.", time: "35 min", prereqs: "Módulo 1", topics: "4 temas didácticos", url: "modulo-2.html" },
+            3: { id: 3, title: "Módulo 3: Creación de Prompts Efectivos", stage: "Etapa 2: Básica", desc: "Domina el arte de redactar prompts utilizando la técnica R-A-F-T (Rol, Audiencia, Formato, Tarea) y andamiajes de contexto.", time: "32 min", prereqs: "Módulo 1", topics: "4 temas didácticos", url: "modulo-3.html" },
+            4: { id: 4, title: "Módulo 4: Herramientas Prácticas para Docentes", stage: "Etapa 3: Media", desc: "Aprende a integrar Google Gemini en tus tareas cotidianas y descubre herramientas de productividad para optimizar tus flujos.", time: "45 min", prereqs: "Módulo 3", topics: "4 temas didácticos", url: "modulo-4.html" },
+            5: { id: 5, title: "Módulo 5: Aplicaciones Prácticas", stage: "Etapa 3: Media", desc: "Aplica la Inteligencia Artificial a la planificación didáctica adaptativa siguiendo las pautas del DUA y el codiseño curricular.", time: "40 min", prereqs: "Módulo 3", topics: "4 temas didácticos", url: "modulo-5.html" },
+            6: { id: 6, title: "Módulo 6: Análisis de Datos con IA", stage: "Etapa 3: Media", desc: "Aprende a anonimizar y analizar reportes de rendimiento estudiantil para detectar patrones de aprendizaje y generar gráficos.", time: "35 min", prereqs: "Módulo 3", topics: "4 temas didácticos", url: "modulo-6.html" },
+            7: { id: 7, title: "Módulo 7: Herramientas Especializadas", stage: "Etapa 4: Avanzada", desc: "Descubre el uso de NotebookLM de Google para analizar de forma ética tus propios documentos oficiales sin comprometer privacidad.", time: "45 min", prereqs: "Módulo 4", topics: "4 temas didácticos", url: "modulo-7.html" },
+            8: { id: 8, title: "Módulo 8: IA en Colegios Técnicos", stage: "Etapa 4: Avanzada", desc: "Adapta la generación de guías técnicas, manuales de procedimiento y simulaciones para la formación técnico-profesional.", time: "42 min", prereqs: "Módulo 6", topics: "4 temas didácticos", url: "modulo-8.html" },
+            9: { id: 9, title: "Módulo 9: Jóvenes y Adultos", stage: "Etapa 4: Avanzada", desc: "Aprende estrategias de retroalimentación concisa y contextualizada para las modalidades educativas nocturnas de IPEC y CINDEA.", time: "38 min", prereqs: "Módulo 3", topics: "4 temas didácticos", url: "modulo-9.html" },
+            10: { id: 10, title: "Módulo 10: Micro-Prompts", stage: "Etapa 4: Avanzada", desc: "Explora una colección de prompts ultracortos para generar ideas en menos de un minuto con total seguridad y rigor didáctico.", time: "8 min", prereqs: "Módulo 3", topics: "4 temas didácticos", url: "modulo-10.html" }
+        };
+
+        const dependencies = { 1: [], 2: [1], 3: [1], 4: [3], 5: [3], 6: [3], 7: [4], 8: [6], 9: [3], 10: [3] };
+        const interestPaths = { planificacion: [1, 3, 5], evaluacion: [1, 4, 7], contenido: [1, 6, 8], gestion: [1, 9, 10] };
+
+        let selectedNodeId = 1;
+
+        function getProfile() {
+            try {
+                const profileStr = localStorage.getItem('caja_docente_perfil');
+                return profileStr ? JSON.parse(profileStr) : null;
+            } catch (e) {
+                console.error(e);
+                return null;
+            }
+        }
+
+        function getModuleState(id) {
+            if (localStorage.getItem(`caja_modulo_${id}_quiz`) !== null) return 'completed';
+            const hasUncompletedPrereq = dependencies[id].some(pId => localStorage.getItem(`caja_modulo_${pId}_quiz`) === null);
+            if (hasUncompletedPrereq) return 'locked';
+            const profile = getProfile();
+            const interest = profile ? profile.interest : 'planificacion';
+            const path = interestPaths[interest] || interestPaths.planificacion;
+            if (path.includes(id)) return 'recommended';
+            return 'pending';
+        }
+
+        function updateRoadmap() {
+            for (let id = 1; id <= 10; id++) {
+                const circle = document.getElementById(`circle-${id}`);
+                if (!circle) continue;
+                const state = getModuleState(id);
+                circle.classList.remove('animate-pulse');
+                circle.removeAttribute('filter');
+
+                if (state === 'completed') {
+                    circle.setAttribute('fill', '#00aa44');
+                    circle.setAttribute('stroke', '#14532d');
+                } else if (state === 'recommended') {
+                    circle.setAttribute('fill', '#0066cc');
+                    circle.setAttribute('stroke', '#1e3a8a');
+                    circle.classList.add('animate-pulse');
+                } else if (state === 'locked') {
+                    circle.setAttribute('fill', '#4b5563');
+                    circle.setAttribute('stroke', '#1f2937');
+                } else {
+                    circle.setAttribute('fill', '#6b7280');
+                    circle.setAttribute('stroke', '#374151');
+                }
+
+                if (id === selectedNodeId) {
+                    circle.setAttribute('stroke', '#ff6b35');
+                    circle.setAttribute('stroke-width', '4');
+                    circle.setAttribute('r', '21');
+                } else {
+                    circle.setAttribute('stroke-width', '3');
+                    circle.setAttribute('r', '18');
+                }
+            }
+
+            const connections = [
+                { from: 1, to: 2, id: 'link-1-2' }, { from: 1, to: 3, id: 'link-1-3' },
+                { from: 2, to: 4, id: 'link-2-4' }, { from: 3, to: 5, id: 'link-3-5' },
+                { from: 3, to: 6, id: 'link-3-6' }, { from: 4, to: 7, id: 'link-4-7' },
+                { from: 5, to: 8, id: 'link-5-8' }, { from: 6, to: 9, id: 'link-6-9' },
+                { from: 3, to: 10, id: 'link-3-10' }
+            ];
+
+            connections.forEach(conn => {
+                const line = document.getElementById(conn.id);
+                if (!line) return;
+                const toState = getModuleState(conn.to);
+                if (toState === 'completed') {
+                    line.setAttribute('stroke', '#00aa44');
+                    line.setAttribute('marker-end', 'url(#arrow-completed)');
+                } else if (toState === 'recommended') {
+                    line.setAttribute('stroke', '#0066cc');
+                    line.setAttribute('marker-end', 'url(#arrow-recommended)');
+                } else {
+                    line.setAttribute('stroke', '#4a5568');
+                    line.setAttribute('marker-end', 'url(#arrow)');
+                }
+            });
+            updateDetailCard();
+        }
+
+        function updateDetailCard() {
+            const data = modulesData[selectedNodeId];
+            if (!data) return;
+            const state = getModuleState(selectedNodeId);
+
+            document.getElementById('node-stage-badge').innerText = data.stage;
+            const statusEl = document.getElementById('node-status-badge');
+            if (state === 'completed') {
+                statusEl.innerText = 'Completado';
+                statusEl.className = 'px-2 py-0.5 bg-green-100 text-green-700 text-[9px] font-bold rounded-full uppercase tracking-wider border border-green-200';
+            } else if (state === 'recommended') {
+                statusEl.innerText = 'Recomendado';
+                statusEl.className = 'px-2 py-0.5 bg-blue-100 text-blue-700 text-[9px] font-bold rounded-full uppercase tracking-wider border border-blue-200 animate-pulse';
+            } else if (state === 'locked') {
+                statusEl.innerText = 'Bloqueado';
+                statusEl.className = 'px-2 py-0.5 bg-gray-200 text-gray-600 text-[9px] font-bold rounded-full uppercase tracking-wider border border-gray-300';
+            } else {
+                statusEl.innerText = 'Disponible';
+                statusEl.className = 'px-2 py-0.5 bg-yellow-100 text-yellow-800 text-[9px] font-bold rounded-full uppercase tracking-wider border border-yellow-200';
+            }
+
+            document.getElementById('node-title').innerText = data.title;
+            document.getElementById('node-desc').innerText = data.desc;
+            document.getElementById('node-time').innerText = data.time;
+            document.getElementById('node-prereq').innerText = data.prereqs;
+            document.getElementById('node-topics').innerText = data.topics;
+
+            const actionBtn = document.getElementById('node-action-btn');
+            actionBtn.href = data.url;
+            if (state === 'completed') {
+                actionBtn.innerText = 'Repasar Módulo';
+                actionBtn.className = 'w-full py-2.5 bg-[#00aa44] text-white rounded-xl text-xs font-black uppercase tracking-widest text-center shadow-lg hover:bg-green-600 active:scale-95 transition-all flex items-center justify-center gap-1.5';
+            } else if (state === 'locked') {
+                actionBtn.innerText = 'Prerrequisito Pendiente';
+                actionBtn.className = 'w-full py-2.5 bg-gray-500 text-white rounded-xl text-xs font-black uppercase tracking-widest text-center shadow-lg hover:bg-gray-600 active:scale-95 transition-all flex items-center justify-center gap-1.5 opacity-90 cursor-not-allowed';
+                actionBtn.removeAttribute('href');
+            } else {
+                actionBtn.innerText = state === 'recommended' ? 'Empezar Módulo ✨' : 'Empezar Módulo';
+                actionBtn.className = 'w-full py-2.5 bg-mep-blue text-white rounded-xl text-xs font-black uppercase tracking-widest text-center shadow-lg hover:bg-blue-700 active:scale-95 transition-all flex items-center justify-center gap-1.5';
+            }
+        }
+
+        window.selectNode = function(id) {
+            selectedNodeId = id;
+            updateRoadmap();
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            let firstUncompleted = 1;
+            for (let id = 1; id <= 10; id++) {
+                if (localStorage.getItem(`caja_modulo_${id}_quiz`) === null) {
+                    firstUncompleted = id;
+                    break;
+                }
+            }
+            selectedNodeId = firstUncompleted;
+            updateRoadmap();
+        });
     </script>
     <script src="modulos-filter.js"></script>
 </body>

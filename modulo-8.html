@@ -101,6 +101,18 @@
                     <span class="text-xl group-hover:scale-110 transition-transform">📚</span>
                     <span>Módulos</span>
                 </a>
+                <a href="rol-docente-ia.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ver rol docente en la era de la IA">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">🧭</span>
+                    <span>Rol Docente e IA</span>
+                </a>
+                <a href="referencias.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ver referencias bibliográficas del proyecto">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">📖</span>
+                    <span>Referencias</span>
+                </a>
+                <a href="glosario.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ver glosario de términos de IA">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">📖</span>
+                    <span>Glosario</span>
+                </a>
                 <a href="descargas.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ir a la sección de descargas">
                     <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">📥</span>
                     <span>Descargas</span>
@@ -109,9 +121,9 @@
                     <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">💬</span>
                     <span>Comunidad</span>
                 </a>
-                <a href="configuracion.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ir a la configuración">
-                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">⚙️</span>
-                    <span>Configuración</span>
+                <a href="configuracion.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ir a la sección de información">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">ℹ️</span>
+                    <span>Información</span>
                 </a>
                 <a href="https://iadocenciaed3698.my.canva.site/pruebacajaherramientacolegios" target="_blank" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ir a la evaluación del curso">
                     <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">📋</span>
@@ -128,6 +140,55 @@
 
         <!-- Main Content -->
         <main class="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+            <!-- 🔑 Panel de Prerrequisitos Dinámicos (Sprint 5) -->
+            <div id="caja-prerrequisitos" class="hidden bg-orange-50 border border-orange-200 rounded-2xl p-5 mb-8 flex gap-4 items-start shadow-sm transition-all duration-300">
+                <div class="flex-shrink-0 w-10 h-10 bg-orange-100 rounded-xl flex items-center justify-center text-xl">🔑</div>
+                <div class="flex-1">
+                    <h3 class="font-bold text-orange-950 mb-1 flex items-center gap-2">Recomendación de Prerrequisitos</h3>
+                    <p class="text-sm text-orange-900 leading-relaxed m-0">
+                        Te sugerimos completar los siguientes módulos antes de continuar para asegurar una mejor comprensión del contenido actual: 
+                        <span id="prereq-list" class="font-extrabold text-orange-950"></span>.
+                    </p>
+                    <div class="mt-3 flex gap-2">
+                        <a href="modulos.html" class="px-3.5 py-1.5 bg-orange-600 hover:bg-orange-700 text-white text-xs font-bold rounded-lg transition-colors flex items-center gap-1 shadow-sm">
+                            🗺️ Ver Mapa de Ruta
+                        </a>
+                        <button onclick="document.getElementById('caja-prerrequisitos').remove()" class="px-3.5 py-1.5 bg-orange-100 hover:bg-orange-200 text-orange-800 text-xs font-bold rounded-lg transition-colors">
+                            Omitir recomendación
+                        </button>
+                    </div>
+                </div>
+                <script>
+                    document.addEventListener('DOMContentLoaded', () => {
+                        const requiredPrereqs = [6];
+                        const namesMap = {
+                            1: "Módulo 1: IA en Educación",
+                            2: "Módulo 2: Ética y Privacidad",
+                            3: "Módulo 3: Prompts Efectivos",
+                            4: "Módulo 4: Herramientas Prácticas de IA",
+                            5: "Módulo 5: Aplicaciones Prácticas",
+                            6: "Módulo 6: Análisis de Datos",
+                            7: "Módulo 7: Comparativa de Motores de IA",
+                            8: "Módulo 8: IA en Colegios Técnicos",
+                            9: "Módulo 9: Jóvenes y Adultos",
+                            10: "Módulo 10: Micro-Prompts"
+                        };
+                        const missing = requiredPrereqs.filter(id => localStorage.getItem("caja_modulo_" + id + "_quiz") === null);
+                        if (missing.length > 0) {
+                            const listEl = document.getElementById('prereq-list');
+                            if (listEl) {
+                                listEl.innerText = missing.map(id => namesMap[id]).join(', ');
+                            }
+                            const bannerEl = document.getElementById('caja-prerrequisitos');
+                            if (bannerEl) {
+                                bannerEl.classList.remove('hidden');
+                            }
+                        }
+                    });
+                </script>
+            </div>
+            <!-- Fin Panel de Prerrequisitos -->
             
             <!-- Hero Section -->
             <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-8 mb-8 relative overflow-hidden">
@@ -191,6 +252,9 @@
                             <p class="text-sm font-medium text-gray-700 text-center flex items-center justify-center gap-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-mep-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg>
                                 Ampliar Infografía
+                            </p>
+                            <p class="text-[10px] text-gray-500 mt-1 font-normal leading-tight text-center">
+                                Elaborado por NotebookLM, a partir de documentos oficiales, 2026
                             </p>
                         </div>
                     </div>

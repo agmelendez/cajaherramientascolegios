@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Referencias Bibliográficas - Caja de Herramientas</title>
+    <!-- Tailwind CSS (via CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        mep: {
+                            blue: '#0066cc',
+                            green: '#00aa44',
+                            orange: '#ff6b35',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .filter-btn.active {
+            background-color: #0066cc;
+            color: #ffffff;
+            border-color: #0066cc;
+        }
+        .reference-card {
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .reference-card:hover {
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans antialiased flex flex-col min-h-screen">
+    <!-- Top Bar Institucional -->
+    <div class="fixed top-0 left-0 right-0 h-14 bg-white border-b border-gray-200 z-[60] flex items-center justify-between px-4 md:px-6 shadow-sm">
+        <div class="flex items-center gap-4 md:gap-6 h-full py-2">
+            <img src="Logos/UCR.png" alt="UCR" class="h-6 md:h-8 object-contain">
+            <img src="Logos/VASUCR.png" alt="VAS" class="h-6 md:h-8 object-contain">
+            <img src="Logos/PuenteVAS.png" alt="Puentes" class="h-6 md:h-8 object-contain hidden sm:block">
+            <img src="Logos/CIOdD.jpg" alt="CIOdD" class="h-6 md:h-8 object-contain">
+        </div>
+        <div class="flex items-center h-full py-2">
+            <img src="Logos/ED3698.png" alt="ED3698" class="h-6 md:h-8 object-contain">
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="fixed top-14 left-0 right-0 h-20 bg-white/80 backdrop-blur-md border-b border-gray-200 z-20 flex items-center justify-between px-4 md:px-6 shadow-sm">
+        <div class="flex items-center gap-4">
+            <button class="md:hidden p-2 text-gray-600 hover:bg-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-mep-blue" onclick="toggleSidebar()" aria-label="Toggle Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+            <div class="hidden md:flex items-center gap-2 text-sm font-medium text-gray-500">
+                <span class="text-gray-950">Biblioteca Pedagógica</span>
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                <span class="text-gray-900 font-semibold">Referencias</span>
+            </div>
+        </div>
+        <div class="flex items-center gap-4">
+            <a href="notificaciones.html" class="flex items-center gap-2 px-3 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors text-gray-600">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                </svg>
+                <span class="text-sm font-medium hidden sm:block">Notificaciones</span>
+            </a>
+            <a href="preguntas-respuestas.html" class="flex items-center gap-2 px-3 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors text-gray-600">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span class="text-sm font-medium hidden sm:block">Preguntas y Respuestas</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Wrapper Principal -->
+    <div class="flex flex-1 pt-[136px]">
+        <!-- Overlay Sidebar Móvil -->
+        <div id="sidebarOverlay" class="fixed inset-0 bg-gray-900/50 backdrop-blur-sm z-30 hidden transition-opacity duration-300 md:hidden" onclick="toggleSidebar()"></div>
+
+        <!-- Sidebar -->
+        <aside id="sidebar" class="fixed inset-y-0 left-0 z-40 w-64 bg-white border-r border-gray-200 transform -translate-x-full transition-transform duration-300 ease-in-out md:relative md:translate-x-0 flex flex-col shadow-2xl md:shadow-none pt-[136px] md:pt-0">
+            <div class="flex items-center gap-3 px-6 py-5 border-b border-gray-100">
+                <div class="w-10 h-10 bg-gradient-to-br from-mep-blue to-blue-800 rounded-xl flex items-center justify-center text-white text-xl shadow-inner">🎓</div>
+                <div class="text-lg font-bold text-gray-900 tracking-tight">Caja Tools</div>
+            </div>
+
+            <nav class="flex-1 px-4 py-6 space-y-1 overflow-y-auto">
+                <a href="index.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ir a la página de Inicio">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">📊</span>
+                    <span>Inicio</span>
+                </a>
+                <a href="modulos.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ver todos los módulos del curso">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">📚</span>
+                    <span>Módulos</span>
+                </a>
+                <a href="rol-docente-ia.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ver rol docente en la era de la IA">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">🧭</span>
+                    <span>Rol Docente e IA</span>
+                </a>
+                <a href="referencias.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all bg-blue-50 text-mep-blue" aria-label="Ver referencias bibliográficas del proyecto">
+                    <span class="text-xl group-hover:scale-110 transition-transform">📖</span>
+                    <span>Referencias</span>
+                </a>
+                <a href="glosario.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ver glosario de términos de IA">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">📖</span>
+                    <span>Glosario</span>
+                </a>
+                <a href="descargas.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ir a la sección de descargas">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">📥</span>
+                    <span>Descargas</span>
+                </a>
+                <a href="comunidad.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ir a la comunidad docente">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">💬</span>
+                    <span>Comunidad</span>
+                </a>
+                <a href="configuracion.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ir a la sección de información">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">ℹ️</span>
+                    <span>Información</span>
+                </a>
+                <a href="https://iadocenciaed3698.my.canva.site/pruebacajaherramientacolegios" target="_blank" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ir a la evaluación del curso">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">📋</span>
+                    <span>Evaluación del Curso</span>
+                </a>
+                <div class="pt-6 mt-6 border-t border-gray-100">
+                    <a href="ayuda.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ir a la sección de ayuda">
+                        <span class="text-xl opacity-70 group-hover:opacity-100 transition-opacity">❓</span>
+                        <span>Ayuda</span>
+                    </a>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col">
+            <!-- Hero Section -->
+            <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-8 mb-8 relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-mep-orange via-mep-green to-mep-blue"></div>
+                <div class="flex flex-col md:flex-row gap-6 items-start md:items-center justify-between">
+                    <div>
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="px-3 py-1 bg-blue-100 text-mep-blue text-xs font-bold rounded-full uppercase tracking-wide">Rigor Académico</span>
+                            <span class="flex items-center gap-1 text-sm font-medium text-gray-500">
+                                📚 UCR-CIOdD ED-3698
+                            </span>
+                        </div>
+                        <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4 tracking-tight">Referencias Bibliográficas del Proyecto</h1>
+                        <p class="text-lg text-gray-600 max-w-3xl leading-relaxed">
+                            Mapeo estructurado y filtrable del sustento académico, ético e institucional que fundamenta la propuesta de autoformación para docentes.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Buscador y Filtros Dinámicos -->
+            <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 mb-8">
+                <div class="flex flex-col md:flex-row gap-4 justify-between items-center mb-6">
+                    <!-- Buscador -->
+                    <div class="relative w-full md:w-96">
+                        <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+                            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                        </span>
+                        <input id="search-input" type="text" placeholder="Buscar autor, título o concepto..." class="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-mep-blue focus:border-transparent transition-all text-sm">
+                    </div>
+                    <!-- Contador de resultados -->
+                    <div class="text-sm font-medium text-gray-500" id="results-counter">
+                        Mostrando <span class="font-bold text-mep-blue" id="visible-count">0</span> referencias de <span class="font-bold text-gray-900" id="total-count">0</span>
+                    </div>
+                </div>
+
+                <!-- Filtros de categoría -->
+                <div class="flex flex-wrap gap-2" id="filter-container">
+                    <button class="filter-btn active px-4 py-2 text-xs font-semibold rounded-lg border border-gray-200 bg-white text-gray-700 hover:bg-gray-50 transition-all shadow-sm" onclick="setCategoryFilter('all')">
+                        🌍 Todos los Recursos
+                    </button>
+                    <button class="filter-btn px-4 py-2 text-xs font-semibold rounded-lg border border-gray-200 bg-white text-gray-700 hover:bg-gray-50 transition-all shadow-sm" onclick="setCategoryFilter('tecnico')">
+                        💻 Fundamentos de IA
+                    </button>
+                    <button class="filter-btn px-4 py-2 text-xs font-semibold rounded-lg border border-gray-200 bg-white text-gray-700 hover:bg-gray-50 transition-all shadow-sm" onclick="setCategoryFilter('pedagogico')">
+                        🎓 Pedagogía y Marcos (TPACK/DUA)
+                    </button>
+                    <button class="filter-btn px-4 py-2 text-xs font-semibold rounded-lg border border-gray-200 bg-white text-gray-700 hover:bg-gray-50 transition-all shadow-sm" onclick="setCategoryFilter('etica')">
+                        ⚖️ Ética y Crítica Tecnológica
+                    </button>
+                    <button class="filter-btn px-4 py-2 text-xs font-semibold rounded-lg border border-gray-200 bg-white text-gray-700 hover:bg-gray-50 transition-all shadow-sm" onclick="setCategoryFilter('normativa')">
+                        🇨🇷 Normativa & MEP Costa Rica
+                    </button>
+                </div>
+            </div>
+
+            <!-- Grid de Referencias Bibliográficas -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="references-grid">
+                <!-- Se cargará dinámicamente con JS -->
+            </div>
+
+            <!-- Estado Vacío (Empty State) -->
+            <div id="empty-state" class="hidden bg-white border border-gray-200 rounded-2xl p-12 text-center my-8">
+                <span class="text-4xl">🔍</span>
+                <h3 class="mt-4 text-lg font-bold text-gray-900">No se encontraron referencias</h3>
+                <p class="mt-2 text-sm text-gray-500">Intente modificando los términos de búsqueda o cambiando el filtro seleccionado.</p>
+            </div>
+        </main>
+    </div>
+
+    <!-- Script de Datos y Lógica Interactiva -->
+    <script>
+        const referencesData = [
+            {
+                id: "ref-1",
+                category: "tecnico",
+                categoryLabel: "Fundamentos Técnicos de IA",
+                badgeClass: "bg-blue-50 text-blue-800 border-blue-100",
+                author: "Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., Kaiser, Ł., & Polosukhin, I.",
+                year: "2017",
+                title: "Attention is all you need.",
+                source: "Advances in Neural Information Processing Systems, 30, 5998–6008.",
+                description: "El artículo fundacional que introdujo la arquitectura Transformer y el mecanismo de autoatención, habilitando el surgimiento de los LLM actuales como GPT y Gemini.",
+                link: "https://arxiv.org/abs/1706.03762"
+            },
+            {
+                id: "ref-2",
+                category: "tecnico",
+                categoryLabel: "Fundamentos Técnicos de IA",
+                badgeClass: "bg-blue-50 text-blue-800 border-blue-100",
+                author: "Russell, S., & Norvig, P.",
+                year: "2020",
+                title: "Artificial Intelligence: A Modern Approach (4th ed.).",
+                source: "Pearson.",
+                description: "La enciclopedia académica de referencia definitiva sobre la inteligencia artificial, cubriendo agentes lógicos, probabilísticos y aprendizaje automático.",
+                link: "http://aima.cs.berkeley.edu/"
+            },
+            {
+                id: "ref-3",
+                category: "tecnico",
+                categoryLabel: "Fundamentos Técnicos de IA",
+                badgeClass: "bg-blue-50 text-blue-800 border-blue-100",
+                author: "Bengio, Y., Lecun, Y., & Hinton, G.",
+                year: "2021",
+                title: "Deep learning for AI.",
+                source: "Communications of the ACM, 64(7), 58–65.",
+                description: "Análisis conceptual realizado por los ganadores del Premio Turing sobre el auge de las redes neuronales y el futuro de la IA profunda.",
+                link: "https://dl.acm.org/doi/10.1145/3448250"
+            },
+            {
+                id: "ref-4",
+                category: "tecnico",
+                categoryLabel: "Fundamentos Técnicos de IA",
+                badgeClass: "bg-blue-50 text-blue-800 border-blue-100",
+                author: "Goodfellow, I., Bengio, Y., & Courville, A.",
+                year: "2016",
+                title: "Deep Learning.",
+                source: "MIT Press.",
+                description: "El texto principal de estudio para comprender las bases matemáticas y algorítmicas de las redes neuronales.",
+                link: "https://www.deeplearningbook.org/"
+            },
+            {
+                id: "ref-5",
+                category: "tecnico",
+                categoryLabel: "Fundamentos Técnicos de IA",
+                badgeClass: "bg-blue-50 text-blue-800 border-blue-100",
+                author: "Marcus, G., & Davis, E.",
+                year: "2019",
+                title: "Rebooting AI: Building artificial intelligence we can trust.",
+                source: "Pantheon Books.",
+                description: "Examen crítico sobre la falta de sentido común y propensión a alucinaciones en modelos puramente probabilísticos, abogando por aproximaciones híbridas.",
+                link: "https://www.penguinrandomhouse.com/books/603953/rebooting-ai-by-gary-marcus-and-ernest-davis/"
+            },
+            {
+                id: "ref-6",
+                category: "pedagogico",
+                categoryLabel: "IA en Educación & Marcos",
+                badgeClass: "bg-emerald-50 text-emerald-800 border-emerald-100",
+                author: "Mishra, P., & Koehler, M. J.",
+                year: "2006",
+                title: "Technological pedagogical content knowledge: A framework for teacher knowledge.",
+                source: "Teachers College Record, 108(6), 1017–1054.",
+                description: "Presenta el modelo TPACK, sustentando que la verdadera integración no es meramente técnica, sino la intersección co-determinada de tecnología, pedagogía y disciplina.",
+                link: "https://doi.org/10.1111/j.1467-9620.2006.00684.x"
+            },
+            {
+                id: "ref-7",
+                category: "pedagogico",
+                categoryLabel: "IA en Educación & Marcos",
+                badgeClass: "bg-emerald-50 text-emerald-800 border-emerald-100",
+                author: "Hamilton, E. R., Rosenberg, J. M., & Akcaoglu, M.",
+                year: "2016",
+                title: "The substitution augmentation modification redefinition (SAMR) model: A critical review and proposals for its use.",
+                source: "TechTrends, 60(5), 433–441.",
+                description: "Artículo clave que critica la rigidez jerárquica de SAMR y propone un enfoque pragmático basado en la centralidad del estudiante y el currículo.",
+                link: "https://doi.org/10.1007/s11528-016-0091-y"
+            },
+            {
+                id: "ref-8",
+                category: "pedagogico",
+                categoryLabel: "IA en Educación & Marcos",
+                badgeClass: "bg-emerald-50 text-emerald-800 border-emerald-100",
+                author: "Luckin, R., Holmes, W., Griffiths, M., & Forcier, L. B.",
+                year: "2016",
+                title: "Intelligence Unleashed: An argument for AI in Education.",
+                source: "Pearson.",
+                description: "Estudio seminal sobre el rol potenciador de la Inteligencia Artificial en la mediación instruccional y la conceptualización de la IA como andamiaje cognitivo.",
+                link: "https://www.pearson.com/content/dam/one-dot-com/one-dot-com/global/Files/about-pearson/innovation/Intelligence-Unleashed-Publication.pdf"
+            },
+            {
+                id: "ref-9",
+                category: "pedagogico",
+                categoryLabel: "IA en Educación & Marcos",
+                badgeClass: "bg-emerald-50 text-emerald-800 border-emerald-100",
+                author: "Holmes, W., Bialik, M., & Fadel, C.",
+                year: "2019",
+                title: "Artificial Intelligence in Education: Promises and Implications for Teaching and Learning.",
+                source: "Center for Curriculum Redesign.",
+                description: "Mapeo exhaustivo sobre el uso de la IA en la tutoría adaptativa y evaluación formativa, estableciendo la distinción entre evaluar el proceso vs. el producto.",
+                link: "https://curriculumredesign.org/our-work/artificial-intelligence-in-education/"
+            },
+            {
+                id: "ref-10",
+                category: "pedagogico",
+                categoryLabel: "IA en Educación & Marcos",
+                badgeClass: "bg-emerald-50 text-emerald-800 border-emerald-100",
+                author: "UNESCO",
+                year: "2023",
+                title: "Guidance for generative AI in education and research.",
+                source: "Organización de las Naciones Unidas para la Educación, la Ciencia y la Cultura.",
+                description: "Establece directrices globales regulatorias y éticas sobre límites de edad para el uso de IA y la protección del rol curricular humano.",
+                link: "https://unesdoc.unesco.org/ark:/48223/pf0000386694"
+            },
+            {
+                id: "ref-11",
+                category: "pedagogico",
+                categoryLabel: "IA en Educación & Marcos",
+                badgeClass: "bg-emerald-50 text-emerald-800 border-emerald-100",
+                author: "CAST",
+                year: "2018",
+                title: "Universal Design for Learning Guidelines version 2.2.",
+                source: "Center for Applied Special Technology.",
+                description: "El marco conceptual del DUA, esencial para guiar la personalización didáctica accesible e inclusiva con ayuda de tecnologías generativas.",
+                link: "http://udlguidelines.cast.org"
+            },
+            {
+                id: "ref-12",
+                category: "pedagogico",
+                categoryLabel: "IA en Educación & Marcos",
+                badgeClass: "bg-emerald-50 text-emerald-800 border-emerald-100",
+                author: "UNESCO",
+                year: "2021",
+                title: "AI and Education: Guidance for Policy-makers.",
+                source: "Organización de las Naciones Unidas para la Educación, la Ciencia y la Cultura.",
+                description: "Plan de acción y recomendaciones políticas para empoderar a los docentes a nivel institucional ante la transformación digital.",
+                link: "https://unesdoc.unesco.org/ark:/48223/pf0000376709"
+            },
+            {
+                id: "ref-13",
+                category: "etica",
+                categoryLabel: "Ética y Crítica Tecnológica",
+                badgeClass: "bg-purple-50 text-purple-800 border-purple-100",
+                author: "Bender, E. M., Gebru, T., McMillan-Major, A., & Shmitchell, S.",
+                year: "2021",
+                title: "On the Dangers of Stochastic Parrots: Can Language Models Be Too Big? 🦜",
+                source: "Proceedings of the 2021 ACM FAccT Conference, 610–623.",
+                description: "El famoso artículo científico que devela cómo los LLMs repiten patrones de texto sin comprensión profunda, actuando como 'loros estocásticos'.",
+                link: "https://dl.acm.org/doi/10.1145/3442188.3445922"
+            },
+            {
+                id: "ref-14",
+                category: "etica",
+                categoryLabel: "Ética y Crítica Tecnológica",
+                badgeClass: "bg-purple-50 text-purple-800 border-purple-100",
+                author: "Biesta, G.",
+                year: "2017",
+                title: "The Rediscovery of Teaching.",
+                source: "Routledge.",
+                description: "Argumentación profunda sobre la irreductibilidad de la relación humana e intersubjetiva entre educador y estudiante, frente al imperativo tecnológico.",
+                link: "https://www.routledge.com/The-Rediscovery-of-Teaching/Biesta/p/book/9781138676237"
+            },
+            {
+                id: "ref-15",
+                category: "etica",
+                categoryLabel: "Ética y Crítica Tecnológica",
+                badgeClass: "bg-purple-50 text-purple-800 border-purple-100",
+                author: "Selwyn, N.",
+                year: "2019",
+                title: "Should Robots Replace Teachers? AI and the future of education.",
+                source: "Polity Press.",
+                description: "Interrogación crítica a las narrativas dominantes de EdTech y un llamado a defender la profesión docente y los valores colectivos del aula.",
+                link: "https://www.wiley.com/en-us/Should+Robots+Replace+Teachers%3F%3A+AI+and+the+Future+of+Education-p-9781509539574"
+            },
+            {
+                id: "ref-16",
+                category: "etica",
+                categoryLabel: "Ética y Crítica Tecnológica",
+                badgeClass: "bg-purple-50 text-purple-800 border-purple-100",
+                author: "Crawford, K.",
+                year: "2021",
+                title: "Atlas of AI: Power, politics, and the planetary costs of artificial intelligence.",
+                source: "Yale University Press.",
+                description: "Muestra los costos ecológicos, laborales y las implicaciones geopolíticas y corporativas detrás del entrenamiento a gran escala de sistemas de IA.",
+                link: "https://yalebooks.yale.edu/book/9780300244571/atlas-ai"
+            },
+            {
+                id: "ref-17",
+                category: "etica",
+                categoryLabel: "Ética y Crítica Tecnológica",
+                badgeClass: "bg-purple-50 text-purple-800 border-purple-100",
+                author: "Floridi, L., & Cowls, J.",
+                year: "2019",
+                title: "A unified framework of five principles for AI in society.",
+                source: "Harvard Data Science Review, 1(1).",
+                description: "Esquema unificado de cinco principios éticos clave (beneficencia, no maleficencia, autonomía, justicia y explicabilidad) para la gobernanza algorítmica.",
+                link: "https://hdsr.mitpress.mit.edu/pub/l079v67z/release/9"
+            },
+            {
+                id: "ref-18",
+                category: "etica",
+                categoryLabel: "Ética y Crítica Tecnológica",
+                badgeClass: "bg-purple-50 text-purple-800 border-purple-100",
+                author: "Williamson, B., Eynon, R., & Potter, J.",
+                year: "2020",
+                title: "Pandemic politics, pedagogies and practices: Digital technologies and distance education during the coronavirus emergency.",
+                source: "Learning, Media and Technology, 45(2), 107–114.",
+                description: "Analiza los riesgos de la 'datificación' y la introducción sin filtros de lógicas de mercado privadas en los centros públicos de enseñanza.",
+                link: "https://doi.org/10.1080/17439884.2020.1761282"
+            },
+            {
+                id: "ref-19",
+                category: "etica",
+                categoryLabel: "Ética y Crítica Tecnológica",
+                badgeClass: "bg-purple-50 text-purple-800 border-purple-100",
+                author: "Zuboff, S.",
+                year: "2019",
+                title: "The Age of Surveillance Capitalism: The Fight for a Human Future at the New Frontier of Power.",
+                source: "PublicAffairs.",
+                description: "Desarrolla el concepto de 'capitalismo de vigilancia', de suma importancia para comprender cómo las herramientas gratuitas de IA mercantilizan la conducta humana.",
+                link: "https://www.publicaffairsbooks.com/titles/shoshana-zuboff/the-age-of-surveillance-capitalism/9781610395694/"
+            },
+            {
+                id: "ref-20",
+                category: "etica",
+                categoryLabel: "Ética y Crítica Tecnológica",
+                badgeClass: "bg-purple-50 text-purple-800 border-purple-100",
+                author: "O'Neil, C.",
+                year: "2016",
+                title: "Weapons of Math Destruction: How Big Data Increases Inequality and Threatens Democracy.",
+                source: "Crown Publishing.",
+                description: "Muestra cómo los modelos matemáticos y algorítmicos opacos de evaluación y selección castigan a los sectores desfavorecidos y reproducen prejuicios.",
+                link: "https://crownpublishing.com/feature/weapons-of-math-destruction/"
+            },
+            {
+                id: "ref-21",
+                category: "normativa",
+                categoryLabel: "Normativa & MEP Costa Rica",
+                badgeClass: "bg-amber-50 text-amber-800 border-amber-100",
+                author: "Ministerio de Educación Pública de Costa Rica [MEP]",
+                year: "2023",
+                title: "Lineamientos orientadores para el uso ético y productivo de la Inteligencia Artificial en centros educativos costarricenses.",
+                source: "Dirección de Recursos Tecnológicos en Educación (DRTE).",
+                description: "Directrices rectoras del MEP que autorizan el codiseño e innovación pedagógica asistida por IA resguardando la privacidad y la evaluación humana.",
+                link: "https://www.mep.go.cr/"
+            },
+            {
+                id: "ref-22",
+                category: "normativa",
+                categoryLabel: "Normativa & MEP Costa Rica",
+                badgeClass: "bg-amber-50 text-amber-800 border-amber-100",
+                author: "Ministerio de Educación Pública de Costa Rica [MEP]",
+                year: "2021",
+                title: "Reglamento de Evaluación de los Aprendizajes (REA) - Decreto Ejecutivo N.º 43860-MEP.",
+                source: "Imprenta Nacional.",
+                description: "Norma jurídica costarricense indispensable para fundamentar por qué la calificación de tareas y exámenes recae éticamente sólo en el docente.",
+                link: "https://www.mep.go.cr/"
+            },
+            {
+                id: "ref-23",
+                category: "normativa",
+                categoryLabel: "Normativa & MEP Costa Rica",
+                badgeClass: "bg-amber-50 text-amber-800 border-amber-100",
+                author: "Ministerio de Ciencia, Innovación, Tecnología y Telecomunicaciones de Costa Rica [MICITT]",
+                year: "2021",
+                title: "Estrategia Nacional de Inteligencia Artificial (ENIA) Costa Rica.",
+                source: "Gobierno de la República.",
+                description: "Establece los objetivos de alfabetización digital y desarrollo ético y responsable de la inteligencia artificial a escala social en el país.",
+                link: "https://www.micitt.go.cr/"
+            },
+            {
+                id: "ref-24",
+                category: "normativa",
+                categoryLabel: "Normativa & MEP Costa Rica",
+                badgeClass: "bg-amber-50 text-amber-800 border-amber-100",
+                author: "Ministerio de Educación Pública de Costa Rica [MEP]",
+                year: "2024",
+                title: "La Ruta de la Educación 2022–2026: Una ruta para el encendido digital e inclusión integral.",
+                source: "San José, Costa Rica.",
+                description: "El plan general de reforma y metas educativas de Costa Rica, guiando la inclusión digital equitativa y la alfabetización docente.",
+                link: "https://www.mep.go.cr/"
+            }
+        ];
+
+        let currentFilter = 'all';
+        let searchQuery = '';
+
+        function renderReferences() {
+            const grid = document.getElementById('references-grid');
+            const emptyState = document.getElementById('empty-state');
+            
+            // Filter references
+            const filtered = referencesData.filter(ref => {
+                const matchesCategory = currentFilter === 'all' || ref.category === currentFilter;
+                
+                const searchLower = searchQuery.toLowerCase();
+                const matchesSearch = 
+                    ref.author.toLowerCase().includes(searchLower) ||
+                    ref.title.toLowerCase().includes(searchLower) ||
+                    ref.description.toLowerCase().includes(searchLower) ||
+                    ref.categoryLabel.toLowerCase().includes(searchLower) ||
+                    ref.year.includes(searchLower);
+                
+                return matchesCategory && matchesSearch;
+            });
+
+            // Update visible counts
+            document.getElementById('visible-count').textContent = filtered.length;
+            document.getElementById('total-count').textContent = referencesData.length;
+
+            if (filtered.length === 0) {
+                grid.classList.add('hidden');
+                emptyState.classList.remove('hidden');
+                return;
+            }
+
+            grid.classList.remove('hidden');
+            emptyState.classList.add('hidden');
+
+            grid.innerHTML = filtered.map(ref => `
+                <div class="reference-card bg-white rounded-2xl border border-gray-200 p-6 flex flex-col justify-between shadow-sm hover:shadow-md h-full">
+                    <div>
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="px-2 py-0.5 text-[10px] font-bold uppercase rounded-full border ${ref.badgeClass}">
+                                ${ref.categoryLabel}
+                            </span>
+                        </div>
+                        <p class="text-xs font-semibold text-gray-500 mb-1">
+                            ${ref.author} (${ref.year})
+                        </p>
+                        <h4 class="text-sm font-bold text-gray-900 leading-snug mb-2">
+                            ${ref.title}
+                        </h4>
+                        <p class="text-xs italic text-gray-600 mb-4 leading-normal">
+                            ${ref.source}
+                        </p>
+                        <p class="text-xs text-gray-500 leading-relaxed mb-6">
+                            ${ref.description}
+                        </p>
+                    </div>
+                    <a href="${ref.link}" target="_blank" class="w-full py-2 bg-gray-50 hover:bg-gray-100 border border-gray-200 text-gray-700 hover:text-gray-900 rounded-lg text-xs font-bold text-center inline-flex items-center justify-center gap-2 transition-colors">
+                        Acceder al Recurso
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                    </a>
+                </div>
+            `).join('');
+        }
+
+        function setCategoryFilter(category) {
+            currentFilter = category;
+            
+            // Update active states on buttons
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Find correct button based on click argument
+            const buttons = document.querySelectorAll('.filter-btn');
+            if (category === 'all') buttons[0].classList.add('active');
+            else if (category === 'tecnico') buttons[1].classList.add('active');
+            else if (category === 'pedagogico') buttons[2].classList.add('active');
+            else if (category === 'etica') buttons[3].classList.add('active');
+            else if (category === 'normativa') buttons[4].classList.add('active');
+            
+            renderReferences();
+        }
+
+        // Hamburguesa
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+            
+            if (sidebar.classList.contains('-translate-x-full')) {
+                sidebar.classList.remove('-translate-x-full');
+                sidebar.classList.add('translate-x-0');
+                overlay.classList.remove('hidden');
+                document.body.classList.add('overflow-hidden');
+            } else {
+                sidebar.classList.add('-translate-x-full');
+                sidebar.classList.remove('translate-x-0');
+                overlay.classList.add('hidden');
+                document.body.classList.remove('overflow-hidden');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderReferences();
+            
+            // Search Input listener
+            const search = document.getElementById('search-input');
+            search.addEventListener('input', (e) => {
+                searchQuery = e.target.value;
+                renderReferences();
+            });
+        });
+    </script>
+</body>
+</html>

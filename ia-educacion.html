@@ -98,6 +98,18 @@
                     <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">📚</span>
                     <span>Módulos</span>
                 </a>
+                <a href="rol-docente-ia.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ver rol docente en la era de la IA">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">🧭</span>
+                    <span>Rol Docente e IA</span>
+                </a>
+                <a href="referencias.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ver referencias bibliográficas del proyecto">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">📖</span>
+                    <span>Referencias</span>
+                </a>
+                <a href="glosario.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ver glosario de términos de IA">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">📖</span>
+                    <span>Glosario</span>
+                </a>
                 <a href="descargas.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ir a la sección de descargas">
                     <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">📥</span>
                     <span>Descargas</span>
@@ -106,9 +118,9 @@
                     <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">💬</span>
                     <span>Comunidad</span>
                 </a>
-                <a href="configuracion.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ir a la configuración">
-                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">⚙️</span>
-                    <span>Configuración</span>
+                <a href="configuracion.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ir a la sección de información">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">ℹ️</span>
+                    <span>Información</span>
                 </a>
                 <a href="https://iadocenciaed3698.my.canva.site/pruebacajaherramientacolegios" target="_blank" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ir a la evaluación del curso">
                     <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">📋</span>
@@ -145,6 +157,26 @@
 
             <!-- Content Section -->
             <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 lg:p-10 mb-10">
+                
+                <!-- Conmutador de Nivel Premium (Glassmorphism Sticky) -->
+                <div class="sticky top-[136px] z-30 bg-white/90 backdrop-blur-md border border-slate-200/60 rounded-2xl p-4 mb-8 shadow-md flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 transition-all">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-gradient-to-br from-mep-blue/15 to-blue-500/10 rounded-xl flex items-center justify-center text-mep-blue text-lg">💡</div>
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-sm">Adaptación del Nivel de Contenido</h4>
+                            <p class="text-xs text-slate-500">Altere la profundidad conceptual y técnica del vocabulario del módulo.</p>
+                        </div>
+                    </div>
+                    <div class="flex bg-slate-100 p-1 rounded-xl self-start sm:self-auto shadow-inner border border-slate-200/50">
+                        <button id="btn-level-beginner" class="flex items-center gap-1.5 px-4 py-1.5 text-xs font-semibold rounded-lg transition-all" onclick="setLevel('beginner')">
+                            🌱 Principiante
+                        </button>
+                        <button id="btn-level-advanced" class="flex items-center gap-1.5 px-4 py-1.5 text-xs font-semibold rounded-lg transition-all" onclick="setLevel('advanced')">
+                            🚀 Avanzado
+                        </button>
+                    </div>
+                </div>
+
                 <div class="prose max-w-none">
                     <div class="mb-8">
                         <p class="text-lg text-gray-700 leading-relaxed bg-blue-50/50 p-6 rounded-xl border border-blue-100">
@@ -161,51 +193,108 @@
                             </h3>
                             <p class="text-gray-700 mb-4 font-medium">Es fundamental que los docentes entiendan la diferencia entre cómo creíamos que funcionaría la IA y cómo funciona hoy.</p>
                             <ul class="list-disc pl-5 text-gray-700 space-y-3">
-                                <li><strong>La visión tradicional (IA algorítmica/simbólica):</strong> Históricamente, se esperaba que la IA recibiera un problema, calculara una solución paso a paso y entregara una respuesta correcta. A este tipo de sistemas se les exigía ser "sólidos" (que sus respuestas fueran siempre correctas) y "completos" (que siempre encontraran la solución si esta existía).</li>
-                                <li><strong>La realidad actual:</strong> Los modelos modernos de IA no funcionan así; de hecho, no cumplen con los conceptos de solidez ni de completitud. En lugar de razonar lógicamente desde cero, resuelven problemas buscando coincidencias y patrones basados en la inmensa cantidad de datos con los que fueron entrenados.</li>
+                                <li><strong>La visión tradicional (<abbr class="glosario-term" data-term="ia_simbolica">IA Simbólica</abbr>):</strong> Históricamente, se esperaba que la IA recibiera un problema, calculara una solución paso a paso y entregara una respuesta correcta. A este tipo de sistemas se les exigía ser "sólidos" (que sus respuestas fueran siempre correctas) y "completos" (que siempre encontraran la solución si esta existía).</li>
+                                <li><strong>La realidad actual:</strong> Los modelos modernos de IA no funcionan así; de hecho, no cumplen con los conceptos de solidez ni de completitud. En lugar de razonar lógicamente desde cero, resuelven problemas buscando coincidencias y patrones basados en la inmensa cantidad de datos con los que fueron entrenados (<abbr class="glosario-term" data-term="ia_conexionista">IA Conexionista</abbr>).</li>
                             </ul>
                         </div>
 
-                        <!-- Punto 2 -->
-                        <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
-                            <h3 class="text-xl font-bold text-mep-green mb-4 flex items-center gap-3">
-                                <span class="bg-green-100 text-mep-green w-8 h-8 rounded-full flex items-center justify-center text-sm shrink-0">2</span>
-                                ¿Cómo funcionan realmente los Grandes Modelos de Lenguaje (LLMs)?
-                            </h3>
+                        <!-- Punto 2 - Principiante -->
+                        <div data-level="beginner" class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300">
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="text-xl font-bold text-mep-green flex items-center gap-3">
+                                    <span class="bg-green-100 text-mep-green w-8 h-8 rounded-full flex items-center justify-center text-sm shrink-0">2</span>
+                                    ¿Cómo funcionan realmente los Grandes Modelos de Lenguaje (LLMs)?
+                                </h3>
+                                <span class="px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider bg-green-50 text-mep-green border border-green-200/50 rounded-full">🌱 Principiante</span>
+                            </div>
                             <p class="text-gray-700 mb-4 font-medium">Para desmitificar la IA, es útil compararla con algo cotidiano.</p>
                             <ul class="list-disc pl-5 text-gray-700 space-y-3">
-                                <li><strong>El texto predictivo a gran escala:</strong> Los LLMs (como ChatGPT) hacen fundamentalmente una sola cosa: <strong>completar textos a partir de instrucciones o "prompts"</strong>. Funcionan de manera idéntica al teclado predictivo de un teléfono celular que adivina qué palabra escribirás a continuación, solo que a una escala monumental.</li>
+                                <li><strong>El texto predictivo a gran escala:</strong> Los <abbr class="glosario-term" data-term="llm">LLMs</abbr> (como ChatGPT) hacen fundamentalmente una sola cosa: <strong>completar textos a partir de instrucciones o "<abbr class="glosario-term" data-term="prompt">prompts</abbr>"</strong>. Funcionan de manera idéntica al teclado predictivo de un teléfono celular que adivina qué palabra escribirás a continuación, solo que a una escala monumental.</li>
                                 <li><strong>Modelos estadísticos:</strong> La IA no "entiende" lo que lee; simplemente es un modelo estadístico del lenguaje que asigna probabilidades matemáticas para predecir cuál es la palabra con más probabilidades de aparecer a continuación en una oración.</li>
                             </ul>
                         </div>
 
-                        <!-- Punto 3 -->
-                        <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
-                            <h3 class="text-xl font-bold text-mep-orange mb-4 flex items-center gap-3">
-                                <span class="bg-orange-100 text-mep-orange w-8 h-8 rounded-full flex items-center justify-center text-sm shrink-0">3</span>
-                                El secreto de su aparente inteligencia: El poder de la escala
-                            </h3>
+                        <!-- Punto 2 - Avanzado -->
+                        <div data-level="advanced" class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 hidden">
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="text-xl font-bold text-mep-green flex items-center gap-3">
+                                    <span class="bg-green-100 text-mep-green w-8 h-8 rounded-full flex items-center justify-center text-sm shrink-0">2</span>
+                                    ¿Cómo funcionan realmente los Grandes Modelos de Lenguaje (LLMs)?
+                                </h3>
+                                <span class="px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider bg-blue-50 text-mep-blue border border-blue-200/50 rounded-full">🚀 Avanzado</span>
+                            </div>
+                            <p class="text-gray-700 mb-4 font-medium">Estructura matemática y probabilística de la generación de lenguaje artificial.</p>
+                            <ul class="list-disc pl-5 text-gray-700 space-y-3">
+                                <li><strong>Procesamiento probabilístico por Tokens:</strong> Un <abbr class="glosario-term" data-term="llm">LLM</abbr> no lee texto carácter por carácter, sino fragmentándolo en <abbr class="glosario-term" data-term="token">tokens</abbr> (porciones de palabras). El sistema realiza operaciones algebraicas multidimensionales para asignar probabilidades matemáticas al siguiente token dado el prompt del usuario en su <abbr class="glosario-term" data-term="ventana_contexto">ventana de contexto</abbr>.</li>
+                                <li><strong>IA Conexionista sin semántica real:</strong> Operando bajo el enfoque de la <abbr class="glosario-term" data-term="ia_conexionista">IA conexionista</abbr>, el modelo genera texto probabilísticamente sin una representación semántica mental ni conciencia del mundo físico, por lo que es una simulación formal de la sintaxis humana.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Punto 3 - Principiante -->
+                        <div data-level="beginner" class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300">
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="text-xl font-bold text-mep-orange flex items-center gap-3">
+                                    <span class="bg-orange-100 text-mep-orange w-8 h-8 rounded-full flex items-center justify-center text-sm shrink-0">3</span>
+                                    El secreto de su aparente inteligencia: El poder de la escala
+                                </h3>
+                                <span class="px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider bg-green-50 text-mep-green border border-green-200/50 rounded-full">🌱 Principiante</span>
+                            </div>
                             <p class="text-gray-700 mb-4 font-medium">Si solo adivinan la siguiente palabra, ¿por qué pueden programar o responder preguntas complejas?</p>
                             <ul class="list-disc pl-5 text-gray-700 space-y-3">
-                                <li><strong>Escala inimaginable:</strong> El avance de la IA se debe al uso de redes neuronales (llamadas "arquitectura Transformer") alimentadas con cantidades astronómicas de texto (básicamente toda la información digital del mundo) y procesadas por supercomputadoras con un poder de cálculo gigantesco.</li>
-                                <li><strong>El lenguaje contiene lógica:</strong> El lenguaje natural humano ya tiene codificadas en su estructura formas de razonamiento lógico, procesos de resolución de problemas e incluso algoritmos. Al entrenarse con tanto texto, la IA simplemente aprende a emular o imitar esos patrones de razonamiento de manera sumamente convincente.</li>
+                                <li><strong>Escala inimaginable:</strong> El avance de la IA se debe a alimentar el sistema con cantidades astronómicas de texto (básicamente toda la información digital del mundo) procesadas por supercomputadoras con un poder de cálculo gigantesco.</li>
+                                <li><strong>El lenguaje contiene lógica:</strong> El lenguaje natural humano ya tiene codificadas en su estructura formas de razonamiento lógico. Al entrenarse con tanto texto, la IA simplemente aprende a emular o imitar esos patrones de razonamiento.</li>
                             </ul>
                         </div>
 
-                        <!-- Punto 4 -->
-                        <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
-                            <h3 class="text-xl font-bold text-purple-600 mb-4 flex items-center gap-3">
-                                <span class="bg-purple-100 text-purple-600 w-8 h-8 rounded-full flex items-center justify-center text-sm shrink-0">4</span>
-                                Capacidades Emergentes y "Cadenas de Pensamiento"
-                            </h3>
+                        <!-- Punto 3 - Avanzado -->
+                        <div data-level="advanced" class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 hidden">
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="text-xl font-bold text-mep-orange flex items-center gap-3">
+                                    <span class="bg-orange-100 text-mep-orange w-8 h-8 rounded-full flex items-center justify-center text-sm shrink-0">3</span>
+                                    El secreto de su aparente inteligencia: El poder de la escala
+                                </h3>
+                                <span class="px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider bg-blue-50 text-mep-blue border border-blue-200/50 rounded-full">🚀 Avanzado</span>
+                            </div>
+                            <p class="text-gray-700 mb-4 font-medium">Parámetros, entrenamiento y optimización computacional profunda.</p>
+                            <ul class="list-disc pl-5 text-gray-700 space-y-3">
+                                <li><strong>Redes Neuronales y Parámetros:</strong> Los modelos modernos utilizan miles de millones de <abbr class="glosario-term" data-term="parametros">parámetros</abbr> (perillas de peso numérico) dentro de una <abbr class="glosario-term" data-term="red_neuronal">red neuronal</abbr> profunda. Durante su <abbr class="glosario-term" data-term="entrenamiento">entrenamiento</abbr>, estas variables se optimizan para capturar dependencias gramaticales y contextuales complejas.</li>
+                                <li><strong>La arquitectura Transformer y la atención:</strong> Gracias al diseño de la <abbr class="glosario-term" data-term="transformer">arquitectura Transformer</abbr>, la IA calcula la relación matemática entre todas las palabras de un texto simultáneamente, logrando una representación contextual profunda que emula el razonamiento analítico.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Punto 4 - Principiante -->
+                        <div data-level="beginner" class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300">
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="text-xl font-bold text-purple-600 flex items-center gap-3">
+                                    <span class="bg-purple-100 text-purple-600 w-8 h-8 rounded-full flex items-center justify-center text-sm shrink-0">4</span>
+                                    Capacidades Emergentes y "Cadenas de Pensamiento"
+                                </h3>
+                                <span class="px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider bg-green-50 text-mep-green border border-green-200/50 rounded-full">🌱 Principiante</span>
+                            </div>
                             <p class="text-gray-700 mb-4 font-medium">Estos son dos conceptos clave para que los profesores sepan cómo interactuar con la herramienta.</p>
                             <ul class="list-disc pl-5 text-gray-700 space-y-3">
-                                <li><strong>Capacidades emergentes:</strong> Debido a su escala, la IA empieza a demostrar habilidades para las cuales los programadores no la entrenaron explícitamente, como comprender indirectamente conceptos de sentido común.</li>
-                                <li><strong>Ingeniería de instrucciones (Prompting):</strong> Pedirle a la IA que "piense paso a paso" (generando una cadena de pensamiento) obliga al modelo a desglosar su respuesta y evaluar opciones, lo cual mejora drásticamente la calidad de la solución, simulando un proceso algorítmico.</li>
+                                <li><strong>Capacidades sorpresa:</strong> Debido a su escala, la IA empieza a demostrar de forma inesperada habilidades para las cuales los programadores no la entrenaron explícitamente, como comprender indirectamente conceptos de sentido común o resolver problemas matemáticos básicos.</li>
+                                <li><strong>Pensar paso a paso:</strong> Pedirle a la IA que "piense paso a paso" obliga al modelo a desglosar su respuesta y evaluar opciones intermedias, lo cual mejora drásticamente la calidad de la solución en el aula.</li>
                             </ul>
                         </div>
 
-                        <!-- Punto 5 -->
+                        <!-- Punto 4 - Avanzado -->
+                        <div data-level="advanced" class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 hidden">
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="text-xl font-bold text-purple-600 flex items-center gap-3">
+                                    <span class="bg-purple-100 text-purple-600 w-8 h-8 rounded-full flex items-center justify-center text-sm shrink-0">4</span>
+                                    Capacidades Emergentes y "Cadenas de Pensamiento"
+                                </h3>
+                                <span class="px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider bg-blue-50 text-mep-blue border border-blue-200/50 rounded-full">🚀 Avanzado</span>
+                            </div>
+                            <p class="text-gray-700 mb-4 font-medium">Propiedades de sistemas a gran escala y optimización de inferencia.</p>
+                            <ul class="list-disc pl-5 text-gray-700 space-y-3">
+                                <li><strong>Capacidades Emergentes no programadas:</strong> Al escalar el volumen de cómputo y datos, surgen de manera abrupta e inesperada <abbr class="glosario-term" data-term="capacidades_emergentes">capacidades emergentes</abbr> (por ejemplo, traducción zero-shot o razonamiento lógico inductivo) que no fueron diseñadas explícitamente.</li>
+                                <li><strong>Andamiaje por Cadena de Pensamiento:</strong> Al incentivar una <abbr class="glosario-term" data-term="cadena_pensamiento">cadena de pensamiento</abbr> (Chain of Thought), se fuerza al modelo a generar tokens intermedios en su ventana de contexto, sirviendo como un <abbr class="glosario-term" data-term="andamiaje_metacognitivo">andamiaje metacognitivo</abbr> que maximiza la coherencia lógica de las probabilidades.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Punto 5 (Global) -->
                         <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
                             <h3 class="text-xl font-bold text-red-600 mb-4 flex items-center gap-3">
                                 <span class="bg-red-100 text-red-600 w-8 h-8 rounded-full flex items-center justify-center text-sm shrink-0">5</span>
@@ -213,12 +302,12 @@
                             </h3>
                             <p class="text-gray-700 mb-4 font-medium">Los docentes deben saber que la IA actual es "genuinamente notable, pero rara" y altamente falible.</p>
                             <ul class="list-disc pl-5 text-gray-700 space-y-3">
-                                <li><strong>Las Alucinaciones:</strong> Como la IA no sabe distinguir entre la verdad, la falsedad, un hecho o una creencia, su único objetivo es generar un texto "plausible" o probable. Esto causa que invente información falsa o sin sentido con total seguridad (por ejemplo, afirmar que dormir en una cama de IKEA te hará soñar con Suecia).</li>
-                                <li><strong>Falta de comprensión real:</strong> Los modelos no ven letras como los humanos, sino números ("tokens"), lo que los lleva a cometer errores insólitos como no poder contar correctamente cuántas letras "r" hay en la palabra "strawberry" (fresa). Además, son dolorosamente inconsistentes y no tienen un concepto de que el tiempo pasa o de que existe un mundo físico.</li>
+                                <li><strong>Las <abbr class="glosario-term" data-term="alucinacion">Alucinaciones</abbr>:</strong> Como la IA no sabe distinguir entre la verdad y la falsedad, su único objetivo es generar un texto "plausible" o probable. Esto causa que invente información falsa o sin sentido con total seguridad (por ejemplo, inventar leyes o directrices inexistentes).</li>
+                                <li><strong>Falta de comprensión real:</strong> Los modelos no ven letras como los humanos, sino números ("<abbr class="glosario-term" data-term="token">tokens</abbr>"), lo que los lleva a cometer errores insólitos como no poder contar correctamente letras en palabras. Además, son inconsistentes y no tienen un concepto de que el tiempo pasa o de que existe un mundo físico.</li>
                             </ul>
                         </div>
 
-                        <!-- Punto 6 -->
+                        <!-- Punto 6 (Global) -->
                         <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
                             <h3 class="text-xl font-bold text-teal-600 mb-4 flex items-center gap-3">
                                 <span class="bg-teal-100 text-teal-600 w-8 h-8 rounded-full flex items-center justify-center text-sm shrink-0">6</span>
@@ -231,14 +320,88 @@
                             </ul>
                         </div>
                     </div>
+                </div>
+            </div>
 
-                    <div class="mt-8 bg-gray-50 border border-gray-200 p-4 rounded-lg flex items-center gap-3">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
-                        </svg>
-                        <p class="text-sm text-gray-600">
-                            <strong>Fuente:</strong> <a href="https://www.youtube.com/live/CyyL0yDhr7I" target="_blank" class="text-mep-blue hover:underline font-medium">Transmisión en vivo sobre IA en Educación</a>
+                    <!-- Sección de Fuentes y Lectura Complementaria (Sprint 2) -->
+                    <div class="mt-12 border-t border-gray-200 pt-10">
+                        <div class="flex items-center gap-3 mb-6">
+                            <span class="text-2xl">📚</span>
+                            <h2 class="text-2xl font-bold text-gray-900">Fuentes y Lectura Complementaria</h2>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-6 leading-relaxed">
+                            Los contenidos conceptuales de este módulo han sido respaldados por literatura académica e institucional de rigor científico y marcos oficiales de la Inteligencia Artificial en el quehacer pedagógico:
                         </p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                            <!-- Fuente 1 -->
+                            <div class="p-4 bg-white border border-gray-200 rounded-xl hover:shadow-md transition-shadow flex flex-col justify-between">
+                                <div>
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <span class="px-2 py-0.5 text-[10px] font-semibold bg-blue-50 text-mep-blue rounded-full border border-blue-100">Marco Pedagógico</span>
+                                    </div>
+                                    <p class="text-xs text-gray-800 font-medium mb-1">Luckin, R., Holmes, W., Griffiths, M., & Forcier, L. B. (2016)</p>
+                                    <p class="text-xs italic text-gray-600 mb-2">Intelligence Unleashed: An argument for AI in Education.</p>
+                                    <p class="text-[11px] text-gray-500 leading-tight">Introduce el concepto de la IA como una "prótesis cognitiva" y analiza cómo potencia el juicio docente.</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Fuente 2 -->
+                            <div class="p-4 bg-white border border-gray-200 rounded-xl hover:shadow-md transition-shadow flex flex-col justify-between">
+                                <div>
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <span class="px-2 py-0.5 text-[10px] font-semibold bg-emerald-50 text-emerald-700 rounded-full border border-emerald-100">Ética y Sociedad</span>
+                                    </div>
+                                    <p class="text-xs text-gray-800 font-medium mb-1">Floridi, L., & Cowls, J. (2019)</p>
+                                    <p class="text-xs italic text-gray-600 mb-2">A unified framework of five principles for AI in society.</p>
+                                    <p class="text-[11px] text-gray-500 leading-tight">Define los principios de beneficencia, autonomía y explicabilidad aplicados a entornos automatizados.</p>
+                                </div>
+                            </div>
+
+                            <!-- Fuente 3 -->
+                            <div class="p-4 bg-white border border-gray-200 rounded-xl hover:shadow-md transition-shadow flex flex-col justify-between">
+                                <div>
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <span class="px-2 py-0.5 text-[10px] font-semibold bg-purple-50 text-purple-700 rounded-full border border-purple-100">Diseño Curricular</span>
+                                    </div>
+                                    <p class="text-xs text-gray-800 font-medium mb-1">Holmes, W., Bialik, M., & Fadel, C. (2019)</p>
+                                    <p class="text-xs italic text-gray-600 mb-2">Artificial Intelligence in Education: Promises and Implications.</p>
+                                    <p class="text-[11px] text-gray-500 leading-tight">Detalla el impacto de la IA en la evaluación formativa y en el andamiaje del diseño instruccional.</p>
+                                </div>
+                            </div>
+
+                            <!-- Fuente 4 -->
+                            <div class="p-4 bg-white border border-gray-200 rounded-xl hover:shadow-md transition-shadow flex flex-col justify-between">
+                                <div>
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <span class="px-2 py-0.5 text-[10px] font-semibold bg-amber-50 text-amber-700 rounded-full border border-amber-100">Rol Docente</span>
+                                    </div>
+                                    <p class="text-xs text-gray-800 font-medium mb-1">Selwyn, N. (2019)</p>
+                                    <p class="text-xs italic text-gray-600 mb-2">Should Robots Replace Teachers?</p>
+                                    <p class="text-[11px] text-gray-500 leading-tight">Analiza de forma crítica el riesgo de desprofesionalización docente por la automatización algorítmica.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Recurso Adicional (YouTube Original) -->
+                        <div class="bg-gray-50 border border-gray-200 p-4 rounded-xl flex flex-col sm:flex-row items-start sm:items-center gap-3 justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-lg bg-red-50 flex items-center justify-center text-red-600 flex-shrink-0">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-semibold text-gray-900">Transmisión de Origen Digital</h4>
+                                    <p class="text-xs text-gray-500">Video de referencia que motivó la discusión conceptual inicial del módulo.</p>
+                                </div>
+                            </div>
+                            <a href="https://www.youtube.com/live/CyyL0yDhr7I" target="_blank" class="px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg text-xs font-semibold shadow-sm transition-all hover:scale-105 inline-flex items-center gap-2 self-stretch sm:self-auto justify-center">
+                                Ver en YouTube
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                            </a>
+                        </div>
                     </div>
                 </div>
                 </div>
@@ -366,6 +529,83 @@
                 document.body.classList.remove('overflow-hidden');
             }
         }
+
+        // Conmutador adaptativo de nivel de contenidos
+        function setLevel(level, save = true) {
+            const beginnerEls = document.querySelectorAll('[data-level="beginner"]');
+            const advancedEls = document.querySelectorAll('[data-level="advanced"]');
+            const btnBeginner = document.getElementById('btn-level-beginner');
+            const btnAdvanced = document.getElementById('btn-level-advanced');
+
+            if (!btnBeginner || !btnAdvanced) return;
+
+            if (level === 'beginner') {
+                // Mostrar contenido de principiante
+                beginnerEls.forEach(el => {
+                    el.classList.remove('hidden');
+                    el.classList.remove('opacity-0');
+                    el.classList.add('opacity-100');
+                });
+                advancedEls.forEach(el => {
+                    el.classList.add('hidden');
+                    el.classList.add('opacity-0');
+                    el.classList.remove('opacity-100');
+                });
+
+                // Clases de botón activo/inactivo (Estilo premium UCR)
+                btnBeginner.className = "flex items-center gap-1.5 px-4 py-1.5 text-xs font-bold rounded-lg transition-all bg-mep-blue text-white shadow-md shadow-mep-blue/10 border border-mep-blue/15 scale-100";
+                btnAdvanced.className = "flex items-center gap-1.5 px-4 py-1.5 text-xs font-semibold rounded-lg transition-all bg-transparent text-slate-500 hover:text-slate-800 hover:bg-slate-200/50 scale-95";
+            } else {
+                // Mostrar contenido avanzado
+                advancedEls.forEach(el => {
+                    el.classList.remove('hidden');
+                    el.classList.remove('opacity-0');
+                    el.classList.add('opacity-100');
+                });
+                beginnerEls.forEach(el => {
+                    el.classList.add('hidden');
+                    el.classList.add('opacity-0');
+                    el.classList.remove('opacity-100');
+                });
+
+                // Clases de botón activo/inactivo (Estilo premium UCR)
+                btnAdvanced.className = "flex items-center gap-1.5 px-4 py-1.5 text-xs font-bold rounded-lg transition-all bg-mep-blue text-white shadow-md shadow-mep-blue/10 border border-mep-blue/15 scale-100";
+                btnBeginner.className = "flex items-center gap-1.5 px-4 py-1.5 text-xs font-semibold rounded-lg transition-all bg-transparent text-slate-500 hover:text-slate-800 hover:bg-slate-200/50 scale-95";
+            }
+
+            if (save) {
+                // Guardar en el perfil de localStorage
+                try {
+                    const stored = localStorage.getItem('caja_docente_perfil');
+                    let profile = stored ? JSON.parse(stored) : {};
+                    profile.computedLevel = level;
+                    localStorage.setItem('caja_docente_perfil', JSON.stringify(profile));
+                } catch (e) {
+                    console.error('Error al guardar el nivel adaptativo', e);
+                }
+            }
+        }
+
+        // Auto-detectar nivel según perfil al cargar la página
+        document.addEventListener('DOMContentLoaded', () => {
+            let activeLevel = 'beginner';
+            try {
+                const stored = localStorage.getItem('caja_docente_perfil');
+                if (stored) {
+                    const profile = JSON.parse(stored);
+                    if (profile.computedLevel === 'advanced') {
+                        activeLevel = 'advanced';
+                    }
+                }
+            } catch (e) {
+                console.error(e);
+            }
+            setLevel(activeLevel, false);
+        });
     </script>
+    
+    <!-- Scripts del Glosario Conceptual y Tooltips Inline -->
+    <script src="glosario-data.js"></script>
+    <script src="glosario-tooltips.js"></script>
 </body>
 </html>

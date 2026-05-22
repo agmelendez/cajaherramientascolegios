@@ -103,6 +103,18 @@
                     <span class="text-xl group-hover:scale-110 transition-transform">📚</span>
                     <span>Módulos</span>
                 </a>
+                <a href="rol-docente-ia.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ver rol docente en la era de la IA">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">🧭</span>
+                    <span>Rol Docente e IA</span>
+                </a>
+                <a href="referencias.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ver referencias bibliográficas del proyecto">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">📖</span>
+                    <span>Referencias</span>
+                </a>
+                <a href="glosario.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ver glosario de términos de IA">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">📖</span>
+                    <span>Glosario</span>
+                </a>
                 <a href="descargas.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ir a la sección de descargas">
                     <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">📥</span>
                     <span>Descargas</span>
@@ -111,9 +123,9 @@
                     <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">💬</span>
                     <span>Comunidad</span>
                 </a>
-                <a href="configuracion.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ir a la configuración">
-                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">⚙️</span>
-                    <span>Configuración</span>
+                <a href="configuracion.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ir a la sección de información">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">ℹ️</span>
+                    <span>Información</span>
                 </a>
                 <a href="https://iadocenciaed3698.my.canva.site/pruebacajaherramientacolegios" target="_blank" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ir a la evaluación del curso">
                     <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">📋</span>
@@ -186,6 +198,9 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-mep-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg>
                                 Ampliar Infografía
                             </p>
+                            <p class="text-[10px] text-gray-500 mt-1 font-normal leading-tight text-center">
+                                Elaborado por NotebookLM, a partir de documentos oficiales, 2026
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -199,50 +214,246 @@
                     
                     <section id="s1" class="scroll-mt-24">
 
-                        <h2>1. ¿Para qué le sirve al docente?</h2>
-                        <p>Este módulo le sirve para desmitificar la Inteligencia Artificial Generativa (IAG). Herramientas como ChatGPT, Gemini o Claude no son «buscadores mejorados» ni «oráculos digitales»: son <strong>modelos de lenguaje de gran escala (LLMs, por sus siglas en inglés)</strong> que aprenden patrones estadísticos a partir de enormes corpus de texto y predicen, token a token, la respuesta más probable dado un contexto.</p>
-                        <p>Comprender este mecanismo es el primer paso para dejar de frustrarse con resultados inexactos y para <strong>exigirle a la herramienta lo que realmente puede ofrecer</strong>: asistencia en redacción, síntesis de información y generación de borradores estructurados.</p>
-                        <p>Desde el marco del modelo <strong>TPACK</strong> (Mishra y Koehler, 2006), este módulo fortalece el <em>conocimiento tecnológico</em> del docente: entender qué es la herramienta antes de integrarla pedagógicamente. Aplicando el <strong>modelo SAMR</strong> (Puentedura, 2010), comenzamos en el nivel de <em>Sustitución</em> (la IA reemplaza una tarea manual como redactar un correo) para avanzar paulatinamente hacia la <em>Redefinición</em> en módulos posteriores.</p>
+                        <h2>1. ¿Para qué le sirve al docente y cómo integrar la IA con rigor pedagógico?</h2>
+                        
+                        <!-- beginner text -->
+                        <div data-level="beginner">
+                            <p>¡Le damos la bienvenida! Este módulo está diseñado para ayudarle a entender la <strong>Inteligencia Artificial Generativa</strong> de manera sencilla y práctica, sin necesidad de ser una persona experta en tecnología. Piense en herramientas como ChatGPT o Gemini como asistentes virtuales muy rápidos. No son buscadores de internet comunes, ni tampoco máquinas con mente propia: son programas avanzados que predicen la siguiente palabra basándose en millones de textos que ya han leído. No sienten, no piensan y no conocen a sus estudiantes.</p>
+                            <p>Teniendo esto claro, entendemos que <strong>la Inteligencia Artificial no reemplaza la labor del docente</strong>. Al contrario, al usar la IA para tareas mecánicas —como escribir borradores de correos, crear ideas iniciales para sus clases o resumir textos largos— usted podrá <strong>ahorrar tiempo valioso</strong>. Ese tiempo recuperado podrá reinvertirlo en lo que ninguna pantalla puede reemplazar: conversar con sus estudiantes, brindarles apoyo emocional y acompañarles de forma cercana y empática en el aula.</p>
+                        </div>
+                        
+                        <!-- advanced text -->
+                        <div data-level="advanced">
+                            <p>Este módulo tiene como propósito desmitificar de forma crítica y epistemológica la <abbr class="glosario-term" data-term="ia_generativa">Inteligencia Artificial Generativa (IAG)</abbr>. Es fundamental comprender que herramientas como ChatGPT, Gemini o Claude no operan como repositorios de información semántica u «oráculos conceptuales», sino como complejos <strong><abbr class="glosario-term" data-term="llm">modelos de lenguaje de gran escala (LLMs)</abbr></strong>. Estos sistemas calculan probabilidades estadísticas basándose en colosales bases de datos vectoriales para predecir, <abbr class="glosario-term" data-term="token">token a token</abbr>, la respuesta lingüística más óptima. Carecen de intencionalidad, conciencia pedagógica o asimilación de la realidad sociocultural del contexto educativo costarricense.</p>
+                            <p>Asimilar este paradigma computacional es crucial para rechazar el solucionismo y determinismo tecnológico. <strong>La Inteligencia Artificial no resuelve por sí misma las brechas estructurales en mediación.</strong> No obstante, al concebirla como un andamio cognitivo instrumental de soporte administrativo o de codiseño curricular, el docente logra liberar recursos atencionales y ancho de banda cognitivo. Esto facilita la reinversión de la labor docente en la zona de desarrollo próximo afectiva del estudiante, potenciando la mediación humana, el acompañamiento socioemocional y la empatía dialógica en el aula.</p>
+                        </div>
+                        
+                        <div class="border-t border-gray-100 pt-6 mt-6">
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">El Marco TPACK: Integración, no Linealidad</h3>
+                            <p>Para integrar la Inteligencia Artificial de forma profesional, no basta con saber operar el software. El marco <strong>TPACK (Mishra & Koehler, 2006)</strong> nos recuerda que la verdadera integración surge de la intersección dinámica entre tres dominios fundamentales de conocimiento: el <strong>Tecnológico (TK)</strong>, el <strong>Pedagógico (PK)</strong> y el <strong>Disciplinar o de Contenido (CK)</strong>.</p>
+                            
+                            <p>Es un error común presentar la integración tecnológica como un proceso lineal. Por el contrario, los tres saberes se co-determinan continuamente. <strong>Ninguna adopción tecnológica es pedagógicamente neutra</strong>: la herramienta (TK) transforma el cómo enseñamos (PK) y la naturaleza misma del contenido que enseñamos (CK).</p>
+                        </div>
+
+                        <!-- Interactive TPACK Venn Diagram -->
+                        <div class="my-8 p-6 bg-gray-50 border border-gray-200 rounded-2xl not-prose">
+                            <h4 class="text-base font-bold text-gray-900 mb-2 flex items-center gap-2">
+                                <span>🧭</span> Modelo TPACK Interactivo (Mishra & Koehler, 2006)
+                            </h4>
+                            <p class="text-xs text-gray-500 mb-6">
+                                Haga clic en las diferentes áreas del diagrama (círculos o intersecciones de color gris) para explorar sus implicaciones conceptuales y ejemplos adaptados al contexto costarricense (MEP).
+                            </p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                                <!-- SVG Column -->
+                                <div class="flex justify-center">
+                                    <svg viewBox="0 0 400 380" class="w-full max-w-[340px] drop-shadow-md">
+                                        <!-- CK Circle -->
+                                        <circle cx="160" cy="150" r="85" fill="#ff6b35" fill-opacity="0.2" stroke="#ff6b35" stroke-width="2" class="cursor-pointer hover:fill-opacity-35 transition-all duration-300" onclick="showTpackDomain('ck')" id="svg-ck" />
+                                        
+                                        <!-- PK Circle -->
+                                        <circle cx="240" cy="150" r="85" fill="#00aa44" fill-opacity="0.2" stroke="#00aa44" stroke-width="2" class="cursor-pointer hover:fill-opacity-35 transition-all duration-300" onclick="showTpackDomain('pk')" id="svg-pk" />
+                                        
+                                        <!-- TK Circle -->
+                                        <circle cx="200" cy="225" r="85" fill="#0066cc" fill-opacity="0.2" stroke="#0066cc" stroke-width="2" class="cursor-pointer hover:fill-opacity-35 transition-all duration-300" onclick="showTpackDomain('tk')" id="svg-tk" />
+                                        
+                                        <!-- Intersections as Clickable Badges -->
+                                        <!-- PCK Overlay -->
+                                        <g class="cursor-pointer transform hover:scale-105 transition-transform duration-200" onclick="showTpackDomain('pck')">
+                                            <circle cx="200" cy="125" r="20" fill="#4a5568" fill-opacity="0.9" class="stroke-white stroke-2" />
+                                            <text x="200" y="129" font-size="9" font-weight="bold" fill="white" text-anchor="middle" class="select-none">PCK</text>
+                                        </g>
+
+                                        <!-- TCK Overlay -->
+                                        <g class="cursor-pointer transform hover:scale-105 transition-transform duration-200" onclick="showTpackDomain('tck')">
+                                            <circle cx="150" cy="210" r="20" fill="#4a5568" fill-opacity="0.9" class="stroke-white stroke-2" />
+                                            <text x="150" y="214" font-size="9" font-weight="bold" fill="white" text-anchor="middle" class="select-none">TCK</text>
+                                        </g>
+
+                                        <!-- TPK Overlay -->
+                                        <g class="cursor-pointer transform hover:scale-105 transition-transform duration-200" onclick="showTpackDomain('tpk')">
+                                            <circle cx="250" cy="210" r="20" fill="#4a5568" fill-opacity="0.9" class="stroke-white stroke-2" />
+                                            <text x="250" y="214" font-size="9" font-weight="bold" fill="white" text-anchor="middle" class="select-none">TPK</text>
+                                        </g>
+
+                                        <!-- TPACK Center -->
+                                        <g class="cursor-pointer transform hover:scale-110 transition-transform duration-200" onclick="showTpackDomain('tpack')">
+                                            <circle cx="200" cy="178" r="24" fill="#1e293b" fill-opacity="0.95" class="stroke-yellow-400 stroke-2" />
+                                            <text x="200" y="181" font-size="8" font-weight="extrabold" fill="#ffd700" text-anchor="middle" class="select-none">TPACK</text>
+                                        </g>
+                                        
+                                        <!-- Text Labels for Main Circles -->
+                                        <text x="100" y="85" font-size="11" font-weight="bold" fill="#712B13" text-anchor="middle" class="select-none pointer-events-none">CK (Contenido)</text>
+                                        <text x="300" y="85" font-size="11" font-weight="bold" fill="#085041" text-anchor="middle" class="select-none pointer-events-none">PK (Pedagogía)</text>
+                                        <text x="200" y="335" font-size="11" font-weight="bold" fill="#0C447C" text-anchor="middle" class="select-none pointer-events-none">TK (Tecnología)</text>
+                                    </svg>
+                                </div>
+                                
+                                <!-- Info Column -->
+                                <div class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm min-h-[240px] flex flex-col justify-between" id="tpack-info-card">
+                                    <div>
+                                        <h5 class="text-sm font-bold text-gray-800 uppercase tracking-wider mb-2" id="tpack-title">Seleccione un área del diagrama</h5>
+                                        <p class="text-sm text-gray-600 leading-relaxed" id="tpack-desc">
+                                            Haga clic en cualquiera de los círculos (CK, PK, TK) o en sus intersecciones (PCK, TCK, TPK, o el núcleo TPACK) para comprender la interacción del saber disciplinar, didáctico y tecnológico.
+                                        </p>
+                                    </div>
+                                    <div class="mt-4 pt-3 border-t border-gray-100 flex items-center justify-between text-xs text-gray-400">
+                                        <span>Ref: Mishra & Koehler (2006)</span>
+                                        <button class="text-mep-blue font-medium hover:underline focus:outline-none" onclick="resetTpackDomain()">Reestablecer</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="border-t border-gray-100 pt-6 mt-6">
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">El Modelo SAMR y su Recontextualización Crítica</h3>
+                            <p>Para guiar la adopción progresiva de la IA, la plataforma propone una relectura del modelo <strong>SAMR (Puentedura, 2006)</strong>. No obstante, en lugar de plantearlo como una adopción tecnológica secuencial o independiente, <strong>cada nivel del modelo debe partir indiscutiblemente del objetivo de aprendizaje</strong>, y no de la novedad de la herramienta.</p>
+                            
+                            <p>A continuación, se detalla la progresión bajo este enfoque con ejemplos concretos centrados en la didáctica:</p>
+                            
+                            <div class="space-y-4 my-6">
+                                <div class="p-4 bg-gray-50 border-l-4 border-gray-400 rounded-r-lg">
+                                    <h4 class="font-bold text-gray-800 text-sm m-0">Sustitución (S) — La tecnología actúa como sustituto directo sin cambio funcional</h4>
+                                    <p class="text-sm text-gray-600 m-0 mt-1"><strong>Objetivo pedagógico:</strong> Redactar una comunicación formal a familias. El docente redacta el borrador en la computadora utilizando ChatGPT en vez de escribirlo a mano o en un procesador tradicional. La tarea y su resultado didáctico son idénticos; la IA es un sustituto de eficiencia.</p>
+                                </div>
+                                <div class="p-4 bg-blue-50 border-l-4 border-blue-500 rounded-r-lg">
+                                    <h4 class="font-bold text-blue-900 text-sm m-0">Aumento (A) — Sustituto directo con mejoras funcionales de la tarea</h4>
+                                    <p class="text-sm text-blue-700 m-0 mt-1"><strong>Objetivo pedagógico:</strong> Mejorar la claridad y tono de una circular. El docente pega su borrador en la IA y le solicita sugerencias para optimizar la empatía o claridad. Hay un incremento funcional, pero el producto y la dinámica de trabajo siguen la misma línea tradicional.</p>
+                                </div>
+                                <div class="p-4 bg-green-50 border-l-4 border-green-500 rounded-r-lg">
+                                    <h4 class="font-bold text-green-900 text-sm m-0">Modificación (M) — Rediseño significativo de las actividades de aprendizaje</h4>
+                                    <p class="text-sm text-green-700 m-0 mt-1"><strong>Objetivo pedagógico:</strong> Diseñar rúbricas analíticas para atender la diversidad en el aula. Utilizando IA, el docente puede generar descriptores observacionales sumamente precisos alineados con los indicadores del MEP y el marco DUA en minutos, una tarea altamente compleja que antes demoraba horas. La práctica evaluativa se rediseña significativamente.</p>
+                                </div>
+                                <div class="p-4 bg-orange-50 border-l-4 border-orange-500 rounded-r-lg">
+                                    <h4 class="font-bold text-orange-900 text-sm m-0">Redefinición (R) — Creación de nuevas tareas antes inconcebibles</h4>
+                                    <p class="text-sm text-orange-700 m-0 mt-1"><strong>Objetivo pedagógico:</strong> Fomentar el pensamiento histórico crítico en el aula. El docente utiliza la IA para generar tres cartas históricas realistas pero ficticias de distintos personajes con perspectivas opuestas durante la Independencia (1821). Los estudiantes debaten y contrastan estas posturas. La tecnología ha permitido una dinámica de aprendizaje colaborativo basada en perspectivas múltiples que hubiese sido impracticable de diseñar manualmente.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-amber-50 border border-amber-200 rounded-xl p-5 my-6">
+                                <h4 class="font-bold text-amber-900 mb-2 flex items-center gap-2 text-sm">
+                                    <span>⚠️</span> Perspectiva Crítica: Cuestionando el Determinismo Tecnológico
+                                </h4>
+                                <p class="text-xs text-amber-800 leading-relaxed m-0">
+                                    Académicos como <strong>Hamilton, Rosenberg y Akcaoglu (2016)</strong> critican el modelo SAMR debido a su tendencia al <em>determinismo tecnológico</em>: la suposición implícita de que las actividades en el nivel de 'Redefinición' son intrínsecamente mejores que las de 'Sustitución'. En la práctica docente real, la sustitución instrumental o el aumento pueden ser pedagógicamente ideales si responden con precisión a las necesidades de andamiaje y al contexto sociocultural de sus estudiantes. El criterio del docente siempre precede a la jerarquía del modelo tecnológico.
+                                </p>
+                            </div>
+                            
+                            <div class="mt-6 flex flex-col sm:flex-row gap-4 items-center p-4 bg-blue-50 border border-blue-200 rounded-xl">
+                                <div class="text-2xl flex-shrink-0">🧭</div>
+                                <div class="text-center sm:text-left">
+                                    <h4 class="text-sm font-bold text-blue-900 m-0">¿Cómo cambia el rol docente ante estas tecnologías?</h4>
+                                    <p class="text-xs text-blue-800 m-0 mt-1">Para profundizar en el debate sobre la mediación humana e IA, le invitamos a revisar nuestra sección transversal: <a href="rol-docente-ia.html" class="font-bold underline hover:text-blue-950">El Rol Docente en la Era de la Inteligencia Artificial</a>.</p>
+                                </div>
+                            </div>
+
+                            <!-- Autocomprobación Rápida Sección 1 -->
+                            <div class="my-8 p-6 bg-slate-50 border border-slate-200 rounded-2xl not-prose">
+                                <div class="flex items-center gap-2 mb-3">
+                                    <span class="text-lg">🎯</span>
+                                    <h4 class="text-sm font-black text-slate-800 uppercase tracking-wider m-0">Autocomprobación Rápida</h4>
+                                </div>
+                                <p class="text-sm font-bold text-slate-700 mb-4">De acuerdo con el marco conceptual expuesto, ¿cuál es la forma idónea de integrar la Inteligencia Artificial en nuestra labor educativa?</p>
+                                <div class="space-y-2">
+                                    <button onclick="checkAnswer(this, false, 'Recuerde que la IA carece de criterio y tacto pedagógico. Delegar en ella ciegamente anula el rol docente fundamental y despersonaliza la enseñanza.')" class="w-full text-left p-3 text-xs font-semibold text-slate-700 bg-white border border-slate-200 rounded-xl hover:bg-slate-50 hover:border-mep-blue focus:outline-none focus:ring-2 focus:ring-mep-blue/50 transition-all flex items-center justify-between gap-2">
+                                        <span>A) Usarla como un sustituto infalible que resuelva de manera automatizada todas las planeaciones y evaluaciones del aula.</span>
+                                        <span class="text-xs select-none opacity-50 shrink-0">⦾</span>
+                                    </button>
+                                    <button onclick="checkAnswer(this, true, '¡Exacto! La IA actúa como un andamio que asume tareas mecánicas y operativas secundarias. Esto libera valiosos recursos atencionales y tiempo que usted reinvierte en la mediación humana, afectiva y pedagógica directa.')" class="w-full text-left p-3 text-xs font-semibold text-slate-700 bg-white border border-slate-200 rounded-xl hover:bg-slate-50 hover:border-mep-blue focus:outline-none focus:ring-2 focus:ring-mep-blue/50 transition-all flex items-center justify-between gap-2">
+                                        <span>B) Tratarla como un andamio de asistencia instrumental para agilizar tareas mecánicas, liberando tiempo para la mediación socioafectiva directa.</span>
+                                        <span class="text-xs select-none opacity-50 shrink-0">⦾</span>
+                                    </button>
+                                    <button onclick="checkAnswer(this, false, 'Aunque los riesgos de alucinación son reales, una postura de rechazo absoluto o prohibición nos aleja de la necesaria preparación digital crítica para orientar a nuestros alumnos.')" class="w-full text-left p-3 text-xs font-semibold text-slate-700 bg-white border border-slate-200 rounded-xl hover:bg-slate-50 hover:border-mep-blue focus:outline-none focus:ring-2 focus:ring-mep-blue/50 transition-all flex items-center justify-between gap-2">
+                                        <span>C) Rechazar su adopción por completo debido al riesgo de alucinación semántica y sesgo de datos vectoriales.</span>
+                                        <span class="text-xs select-none opacity-50 shrink-0">⦾</span>
+                                    </button>
+                                </div>
+                                <div class="feedback-box hidden mt-4 p-4 rounded-xl text-xs font-semibold leading-relaxed transition-all"></div>
+                            </div>
+                        </div>
                     </section>
 
                     <section id="s2" class="scroll-mt-24">
 
                         <h2>2. ¿Cuándo sí usar IA?</h2>
-                        <p>La IA Generativa es especialmente valiosa cuando usted enfrenta el «síndrome de la hoja en blanco» o necesita acelerar tareas repetitivas de baja complejidad cognitiva. Úsela cuando:</p>
+                        <p>La IA Generativa es un valioso recurso de asistencia instrumental cuando usted necesita superar la "hoja en blanco" o andamiar el diseño de materiales educativos iniciales. Su utilidad real no radica en sustituir su planeamiento, sino en facilitarle un primer borrador borroso que usted depurará. Utilícela para:</p>
                         <ul>
-                            <li><strong>Generar borradores iniciales</strong> de correos a padres de familia, circulares o cartas formales que luego usted revisará y personalizará.</li>
-                            <li><strong>Lluvia de ideas para actividades de clase</strong>: pida 10 opciones y elija la más pertinente para su grupo.</li>
-                            <li><strong>Mejorar la redacción o el tono</strong> de documentos propios: pegue su texto y pídale que lo haga más claro, más formal o más empático.</li>
-                            <li><strong>Resumir textos extensos</strong> en puntos clave —siempre validando la información con la fuente original—.</li>
-                            <li><strong>Generar variaciones de un mismo ejercicio</strong> con diferente nivel de dificultad, lo que en teoría pedagógica se denomina <em>diferenciación curricular</em> (Tomlinson, 2001).</li>
+                            <li><strong>Generar borradores de comunicación administrativa:</strong> Redacte convocatorias a familias, circulares o justificaciones. La IA le provee una estructura de inicio que usted personalizará con el tacto y estilo que solo usted posee.</li>
+                            <li><strong>Lluvia de ideas metodológicas:</strong> Solicite 10 alternativas lúdicas o dinámicas para introducir un tema difícil y seleccione aquella que se adapte al contexto sociocultural de su grupo.</li>
+                            <li><strong>Refinar y adecuar la redacción propia:</strong> Pegue sus notas y pídale que simule diferentes tonos (cálido, motivador, formal) o que flexibilice la sintaxis para hacerla más clara.</li>
+                            <li><strong>Sintetizar textos complejos:</strong> Extraiga ideas principales de lecturas extensas, usándolas como referencia rápida, pero bajo la estricta obligación de contrastar y validar con las fuentes originales.</li>
+                            <li><strong>Diversificar actividades de mediación:</strong> Generar variaciones de un mismo ejercicio didáctico según diferentes estilos de aprendizaje o necesidades de apoyo, lo que en teoría se denomina <em>diferenciación curricular</em> (Tomlinson, 2001).</li>
                         </ul>
                     </section>
 
                     <section id="s3" class="scroll-mt-24">
 
                         <h2>3. ¿Cuándo NO usarla?</h2>
-                        <p>Evite usar la IAG cuando la precisión factual sea crítica y usted no tenga tiempo para verificar. Recuerde: los LLMs no «saben» la verdad; generan texto <em>verosímil</em>. No la use para:</p>
+                        <p>La delegación acrítica en herramientas automatizadas atenta contra la ética profesional y la calidad educativa. No debe usar la Inteligencia Artificial para delegar decisiones de alto impacto humano o normativo. Evite su uso para:</p>
                         <ul>
-                            <li><strong>Obtener fechas históricas específicas, datos estadísticos o normativas actualizadas</strong> sin contrastarlas con fuentes primarias (Ley 8798, circulares MEP, REAC 2024).</li>
-                            <li><strong>Emitir juicios sobre el trabajo emocional o socioemocional de un estudiante</strong>: la interpretación del aprendizaje socioemocional requiere el criterio profesional del docente, no una predicción estadística.</li>
-                            <li><strong>Crear documentos oficiales o normativos</strong> —actas, adecuaciones significativas, resoluciones— sin revisión humana exhaustiva.</li>
-                            <li><strong>Calificar automáticamente ensayos o trabajos creativos</strong> sin leerlos: hacerlo vulnera el derecho al due process pedagógico del estudiante.</li>
+                            <li><strong>Verificación de precisión fáctica e histórica:</strong> Los modelos lingüísticos no son bases de datos validadas; inventan referencias y hechos con absoluta coherencia aparente (alucinación). Nunca confíe en normativas del MEP, reglamentos de evaluación (REAC) o datos duros sin contrastar.</li>
+                            <li><strong>Evaluación y diagnóstico socioemocional:</strong> El acompañamiento socioemocional y la lectura afectiva del aula exigen tacto pedagógico, empatía relacional y ética del cuidado. Ninguna predicción computacional puede simular la comprensión del dolor, la alegría o la vulnerabilidad de un estudiante.</li>
+                            <li><strong>Generación automatizada de decisiones normativas:</strong> Redactar actas, adecuaciones curriculares significativas o resoluciones de conflictos sin una participación humana exhaustiva y protagónica ("Human-in-the-loop").</li>
+                            <li><strong>Calificación deshumanizada ("grading" sin lectura):</strong> Evaluar ensayos, reflexiones o portafolios mediante IA sin que usted lea los trabajos. Esta práctica no solo es éticamente reprobable, sino que violenta el derecho a una retroalimentación formativa y transparente del estudiante.</li>
                         </ul>
+
+                        <!-- Autocomprobación Rápida Sección 3 -->
+                        <div class="my-8 p-6 bg-slate-50 border border-slate-200 rounded-2xl not-prose">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="text-lg">🎯</span>
+                                <h4 class="text-sm font-black text-slate-800 uppercase tracking-wider m-0">Autocomprobación Rápida</h4>
+                            </div>
+                            <p class="text-sm font-bold text-slate-700 mb-4">¿Cuál de las siguientes actividades se considera éticamente inviable de delegar por completo en una herramienta de Inteligencia Artificial?</p>
+                            <div class="space-y-2">
+                                <button onclick="checkAnswer(this, false, 'Escribir circulares es una tarea puramente administrativa. Usar IA para redactar un primer borrador es totalmente válido y seguro, ya que el docente realiza la revisión final.')" class="w-full text-left p-3 text-xs font-semibold text-slate-700 bg-white border border-slate-200 rounded-xl hover:bg-slate-50 hover:border-mep-blue focus:outline-none focus:ring-2 focus:ring-mep-blue/50 transition-all flex items-center justify-between gap-2">
+                                    <span>A) La redacción de un borrador preliminar para una invitación a padres y madres de familia.</span>
+                                    <span class="text-xs select-none opacity-50 shrink-0">⦾</span>
+                                </button>
+                                <button onclick="checkAnswer(this, true, '¡Perfecto! La evaluación formativa y el diagnóstico afectivo requieren empatía, tacto pedagógico y criterio experto. Automatizar la calificación deshumaniza el proceso y vulnera los derechos del estudiante.')" class="w-full text-left p-3 text-xs font-semibold text-slate-700 bg-white border border-slate-200 rounded-xl hover:bg-slate-50 hover:border-mep-blue focus:outline-none focus:ring-2 focus:ring-mep-blue/50 transition-all flex items-center justify-between gap-2">
+                                    <span>B) La evaluación y asignación de calificaciones definitivas de ensayos reflexivos sobre convivencia escolar sin revisión humana.</span>
+                                    <span class="text-xs select-none opacity-50 shrink-0">⦾</span>
+                                </button>
+                                <button onclick="checkAnswer(this, false, 'Crear analogías es un apoyo de co-diseño muy constructivo. La IA aporta ideas creativas que usted luego depura e incorpora a su planeación didáctica.')" class="w-full text-left p-3 text-xs font-semibold text-slate-700 bg-white border border-slate-200 rounded-xl hover:bg-slate-50 hover:border-mep-blue focus:outline-none focus:ring-2 focus:ring-mep-blue/50 transition-all flex items-center justify-between gap-2">
+                                    <span>C) La búsqueda de analogías didácticas sobre la fotosíntesis adaptadas a estudiantes costarricenses.</span>
+                                    <span class="text-xs select-none opacity-50 shrink-0">⦾</span>
+                                </button>
+                            </div>
+                            <div class="feedback-box hidden mt-4 p-4 rounded-xl text-xs font-semibold leading-relaxed transition-all"></div>
+                        </div>
                     </section>
 
                     <section id="s4" class="scroll-mt-24">
 
                         <h2>4. Herramienta sugerida</h2>
-                        <div class="flex items-center gap-4 p-4 bg-gray-50 rounded-xl border border-gray-200 my-4">
-                            <div class="w-12 h-12 flex-shrink-0 bg-blue-100 rounded-lg flex items-center justify-center text-2xl">✨</div>
-                            <div>
-                                <h4 class="font-bold text-gray-900 m-0">Google Gemini</h4>
-                                <p class="text-sm text-gray-600 m-0">Recomendada para docentes del MEP por su <strong>integración nativa con Google Workspace for Education</strong> (Docs, Drive, Gmail). Su modelo gratuito incluye capacidades robustas de generación y edición de texto. Importante: active la opción <em>«Historial de Actividad de Gemini»</em> desactivada para evitar que sus chats entrenen el modelo con contenido sensible. Gemini Advanced (disponible con cuenta institucional Google One) permite subir documentos PDF directamente.</p>
+                        
+                        <!-- beginner -->
+                        <div data-level="beginner">
+                            <div class="flex items-center gap-4 p-4 bg-gray-50 rounded-xl border border-gray-200 my-4">
+                                <div class="w-12 h-12 flex-shrink-0 bg-blue-100 rounded-lg flex items-center justify-center text-2xl">✨</div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 m-0">Google Gemini</h4>
+                                    <p class="text-sm text-gray-600 m-0">Le sugerimos empezar con <strong>Google Gemini</strong>. Es una herramienta gratuita y muy fácil de usar que funciona muy bien en computadoras y celulares. Como docente del MEP, le resultará muy útil porque se conecta de manera directa con su correo institucional y sus archivos de Google Drive. Solo necesita ingresar con su cuenta e iniciar una conversación como si chateara con otra persona en español natural.</p>
+                                </div>
+                            </div>
+                            <div class="bg-blue-50 border border-blue-200 rounded-xl p-4 mt-4">
+                                <h4 class="font-semibold text-blue-900 mb-2">💡 Consejo Práctico para Empezar</h4>
+                                <p class="text-sm text-blue-800 m-0">Cuando chatee con la IA, intente explicarle su labor educativa de la forma más detallada posible. Piense en ella como un asistente al que le delega un borrador preliminar: cuanta más claridad aporte sobre el nivel de sus estudiantes y sus objetivos didácticos, más útil y acertada será la sugerencia que reciba.</p>
                             </div>
                         </div>
-                        <div class="bg-blue-50 border border-blue-200 rounded-xl p-4 mt-4">
-                            <h4 class="font-semibold text-blue-900 mb-2">💡 ¿Por qué importa el modelo que elijo?</h4>
-                            <p class="text-sm text-blue-800 m-0">Distintos modelos de LLM tienen distintas «ventanas de contexto» (la cantidad de texto que pueden procesar a la vez) y distintas fechas de corte de conocimiento. Gemini 1.5 Pro puede procesar documentos de hasta 1 millón de tokens; GPT-4o hasta 128 000. Para resumir un libro de texto completo, necesita un modelo con ventana amplia.</p>
+                        
+                        <!-- advanced -->
+                        <div data-level="advanced">
+                            <div class="flex items-center gap-4 p-4 bg-gray-50 rounded-xl border border-gray-200 my-4">
+                                <div class="w-12 h-12 flex-shrink-0 bg-blue-100 rounded-lg flex items-center justify-center text-2xl">✨</div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 m-0">Google Gemini</h4>
+                                    <p class="text-sm text-gray-600 m-0">Recomendada para docentes del MEP por su <strong>integración nativa con Google Workspace for Education</strong> (Docs, Drive, Gmail). Su modelo gratuito incluye capacidades robustas de generación y edición de texto. Importante: active la opción <em>«Historial de Actividad de Gemini»</em> desactivada para evitar que sus chats entrenen el modelo con contenido sensible. Gemini Advanced (disponible con cuenta institucional Google One) permite subir documentos PDF directamente.</p>
+                                </div>
+                            </div>
+                            <div class="bg-blue-50 border border-blue-200 rounded-xl p-4 mt-4">
+                                <h4 class="font-semibold text-blue-900 mb-2">💡 ¿Por qué importa el modelo que elijo?</h4>
+                                <p class="text-sm text-blue-800 m-0">Distintos modelos de LLM tienen distintas «ventanas de contexto» (la cantidad de texto que pueden procesar a la vez) y distintas fechas de corte de conocimiento. Gemini 1.5 Pro puede procesar documentos de hasta 1 millón de tokens; GPT-4o hasta 128 000. Para resumir un libro de texto completo, necesita un modelo con ventana amplia.</p>
+                            </div>
                         </div>
                     </section>
 
@@ -262,25 +473,49 @@
                             "Actúa como un profesor de secundaria en Costa Rica que trabaja en un colegio público urbano. Escribe un correo breve y cálido (máximo 150 palabras) para los padres de familia invitándolos a la reunión de entrega de notas del primer semestre. Incluye un espacio [entre corchetes] para la fecha, hora y aula. El tono debe ser <em>motivador y cercano</em>: enfatiza que la reunión es para apoyar el crecimiento integral del estudiante, no solo para ver calificaciones. Evita términos técnicos educativos."
                         </div>
                         <p class="text-sm text-gray-500">Este prompt aplica la estructura <strong>R-A-F-T</strong> (Role, Audience, Format, Task) del diseño instruccional: define el <em>rol</em> del modelo (profesor costarricense), la <em>audiencia</em> (padres de familia de colegio público), el <em>formato</em> (máximo 150 palabras, tono cálido) y la <em>tarea</em> concreta (correo de invitación a reunión). Esta técnica, derivada del <em>prompt engineering</em> estructurado (White et al., 2023), mejora dramáticamente la relevancia del resultado.</p>
+
+                        <!-- Autocomprobación Rápida Sección 6 -->
+                        <div class="my-8 p-6 bg-slate-50 border border-slate-200 rounded-2xl not-prose">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="text-lg">🎯</span>
+                                <h4 class="text-sm font-black text-slate-800 uppercase tracking-wider m-0">Autocomprobación Rápida</h4>
+                            </div>
+                            <p class="text-sm font-bold text-slate-700 mb-4">Observe el prompt base analizado: <em>"Escribe un correo para padres de familia invitándolos a la reunión de entrega de notas"</em>. ¿Cuál es su principal deficiencia desde la ingeniería de prompts?</p>
+                            <div class="space-y-2">
+                                <button onclick="checkAnswer(this, false, 'Al contrario. Los modelos de lenguaje actuales manejan ventanas de contexto inmensas sin dificultad alguna. La brevedad del prompt base no es un problema tecnológico, sino instruccional.')" class="w-full text-left p-3 text-xs font-semibold text-slate-700 bg-white border border-slate-200 rounded-xl hover:bg-slate-50 hover:border-mep-blue focus:outline-none focus:ring-2 focus:ring-mep-blue/50 transition-all flex items-center justify-between gap-2">
+                                    <span>A) Es demasiado largo y confunde a los transformadores del modelo lingüístico.</span>
+                                    <span class="text-xs select-none opacity-50 shrink-0">⦾</span>
+                                </button>
+                                <button onclick="checkAnswer(this, true, '¡Es correcto! La vaguedad en la instrucción (prompt) produce respuestas genéricas y robóticas. Definir con claridad el Rol, Audiencia, Formato y Tarea (estructura R-A-F-T) es vital para obtener textos de alta calidad y listos para usar.')" class="w-full text-left p-3 text-xs font-semibold text-slate-700 bg-white border border-slate-200 rounded-xl hover:bg-slate-50 hover:border-mep-blue focus:outline-none focus:ring-2 focus:ring-mep-blue/50 transition-all flex items-center justify-between gap-2">
+                                    <span>B) Carece por completo de contexto, definición de rol, audiencia específica, límites de extensión y formato de salida.</span>
+                                    <span class="text-xs select-none opacity-50 shrink-0">⦾</span>
+                                </button>
+                                <button onclick="checkAnswer(this, false, 'No se necesita escribir código de programación. Los modelos de lenguaje operan en lenguaje natural. La deficiencia es puramente didáctica y de especificación contextual.')" class="w-full text-left p-3 text-xs font-semibold text-slate-700 bg-white border border-slate-200 rounded-xl hover:bg-slate-50 hover:border-mep-blue focus:outline-none focus:ring-2 focus:ring-mep-blue/50 transition-all flex items-center justify-between gap-2">
+                                    <span>C) No incluye código en lenguaje de programación para procesar el envío automático.</span>
+                                    <span class="text-xs select-none opacity-50 shrink-0">⦾</span>
+                                </button>
+                            </div>
+                            <div class="feedback-box hidden mt-4 p-4 rounded-xl text-xs font-semibold leading-relaxed transition-all"></div>
+                        </div>
                     </section>
 
                     <section id="s7" class="scroll-mt-24">
 
                         <h2>7. Adaptación por nivel/modalidad</h2>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-6">
-                            <div class="border border-gray-200 rounded-lg p-4">
+                            <div class="border border-gray-200 rounded-lg p-4" data-edu-level="primaria">
                                 <h4 class="font-bold text-mep-blue text-sm uppercase tracking-wider mb-2">Primaria (I y II Ciclo)</h4>
                                 <p class="text-sm text-gray-600">Solicite a la IA vocabulario lúdico, oraciones cortas y formatos de <em>lista con viñetas ilustrativas</em> para comunicaciones. Ejemplo: «Redacta el aviso como si se lo explicaras a un niño de 8 años, usando comparaciones con animales del bosque costarricense».</p>
                             </div>
-                            <div class="border border-gray-200 rounded-lg p-4">
+                            <div class="border border-gray-200 rounded-lg p-4" data-edu-level="secundaria">
                                 <h4 class="font-bold text-mep-green text-sm uppercase tracking-wider mb-2">Secundaria (III Ciclo y Diversificado)</h4>
                                 <p class="text-sm text-gray-600">La IA es ideal para generar rúbricas de convivencia, normas del aula co-construidas y materiales de preparación para las pruebas de bachillerato. Indique siempre el año del programa MEP que está usando.</p>
                             </div>
-                            <div class="border border-gray-200 rounded-lg p-4">
+                            <div class="border border-gray-200 rounded-lg p-4" data-edu-level="tecnica">
                                 <h4 class="font-bold text-mep-orange text-sm uppercase tracking-wider mb-2">CTP (Colegios Técnicos)</h4>
                                 <p class="text-sm text-gray-600">Ideal para estructurar guías de uso de maquinaria, protocolos de seguridad industrial paso a paso y simulaciones de clientes difíciles para las especialidades de Servicio al Cliente y Hotelería.</p>
                             </div>
-                            <div class="border border-gray-200 rounded-lg p-4">
+                            <div class="border border-gray-200 rounded-lg p-4" data-edu-level="adultos">
                                 <h4 class="font-bold text-purple-600 text-sm uppercase tracking-wider mb-2">IPEC / CINDEA (Jóvenes y Adultos)</h4>
                                 <p class="text-sm text-gray-600">Adopte el enfoque andragógico de Malcolm Knowles (1973): ajuste el prompt para que los materiales sean <em>orientados a problemas reales</em> del contexto laboral o familiar del adulto. Comunicaciones concisas, sin condescendencia.</p>
                             </div>
@@ -382,10 +617,51 @@
                             <li><a href="#" class="text-mep-blue hover:underline">Guía de Orientación Docente IA MEP 2026 (PDF)</a></li>
                             <li><a href="#" class="text-mep-blue hover:underline">Video: ¿Cómo funcionan los Modelos de Lenguaje Grandes (LLMs)?</a></li>
                             <li><a href="#" class="text-mep-blue hover:underline">Curso sugerido: Fundamentos de IA para Educadores — Google for Education</a></li>
-                            <li><a href="#" class="text-mep-blue hover:underline">Mishra & Koehler (2006): Marco TPACK — Technological Pedagogical Content Knowledge</a></li>
-                            <li><a href="#" class="text-mep-blue hover:underline">Puentedura (2010): Modelo SAMR para integración tecnológica</a></li>
+                            <li><a href="#" class="text-mep-blue hover:underline">Mishra, P., & Koehler, M. J. (2006). Technological pedagogical content knowledge: A framework for teacher knowledge. Teachers College Record, 108(6), 1017–1054.</a></li>
+                            <li><a href="#" class="text-mep-blue hover:underline">Puentedura, R. (2006). Transformation, technology, and education [Presentación]. Hippasus.</a></li>
+                            <li><a href="#" class="text-mep-blue hover:underline">Hamilton, E. R., Rosenberg, J. M., & Akcaoglu, M. (2016). The substitution augmentation modification redefinition (SAMR) model: a critical review and suggestions for its use. TechTrends, 60(5), 433–441.</a></li>
                             <li><a href="#" class="text-mep-blue hover:underline">CAST (2018): Pautas del Diseño Universal para el Aprendizaje (DUA) — versión en español</a></li>
                         </ul>
+                    </section>
+
+                    <!-- ═══════════════════════════════════════════ -->
+                    <!-- 16. ¿Qué sigue siendo tuyo? (Reflexión Crítica) -->
+                    <!-- ═══════════════════════════════════════════ -->
+                    <section id="s16" class="scroll-mt-24">
+                        <h2>16. ¿Qué sigue siendo tuyo?</h2>
+                        <div class="bg-gradient-to-br from-blue-50/30 to-orange-50/20 border border-gray-200 rounded-2xl p-6 mb-8 not-prose">
+                            <div class="flex items-center gap-2 mb-4">
+                                <span class="text-2xl">🌱</span>
+                                <span class="text-xs font-bold text-mep-blue uppercase tracking-wider bg-blue-50 px-2 py-1 rounded">Marco Gert Biesta (2017)</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-gray-900 mb-2">La Redescubierta del Sentido de la Enseñanza</h3>
+                            <p class="text-sm text-gray-600 leading-relaxed mb-6">
+                                Al utilizar asistentes digitales en su labor cotidiana, le invitamos a realizar una pausa reflexiva sobre lo que **ninguna tecnología ni predicción estadística** podrá jamás sustituir de su práctica profesional: el criterio de valor, el tacto relacional y el acompañamiento afectivo.
+                            </p>
+
+                            <div class="space-y-6">
+                                <!-- Pregunta 1 -->
+                                <div>
+                                    <label for="reflexion-m1-p1" class="block text-sm font-bold text-gray-800 mb-2">1. Criterio Pedagógico y Estilo:</label>
+                                    <p class="text-xs text-gray-500 mb-2">Al delegar la redacción inicial de un material o comunicación a una IA, ¿cómo asegura que su intencionalidad, su voz y su estilo docente particular sigan dirigiendo la mediación?</p>
+                                    <textarea id="reflexion-m1-p1" rows="3" class="w-full rounded-xl border-gray-300 shadow-sm focus:border-mep-blue focus:ring-mep-blue text-sm p-3 bg-white border" placeholder="Escriba su reflexión aquí..."></textarea>
+                                </div>
+
+                                <!-- Pregunta 2 -->
+                                <div>
+                                    <label for="reflexion-m1-p2" class="block text-sm font-bold text-gray-800 mb-2">2. Sustitución frente a Redefinición:</label>
+                                    <p class="text-xs text-gray-500 mb-2">En su labor cotidiana, ¿en qué momentos precisos considera que una simple "sustitución" instrumental (ahorrar tiempo de digitación o formato) es pedagógicamente más valiosa para sus estudiantes que un rediseño de alta complejidad tecnológica?</p>
+                                    <textarea id="reflexion-m1-p2" rows="3" class="w-full rounded-xl border-gray-300 shadow-sm focus:border-mep-blue focus:ring-mep-blue text-sm p-3 bg-white border" placeholder="Escriba su reflexión aquí..."></textarea>
+                                </div>
+
+                                <!-- Pregunta 3 -->
+                                <div>
+                                    <label for="reflexion-m1-p3" class="block text-sm font-bold text-gray-800 mb-2">3. Conocimiento Profesional Protector:</label>
+                                    <p class="text-xs text-gray-500 mb-2">Si Gemini o ChatGPT le proponen una analogía conceptual incorrecta ("alucinada") para explicar un tema de clase, ¿cómo interviene su propio conocimiento de contenido (CK) para proteger el aprendizaje y orientar al grupo?</p>
+                                    <textarea id="reflexion-m1-p3" rows="3" class="w-full rounded-xl border-gray-300 shadow-sm focus:border-mep-blue focus:ring-mep-blue text-sm p-3 bg-white border" placeholder="Escriba su reflexión aquí..."></textarea>
+                                </div>
+                            </div>
+                        </div>
                     </section>
                 </div>
 
@@ -409,6 +685,7 @@
                             <a href="#s13" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">13. Microreto</a>
                             <a href="#s14" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">14. Checklist</a>
                             <a href="#s15" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">15. Recursos</a>
+                            <a href="#s16" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">16. ¿Qué es tuyo?</a>
                         </nav>
                     </div>
                 </div>
@@ -705,6 +982,180 @@
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') closeLightbox();
         });
+
+        // TPACK Interactive Diagram Logic
+        const tpackData = {
+            ck: {
+                title: "CK: Conocimiento del Contenido (Content Knowledge)",
+                desc: "Es el <strong>'qué'</strong> se enseña: la materia o disciplina de estudio. Incluye hechos, conceptos, teorías, ideas y marcos organizativos propios de una asignatura. <br><br><strong>Ejemplo MEP:</strong> Los contenidos del Programa de Estudios de Ciencias de octavo año sobre las órbitas planetarias o las leyes de Kepler. No involucra todavía el cómo enseñar ni qué tecnologías usar."
+            },
+            pk: {
+                title: "PK: Conocimiento Pedagógico (Pedagogical Knowledge)",
+                desc: "Es el <strong>'cómo'</strong> se enseña de manera general: los procesos, prácticas, metodologías, organización del aula y evaluación. Se fundamenta en teorías del aprendizaje. <br><br><strong>Ejemplo MEP:</strong> Aplicar el Diseño Universal para el Aprendizaje (DUA) para flexibilizar la mediación o usar el Aprendizaje Basado en Proyectos (ABP) para promover el trabajo cooperativo y la resolución de problemas."
+            },
+            tk: {
+                title: "TK: Conocimiento Tecnológico (Technological Knowledge)",
+                desc: "Es el <strong>'con qué'</strong> se media: la comprensión y dominio de las tecnologías (desde analógicas tradicionales como pizarras, hasta digitales como computadoras, entornos virtuales y herramientas de Inteligencia Artificial Generativa). <br><br><strong>Ejemplo MEP:</strong> Conocer cómo funcionan técnicamente los modelos de lenguaje (LLMs), saber qué son los prompts, los tokens y las alucinaciones, y cómo operar las plataformas."
+            },
+            pck: {
+                title: "PCK: Conocimiento Pedagógico del Contenido (Pedagogical Content Knowledge)",
+                desc: "Corresponde a la <strong>didáctica específica</strong> de cada materia (Shulman, 1986). Consiste en saber cómo estructurar, representar y adaptar los temas de la asignatura para hacerlos comprensibles y accesibles a un grupo de estudiantes. <br><br><strong>Ejemplo MEP:</strong> Conocer qué analogías cotidianas, metáforas didácticas o errores comunes suelen presentar los estudiantes de secundaria al estudiar la gravedad y las órbitas celestes."
+            },
+            tck: {
+                title: "TCK: Conocimiento Tecnológico del Contenido (Technological Content Knowledge)",
+                desc: "Es la comprensión de cómo la tecnología y el contenido se afectan recíprocamente. Ciertas tecnologías facilitan o cambian la representación de conceptos. <br><br><strong>Ejemplo MEP:</strong> Utilizar un simulador tridimensional dinámico de órbitas celestes (como PhET) que permite a los estudiantes visualizar y alterar la masa y la distancia para ver sus efectos gravitacionales en tiempo real, cambiando la forma en que interactúan con el contenido científico."
+            },
+            tpk: {
+                title: "TPK: Conocimiento Tecnológico Pedagógico (Technological Pedagogical Knowledge)",
+                desc: "Es saber cómo el uso de tecnologías específicas altera y enriquece las dinámicas de enseñanza y aprendizaje en general. <br><br><strong>Ejemplo MEP:</strong> Diseñar un flujo de retroalimentación donde la IA (TK) genera rúbricas formativas personalizadas para atender distintos ritmos de aprendizaje, entendiendo las ventajas didácticas y los sesgos que esto introduce en la mediación general."
+            },
+            tpack: {
+                title: "TPACK: Conocimiento Tecnológico Pedagógico del Contenido",
+                desc: "La <strong>sinergia total de saberes</strong> (Mishra & Koehler, 2006). Es la verdadera integración curricular donde la tecnología se utiliza reflexivamente, al servicio de un propósito didáctico específico, para enseñar un contenido disciplinar particular de forma innovadora. <br><br><strong>Ejemplo MEP:</strong> Diseñar una actividad donde estudiantes de secundaria utilizan la IA Generativa (TK) como un 'interlocutor crítico' en un debate estructurado cooperativo (PK) sobre la Independencia de Centroamérica (CK), guiados por rúbricas analíticas co-diseñadas que valoran el pensamiento crítico. <em>Ninguna tecnología es pedagógicamente neutra.</em>"
+            }
+        };
+
+        function showTpackDomain(domain) {
+            const data = tpackData[domain];
+            if (!data) return;
+            
+            // Update Text
+            document.getElementById('tpack-title').innerHTML = data.title;
+            document.getElementById('tpack-desc').innerHTML = data.desc;
+            
+            // Add highlights or style changes
+            const infoCard = document.getElementById('tpack-info-card');
+            infoCard.classList.remove('border-gray-200', 'bg-white');
+            infoCard.classList.add('border-mep-blue', 'bg-blue-50/30');
+            
+            // Visual highlight of SVG elements
+            const svgIds = ['ck', 'pk', 'tk'];
+            svgIds.forEach(id => {
+                const circle = document.getElementById(`svg-${id}`);
+                if (circle) {
+                    if (domain === id) {
+                        circle.setAttribute('fill-opacity', '0.4');
+                        circle.setAttribute('stroke-width', '3');
+                    } else if (domain === 'tpack' || domain.includes(id)) {
+                        circle.setAttribute('fill-opacity', '0.3');
+                        circle.setAttribute('stroke-width', '2');
+                    } else {
+                        circle.setAttribute('fill-opacity', '0.05');
+                        circle.setAttribute('stroke-width', '1');
+                    }
+                }
+            });
+        }
+
+        function resetTpackDomain() {
+            document.getElementById('tpack-title').innerHTML = "Seleccione un área del diagrama";
+            document.getElementById('tpack-desc').innerHTML = "Haga clic en cualquiera de los círculos (CK, PK, TK) o en sus intersecciones (PCK, TCK, TPK, o el núcleo TPACK) para comprender la interacción del saber disciplinar, didáctico y tecnológico.";
+            
+            const infoCard = document.getElementById('tpack-info-card');
+            infoCard.classList.add('border-gray-200', 'bg-white');
+            infoCard.classList.remove('border-mep-blue', 'bg-blue-50/30');
+            
+            const svgIds = ['ck', 'pk', 'tk'];
+            svgIds.forEach(id => {
+                const circle = document.getElementById(`svg-${id}`);
+                if (circle) {
+                    circle.setAttribute('fill-opacity', '0.2');
+                    circle.setAttribute('stroke-width', '2');
+                }
+            });
+        }
+
+        // Función de control para los widgets de autocomprobación (Sprint 5)
+        window.checkAnswer = function(button, isCorrect, feedback) {
+            const container = button.closest('.not-prose');
+            if (!container) return;
+
+            // Resetear todos los botones en este widget
+            const buttons = container.querySelectorAll('button');
+            buttons.forEach(btn => {
+                btn.classList.remove('border-green-500', 'bg-green-50', 'text-green-800', 'border-red-500', 'bg-red-50', 'text-red-800', 'ring-2', 'ring-green-500/20', 'ring-red-500/20');
+                btn.classList.add('border-slate-200', 'bg-white', 'text-slate-700');
+                
+                // Cambiar el indicador visual del círculo
+                const indicator = btn.querySelector('span:last-child');
+                if (indicator) {
+                    indicator.textContent = '⦾';
+                    indicator.className = 'text-xs select-none opacity-50 shrink-0';
+                }
+            });
+
+            // Dar estilo al botón clickeado
+            button.classList.remove('border-slate-200', 'bg-white', 'text-slate-700');
+            const indicator = button.querySelector('span:last-child');
+            
+            if (isCorrect) {
+                button.classList.add('border-green-500', 'bg-green-50', 'text-green-800', 'ring-2', 'ring-green-500/20');
+                if (indicator) {
+                    indicator.textContent = '✓';
+                    indicator.className = 'text-xs select-none font-bold text-green-600 shrink-0';
+                }
+            } else {
+                button.classList.add('border-red-500', 'bg-red-50', 'text-red-800', 'ring-2', 'ring-red-500/20');
+                if (indicator) {
+                    indicator.textContent = '✗';
+                    indicator.className = 'text-xs select-none font-bold text-red-600 shrink-0';
+                }
+            }
+
+            // Mostrar retroalimentación
+            const feedbackBox = container.querySelector('.feedback-box');
+            if (feedbackBox) {
+                feedbackBox.classList.remove('hidden', 'bg-green-50', 'text-green-800', 'border-green-100', 'bg-red-50', 'text-red-800', 'border-red-100');
+                feedbackBox.classList.add('border');
+                if (isCorrect) {
+                    feedbackBox.classList.add('bg-green-50', 'text-green-800', 'border-green-100');
+                    feedbackBox.innerHTML = `<strong>✨ ¡Excelente trabajo!</strong><br class="mb-1">${feedback}`;
+                } else {
+                    feedbackBox.classList.add('bg-red-50', 'text-red-800', 'border-red-100');
+                    feedbackBox.innerHTML = `<strong>⚠️ Inténtelo de nuevo</strong><br class="mb-1">${feedback}`;
+                }
+            }
+        };
+
+        // Persistencia de Reflexiones Críticas (Sprint 4)
+        document.addEventListener('DOMContentLoaded', () => {
+            const fields = ['reflexion-m1-p1', 'reflexion-m1-p2', 'reflexion-m1-p3'];
+            const storageKey = 'caja_reflexion_modulo_1';
+            
+            // Cargar valores previos
+            const saved = localStorage.getItem(storageKey);
+            if (saved) {
+                try {
+                    const data = JSON.parse(saved);
+                    fields.forEach(id => {
+                        if (data[id]) {
+                            const el = document.getElementById(id);
+                            if (el) el.value = data[id];
+                        }
+                    });
+                } catch (e) {
+                    console.error("Error al cargar reflexiones:", e);
+                }
+            }
+            
+            // Guardar valores al escribir
+            fields.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) {
+                    el.addEventListener('input', () => {
+                        const current = localStorage.getItem(storageKey);
+                        let data = {};
+                        if (current) {
+                            try { data = JSON.parse(current); } catch (e) {}
+                        }
+                        data[id] = el.value;
+                        localStorage.setItem(storageKey, JSON.stringify(data));
+                    });
+                }
+            });
+        });
     </script>
+    <script src="glosario-data.js"></script>
+    <script src="glosario-tooltips.js"></script>
 </body>
 </html>

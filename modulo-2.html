@@ -98,6 +98,18 @@
                     <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">📚</span>
                     <span>Módulos</span>
                 </a>
+                <a href="rol-docente-ia.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ver rol docente en la era de la IA">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">🧭</span>
+                    <span>Rol Docente e IA</span>
+                </a>
+                <a href="referencias.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ver referencias bibliográficas del proyecto">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">📖</span>
+                    <span>Referencias</span>
+                </a>
+                <a href="glosario.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ver glosario de términos de IA">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">📖</span>
+                    <span>Glosario</span>
+                </a>
                 <a href="descargas.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ir a la sección de descargas">
                     <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">📥</span>
                     <span>Descargas</span>
@@ -106,9 +118,9 @@
                     <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">💬</span>
                     <span>Comunidad</span>
                 </a>
-                <a href="configuracion.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ir a la configuración">
-                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">⚙️</span>
-                    <span>Configuración</span>
+                <a href="configuracion.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ir a la sección de información">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">ℹ️</span>
+                    <span>Información</span>
                 </a>
                 <a href="https://iadocenciaed3698.my.canva.site/pruebacajaherramientacolegios" target="_blank" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ir a la evaluación del curso">
                     <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">📋</span>
@@ -127,6 +139,55 @@
 
         <!-- Main Content -->
         <main class="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 overflow-y-auto">
+
+            <!-- 🔑 Panel de Prerrequisitos Dinámicos (Sprint 5) -->
+            <div id="caja-prerrequisitos" class="hidden bg-orange-50 border border-orange-200 rounded-2xl p-5 mb-8 flex gap-4 items-start shadow-sm transition-all duration-300">
+                <div class="flex-shrink-0 w-10 h-10 bg-orange-100 rounded-xl flex items-center justify-center text-xl">🔑</div>
+                <div class="flex-1">
+                    <h3 class="font-bold text-orange-950 mb-1 flex items-center gap-2">Recomendación de Prerrequisitos</h3>
+                    <p class="text-sm text-orange-900 leading-relaxed m-0">
+                        Te sugerimos completar los siguientes módulos antes de continuar para asegurar una mejor comprensión del contenido actual: 
+                        <span id="prereq-list" class="font-extrabold text-orange-950"></span>.
+                    </p>
+                    <div class="mt-3 flex gap-2">
+                        <a href="modulos.html" class="px-3.5 py-1.5 bg-orange-600 hover:bg-orange-700 text-white text-xs font-bold rounded-lg transition-colors flex items-center gap-1 shadow-sm">
+                            🗺️ Ver Mapa de Ruta
+                        </a>
+                        <button onclick="document.getElementById('caja-prerrequisitos').remove()" class="px-3.5 py-1.5 bg-orange-100 hover:bg-orange-200 text-orange-800 text-xs font-bold rounded-lg transition-colors">
+                            Omitir recomendación
+                        </button>
+                    </div>
+                </div>
+                <script>
+                    document.addEventListener('DOMContentLoaded', () => {
+                        const requiredPrereqs = [1];
+                        const namesMap = {
+                            1: "Módulo 1: IA en Educación",
+                            2: "Módulo 2: Ética y Privacidad",
+                            3: "Módulo 3: Prompts Efectivos",
+                            4: "Módulo 4: Herramientas Prácticas de IA",
+                            5: "Módulo 5: Aplicaciones Prácticas",
+                            6: "Módulo 6: Análisis de Datos",
+                            7: "Módulo 7: Comparativa de Motores de IA",
+                            8: "Módulo 8: IA en Colegios Técnicos",
+                            9: "Módulo 9: Jóvenes y Adultos",
+                            10: "Módulo 10: Micro-Prompts"
+                        };
+                        const missing = requiredPrereqs.filter(id => localStorage.getItem("caja_modulo_" + id + "_quiz") === null);
+                        if (missing.length > 0) {
+                            const listEl = document.getElementById('prereq-list');
+                            if (listEl) {
+                                listEl.innerText = missing.map(id => namesMap[id]).join(', ');
+                            }
+                            const bannerEl = document.getElementById('caja-prerrequisitos');
+                            if (bannerEl) {
+                                bannerEl.classList.remove('hidden');
+                            }
+                        }
+                    });
+                </script>
+            </div>
+            <!-- Fin Panel de Prerrequisitos -->
 
             <!-- Page Header -->
             <div class="mb-10 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
@@ -348,6 +409,46 @@
                             <li><a href="#" class="text-green-700 hover:underline font-medium">Cavoukian (2009): Privacy by Design — Los 7 principios fundacionales</a></li>
                         </ul>
                     </section>
+
+                    <!-- ═══════════════════════════════════════════ -->
+                    <!-- 16. ¿Qué sigue siendo tuyo? (Reflexión Crítica) -->
+                    <!-- ═══════════════════════════════════════════ -->
+                    <section id="s16" class="scroll-mt-24">
+                        <h2>16. ¿Qué sigue siendo tuyo?</h2>
+                        <div class="bg-gradient-to-br from-blue-50/30 to-orange-50/20 border border-gray-200 rounded-2xl p-6 mb-8 not-prose">
+                            <div class="flex items-center gap-2 mb-4">
+                                <span class="text-2xl">🌱</span>
+                                <span class="text-xs font-bold text-mep-blue uppercase tracking-wider bg-blue-50 px-2 py-1 rounded">Marco Gert Biesta (2017)</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-gray-900 mb-2">La Redescubierta del Sentido de la Enseñanza</h3>
+                            <p class="text-sm text-gray-600 leading-relaxed mb-6">
+                                Al utilizar asistentes digitales en su labor cotidiana, le invitamos a realizar una pausa reflexiva sobre lo que **ninguna tecnología ni predicción estadística** podrá jamás sustituir de su práctica profesional: el criterio de valor, el tacto relacional y el acompañamiento afectivo.
+                            </p>
+
+                            <div class="space-y-6">
+                                <!-- Pregunta 1 -->
+                                <div>
+                                    <label for="reflexion-m2-p1" class="block text-sm font-bold text-gray-800 mb-2">1. Protección Afectiva y Deber de Cuidado:</label>
+                                    <p class="text-xs text-gray-500 mb-2">La IA carece de comprensión del sufrimiento o la vulnerabilidad de sus estudiantes. ¿Cómo se traduce su &quot;deber de cuidado&quot; en las decisiones de datos que toma al usar estas herramientas?</p>
+                                    <textarea id="reflexion-m2-p1" rows="3" class="w-full rounded-xl border-gray-300 shadow-sm focus:border-mep-blue focus:ring-mep-blue text-sm p-3 bg-white border" placeholder="Escriba su reflexión aquí..."></textarea>
+                                </div>
+
+                                <!-- Pregunta 2 -->
+                                <div>
+                                    <label for="reflexion-m2-p2" class="block text-sm font-bold text-gray-800 mb-2">2. Mirada Crítica y Equidad (DUA):</label>
+                                    <p class="text-xs text-gray-500 mb-2">Ante el riesgo de sesgo algorítmico que reproduce estereotipos históricos, ¿de qué manera su mirada crítica e inclusiva (DUA) actúa como un filtro indispensable para el aula?</p>
+                                    <textarea id="reflexion-m2-p2" rows="3" class="w-full rounded-xl border-gray-300 shadow-sm focus:border-mep-blue focus:ring-mep-blue text-sm p-3 bg-white border" placeholder="Escriba su reflexión aquí..."></textarea>
+                                </div>
+
+                                <!-- Pregunta 3 -->
+                                <div>
+                                    <label for="reflexion-m2-p3" class="block text-sm font-bold text-gray-800 mb-2">3. Integridad Intelectual y Modelaje Ético:</label>
+                                    <p class="text-xs text-gray-500 mb-2">Al modelar la transparencia y co-autoría en el uso de IA, ¿qué valores éticos y de honestidad está inculcando activamente en sus estudiantes?</p>
+                                    <textarea id="reflexion-m2-p3" rows="3" class="w-full rounded-xl border-gray-300 shadow-sm focus:border-mep-blue focus:ring-mep-blue text-sm p-3 bg-white border" placeholder="Escriba su reflexión aquí..."></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
                 </div>
 
                 <!-- Right Column: Sticky Navigation (TOC) -->
@@ -370,6 +471,7 @@
                             <a href="#s13" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">13. Microreto</a>
                             <a href="#s14" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">14. Checklist</a>
                             <a href="#s15" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">15. Recursos</a>
+                            <a href="#s16" class="toc-link block px-3 py-2 text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded-lg border-l-2 border-transparent transition-all">16. ¿Qué es tuyo?</a>
                         </nav>
                     </div>
                 </div>
@@ -638,6 +740,44 @@
                 document.body.classList.remove('overflow-hidden');
             }
         }
+
+        // Persistencia de Reflexiones Críticas (Sprint 4)
+        document.addEventListener('DOMContentLoaded', () => {
+            const fields = ['reflexion-m2-p1', 'reflexion-m2-p2', 'reflexion-m2-p3'];
+            const storageKey = 'caja_reflexion_modulo_2';
+            
+            // Cargar valores previos
+            const saved = localStorage.getItem(storageKey);
+            if (saved) {
+                try {
+                    const data = JSON.parse(saved);
+                    fields.forEach(id => {
+                        if (data[id]) {
+                            const el = document.getElementById(id);
+                            if (el) el.value = data[id];
+                        }
+                    });
+                } catch (e) {
+                    console.error("Error al cargar reflexiones:", e);
+                }
+            }
+            
+            // Guardar valores al escribir
+            fields.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) {
+                    el.addEventListener('input', () => {
+                        const current = localStorage.getItem(storageKey);
+                        let data = {};
+                        if (current) {
+                            try { data = JSON.parse(current); } catch (e) {}
+                        }
+                        data[id] = el.value;
+                        localStorage.setItem(storageKey, JSON.stringify(data));
+                    });
+                }
+            });
+        });
     </script>
 </body>
 </html>

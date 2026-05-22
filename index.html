@@ -98,6 +98,18 @@
                     <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">📚</span>
                     <span>Módulos</span>
                 </a>
+                <a href="rol-docente-ia.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ver rol docente en la era de la IA">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">🧭</span>
+                    <span>Rol Docente e IA</span>
+                </a>
+                <a href="referencias.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ver referencias bibliográficas del proyecto">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">📖</span>
+                    <span>Referencias</span>
+                </a>
+                <a href="glosario.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ver glosario de términos de IA">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">📖</span>
+                    <span>Glosario</span>
+                </a>
                 <a href="descargas.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ir a la sección de descargas">
                     <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">📥</span>
                     <span>Descargas</span>
@@ -106,9 +118,9 @@
                     <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">💬</span>
                     <span>Comunidad</span>
                 </a>
-                <a href="configuracion.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ir a la configuración">
-                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">⚙️</span>
-                    <span>Configuración</span>
+                <a href="configuracion.html" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ir a la sección de información">
+                    <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">ℹ️</span>
+                    <span>Información</span>
                 </a>
                 <a href="https://iadocenciaed3698.my.canva.site/pruebacajaherramientacolegios" target="_blank" class="sidebar-item group flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-all text-gray-600 hover:bg-gray-50 hover:text-gray-900" aria-label="Ir a la evaluación del curso">
                     <span class="text-xl group-hover:scale-110 transition-transform grayscale group-hover:grayscale-0">📋</span>
@@ -190,21 +202,26 @@
                 <!-- Step 2: Interés -->
                 <div id="onb-step-2" class="onb-step hidden">
                     <h3 class="text-lg font-bold text-gray-900 mb-4">2. ¿Qué le interesa más aprender?</h3>
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                        <button onclick="onbSelect(2,'fundamentos')" class="onb-opt p-5 border-2 border-gray-200 rounded-xl text-center hover:border-mep-green hover:bg-green-50 transition-all group">
-                            <div class="text-3xl mb-2">📚</div>
-                            <div class="font-bold text-gray-900 group-hover:text-mep-green">Entender la IA</div>
-                            <div class="text-xs text-gray-500 mt-1">Fundamentos, ética y privacidad</div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <button onclick="onbSelect(2,'planificacion')" class="onb-opt p-5 border-2 border-gray-200 rounded-xl text-center hover:border-mep-green hover:bg-green-50 transition-all group">
+                            <div class="text-3xl mb-2">🗓️</div>
+                            <div class="font-bold text-gray-900 group-hover:text-mep-green">Planificación Curricular</div>
+                            <div class="text-xs text-gray-500 mt-1">Diseño de lecciones, codiseño DUA y plantillas adaptativas.</div>
                         </button>
-                        <button onclick="onbSelect(2,'herramientas')" class="onb-opt p-5 border-2 border-gray-200 rounded-xl text-center hover:border-mep-green hover:bg-green-50 transition-all group">
-                            <div class="text-3xl mb-2">🛠️</div>
-                            <div class="font-bold text-gray-900 group-hover:text-mep-green">Usar herramientas</div>
-                            <div class="text-xs text-gray-500 mt-1">Prompts, plataformas y aplicaciones prácticas</div>
-                        </button>
-                        <button onclick="onbSelect(2,'aplicar')" class="onb-opt p-5 border-2 border-gray-200 rounded-xl text-center hover:border-mep-green hover:bg-green-50 transition-all group">
+                        <button onclick="onbSelect(2,'evaluacion')" class="onb-opt p-5 border-2 border-gray-200 rounded-xl text-center hover:border-mep-green hover:bg-green-50 transition-all group">
                             <div class="text-3xl mb-2">🎯</div>
-                            <div class="font-bold text-gray-900 group-hover:text-mep-green">Aplicar en aula</div>
-                            <div class="text-xs text-gray-500 mt-1">Actividades, evaluación y análisis de datos</div>
+                            <div class="font-bold text-gray-900 group-hover:text-mep-green">Evaluación Formativa</div>
+                            <div class="text-xs text-gray-500 mt-1">Instrumentos, rúbricas MEP, diagnósticos e ítems integrales.</div>
+                        </button>
+                        <button onclick="onbSelect(2,'contenido')" class="onb-opt p-5 border-2 border-gray-200 rounded-xl text-center hover:border-mep-green hover:bg-green-50 transition-all group">
+                            <div class="text-3xl mb-2">🎨</div>
+                            <div class="font-bold text-gray-900 group-hover:text-mep-green">Creación de Contenidos</div>
+                            <div class="text-xs text-gray-500 mt-1">Redacción de guías, folletos, infografías y recursos con IA.</div>
+                        </button>
+                        <button onclick="onbSelect(2,'gestion')" class="onb-opt p-5 border-2 border-gray-200 rounded-xl text-center hover:border-mep-green hover:bg-green-50 transition-all group">
+                            <div class="text-3xl mb-2">💼</div>
+                            <div class="font-bold text-gray-900 group-hover:text-mep-green">Gestión y Comunidad</div>
+                            <div class="text-xs text-gray-500 mt-1">Tareas administrativas, minutas, reportes y comunidades profesionales.</div>
                         </button>
                     </div>
                 </div>
@@ -234,17 +251,23 @@
 
                 <!-- Resultado -->
                 <div id="onb-result" class="onb-step hidden">
-                    <div class="text-center py-4">
-                        <div class="text-4xl mb-4" id="onb-result-emoji">🎯</div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Le recomendamos empezar por:</h3>
-                        <div id="onb-result-card" class="max-w-md mx-auto mt-4 p-6 bg-gradient-to-br from-blue-50 to-white border-2 border-mep-blue rounded-2xl">
-                            <div class="text-2xl font-extrabold text-mep-blue mb-2" id="onb-result-title"></div>
-                            <p class="text-gray-600 text-sm mb-4" id="onb-result-desc"></p>
-                            <a id="onb-result-link" href="#" class="inline-block px-6 py-3 bg-mep-blue hover:bg-blue-600 text-white font-bold rounded-xl shadow-lg shadow-blue-500/30 transition-all hover:-translate-y-1">
-                                Ir al Módulo →
-                            </a>
+                    <div class="py-4 max-w-2xl mx-auto">
+                        <div class="text-center mb-6">
+                            <div class="text-4xl mb-3" id="onb-result-emoji">🧭</div>
+                            <h3 class="text-2xl font-black text-gray-900 tracking-tight">¡Tu Ruta de Aprendizaje Personalizada está lista!</h3>
+                            <p class="text-gray-500 text-sm mt-1">Según tus respuestas, hemos diseñado una secuencia didáctica adaptada a tu perfil y nivel educativo.</p>
                         </div>
-                        <button onclick="onbReset()" class="mt-6 text-sm text-gray-500 hover:text-mep-blue underline transition-colors">Reiniciar recomendación</button>
+                        
+                        <!-- Timeline Container -->
+                        <div class="relative border-l-2 border-dashed border-mep-blue/30 ml-4 md:ml-6 pl-4 md:pl-8 text-left space-y-6 mb-8" id="onb-timeline-container">
+                            <!-- Steps will be injected dynamically via JS -->
+                        </div>
+                        
+                        <div class="text-center">
+                            <button onclick="onbReset()" class="px-5 py-2.5 bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold rounded-xl text-sm transition-all hover:shadow">
+                                Reiniciar Recomendación
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -275,36 +298,191 @@
 
                 function showOnbResult() {
                     const {1: exp, 2: interest, 3: level} = onbState.answers;
-                    let mod = 1, title = '', desc = '';
 
-                    if (exp === 'ninguna') {
-                        mod = 1; title = 'Módulo 1: Fundamentos de IA'; desc = 'Empiece desde cero: entienda qué es la IA, cómo funciona y cuándo usarla (o no) en su práctica docente.';
-                    } else if (interest === 'fundamentos') {
-                        mod = 2; title = 'Módulo 2: Ética y Privacidad'; desc = 'Profundice en los cuidados éticos, la protección de datos de estudiantes y la verificación de información.';
-                    } else if (interest === 'herramientas' && exp === 'basica') {
-                        mod = 3; title = 'Módulo 3: Prompts Efectivos'; desc = 'Aprenda a comunicarse eficazmente con las herramientas de IA para obtener los mejores resultados pedagógicos.';
-                    } else if (interest === 'herramientas' && exp === 'intermedia') {
-                        mod = 4; title = 'Módulo 4: Herramientas Prácticas'; desc = 'Explore herramientas específicas como Gemini, NotebookLM y Canva con IA para su planificación docente.';
-                    } else if (interest === 'aplicar') {
-                        if (level === 'tecnica') { mod = 8; title = 'Módulo 8: IA en Colegios Técnicos'; desc = 'Contenido especializado para la formación técnica profesional: guías de taller, manuales y simulaciones.'; }
-                        else if (level === 'adultos') { mod = 9; title = 'Módulo 9: Jóvenes y Adultos'; desc = 'Estrategias adaptadas para IPEC/CINDEA: comunicaciones concisas y materiales para población trabajadora.'; }
-                        else { mod = 5; title = 'Módulo 5: Aplicaciones Prácticas'; desc = 'Lleve la IA directamente al aula: actividades, diferenciación pedagógica y evaluación formativa.'; }
-                    } else {
-                        if (level === 'tecnica') { mod = 8; title = 'Módulo 8: IA en Colegios Técnicos'; desc = 'Contenido especializado para la formación técnica profesional.'; }
-                        else if (level === 'adultos') { mod = 9; title = 'Módulo 9: Jóvenes y Adultos'; desc = 'Estrategias para población IPEC/CINDEA.'; }
-                        else { mod = 4; title = 'Módulo 4: Herramientas Prácticas'; desc = 'Explore las mejores herramientas de IA para potenciar su labor docente.'; }
+                    // Persist profile in localStorage
+                    const computedLevel = (exp === 'ninguna' || exp === 'basica') ? 'beginner' : 'advanced';
+                    const profile = {
+                        experience: exp,
+                        interest: interest,
+                        level: level,
+                        computedLevel: computedLevel
+                    };
+                    localStorage.setItem('caja_docente_perfil', JSON.stringify(profile));
+
+                    // Generate the 3-step route
+                    let route = [];
+                    const levelLabel = {
+                        primaria: 'Primaria',
+                        secundaria: 'Secundaria',
+                        tecnica: 'CTP (Técnica)',
+                        adultos: 'IPEC / CINDEA'
+                    }[level] || '';
+
+                    if (interest === 'planificacion') {
+                        route = [
+                            {
+                                step: 1,
+                                mod: 1,
+                                title: 'Módulo 1: Fundamentos de IA',
+                                desc: 'Base conceptual indispensable para comprender los alcances de la IA Generativa en el contexto educativo.',
+                                tip: 'Ideal para construir un vocabulario común y criterios de uso responsable.'
+                            },
+                            {
+                                step: 2,
+                                mod: 3,
+                                title: 'Módulo 3: Creación de Prompts Efectivos',
+                                desc: 'Domina las técnicas de comunicación estructurada con modelos de IA para obtener insumos didácticos precisos.',
+                                tip: 'Aprenderás a estructurar objetivos de aprendizaje y contextos detallados.'
+                            },
+                            {
+                                step: 3,
+                                mod: 5,
+                                title: 'Módulo 5: Planificación Adaptativa y Codiseño',
+                                desc: 'Implementa el codiseño curricular DUA y genera lecciones personalizadas adaptadas a tus grupos.',
+                                tip: `Ajustado con ejemplos prácticos orientados a mediación en ${levelLabel}.`
+                            }
+                        ];
+                    } else if (interest === 'evaluacion') {
+                        route = [
+                            {
+                                step: 1,
+                                mod: 1,
+                                title: 'Módulo 1: Fundamentos de IA',
+                                desc: 'Base conceptual indispensable para comprender los alcances de la IA Generativa en el contexto educativo.',
+                                tip: 'Indispensable para actuar con criterio profesional frente a sugerencias de la IA.'
+                            },
+                            {
+                                step: 2,
+                                mod: 4,
+                                title: 'Módulo 4: Herramientas Prácticas y Evaluación',
+                                desc: 'Diseña instrumentos de evaluación formativa, diagnósticos y bases para el diseño de tareas significativas.',
+                                tip: 'Ahorra tiempo administrativo estructurando tus criterios de evaluación antes de usar IA.'
+                            },
+                            {
+                                step: 3,
+                                mod: 7,
+                                title: 'Módulo 7: Acompañamiento y Rúbricas Analíticas',
+                                desc: 'Construye rúbricas detalladas alineadas con directrices MEP y andamiaje formativo de primera calidad.',
+                                tip: `Configurado para el desarrollo de competencias específicas en ${levelLabel}.`
+                            }
+                        ];
+                    } else if (interest === 'contenido') {
+                        route = [
+                            {
+                                step: 1,
+                                mod: 1,
+                                title: 'Módulo 1: Fundamentos de IA',
+                                desc: 'Base conceptual indispensable para comprender los alcances de la IA Generativa en el contexto educativo.',
+                                tip: 'Conoce los límites éticos y riesgos de sesgo antes de redactar materiales didácticos.'
+                            },
+                            {
+                                step: 2,
+                                mod: 6,
+                                title: 'Módulo 6: Creación de Contenido Educativo',
+                                desc: 'Aprende técnicas para la redacción de guías, resúmenes adaptativos y explicaciones con analogías creativas.',
+                                tip: 'Utiliza el marco de literacidad crítica para evitar el solucionismo corporativo.'
+                            },
+                            {
+                                step: 3,
+                                mod: 8,
+                                title: 'Módulo 8: Recursos Multimediales e Infografías',
+                                desc: 'Genera folletos interactivos, imágenes de apoyo y materiales visuales adaptados a estudiantes.',
+                                tip: `Enfocado en proveer apoyos multimodales DUA adecuados para ${levelLabel}.`
+                            }
+                        ];
+                    } else { // gestion
+                        route = [
+                            {
+                                step: 1,
+                                mod: 1,
+                                title: 'Módulo 1: Fundamentos de IA',
+                                desc: 'Base conceptual indispensable para comprender los alcances de la IA Generativa en el contexto educativo.',
+                                tip: 'Comprende el rol y la ética de la IA antes de aplicar automatizaciones en tu práctica diaria.'
+                            },
+                            {
+                                step: 2,
+                                mod: 9,
+                                title: 'Módulo 9: Gestión Digital y Administrativa',
+                                desc: 'Domina la automatización de minutas, orden organizativo de documentos y reportes del rendimiento de tus alumnos.',
+                                tip: 'Reinvierte el tiempo ahorrado en la atención presencial directa con tus estudiantes.'
+                            },
+                            {
+                                step: 3,
+                                mod: 10,
+                                title: 'Módulo 10: Comunidades Profesionales',
+                                desc: 'Lidera procesos de codiseño escolar, bitácoras de aprendizaje y el desarrollo profesional colegiado sobre IA.',
+                                tip: `Especialmente diseñado para fomentar el liderazgo docente colaborativo en ${levelLabel}.`
+                            }
+                        ];
                     }
 
-                    document.getElementById('onb-result-title').textContent = title;
-                    document.getElementById('onb-result-desc').textContent = desc;
-                    document.getElementById('onb-result-link').href = 'modulo-' + mod + '.html';
+                    // Render Timeline
+                    const container = document.getElementById('onb-timeline-container');
+                    container.innerHTML = '';
+
+                    route.forEach((item, index) => {
+                        // Check if module is completed in localStorage
+                        const quizData = localStorage.getItem(`caja_modulo_${item.mod}_quiz`);
+                        const isCompleted = quizData && JSON.parse(quizData).passed === true;
+
+                        const stepNode = document.createElement('div');
+                        stepNode.className = 'relative mb-6 last:mb-0 group transition-all duration-300';
+                        
+                        stepNode.innerHTML = `
+                            <!-- Timeline Indicator (Dot/Number) -->
+                            <div class="absolute -left-[37px] top-1.5 flex items-center justify-center w-7 h-7 rounded-full border-2 transition-all duration-300 ${
+                                isCompleted 
+                                ? 'bg-mep-green border-mep-green text-white shadow shadow-green-500/20' 
+                                : index === 0 
+                                ? 'bg-mep-blue border-mep-blue text-white shadow shadow-blue-500/20'
+                                : 'bg-white border-gray-300 text-gray-400 font-bold'
+                            } z-10 text-xs font-bold">
+                                ${isCompleted ? '✓' : item.step}
+                            </div>
+                            
+                            <!-- Timeline Card Content -->
+                            <div class="p-4 md:p-5 bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md hover:border-mep-blue/30 transition-all duration-300 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                                <div class="flex-1">
+                                    <div class="flex flex-wrap items-center gap-2 mb-1">
+                                        <span class="text-[10px] uppercase font-black tracking-wider ${
+                                            isCompleted ? 'text-mep-green' : 'text-mep-blue'
+                                        }">
+                                            ${isCompleted ? 'Completado' : `Paso ${item.step}`}
+                                        </span>
+                                        <span class="text-[10px] px-2 py-0.5 bg-gray-100 rounded-full font-medium text-gray-500">Módulo ${item.mod}</span>
+                                    </div>
+                                    <h4 class="text-base font-extrabold text-gray-900 mb-1 group-hover:text-mep-blue transition-colors">${item.title}</h4>
+                                    <p class="text-xs text-gray-600 leading-relaxed mb-2">${item.desc}</p>
+                                    <div class="inline-flex items-center gap-1 text-[10px] text-mep-orange font-bold bg-orange-50/70 px-2 py-0.5 rounded border border-orange-100/50">
+                                        <span>💡</span>
+                                        <span>${item.tip}</span>
+                                    </div>
+                                </div>
+                                <div class="flex items-center shrink-0">
+                                    <a href="modulo-${item.mod}.html" class="w-full md:w-auto px-4 py-2 rounded-lg font-bold text-xs text-center transition-all ${
+                                        isCompleted 
+                                        ? 'bg-green-50 hover:bg-green-100 text-mep-green border border-mep-green/20' 
+                                        : 'bg-mep-blue hover:bg-blue-600 text-white shadow-sm'
+                                    }">
+                                        ${isCompleted ? 'Repasar Módulo' : 'Iniciar Módulo →'}
+                                    </a>
+                                </div>
+                            </div>
+                        `;
+                        container.appendChild(stepNode);
+                    });
+
+                    // Complete dots progress style
                     dots[2].classList.remove('bg-gray-300');
                     dots[2].classList.add('bg-mep-orange');
+                    
+                    // Show result panel
                     document.getElementById('onb-result').classList.remove('hidden');
                 }
 
                 window.onbReset = function() {
                     onbState.answers = {};
+                    localStorage.removeItem('caja_docente_perfil');
                     document.querySelectorAll('.onb-step').forEach(s => s.classList.add('hidden'));
                     document.getElementById('onb-step-1').classList.remove('hidden');
                     dots.forEach((d,i) => { d.className = 'onb-dot w-3 h-3 rounded-full transition-all ' + (i===0?'bg-mep-blue':'bg-gray-300'); });
@@ -352,6 +530,76 @@
             }
             document.addEventListener('DOMContentLoaded', renderProgreso);
             </script>
+
+            <!-- ═══════════════════════════════════════════ -->
+            <!-- B-4: Panel del Manifiesto "Lo que siempre comienza en ti" -->
+            <!-- ═══════════════════════════════════════════ -->
+            <div class="bg-gradient-to-br from-blue-50/40 via-white to-orange-50/20 rounded-2xl border border-gray-200 shadow-sm p-6 lg:p-8 mb-12 relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-mep-blue via-mep-green to-mep-orange"></div>
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+                    <div>
+                        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 text-mep-blue text-xs font-bold uppercase tracking-wider mb-3">
+                            <span>🛡️</span> Principio de Mediación Humana
+                        </div>
+                        <h2 class="text-2xl lg:text-3xl font-extrabold text-gray-900 tracking-tight">Lo que siempre comienza en ti</h2>
+                        <p class="text-gray-600 text-sm mt-1 max-w-2xl">Antes de delegar la escritura, planificación o diseño a cualquier inteligencia artificial, recuerde que el acto educativo cobra sentido únicamente a partir del criterio y la calidez profesional del docente.</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Card 1: Objetivos -->
+                    <div class="bg-white rounded-xl p-5 border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group">
+                        <div>
+                            <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center text-xl mb-4 group-hover:scale-110 group-hover:bg-blue-100 transition-all">🎯</div>
+                            <h4 class="font-bold text-gray-900 mb-2">Definir objetivos pedagógicos</h4>
+                            <p class="text-xs text-gray-600 leading-relaxed">Determinar qué se enseña, para qué y por qué. Ninguna tecnología puede sustituir el propósito curricular y la intencionalidad didáctica que usted define para el desarrollo de sus estudiantes.</p>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-gray-50 flex items-center justify-between text-[10px] text-gray-400">
+                            <span>Agencia Docente</span>
+                            <span class="text-mep-blue font-semibold">100% Humano</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Estudiante -->
+                    <div class="bg-white rounded-xl p-5 border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group">
+                        <div>
+                            <div class="w-12 h-12 bg-green-50 text-green-600 rounded-lg flex items-center justify-center text-xl mb-4 group-hover:scale-110 group-hover:bg-green-100 transition-all">👥</div>
+                            <h4 class="font-bold text-gray-900 mb-2">Conocer al estudiante</h4>
+                            <p class="text-xs text-gray-600 leading-relaxed">Entender el contexto socioemocional, afectivo, familiar y sociocultural único de sus estudiantes en el aula. La IA carece de empatía y no puede comprender la singularidad humana.</p>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-gray-50 flex items-center justify-between text-[10px] text-gray-400">
+                            <span>Tacto Pedagógico</span>
+                            <span class="text-mep-green font-semibold">100% Humano</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Evaluación -->
+                    <div class="bg-white rounded-xl p-5 border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group">
+                        <div>
+                            <div class="w-12 h-12 bg-orange-50 text-orange-600 rounded-lg flex items-center justify-center text-xl mb-4 group-hover:scale-110 group-hover:bg-orange-100 transition-all">📝</div>
+                            <h4 class="font-bold text-gray-900 mb-2">Diseñar la evaluación</h4>
+                            <p class="text-xs text-gray-600 leading-relaxed">Establecer los criterios de valor y recolección de evidencias reales del proceso educativo. La evaluación formativa (REAC) requiere juicio profesional crítico y validación contextual.</p>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-gray-50 flex items-center justify-between text-[10px] text-gray-400">
+                            <span>Criterio Crítico</span>
+                            <span class="text-mep-orange font-semibold">100% Humano</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 4: Retroalimentación -->
+                    <div class="bg-white rounded-xl p-5 border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group">
+                        <div>
+                            <div class="w-12 h-12 bg-purple-50 text-purple-600 rounded-lg flex items-center justify-center text-xl mb-4 group-hover:scale-110 group-hover:bg-purple-100 transition-all">💬</div>
+                            <h4 class="font-bold text-gray-900 mb-2">Retroalimentación humana</h4>
+                            <p class="text-xs text-gray-600 leading-relaxed">Ofrecer acompañamiento cercano, corrección con tacto pedagógico y validación emocional. El aliento genuino y la tutoría cara a cara estructuran la confianza del aprendiz.</p>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-gray-50 flex items-center justify-between text-[10px] text-gray-400">
+                            <span>Vínculo Afectivo</span>
+                            <span class="text-purple-600 font-semibold">100% Humano</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <!-- Features Grid -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
